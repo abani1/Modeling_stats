@@ -1,0 +1,64 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb,array,url,bm,graphicx,hyperref,color,epsfig}
+\usepackage{fullpage,setspace}
+\usepackage{authblk}
+
+\def\dt{\partial_t }
+\def\dx{\partial_x }
+\def\dy{\partial_y }
+\def\dz{\partial_z }
+\def\BE{\begin{equation}}
+\def\EE{\end{equation}}
+\def\half{\frac{1}{2}}
+\def\calT{\cal T}
+\def\Deltax{\Delta x }
+\def\Deltat{\Delta t }
+
+
+
+\begin{document}
+
+\title{Modeling of Geophysical Flows -- Analysis of Models and Modeling Assumptions Using UQ}
+\author[1,2]{Abani K. Patra}
+\author[2]{ Ali A. Safei}
+\author[3] {A. Bevilaqua}
+\author[4]{E. B. Pitman}
+ \affil [1]{Comp. Data Science and Eng., University at Buffalo, Buffalo NY 14260 }
+  \affil [2]{Dept. of Mech. and  Aero. Eng., University at Buffalo, Buffalo NY 14260 }
+   \affil [3]{Dept. of Geology., University at Buffalo, Buffalo NY 14260 }
+   \affil[4]{MDI}
+
+\date{\{abani, aliakhav, abevilac\}@buffalo.edu}
+
+
+\maketitle
+
+\abstract
+Dense large scale granular avalanches are a complex class of flows with physics that has often been poorly captured by models that are computationally tractable. Sparsity of actual flow data (usually only a posteriori  deposit information is available) and large uncertainty in the mechanisms of initiation and flow propagation make the modeling task challenging and a 
+subject of much continuing interest. Models that appear to represent the physics well
+ in certain flows turn out to be poorly behaved in others due to intrinsic mathematical or numerical issues.  
+Nevertheless, given the large implications on life and property many models with different modeling assumptions have been proposed. 
+
+While, inverse problems can shed some light on parameter choices it is difficult to make firm judgements on the validity or appropriateness of any single or set of modeling assumptions for a particular target flow or potential flows that needs to be modeled for predictive use in hazard analysis. We will present here an uncertainty quantification  based approach to carefully, analyze the effect of modeling assumptions on quantities of 
+interest in simulations based on three established models (Mohr-Coulomb, Pouliqen-Fortere and Voellmy-Salm) and thereby derive a model (from a set of modeling assumptions) suitable for use in a particular context. We also illustrate that a simpler though more restrictive approach is to use a Bayesian modeling average approach based on the limited data to combine the outcomes of different models.
+\newpage
+\section{Geophysical Flows and Review of Models -- Ali}
+
+\subsection{Modeling Assumptions}
+\begin{enumerate}
+\item[M1] {Depth Averaging}
+\item[M2]{Active-Passive ...}
+\item[M3] {Coulomb Law for Basal friction}
+\end{enumerate}
+This list is not comprehensive across the many models that have been proposed for such flows. 
+\subsection{Models}
+{\it SUMMARIZE FROM BMA PAPER -- KEEP IT TO 1 paragraph each}
+\section{UQ Process -- Andrea}
+\section{QoIs and Data Collected -- Ali}
+\section{Results and Discussion -- All}
+
+\end{document}
+\section{Introduction}
+
+
+\end{document}
