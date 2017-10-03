@@ -31,12 +31,12 @@
 \author[3]{A. Bevilaqua}
 \author[4]{E. B. Pitman}
 
-\affil [1]{Comp. Data Science and Eng., University at Buffalo, Buffalo NY 14260 }
-\affil [2]{Dept. of Mech. and  Aero. Eng., University at Buffalo, Buffalo NY 14260 }
-\affil [3]{Dept. of Geology., University at Buffalo, Buffalo NY 14260 }
+\affil[1]{Comp. Data Science and Eng., University at Buffalo, Buffalo NY 14260 }
+\affil[2]{Dept. of Mech. and  Aero. Eng., University at Buffalo, Buffalo NY 14260 }
+\affil[3]{Dept. of Geology., University at Buffalo, Buffalo NY 14260 }
 \affil[4]{MDI}
 
-\date{\{abani, aliakhav, abevilac\}@buffalo.edu}
+\date{\texttt{\{abani,aliakhav,abevilac\}@buffalo.edu}}
 
 
 \maketitle
@@ -52,6 +52,14 @@ interest in simulations based on three established models (Mohr-Coulomb, Pouliqe
 \newpage
 \section{Geophysical Flows and Review of Models -- Ali}
 
+\subsection{An Overview of Geophysical Flow Types}
+The term ``geophysical flow'' describes a broad class of flows that covers small mudflows and rockfalls, debris flows, pyroclastic density currents (including pumice and ash and block and ash flows), lava, and dry volcanic debris avalanches. Particles in block and ash flows, debris avalanches, and debris flows typically range from centimeters to meters in size. These flows are sometimes tens of kilometers in length and may travel at speeds as fast as hundreds of meters per second. Their deposits can be as much as 100 meters deep and kilometers long. In other words, there is no single universal description of a ``typical'' geophysical mass flow, even if we restrict ourselves to those flows occurring at a single volcano. Different types of flows are the results of different types of mechanisms/processes and so different types of flows will have significantly different physical characteristics. For the sake of clarification, let us consider three different types of events that are \textit{pyroclastic pumice and ash flow} (resulting from a column collapse), \textit{pyroclastic block and ash flow} (resulting from a dome collapse) an \textit{volcanic debris avalanche}.
+
+A column collapse pyroclastic flow is formed from a vertically-ejected eruption column. Instead of rising in the eruption plume, denser than air material collapses back to the ground and begins to flow as a gravity current. The kinetic energy of the material that lands on the upper slopes of the volcano is therefore redirected into downslope motion. These types of flow involve ash and low density pumiceous material, formed by vesiculation and fragmentation of gas-rich magmas in the volcanic conduit during the explosions. In a column collapse, during the horizontal component of flow, ambient air is entrained into the flow and heated. The flows therefore involve a mixture of hot gas, ash, and small pumice clasts (a few [cm] to 0.5 [m]). This extremely hot mixture can have initial downslope speeds in the range of 30 -- 80 meters per second. The volume of material involved in such a flow is roughly constrained to the volume of the plug and upper conduit (for short-lived explosive eruptions) and therefore will most likely be in the range $10^4$ -- $10^6$ [$\mathrm{m^3}$]. 
+
+A dome collapse occurs when there is a significant amount of (recently extruded) viscous lava piled up in an unstable configuration around a vent. Further extrusion and/or externals forces such as intense rainfall cause the still hot dome of viscous lava to collapse, disintegrate, and avalanche downhill. The hot, dense blocks in this ``block and ash'' flow will typically range from centimeters to a few meters in size. The matrix is composed of fine ash from the comminuted blocks. The amount of material involved in these collapses is constrained by the size of the newly extruded and still hot dome but usually involves volumes in the range $10^4$ -- $10^8$ [$\mathrm{m^3}$].
+
+A debris avalanche is the failure of a major part of an established volcanic edifice. These usually involve predominantly cold and mechanically weakened rocks as well as large volumes, up to tens of cubic kilometers. The triggering mechanism can be internal (such as the intrusion of new magma and pressurization) or external (such as seismic acceleration, rainfall, etc.). As such, the material involved in these events can be a mixture or fresh magmatic components as well as ancient hydrothermally weakened rocks. The material volume is usually in the range of $10^4$ -- 3$\times10^{10}$ [$\mathrm{m^3}$]. These types of flows are distinguished in that they involve large parts of the edifice that are not thoroughly broken up, i.e. some particles can be up to hundreds of meters or even kilometers in diameter.
 \subsection{Modeling Assumptions}
 \begin{enumerate}
 \item[M1] {Depth Averaging}
