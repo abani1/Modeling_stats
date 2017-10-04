@@ -10,16 +10,16 @@
 \usepackage{float}
 \usepackage[flushleft]{threeparttable}
 
-\def\dt{\partial_t }
-\def\dx{\partial_x }
-\def\dy{\partial_y }
-\def\dz{\partial_z }
+\def\dt{\partial t}
+\def\dx{\partial x}
+\def\dy{\partial y}
+\def\dz{\partial z}
 \def\BE{\begin{equation}}
 \def\EE{\end{equation}}
 \def\half{\frac{1}{2}}
 \def\calT{\cal T}
-\def\Deltax{\Delta x }
-\def\Deltat{\Delta t }
+\def\Deltax{\Delta x}
+\def\Deltat{\Delta t}
 
 
 
@@ -31,10 +31,10 @@
 \author[3]{A. Bevilaqua}
 \author[4]{E. B. Pitman}
 
-\affil[1]{Comp. Data Science and Eng., University at Buffalo, Buffalo NY 14260 }
-\affil[2]{Dept. of Mech. and  Aero. Eng., University at Buffalo, Buffalo NY 14260 }
-\affil[3]{Dept. of Geology., University at Buffalo, Buffalo NY 14260 }
-\affil[4]{MDI}
+\affil[1]{\textit{Comp. Data Science and Eng., University at Buffalo, Buffalo NY 14260} }
+\affil[2]{\textit{Dept. of Mech. and  Aero. Eng., University at Buffalo, Buffalo NY 14260} }
+\affil[3]{\textit{Dept. of Geology., University at Buffalo, Buffalo NY 14260} }
+\affil[4]{\textit{MDI}}
 
 \date{\texttt{\{abani,aliakhav,abevilac\}@buffalo.edu}}
 
@@ -50,9 +50,9 @@ Nevertheless, given the large implications on life and property many models with
 While, inverse problems can shed some light on parameter choices it is difficult to make firm judgements on the validity or appropriateness of any single or set of modeling assumptions for a particular target flow or potential flows that needs to be modeled for predictive use in hazard analysis. We will present here an uncertainty quantification  based approach to carefully, analyze the effect of modeling assumptions on quantities of 
 interest in simulations based on three established models (Mohr-Coulomb, Pouliqen-Fortere and Voellmy-Salm) and thereby derive a model (from a set of modeling assumptions) suitable for use in a particular context. We also illustrate that a simpler though more restrictive approach is to use a Bayesian modeling average approach based on the limited data to combine the outcomes of different models.
 \newpage
-\section{Geophysical Flows and Review of Models -- Ali}
+\section{Geophysical Flows and Review of Models -- Ali}\label{sec:GeoPhFlows}
 
-\subsection{An Overview of Geophysical Flow Types}
+\subsection{An Overview of Geophysical Flow Types}\label{subsec:FlowTypes}
 The term ``geophysical flow'' describes a broad class of flows that covers small mudflows and rockfalls, debris flows, pyroclastic density currents (including pumice and ash and block and ash flows), lava, and dry volcanic debris avalanches. Particles in block and ash flows, debris avalanches, and debris flows typically range from centimeters to meters in size. These flows are sometimes tens of kilometers in length and may travel at speeds as fast as hundreds of meters per second. Their deposits can be as much as 100 meters deep and kilometers long. In other words, there is no single universal description of a ``typical'' geophysical mass flow, even if we restrict ourselves to those flows occurring at a single volcano. Different types of flows are the results of different types of mechanisms/processes and so different types of flows will have significantly different physical characteristics. For the sake of clarification, let us consider three different types of events that are \textit{pyroclastic pumice and ash flow} (resulting from a column collapse), \textit{pyroclastic block and ash flow} (resulting from a dome collapse) an \textit{volcanic debris avalanche}.
 
 A column collapse pyroclastic flow is formed from a vertically-ejected eruption column. Instead of rising in the eruption plume, denser than air material collapses back to the ground and begins to flow as a gravity current. The kinetic energy of the material that lands on the upper slopes of the volcano is therefore redirected into downslope motion. These types of flow involve ash and low density pumiceous material, formed by vesiculation and fragmentation of gas-rich magmas in the volcanic conduit during the explosions. In a column collapse, during the horizontal component of flow, ambient air is entrained into the flow and heated. The flows therefore involve a mixture of hot gas, ash, and small pumice clasts (a few [cm] to 0.5 [m]). This extremely hot mixture can have initial downslope speeds in the range of 30 -- 80 meters per second. The volume of material involved in such a flow is roughly constrained to the volume of the plug and upper conduit (for short-lived explosive eruptions) and therefore will most likely be in the range $10^4$ -- $10^6$ [$\mathrm{m^3}$]. 
@@ -60,15 +60,53 @@ A column collapse pyroclastic flow is formed from a vertically-ejected eruption 
 A dome collapse occurs when there is a significant amount of (recently extruded) viscous lava piled up in an unstable configuration around a vent. Further extrusion and/or externals forces such as intense rainfall cause the still hot dome of viscous lava to collapse, disintegrate, and avalanche downhill. The hot, dense blocks in this ``block and ash'' flow will typically range from centimeters to a few meters in size. The matrix is composed of fine ash from the comminuted blocks. The amount of material involved in these collapses is constrained by the size of the newly extruded and still hot dome but usually involves volumes in the range $10^4$ -- $10^8$ [$\mathrm{m^3}$].
 
 A debris avalanche is the failure of a major part of an established volcanic edifice. These usually involve predominantly cold and mechanically weakened rocks as well as large volumes, up to tens of cubic kilometers. The triggering mechanism can be internal (such as the intrusion of new magma and pressurization) or external (such as seismic acceleration, rainfall, etc.). As such, the material involved in these events can be a mixture or fresh magmatic components as well as ancient hydrothermally weakened rocks. The material volume is usually in the range of $10^4$ -- 3$\times10^{10}$ [$\mathrm{m^3}$]. These types of flows are distinguished in that they involve large parts of the edifice that are not thoroughly broken up, i.e. some particles can be up to hundreds of meters or even kilometers in diameter.
-\subsection{Modeling Assumptions}
+
+\subsection{Modeling Assumptions}\label{subsec:ModelAssump}
+As a matter of fact, a very crucial feature of a sophisticated model for geophysical mass flows is that it is based on \textit{physical reasoning} and \textit{rigorous mathematical foundations}. Subsequently, several simplifying, but nevertheless realistic, assumptions were made that streamlined the mathematical formulation. They as follows:
 \begin{enumerate}
-\item[M1] {Depth Averaging}
-\item[M2] {Active-Passive ...}
-\item[M3] {Coulomb Law for Basal friction}
+\item The moving mass was assumed to be \textit{volume preserving}. Since the dynamics define the motion, assuming volume preserving is an adequate approximation.
+\item Geophysical mass flows are mostly assumed to be \textit{free surface} flows consist of granular material (i.e. a large collection of discrete particles, frequently with interstitial fluid, and whatever else that get caught in the flow path). In general, the ``typical particle'' is small compared to the depth and length of the flowing mass and makes it reasonable to model the flowing material as a continuum which implies that the thickness of sliding and deforming body extends over several particle diameters. Therefore, we can consider an ``equivalent flowing material'' whose rheological properties are chosen to approximate the bulk behavior that is expected of an actual mass flow; however, the properties of this ``equivalent material'' may not correspond to those of any component of the actual mass flow. 
+\item According to the \textit{geometries} of geophysical mass flows, numerous models make the \textit{shallowness} approximation for their numerical simulation. In this approximation, the flow depth is assumed to be at least an order of magnitude less than the characteristic length of the flowing material.
+\item The shear stresses lateral to the main flow direction can be neglected.
+\item The body of mass is supposed to be in \textit{isothermal} state or, if not, thermal effects can be ignored.
+\item The flowing mass is assumed to be consisted of an \textit{incompressible} granular continuum material. This means that we are allowed to ignore variations of density due to the void ratio (density preserving assumption).
+\item Motion of the bulk of mass consists of ``shearing within the deforming mass'' and ``sliding along the basal surface''. However, based on the observations, the shearing deformation commonly takes place within a very small boundary layer, so that it is justified to collapse this boundary layer to zero thickness and to combine the sliding and shearing velocity to a single sliding law with a somewhat larger modelled \textit{sliding velocity}. This then effectively means that variations of the material velocities across the flow depth may be ignored and \textit{depth-averaged} equations may be employed \citep{SavageHutter,Hutter1993}. Details on the integration of continuum models for shallow free surface flows can be studied in \citep{PudasainiHutter2007}.%This method was introduced by Von K\'{a}rm\'{a}n and later refined by Pohlhausen, where the equations are averaged over depth and the velocity profile is assumed.
+\item The shallowness assumption gives a \textit{hydrostatic} expression for the normal pressure in the direction perpendicular to the basal surface. Moreover, the downslope and cross-slope pressure components are assumed to be varying linearly with the normal pressure component through the flow depth. The coefficient could either be defined based on the rheology model or be constant \citep{SavageHutter,Bartelt1999,Iverson2001,Denlinger2001}.
 \end{enumerate}
-This list is not comprehensive across the many models that have been proposed for such flows. 
-\subsection{Models}
-{\it SUMMARIZE FROM BMA PAPER -- KEEP IT TO 1 paragraph each}
+%This list is not comprehensive across the many models that have been proposed for such flows. 
+\subsection{Governing Equations and Boundary Conditions}\label{subsec:GovEqsBCs}
+Starting with the basic conservation of mass and momentum for an incompressible medium, we can describe the motion of an avalanching mass:
+\begin{eqnarray}\label{eq:N_S}
+\nabla \cdot\underline{{\textbf u}} &=& 0, \nonumber \\
+\dfrac{\partial}{\dt}(\rho \ \underline{{\textbf u}})+\nabla \cdot (\rho \ \underline{{\textbf u}}\otimes \underline{{\textbf u}}) &=& \nabla \cdot \underline{\underline{{\mathbf{T}}}}+\rho \ \underline{{\textbf g}},
+\end{eqnarray}
+Where $\underline{{\textbf u}}=[u, v, w]^{\mathrm{T}}$, is the material velocity vector, $\rho$ is its constant density, $\underline{\underline{{\mathbf{T}}}}$ is the \textit{Cauchy} stress tensor, and $\underline{{\textbf g}}$ is the gravity vector. Based on the material rheology we choose, the Cauchy stress tensor, $\underline{\underline{{\mathbf{T}}}}$, is defined differently \citep{FreundtBursik1998}. Defining the free and basal surface interfaces respectively as follows,
+\begin{eqnarray}\label{eq:surfacesDefs}
+F^s(x,y,t) &=& s(x,y,t)-z, \nonumber \\
+F^b(x,y,t) &=& b(x,y,t)-z, 
+\end{eqnarray}
+Therefore, one can impose the \textit{kinematic boundary conditions} at free and basal surface interfaces:
+\begin{equation}\label{eq:SurKinBC}
+\frac{\partial F^s}{\dt} + \underline{{\textbf u}}\cdot\nabla F^s = 0, \ \ at \ F^s(x,y,t)=0
+\end{equation}
+\begin{equation}\label{eq:BedKinBC}
+\frac{\partial F^b}{\dt} + \underline{{\textbf u}}\cdot\nabla F^b = 0, \ \ at \ F^b(x,y,t)=0
+\end{equation}
+According to the $\mathrm{2^{nd}}$ and $\mathrm{7^{th}}$ assumptions, we may also impose the traction-free boundary condition at the free surface, while a \textit{Coulomb dry-friction} sliding law at the interface between the granular flow and the basal surface is imposed:
+\begin{equation}\label{eq:SurTracBC}
+\underline{\underline{{\mathbf{T}}}}^s\underline{n}^s=\underline{0}, \ \ at \ F^s(x,y,t)=0
+\end{equation}
+\begin{equation}\label{eq:BedTracBC}
+\underline{\underline{{\mathbf{T}}}}^b\underline{n}^b-\underline{n}^b(\underline{n}^b\cdot \underline{\underline{{\mathbf{T}}}}^b\underline{n}^b)=\frac{\underline{{\textbf u}}^b}{\Vert\underline{{\textbf u}}^b\Vert}(\underline{n}^b\cdot \underline{\underline{{\mathbf{T}}}}^b\underline{n}^b)\mu_{\mathrm{Bed}}, \ \ at \ F^b(x,y,t)=0 
+\end{equation}
+where $\mu_{\mathrm{Bed}}$ is the basal friction coefficient and the basal and surface unit normals are:
+\begin{equation}
+\underline{n}^b=\frac{\nabla F^b}{\Vert\nabla F^b\Vert}, \ \ \underline{n}^s=\frac{\nabla F^s}{\Vert\nabla F^s\Vert}.
+\end{equation}
+It is worth mentioning that $\underline{\underline{{\mathbf{T}}}} \ \underline{n}$ is a resisting traction, while $\underline{n}\cdot\underline{\underline{{\mathbf{T}}}} \ \underline{n}$ is the normal pressure and $\underline{n}\cdot\underline{\underline{{\mathbf{T}}}}-\underline{n}(\underline{n}\cdot\underline{\underline{{\mathbf{T}}}} \ \underline{n})$ is the resusting shear traction. Considering Equation (\ref{eq:BedTracBC}), Coulomb dry-friction sliding law expresses that the magnitude of the basal sjhear stress is equal to the normal basal pressure multiplied by the basala friction coefficient, $\mu_{\mathrm{Bed}}$. Furthermore, Equation (\ref{eq:BedTracBC}) is stating that the shear traction is assumed to point in the opposite direction to the basal velocity, $\underline{{\textbf u}}^b$ (resisting shear traction) which also implicitly assumes that $\underline{{\textbf u}}^b\cdot \underline{n}^b=0$ when we also consider the basal kinematic boundary condition.
+
+\subsection{Models}\label{subsec:Models}
+
 \section{UQ Process -- Andrea}
 \section{QoIs and Data Collected -- Ali}
 \section{Results and Discussion -- All}
