@@ -49,6 +49,7 @@ Nevertheless, given the large implications on life and property many models with
 
 While, inverse problems can shed some light on parameter choices it is difficult to make firm judgements on the validity or appropriateness of any single or set of modeling assumptions for a particular target flow or potential flows that needs to be modeled for predictive use in hazard analysis. We will present here an uncertainty quantification  based approach to carefully, analyze the effect of modeling assumptions on quantities of 
 interest in simulations based on three established models (Mohr-Coulomb, Pouliqen-Fortere and Voellmy-Salm) and thereby derive a model (from a set of modeling assumptions) suitable for use in a particular context. We also illustrate that a simpler though more restrictive approach is to use a Bayesian modeling average approach based on the limited data to combine the outcomes of different models.
+
 \newpage
 \section{Geophysical Flows and Review of Models -- Ali}\label{sec:GeoPhFlows}
 
@@ -103,11 +104,33 @@ where $\mu_{\mathrm{Bed}}$ is the basal friction coefficient and the basal and s
 \begin{equation}
 \underline{n}^b=\frac{\nabla F^b}{\Vert\nabla F^b\Vert}, \ \ \underline{n}^s=\frac{\nabla F^s}{\Vert\nabla F^s\Vert}.
 \end{equation}
-It is worth mentioning that $\underline{\underline{{\mathbf{T}}}} \ \underline{n}$ is a resisting traction, while $\underline{n}\cdot\underline{\underline{{\mathbf{T}}}} \ \underline{n}$ is the normal pressure and $\underline{n}\cdot\underline{\underline{{\mathbf{T}}}}-\underline{n}(\underline{n}\cdot\underline{\underline{{\mathbf{T}}}} \ \underline{n})$ is the resusting shear traction. Considering Equation (\ref{eq:BedTracBC}), Coulomb dry-friction sliding law expresses that the magnitude of the basal sjhear stress is equal to the normal basal pressure multiplied by the basala friction coefficient, $\mu_{\mathrm{Bed}}$. Furthermore, Equation (\ref{eq:BedTracBC}) is stating that the shear traction is assumed to point in the opposite direction to the basal velocity, $\underline{{\textbf u}}^b$ (resisting shear traction) which also implicitly assumes that $\underline{{\textbf u}}^b\cdot \underline{n}^b=0$ when we also consider the basal kinematic boundary condition.
+It is worth mentioning that $\underline{\underline{{\mathbf{T}}}} \ \underline{n}$ is a resisting traction, while $\underline{n}\cdot\underline{\underline{{\mathbf{T}}}} \ \underline{n}$ is the normal pressure and $\underline{n}\cdot\underline{\underline{{\mathbf{T}}}}-\underline{n}(\underline{n}\cdot\underline{\underline{{\mathbf{T}}}} \ \underline{n})$ is the resusting shear traction. Considering Equation (\ref{eq:BedTracBC}), Coulomb dry-friction sliding law expresses that the magnitude of the basal sjhear stress is equal to the normal basal pressure multiplied by the basal friction coefficient, $\mu_{\mathrm{Bed}}$. Furthermore, Equation (\ref{eq:BedTracBC}) is stating that the shear traction is assumed to point in the opposite direction to the basal velocity, $\underline{{\textbf u}}^b$ (resisting shear traction) which also implicitly assumes that $\underline{{\textbf u}}^b\cdot \underline{n}^b=0$ when we also consider the basal kinematic boundary condition.
 
 \subsection{Models}\label{subsec:Models}
 
-\section{UQ Process -- Andrea}
+\section{UQ Process}
+The key purpose of this study is to present a procedure for the improved exploration and quantitative comparison of physical models and their assumptions through the collection of full statistical data. Models are not black boxes, behind each phisical model there are different physical assumptions, and therefore it would be more appropriate to look at those instead than at the entire model results. Our statistical approach enables a first step towards a data driven selection of the best modeling assumptions to use.
+
+In particular, a good forecasting capability in the context of mass flows requires the careful selection of the pair $(M(A), P(M(A)))$, where $A$ is a set of assumptions, $M(A)$ is the model which combines those assumptions, and $P(M)$ is a probability distribution in the parameter space of $M$. An assumption is a quite general concept - for example it can be a specific equation for the internal stress, the implementation of bed curvature effects, of active-passive material stretching, or the use of a specific correction on the pressure effects, etc... Assumptions are what makes the models being different, and each model may be seen as the combined result of a set of assumptions. Sometimes a good model contains a useless assumption that may be removed, sometimes a good assumption should be implemented inside a different model - those are usually considered as subjective choices, not data driven.
+
+It is worth mentioning, that whereas the support of $P(M)$ can be restricted to a single point in case an optimization procedure is performed for the reconstruction of a particular flow, this is not possible if we are interested in the general predictive capabilities of the model, i.e. what is desired in probabilistic hazard assessment. In this study we will always assume $P(M)\sim \varprod_{i=1}^{N_M} Unif(a_{i,M},b_{i,M})$, where $N_M$ is the number of parameters of $M$. These parameter ranges will not be selected under the influence of a particular observation, but try to use the information gathered in literature about the physical meaning of those values.  
+
+In general, the simulation algorithms can be classified as:
+$$(1)INPUT VARIABLES \longrightarrow (2)DYNAMICAL QUANTITIES \longrightarrow (3)OBSERVABLE OUTPUTS$$
+
+The input variables can include: volume, rheology coefficients, initiation site and geometry, DEM. We will focus on the former two of those, volume of the pile and rheology, which constitute our parameter space. The dynamical quantities are directly related to the force terms of the Newton Equations that rule the simulation, they include: driving and dissipative stresses, powers. Single terms of the equations are hidden, but they directly depend on the parameters, and represent a fundamental link between the parameters and the observation. Moreover, the models share some of these terms while change others, and this enables a detailed comparison of the real physics below the curtain. Finally, the observable outputs include: flow height, inundated area, flow velocity and acceleration. In the sequel (2) and (3) are also called quantities of interest (QoI).
+
+Another level of complexity can be achieved chosing the degree of integration of (2) and (3) in the previous scheme:
+$$(A)LOCAL MEASUREMENTS,\ (B)SPATIAL AVERAGES,\ (C)TEMPORAL AVERAGES,\ (D) SPATIO-TEMPORAL (FULL) AVERAGES.$$
+
+In particular, all the dynamical quantities, and most of the observable outputs, have a local meaning. They are calculated on the elements of the numerical mesh created by the code. Moreover, those quantities are all time dependent. A first approach to look at the data is to choose a reasonable design of spatial locations and to calculate the graph of the quantities as a function of time. A second approach is to make the spatial integral of those quantities and calculate their temporal graph - this integration can be done with respect to the basal area, e.g. for the stresses and related powers, or with respect to the flow volume, e.g. velocity and acceleration. A third possible approach requires to make the integrals through time at each designed spatial site, a fourth approach the full integral in space-time.   
+
+In general, for each of the listed quantities in (2) and (3) and levels of integration, during a Monte Carlo simulation we sample in (1) and obtain a family of temporal graphs in (A), (B), and numeric values in (C), (D). These results are statistically summarized, plotting their expectation, their standard deviation, their 5th and 95 percentiles. The correlation structure of these results is also explored, presenting the plots of the Pearson coefficients of the most interesting pairs of quantities in (1), (2), (3). In the following, we will detail the considered input variables and quantities of interest (QoI) for each of our cases study. 
+
+Our sampling technique of the input variables is based on the Latin Hypercube idea, and in particular, on the orthogonal array-based Latin Hypercubes (Tang 1993). 
+
+\subsection{Latin Hypercubes and orthogonal arrays}
+
 \section{QoIs and Data Collected -- Ali}
 \section{Results and Discussion -- All}
 
