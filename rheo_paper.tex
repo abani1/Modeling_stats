@@ -20,7 +20,8 @@
 \def\calT{\cal T}
 \def\Deltax{\Delta x}
 \def\Deltat{\Delta t}
-
+\DeclareSymbolFont{largesymbolsA}{U}{txexa}{m}{n}
+\DeclareMathSymbol{\varprod}{\mathop}{largesymbolsA}{16}
 
 
 \begin{document}
@@ -134,7 +135,7 @@ Our sampling technique of the input variables is based on the Latin Hypercube id
 \subsection{Latin Hypercubes and orthogonal arrays}
 The Latin Hypercube Sampling (LHS) is a well established procedure for defining pseudo-random design of samples in $\mathbb R^d$ which have: (i) enhanced capability to fill the d-dimensional space, (ii) avoid overlapping of point locations in the one dimensional projections, (iii) reduce the dependence of the number of points necessary on the dimensionality $d$.
 
-The procedure is simple: once the desired number of samples $N\in\mathbb N$ is selected, then the d-dimensional projections are divided in $N$ equal bins, and each bin will contain one and only one sample. There are a large number of possible designs, corresponding the number of permutations of the bins in the d-projections, i.e. $d\cdotN!$. If the permutations are randomly sampled there is a high possibility that the design will have good properties. However, this is not assured.
+The procedure is simple: once the desired number of samples $N\in\mathbb N$ is selected, then the d-dimensional projections are divided in $N$ equal bins, and each bin will contain one and only one sample. There are a large number of possible designs, corresponding the number of permutations of the bins in the d-projections, i.e. $d\cdot N!$. If the permutations are randomly sampled there is a high possibility that the design will have good properties. However, this is not assured.
 
 For this reason, we base our design on the orthogonal arrays (OA). An orthogonal array is an $n\times m$ matrix $Q$ with entries from a set of $s\ge 2 $ symbols. $Q$ is called an $OA(n,m,s,r)$ of strength $r$, size $n$, with $m$ constrains, and $s$ levels if each $n\times r$ submatrix of $Q$ contains all possible $1\times r$ row vectors with the same frequency $\lambda=n/s^r$, which is called the index of the array. Orthogonal arrays are very useful for defining latin hypercubes which are constraned to fill the space (or its r-dimensional subspaces) in a sufficient way. 
 
