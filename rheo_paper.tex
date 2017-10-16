@@ -7,6 +7,7 @@
 \usepackage{lineno}
 \usepackage[colorlinks]{hyperref}
 \usepackage{subcaption}
+\usepackage{float}
 \usepackage[flushleft]{threeparttable}
 
 \def\dt{\partial t}
@@ -31,10 +32,10 @@
 \author[1,3]{Abani K. Patra}
 \author[4]{E. B. Pitman}
 
-\affil[2]{\textit{Dept. of Mech. and  Aero. Eng., University at Buffalo, Buffalo NY 14260} }
-\affil[3]{\textit{Dept. of Geology., University at Buffalo, Buffalo NY 14260} }
-\affil[1]{\textit{Comp. Data Science and Eng., University at Buffalo, Buffalo NY 14260} }
-\affil[4]{\textit{Dept. of Material Design and Innovation, University at Buffalo, NY, 14260}}
+\affil[1]{\textit{Dept. of Mech. and  Aero. Eng., University at Buffalo, Buffalo NY 14260} }
+\affil[2]{\textit{Dept. of Geology., University at Buffalo, Buffalo NY 14260} }
+\affil[3]{\textit{Comp. Data Science and Eng., University at Buffalo, Buffalo NY 14260} }
+\affil[4]{\textit{Dept. of Materials Design and Innovation, University at Buffalo, NY, 14260}}
 
 \date{\texttt{\{abani,aliakhav,abevilac\}@buffalo.edu}}
 
@@ -149,7 +150,309 @@ What happens in the projections with dimension $r'>r$ is not controlled, and ran
 
 Dealing with relatively small $d$, i.e. $d\in\{3,4\}$, we adopt a LHS $U$ created by a $OA(s^d,d,s,d)$. The strength is equal to the dimension $d$, hence the design fills the entire space like a $d$ dimensional grid, but it is a LHS as well. In this case there is one point in each hypercube, and $\lambda=1$. We took $s=8$ for the 3-dimensional designs, i.e. $512$ points; we took $s=6$ for the 4-dimensional designs, i.e. 1296 points.
 
-\section{QoIs and Data Collected -- Ali}
+\section{QoIs and Data Collected}
+\subsection{Flow down an inclined plane}
+\subsubsection{Mohr-Coulomb Model, Force Contributions}
+\begin{figure}[H]
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF1_C_x.png}
+                \subcaption{$x=-0.7, \ y=0.0$, slumping pile location.}
+                \label{fig:Ramp-Cx1}
+        \end{minipage}
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF8_C_x.png}
+                \subcaption{$x=-0.35, \ y=0.0$, middle point on inclined plane.}
+                \label{fig:Ramp-Cx2}
+        \end{minipage}
+
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF15_C_x.png}
+                \subcaption{$x=0, \ y=0$, inclined and runout planes' joint location.}
+                \label{fig:Ramp-Cx3}
+        \end{minipage}
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF17_C_x.png}
+                \subcaption{$x=0.15, \ y=0.0$, a location on runout plane.}
+                \label{fig:Ramp-Cx4}
+        \end{minipage}
+        \caption{Time history of mean values for contribution of forces along runout direction, Mohr-Coulomb model.}
+        \label{fig:Ramp-Cx}
+\end{figure}
+
+\begin{figure}[H]
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF1_C_y.png}
+                \subcaption{$x=-0.7, \ y=0.0$, slumping pile location.}
+                \label{fig:Ramp-Cy1}
+        \end{minipage}
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF8_C_y.png}
+                \subcaption{$x=-0.35, \ y=0.0$, middle point on inclined plane.}
+                \label{fig:Ramp-Cy2}
+        \end{minipage}
+
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF15_C_y.png}
+                \subcaption{$x=0, \ y=0$, inclined and runout planes' joint location.}
+                \label{fig:Ramp-Cy3}
+        \end{minipage}
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF17_C_y.png}
+                \subcaption{$x=0.15, \ y=0.0$, a location on runout plane.}
+                \label{fig:Ramp-Cy4}
+        \end{minipage}
+        \caption{Time history of mean values for contribution of forces along the lateral direction, Mohr-Coulomb model.}
+        \label{fig:Ramp-Cy}
+\end{figure}
+
+\subsubsection{Pouliquen-Forterre Model, Force Contributions}
+\begin{figure}[H]
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF1_P_x.png}
+                \subcaption{$x=-0.7, \ y=0.0$, slumping pile location.}
+                \label{fig:Ramp-Px1}
+        \end{minipage}
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF8_P_x.png}
+                \subcaption{$x=-0.35, \ y=0.0$, middle point on inclined plane.}
+                \label{fig:Ramp-Px2}
+        \end{minipage}
+
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF15_P_x.png}
+                \subcaption{$x=0, \ y=0$, inclined and runout planes' joint location.}
+                \label{fig:Ramp-Px3}
+        \end{minipage}
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF17_P_x.png}
+                \subcaption{$x=0.15, \ y=0.0$, a location on runout plane.}
+                \label{fig:Ramp-Px4}
+        \end{minipage}
+        \caption{Time history of mean values for contribution of forces along runout direction, Pouliquen-Forterre model.}
+        \label{fig:Ramp-Px}
+\end{figure}
+
+\begin{figure}[H]
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF1_P_y.png}
+                \subcaption{$x=-0.7, \ y=0.0$, slumping pile location.}
+                \label{fig:Ramp-Py1}
+        \end{minipage}
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF8_P_y.png}
+                \subcaption{$x=-0.35, \ y=0.0$, middle point on inclined plane.}
+                \label{fig:Ramp-Py2}
+        \end{minipage}
+
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF15_P_y.png}
+                \subcaption{$x=0, \ y=0$, inclined and runout planes' joint location.}
+                \label{fig:Ramp-Py3}
+        \end{minipage}
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF17_P_y.png}
+                \subcaption{$x=0.15, \ y=0.0$, a location on runout plane.}
+                \label{fig:Ramp-Py4}
+        \end{minipage}
+        \caption{Time history of mean values for contribution of forces along the lateral direction, Pouliquen-Forterre model.}
+        \label{fig:Ramp-Py}
+\end{figure}
+
+
+\subsubsection{Voellmy-Salm Model, Force Contributions}
+\begin{figure}[H]
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF1_V_x.png}
+                \subcaption{$x=-0.7, \ y=0.0$, slumping pile location.}
+                \label{fig:Ramp-Vx1}
+        \end{minipage}
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF8_V_x.png}
+                \subcaption{$x=-0.35, \ y=0.0$, middle point on inclined plane.}
+                \label{fig:Ramp-Vx2}
+        \end{minipage}
+
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF15_V_x.png}
+                \subcaption{$x=0, \ y=0$, inclined and runout planes' joint location.}
+                \label{fig:Ramp-Vx3}
+        \end{minipage}
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF17_V_x.png}
+                \subcaption{$x=0.15, \ y=0.0$, a location on runout plane.}
+                \label{fig:Ramp-Vx4}
+        \end{minipage}
+        \caption{Time history of mean values for contribution of forces along runout direction, Voellmy-Salm model.}
+        \label{fig:Ramp-Vx}
+\end{figure}
+
+\begin{figure}[H]
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF1_V_y.png}
+                \subcaption{$x=-0.7, \ y=0.0$, slumping pile location.}
+                \label{fig:Ramp-Vy1}
+        \end{minipage}
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF8_V_y.png}
+                \subcaption{$x=-0.35, \ y=0.0$, middle point on inclined plane.}
+                \label{fig:Ramp-Vy2}
+        \end{minipage}
+
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF15_V_y.png}
+                \subcaption{$x=0, \ y=0$, inclined and runout planes' joint location.}
+                \label{fig:Ramp-Vy3}
+        \end{minipage}
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF17_V_y.png}
+                \subcaption{$x=0.15, \ y=0.0$, a location on runout plane.}
+                \label{fig:Ramp-Vy4}
+        \end{minipage}
+        \caption{Time history of mean values for contribution of forces along the lateral direction, Voellmy-Salm model.}
+        \label{fig:Ramp-Vy}
+\end{figure}
+
+\subsubsection{Temporal Records for Bulk of flowing material}
+
+\begin{figure}[H]
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/C_Global_Vel.png}
+                \subcaption{Mohr-Coulomb model.}
+                \label{fig:Ramp-SP-Vel-C}
+        \end{minipage}
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/P_Global_Vel.png}
+                \subcaption{Pouliquen-Forterre model.}
+                \label{fig:Ramp-SP-Vel-P}
+        \end{minipage}
+
+        \begin{minipage}[b]{1\linewidth}
+                \centering
+                \includegraphics[width=0.5\textwidth]{InclinedPlane/GlobalRecords/V_Global_Vel.png}
+                \subcaption{Voellmy-Salm model.}
+                \label{fig:Ramp-SP-Vel-V}
+        \end{minipage}
+        \caption{Full statistics of velocity records for bulk of material.}
+        \label{fig:Ramp-SP-Vel}
+\end{figure}
+
+\begin{figure}[H]
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/C_Global_Fx.png}
+                \subcaption{Mohr-Coulomb model, runout direction.}
+                \label{fig:Ramp-SP-Fx-C}
+        \end{minipage}
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/C_Global_Fy.png}
+                \subcaption{Mohr-Coulomb model, lateral direction.}
+                \label{fig:Ramp-SP-Fy-C}
+        \end{minipage}
+        
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/P_Global_Fx.png}
+                \subcaption{Pouliquen-Forterre model, runout direction.}
+                \label{fig:Ramp-SP-Fx-P}
+        \end{minipage}
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/P_Global_Fy.png}
+                \subcaption{Pouliquen-Forterre model, lateral direction.}
+                \label{fig:Ramp-SP-Fy-P}
+        \end{minipage}
+
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/V_Global_Fx.png}
+                \subcaption{Voellmy-Salm model, runout direction.}
+                \label{fig:Ramp-SP-Fx-V}
+        \end{minipage}
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/V_Global_Fy.png}
+                \subcaption{Voellmy-Salm model, lateral direction.}
+                \label{fig:Ramp-SP-Fy-V}
+        \end{minipage}
+        \caption{Full statistics for temporal records of total forces for bulk of material along the runout and lateral directions.}
+        \label{fig:Ramp-SP-F}
+\end{figure}
+
+\begin{figure}[H]
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/C_Global_Ptot.png}
+                \subcaption{Mohr-Coulomb model.}
+                \label{fig:Ramp-SP-Power-C}
+        \end{minipage}
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/P_Global_Ptot.png}
+                \subcaption{Pouliquen-Forterre model.}
+                \label{fig:Ramp-SP-Power-P}
+        \end{minipage}
+
+        \begin{minipage}[b]{1\linewidth}
+                \centering
+                \includegraphics[width=0.5\textwidth]{InclinedPlane/GlobalRecords/V_Global_Ptot.png}
+                \subcaption{Voellmy-Salm model.}
+                \label{fig:Ramp-SP-Power-V}
+        \end{minipage}
+        \caption{Full statistics of temporal records of total power for bulk of material.}
+        \label{fig:Ramp-SP-Power}
+\end{figure}
+
+\begin{figure}[H]
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/C_Global_Ar.png}
+                \subcaption{Mohr-Coulomb model.}
+                \label{fig:Ramp-SP-InundAr-C}
+        \end{minipage}
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/P_Global_Ar.png}
+                \subcaption{Pouliquen-Forterre model.}
+                \label{fig:Ramp-SP-InundAr-P}
+        \end{minipage}
+
+        \begin{minipage}[b]{1\linewidth}
+                \centering
+                \includegraphics[width=0.5\textwidth]{InclinedPlane/GlobalRecords/V_Global_Ar.png}
+                \subcaption{Voellmy-Salm model.}
+                \label{fig:Ramp-SP-InundAr-V}
+        \end{minipage}
+        \caption{Full statistics of temporal records of inundated area by the flowing material.}
+        \label{fig:Ramp-SP-InundAr}
+\end{figure}
+
 \section{Results and Discussion -- All}
 
 \newpage
