@@ -153,7 +153,7 @@ Dealing with relatively small $d$, i.e. $d\in\{3,4\}$, we adopt a LHS $U$ create
 \section{QoIs and Data Collected}
 \subsection{Flow down an inclined plane}
 In order to investigate the effects of constituent elements of each rheology model, we are interested in computing the quantitative contribution of each force component (gravitational, basal friction and material resistence forces) to the time evolution of the flowing material. However, there is not a straight forward way to simply obtain the quantitative contribution of these force components. The reason is that ``total force'' is not necerssarily a positive/negative or non-zero figure along time that we can simply extract the contribution of each force component based on it; therefore, the leading force component may vary with time. Furthermore, we there is no precise way to carry out this study without considering the spatial effects for the bulk of flowing material just as function of time. As a result, we pick four different locations on the planes center line, $y=0$, that are the slumping pile location ($x=-0.7$), middle of the inclined plane ($x=-0.35$), joint location of inclined and runout planes ($x=0.0$), and on the runout plane ($x=0.15$). According to the specified threshold for flow thickness, $h>1.0$ mm, we may consider temporal invaded region and check if the specified locations are inside that region. If so, we may find the maximum absolute value of force elements along each direction so that we can obtain the magnitude and type of ``dominant'' force elements, $\vert F_{\mathrm{dominant}}\vert$, along runout and lateral directions. Having computed temporal $\vert F_{\mathrm{dominant}}(t)\vert$, we now divide all the force components by $\vert F_{\mathrm{dominant}}(t)\vert$, so that the resulting quotients, $q_i(t)_{i=1,2,3,4}$, show us the temporal impact of each force type and its direction at the specified locations. We should consider that if $q_{\mathrm{dominant}}(t)=\pm 1$, the $i^\mathrm{{th}}$ force component is the dominant one and the other three non-dominant quotients would be $0 \leq \vert q_i(t) \vert < 1$. This is true for a sample simulated flow; however, when we consider the entire flow regime inside an ensemble of simulations, we can take the mean values of $q_i(t)$ as fair measure for the temporal impact of each force type and its direction (with respect to the flow direction) along the whole ensemble range. We should note that after taking the mean values of $\bar{q}_i(t)$, the dominant ones are \textit{not necessarily} $\bar{q}_{\mathrm{dominant}}(t)=\pm 1$; nevertheless, their absolute values are larger than other non-dominant averaged quotients. the following three sections include the results of the impact quotients, $\bar{q}_i(t)$ for the three rheology models of our study.
-\subsubsection{Mohr-Coulomb Model, Force Contributions}
+\subsubsection{Mohr-Coulomb Model, Force Impact Quotients}
 \begin{figure}[H]
         \begin{minipage}[b]{0.5\linewidth}
                 \centering
@@ -180,7 +180,7 @@ In order to investigate the effects of constituent elements of each rheology mod
                 \subcaption{$x=0.15, \ y=0.0$, a location on runout plane.}
                 \label{fig:Ramp-Cx4}
         \end{minipage}
-        \caption{Time history of mean values for contribution of forces along runout direction, Mohr-Coulomb model.}
+        \caption{Time history of mean values for force impact quotients, $\bar{q}_i(t)$, along runout direction, Mohr-Coulomb model.}
         \label{fig:Ramp-Cx}
 \end{figure}
 
@@ -210,11 +210,11 @@ In order to investigate the effects of constituent elements of each rheology mod
                 \subcaption{$x=0.15, \ y=0.0$, a location on runout plane.}
                 \label{fig:Ramp-Cy4}
         \end{minipage}
-        \caption{Time history of mean values for contribution of forces along the lateral direction, Mohr-Coulomb model.}
+        \caption{Time history of mean values for force impact quotients, $\bar{q}_i(t)$, along the lateral direction, Mohr-Coulomb model.}
         \label{fig:Ramp-Cy}
 \end{figure}
 
-\subsubsection{Pouliquen-Forterre Model, Force Contributions}
+\subsubsection{Pouliquen-Forterre Model, Force  Impact Quotients}
 \begin{figure}[H]
         \begin{minipage}[b]{0.5\linewidth}
                 \centering
@@ -241,7 +241,7 @@ In order to investigate the effects of constituent elements of each rheology mod
                 \subcaption{$x=0.15, \ y=0.0$, a location on runout plane.}
                 \label{fig:Ramp-Px4}
         \end{minipage}
-        \caption{Time history of mean values for contribution of forces along runout direction, Pouliquen-Forterre model.}
+        \caption{Time history of mean values for force impact quotients, $\bar{q}_i(t)$, along runout direction, Pouliquen-Forterre model.}
         \label{fig:Ramp-Px}
 \end{figure}
 
@@ -271,12 +271,12 @@ In order to investigate the effects of constituent elements of each rheology mod
                 \subcaption{$x=0.15, \ y=0.0$, a location on runout plane.}
                 \label{fig:Ramp-Py4}
         \end{minipage}
-        \caption{Time history of mean values for contribution of forces along the lateral direction, Pouliquen-Forterre model.}
+        \caption{Time history of mean values for force impact quotients, $\bar{q}_i(t)$, along the lateral direction, Pouliquen-Forterre model.}
         \label{fig:Ramp-Py}
 \end{figure}
 
 
-\subsubsection{Voellmy-Salm Model, Force Contributions}
+\subsubsection{Voellmy-Salm Model, Force Impact Quotients}
 \begin{figure}[H]
         \begin{minipage}[b]{0.5\linewidth}
                 \centering
@@ -303,7 +303,7 @@ In order to investigate the effects of constituent elements of each rheology mod
                 \subcaption{$x=0.15, \ y=0.0$, a location on runout plane.}
                 \label{fig:Ramp-Vx4}
         \end{minipage}
-        \caption{Time history of mean values for contribution of forces along runout direction, Voellmy-Salm model.}
+        \caption{Time history of mean values for force impact quotients, $\bar{q}_i(t)$, along runout direction, Voellmy-Salm model.}
         \label{fig:Ramp-Vx}
 \end{figure}
 
@@ -333,7 +333,7 @@ In order to investigate the effects of constituent elements of each rheology mod
                 \subcaption{$x=0.15, \ y=0.0$, a location on runout plane.}
                 \label{fig:Ramp-Vy4}
         \end{minipage}
-        \caption{Time history of mean values for contribution of forces along the lateral direction, Voellmy-Salm model.}
+        \caption{Time history of mean values for force impact quotients, $\bar{q}_i(t)$, along the lateral direction, Voellmy-Salm model.}
         \label{fig:Ramp-Vy}
 \end{figure}
 
