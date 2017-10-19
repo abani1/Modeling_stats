@@ -51,7 +51,7 @@
 \begin{document}
 
 \title{\bf Modeling of Geophysical Flows -- Analysis of Models and Modeling Assumptions Using UQ}
-\author[1]{ Ali A. Safaei}
+\author[1]{ Ali Akhavan Safaei}
 \author[2]{Andrea Bevilacqua}
 \author[1,3]{Abani K. Patra}
 \author[4]{E. Bruce Pitman}
@@ -364,26 +364,26 @@ In the following we display the contribution coefficients barplots as a function
         \begin{minipage}[b]{0.5\linewidth}
                 \centering
                 \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF1_C_x.png}
-                \subcaption{$x=-0.7, \ y=0.0$, slumping pile location.}
+                \subcaption{$L_1=(-0.7,0)$, slumping pile location.}
                 \label{fig:Ramp-Cx1}
         \end{minipage}
         \begin{minipage}[b]{0.5\linewidth}
                 \centering
                 \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF8_C_x.png}
-                \subcaption{$x=-0.35, \ y=0.0$, middle point on inclined plane.}
+                \subcaption{$L_2=(-0.35,0)$, middle point on inclined plane.}
                 \label{fig:Ramp-Cx2}
         \end{minipage}
 
         \begin{minipage}[b]{0.5\linewidth}
                 \centering
                 \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF15_C_x.png}
-                \subcaption{$x=0, \ y=0$, inclined and runout planes' joint location.}
+                \subcaption{$L_3=(0,0)$, inclined and runout planes' joint location.}
                 \label{fig:Ramp-Cx3}
         \end{minipage}
         \begin{minipage}[b]{0.5\linewidth}
                 \centering
                 \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF17_C_x.png}
-                \subcaption{$x=0.15, \ y=0.0$, a location on runout plane.}
+                \subcaption{$L_4=(0.15,0)$, a location on runout plane.}
                 \label{fig:Ramp-Cx4}
         \end{minipage}
         \caption{Time history of mean values for force impact quotients, $\bar{q}_i(t)$, along runout direction, Mohr-Coulomb model.}
@@ -394,30 +394,59 @@ In the following we display the contribution coefficients barplots as a function
         \begin{minipage}[b]{0.5\linewidth}
                 \centering
                 \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF1_C_y.png}
-                \subcaption{$x=-0.7, \ y=0.0$, slumping pile location.}
+                \subcaption{$L_1=(-0.7,0)$, slumping pile location.}
                 \label{fig:Ramp-Cy1}
         \end{minipage}
         \begin{minipage}[b]{0.5\linewidth}
                 \centering
                 \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF8_C_y.png}
-                \subcaption{$x=-0.35, \ y=0.0$, middle point on inclined plane.}
+                \subcaption{$L_2=(-0.35,0)$, middle point on inclined plane.}
                 \label{fig:Ramp-Cy2}
         \end{minipage}
 
         \begin{minipage}[b]{0.5\linewidth}
                 \centering
                 \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF15_C_y.png}
-                \subcaption{$x=0, \ y=0$, inclined and runout planes' joint location.}
+                \subcaption{$L_3=(0,0)$, inclined and runout planes' joint location.}
                 \label{fig:Ramp-Cy3}
         \end{minipage}
         \begin{minipage}[b]{0.5\linewidth}
                 \centering
                 \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF17_C_y.png}
-                \subcaption{$x=0.15, \ y=0.0$, a location on runout plane.}
+                \subcaption{$L_4=(0.15,0)$, a location on runout plane.}
                 \label{fig:Ramp-Cy4}
         \end{minipage}
         \caption{Time history of mean values for force impact quotients, $\bar{q}_i(t)$, along the lateral direction, Mohr-Coulomb model.}
         \label{fig:Ramp-Cy}
+\end{figure}
+
+%% Probability plots
+\begin{figure}[H]
+\centering
+	\includegraphics[width=0.9\textwidth]{InclinedPlane/LocalRecords/DominancePr_x1C.png}
+	\caption{$L_1=(-0.7,0)$, slumping pile location.}
+	\label{fig:Ramp-Prx1C}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+	\includegraphics[width=0.9\textwidth]{InclinedPlane/LocalRecords/DominancePr_x2C.png}
+	\caption{$L_2=(-0.35,0)$, middle point on inclined plane.}
+	\label{fig:Ramp-Prx2C}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+	\includegraphics[width=0.9\textwidth]{InclinedPlane/LocalRecords/DominancePr_x3C.png}
+	\caption{$L_3=(0,0)$, inclined and runout planes' joint location.}
+	\label{fig:Ramp-Prx3C}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+	\includegraphics[width=0.9\textwidth]{InclinedPlane/LocalRecords/DominancePr_x4C.png}
+	\caption{$L_4=(0.15,0)$, a location on runout plane.}
+	\label{fig:Ramp-Prx4C}
 \end{figure}
 
 \subsubsection{Pouliquen-Forterre Model, Force  Contribution Coefficients - Ali}
@@ -425,26 +454,26 @@ In the following we display the contribution coefficients barplots as a function
         \begin{minipage}[b]{0.5\linewidth}
                 \centering
                 \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF1_P_x.png}
-                \subcaption{$x=-0.7, \ y=0.0$, slumping pile location.}
+                \subcaption{$x=-0.7, \ y_1=0.0$, slumping pile location.}
                 \label{fig:Ramp-Px1}
         \end{minipage}
         \begin{minipage}[b]{0.5\linewidth}
                 \centering
                 \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF8_P_x.png}
-                \subcaption{$x=-0.35, \ y=0.0$, middle point on inclined plane.}
+                \subcaption{$L_2=(-0.35,0)$, middle point on inclined plane.}
                 \label{fig:Ramp-Px2}
         \end{minipage}
 
         \begin{minipage}[b]{0.5\linewidth}
                 \centering
                 \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF15_P_x.png}
-                \subcaption{$x=0, \ y=0$, inclined and runout planes' joint location.}
+                \subcaption{$L_3=(0,0)$, inclined and runout planes' joint location.}
                 \label{fig:Ramp-Px3}
         \end{minipage}
         \begin{minipage}[b]{0.5\linewidth}
                 \centering
                 \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF17_P_x.png}
-                \subcaption{$x=0.15, \ y=0.0$, a location on runout plane.}
+                \subcaption{$L_4=(0.15,0)$, a location on runout plane.}
                 \label{fig:Ramp-Px4}
         \end{minipage}
         \caption{Time history of mean values for force impact quotients, $\bar{q}_i(t)$, along runout direction, Pouliquen-Forterre model.}
@@ -455,30 +484,60 @@ In the following we display the contribution coefficients barplots as a function
         \begin{minipage}[b]{0.5\linewidth}
                 \centering
                 \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF1_P_y.png}
-                \subcaption{$x=-0.7, \ y=0.0$, slumping pile location.}
+                \subcaption{$L_1=(-0.7,0)$, slumping pile location.}
                 \label{fig:Ramp-Py1}
         \end{minipage}
         \begin{minipage}[b]{0.5\linewidth}
                 \centering
                 \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF8_P_y.png}
-                \subcaption{$x=-0.35, \ y=0.0$, middle point on inclined plane.}
+                \subcaption{$L_2=(-0.35,0)$, middle point on inclined plane.}
                 \label{fig:Ramp-Py2}
         \end{minipage}
 
         \begin{minipage}[b]{0.5\linewidth}
                 \centering
                 \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF15_P_y.png}
-                \subcaption{$x=0, \ y=0$, inclined and runout planes' joint location.}
+                \subcaption{$L_3=(0,0)$, inclined and runout planes' joint location.}
                 \label{fig:Ramp-Py3}
         \end{minipage}
         \begin{minipage}[b]{0.5\linewidth}
                 \centering
                 \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF17_P_y.png}
-                \subcaption{$x=0.15, \ y=0.0$, a location on runout plane.}
+                \subcaption{$L_4=(0.15,0)$, a location on runout plane.}
                 \label{fig:Ramp-Py4}
         \end{minipage}
         \caption{Time history of mean values for force impact quotients, $\bar{q}_i(t)$, along the lateral direction, Pouliquen-Forterre model.}
         \label{fig:Ramp-Py}
+\end{figure}
+
+
+%% Probability plots
+\begin{figure}[H]
+\centering
+	\includegraphics[width=0.9\textwidth]{InclinedPlane/LocalRecords/DominancePr_x1P.png}
+	\caption{$L_1=(-0.7,0)$, slumping pile location.}
+	\label{fig:Ramp-Prx1P}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+	\includegraphics[width=0.9\textwidth]{InclinedPlane/LocalRecords/DominancePr_x2P.png}
+	\caption{$L_2=(-0.35,0)$, middle point on inclined plane.}
+	\label{fig:Ramp-Prx2P}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+	\includegraphics[width=0.9\textwidth]{InclinedPlane/LocalRecords/DominancePr_x3P.png}
+	\caption{$L_3=(0,0)$, inclined and runout planes' joint location.}
+	\label{fig:Ramp-Prx3P}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+	\includegraphics[width=0.9\textwidth]{InclinedPlane/LocalRecords/DominancePr_x4P.png}
+	\caption{$L_4=(0.15,0)$, a location on runout plane.}
+	\label{fig:Ramp-Prx4P}
 \end{figure}
 
 
@@ -487,26 +546,26 @@ In the following we display the contribution coefficients barplots as a function
         \begin{minipage}[b]{0.5\linewidth}
                 \centering
                 \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF1_V_x.png}
-                \subcaption{$x=-0.7, \ y=0.0$, slumping pile location.}
+                \subcaption{$L_1=(-0.7,0)$, slumping pile location.}
                 \label{fig:Ramp-Vx1}
         \end{minipage}
         \begin{minipage}[b]{0.5\linewidth}
                 \centering
                 \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF8_V_x.png}
-                \subcaption{$x=-0.35, \ y=0.0$, middle point on inclined plane.}
+                \subcaption{$L_2=(-0.35,0)$, middle point on inclined plane.}
                 \label{fig:Ramp-Vx2}
         \end{minipage}
 
         \begin{minipage}[b]{0.5\linewidth}
                 \centering
                 \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF15_V_x.png}
-                \subcaption{$x=0, \ y=0$, inclined and runout planes' joint location.}
+                \subcaption{$L_3=(0,0)$, inclined and runout planes' joint location.}
                 \label{fig:Ramp-Vx3}
         \end{minipage}
         \begin{minipage}[b]{0.5\linewidth}
                 \centering
                 \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF17_V_x.png}
-                \subcaption{$x=0.15, \ y=0.0$, a location on runout plane.}
+                \subcaption{$L_4=(0.15,0)$, a location on runout plane.}
                 \label{fig:Ramp-Vx4}
         \end{minipage}
         \caption{Time history of mean values for force impact quotients, $\bar{q}_i(t)$, along runout direction, Voellmy-Salm model.}
@@ -517,33 +576,60 @@ In the following we display the contribution coefficients barplots as a function
         \begin{minipage}[b]{0.5\linewidth}
                 \centering
                 \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF1_V_y.png}
-                \subcaption{$x=-0.7, \ y=0.0$, slumping pile location.}
+                \subcaption{$L_1=(-0.7,0)$, slumping pile location.}
                 \label{fig:Ramp-Vy1}
         \end{minipage}
         \begin{minipage}[b]{0.5\linewidth}
                 \centering
                 \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF8_V_y.png}
-                \subcaption{$x=-0.35, \ y=0.0$, middle point on inclined plane.}
+                \subcaption{$L_2=(-0.35,0)$, middle point on inclined plane.}
                 \label{fig:Ramp-Vy2}
         \end{minipage}
 
         \begin{minipage}[b]{0.5\linewidth}
                 \centering
                 \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF15_V_y.png}
-                \subcaption{$x=0, \ y=0$, inclined and runout planes' joint location.}
+                \subcaption{$L_3=(0,0)$, inclined and runout planes' joint location.}
                 \label{fig:Ramp-Vy3}
         \end{minipage}
         \begin{minipage}[b]{0.5\linewidth}
                 \centering
                 \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF17_V_y.png}
-                \subcaption{$x=0.15, \ y=0.0$, a location on runout plane.}
+                \subcaption{$L_4=(0.15,0)$, a location on runout plane.}
                 \label{fig:Ramp-Vy4}
         \end{minipage}
         \caption{Time history of mean values for force impact quotients, $\bar{q}_i(t)$, along the lateral direction, Voellmy-Salm model.}
         \label{fig:Ramp-Vy}
 \end{figure}
 
+%% Probability plots
+\begin{figure}[H]
+\centering
+	\includegraphics[width=0.9\textwidth]{InclinedPlane/LocalRecords/DominancePr_x1V.png}
+	\caption{$L_1=(-0.7,0)$, slumping pile location.}
+	\label{fig:Ramp-Prx1V}
+\end{figure}
 
+\begin{figure}[H]
+\centering
+	\includegraphics[width=0.9\textwidth]{InclinedPlane/LocalRecords/DominancePr_x2V.png}
+	\caption{$L_2=(-0.35,0)$, middle point on inclined plane.}
+	\label{fig:Ramp-Prx2V}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+	\includegraphics[width=0.9\textwidth]{InclinedPlane/LocalRecords/DominancePr_x3V.png}
+	\caption{$L_3=(0,0)$, inclined and runout planes' joint location.}
+	\label{fig:Ramp-Prx3V}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+	\includegraphics[width=0.9\textwidth]{InclinedPlane/LocalRecords/DominancePr_x4V.png}
+	\caption{$L_4=(0.15,0)$, a location on runout plane.}
+	\label{fig:Ramp-Prx4V}
+\end{figure}
 
 \section{Results and Discussion -- All}
 
