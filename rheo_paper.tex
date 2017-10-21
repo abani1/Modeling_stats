@@ -13,6 +13,7 @@
 \def\dt{\partial t}
 \def\dx{\partial x}
 \def\dy{\partial y}
+
 \def\dz{\partial z}
 \def\BE{\begin{equation}}
 \def\EE{\end{equation}}
@@ -23,14 +24,37 @@
 \DeclareSymbolFont{largesymbolsA}{U}{txexa}{m}{n}
 \DeclareMathSymbol{\varprod}{\mathop}{largesymbolsA}{16}
 
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ $\square$}
+
 
 \begin{document}
 
 \title{\bf Modeling of Geophysical Flows -- Analysis of Models and Modeling Assumptions Using UQ}
-\author[1]{ Ali A. Safaei}
-\author[2]{A. Bevilacqua}
+\author[1]{ Ali Akhavan Safaei}
+\author[2]{Andrea Bevilacqua}
 \author[1,3]{Abani K. Patra}
-\author[4]{E. B. Pitman}
+\author[4]{E. Bruce Pitman}
 
 \affil[1]{\textit{Dept. of Mech. and  Aero. Eng., University at Buffalo, Buffalo NY 14260} }
 \affil[2]{\textit{Dept. of Geology., University at Buffalo, Buffalo NY 14260} }
@@ -49,12 +73,12 @@ subject of much continuing interest. Models that appear to represent the physics
 Nevertheless, given the large implications on life and property many models with different modeling assumptions have been proposed.
 
 While, inverse problems can shed some light on parameter choices it is difficult to make firm judgements on the validity or appropriateness of any single or set of modeling assumptions for a particular target flow or potential flows that needs to be modeled for predictive use in hazard analysis. We will present here an uncertainty quantification  based approach to carefully, analyze the effect of modeling assumptions on quantities of
-interest in simulations based on three established models (Mohr-Coulomb, Pouliqen-Fortere and Voellmy-Salm) and thereby derive a model (from a set of modeling assumptions) suitable for use in a particular context. We also illustrate that a simpler though more restrictive approach is to use a Bayesian modeling average approach based on the limited data to combine the outcomes of different models.
+interest in simulations based on three established models (Mohr-Coulomb, Pouliquen-Forterre and Voellmy-Salm) and thereby derive a model (from a set of modeling assumptions) suitable for use in a particular context. We also illustrate that a simpler though more restrictive approach is to use a Bayesian modeling average approach based on the limited data to combine the outcomes of different models.
 
 \newpage
 \section{Geophysical Flows and Review of Models -- Ali}\label{sec:GeoPhFlows}
 
-\subsection{An Overview of Geophysical Flow Types}\label{subsec:FlowTypes}
+\subsection{An Overview of Geophysical Flow Types - Ali}\label{subsec:FlowTypes}
 The term ``geophysical flow'' describes a broad class of flows that covers small mudflows and rockfalls, debris flows, pyroclastic density currents (including pumice and ash and block and ash flows), lava, and dry volcanic debris avalanches. Particles in block and ash flows, debris avalanches, and debris flows typically range from centimeters to meters in size. These flows are sometimes tens of kilometers in length and may travel at speeds as fast as hundreds of meters per second. Their deposits can be as much as 100 meters deep and kilometers long. In other words, there is no single universal description of a ``typical'' geophysical mass flow, even if we restrict ourselves to those flows occurring at a single volcano. Different types of flows are the results of different types of mechanisms/processes and so different types of flows will have significantly different physical characteristics. For the sake of clarification, let us consider three different types of events that are \textit{pyroclastic pumice and ash flow} (resulting from a column collapse), \textit{pyroclastic block and ash flow} (resulting from a dome collapse) an \textit{volcanic debris avalanche}.
 
 A column collapse pyroclastic flow is formed from a vertically-ejected eruption column. Instead of rising in the eruption plume, denser than air material collapses back to the ground and begins to flow as a gravity current. The kinetic energy of the material that lands on the upper slopes of the volcano is therefore redirected into downslope motion. These types of flow involve ash and low density pumiceous material, formed by vesiculation and fragmentation of gas-rich magmas in the volcanic conduit during the explosions. In a column collapse, during the horizontal component of flow, ambient air is entrained into the flow and heated. The flows therefore involve a mixture of hot gas, ash, and small pumice clasts (a few [cm] to 0.5 [m]). This extremely hot mixture can have initial downslope speeds in the range of 30 -- 80 meters per second. The volume of material involved in such a flow is roughly constrained to the volume of the plug and upper conduit (for short-lived explosive eruptions) and therefore will most likely be in the range $10^4$ -- $10^6$ [$\mathrm{m^3}$].
@@ -63,7 +87,7 @@ A dome collapse occurs when there is a significant amount of (recently extruded)
 
 A debris avalanche is the failure of a major part of an established volcanic edifice. These usually involve predominantly cold and mechanically weakened rocks as well as large volumes, up to tens of cubic kilometers. The triggering mechanism can be internal (such as the intrusion of new magma and pressurization) or external (such as seismic acceleration, rainfall, etc.). As such, the material involved in these events can be a mixture or fresh magmatic components as well as ancient hydrothermally weakened rocks. The material volume is usually in the range of $10^4$ -- 3$\times10^{10}$ [$\mathrm{m^3}$]. These types of flows are distinguished in that they involve large parts of the edifice that are not thoroughly broken up, i.e. some particles can be up to hundreds of meters or even kilometers in diameter.
 
-\subsection{Modeling Assumptions}\label{subsec:ModelAssump}
+\subsection{Modeling Assumptions - Ali}\label{subsec:ModelAssump}
 As a matter of fact, a very crucial feature of a sophisticated model for geophysical mass flows is that it is based on \textit{physical reasoning} and \textit{rigorous mathematical foundations}. Subsequently, several simplifying, but nevertheless realistic, assumptions were made that streamlined the mathematical formulation. They as follows:
 \begin{enumerate}
 \item The moving mass was assumed to be \textit{volume preserving}. Since the dynamics define the motion, assuming volume preserving is an adequate approximation.
@@ -76,7 +100,7 @@ As a matter of fact, a very crucial feature of a sophisticated model for geophys
 \item The shallowness assumption gives a \textit{hydrostatic} expression for the normal pressure in the direction perpendicular to the basal surface. Moreover, the downslope and cross-slope pressure components are assumed to be varying linearly with the normal pressure component through the flow depth. The coefficient could either be defined based on the rheology model or be constant \citep{SavageHutter,Bartelt1999,Iverson2001,Denlinger2001}.
 \end{enumerate}
 %This list is not comprehensive across the many models that have been proposed for such flows.
-\subsection{Governing Equations and Boundary Conditions}\label{subsec:GovEqsBCs}
+\subsection{Governing Equations and Boundary Conditions - Ali}\label{subsec:GovEqsBCs}
 Starting with the basic conservation of mass and momentum for an incompressible medium, we can describe the motion of an avalanching mass:
 \begin{eqnarray}\label{eq:N_S}
 \nabla \cdot\underline{{\textbf u}} &=& 0, \nonumber \\
@@ -105,16 +129,16 @@ where $\mu_{\mathrm{Bed}}$ is the basal friction coefficient and the basal and s
 \begin{equation}
 \underline{n}^b=\frac{\nabla F^b}{\Vert\nabla F^b\Vert}, \ \ \underline{n}^s=\frac{\nabla F^s}{\Vert\nabla F^s\Vert}.
 \end{equation}
-It is worth mentioning that $\underline{\underline{{\mathbf{T}}}} \ \underline{n}$ is a resisting traction, while $\underline{n}\cdot\underline{\underline{{\mathbf{T}}}} \ \underline{n}$ is the normal pressure and $\underline{n}\cdot\underline{\underline{{\mathbf{T}}}}-\underline{n}(\underline{n}\cdot\underline{\underline{{\mathbf{T}}}} \ \underline{n})$ is the resusting shear traction. Considering Equation (\ref{eq:BedTracBC}), Coulomb dry-friction sliding law expresses that the magnitude of the basal shear stress is equal to the normal basal pressure multiplied by the basal friction coefficient, $\mu_{\mathrm{Bed}}$. Furthermore, Equation (\ref{eq:BedTracBC}) is stating that the shear traction is assumed to point in the opposite direction to the basal velocity, $\underline{{\textbf u}}^b$ (resisting shear traction) which also implicitly assumes that $\underline{{\textbf u}}^b\cdot \underline{n}^b=0$ when we also consider the basal kinematic boundary condition.
+It is worth mentioning that $\underline{\underline{{\mathbf{T}}}} \ \underline{n}$ is a resisting traction, while $\underline{n}\cdot\underline{\underline{{\mathbf{T}}}} \ \underline{n}$ is the normal pressure and $\underline{n}\cdot\underline{\underline{{\mathbf{T}}}}-\underline{n}(\underline{n}\cdot\underline{\underline{{\mathbf{T}}}} \ \underline{n})$ is the resulting shear traction. Considering Equation (\ref{eq:BedTracBC}), Coulomb dry-friction sliding law expresses that the magnitude of the basal shear stress is equal to the normal basal pressure multiplied by the basal friction coefficient, $\mu_{\mathrm{Bed}}$. Furthermore, Equation (\ref{eq:BedTracBC}) is stating that the shear traction is assumed to point in the opposite direction to the basal velocity, $\underline{{\textbf u}}^b$ (resisting shear traction) which also implicitly assumes that $\underline{{\textbf u}}^b\cdot \underline{n}^b=0$ when we also consider the basal kinematic boundary condition.
 
 \subsection{Models}\label{subsec:Models}
 
-\section{UQ Process}
+\section{UQ Process - Andrea}
 The key purpose of this study is to present a procedure for the improved exploration and quantitative comparison of physical models and their assumptions through the collection of full statistical data. Models are not black boxes, behind each physical model there are different physical assumptions, and therefore it would be more appropriate to look at those instead than at the entire model results. Our statistical approach enables a first step towards a data driven selection of the best modeling assumptions to use.
 
 In particular, a good forecasting capability in the context of mass flows requires the careful selection of the pair $(M(A), P(M(A)))$, where $A$ is a set of assumptions, $M(A)$ is the model which combines those assumptions, and $P(M)$ is a probability distribution in the parameter space of $M$. An assumption is a quite general concept - for example it can be a specific equation for the internal stress, the implementation of bed curvature effects, of active-passive material stretching, or the use of a specific correction on the pressure effects, etc... Assumptions are what makes the models being different, and each model may be seen as the combined result of a set of assumptions. Sometimes a good model contains a useless assumption that may be removed, sometimes a good assumption should be implemented inside a different model - those are usually considered as subjective choices, not data driven. Moreover, the correct assumptions may change through time, making the analysis more difficult.
 
-It is worth mentioning that whereas the support of $P(M)$ can be restricted to a single point in case an optimization procedure is performed for the reconstruction of a particular flow, this is not possible if we are interested in the general predictive capabilities of the model, i.e. what is desired in probabilistic hazard assessment. In this study we will always assume $P(M)\sim \varprod_{i=1}^{N_M} Unif(a_{i,M},b_{i,M})$, where $N_M$ is the number of parameters of $M$. These parameter ranges will not be selected under the influence of a particular observation, but we will try to use the information gathered in literature about the physical meaning of those values.
+It is worth mentioning that whereas the support of $P(M)$ can be restricted to a single point in case an optimization procedure is performed for the reconstruction of a particular flow, this is not possible if we are interested in the general predictive capabilities of the model, i.e. what is desired in probabilistic hazard assessment. In this study we will always assume $P(M)\sim \bigotimes_{i=1}^{N_M} Unif(a_{i,M},b_{i,M})$, where $N_M$ is the number of parameters of $M$. These parameter ranges will not be selected under the influence of a particular observation, but we will try to use the information gathered in literature about the physical meaning of those values.
 
 In general, the simulation algorithms can be classified as:
 $$\textmd{(1)INPUT VARIABLES} \longrightarrow \textmd{(2)DYNAMICAL QUANTITIES} \longrightarrow \textmd{(3)OBSERVABLE OUTPUTS}$$
@@ -137,207 +161,41 @@ In general, for each QoI and degree of integration, during a Monte Carlo simulat
 
 Our sampling technique of the input variables is based on the Latin Hypercube idea, and in particular, on the orthogonal array-based Latin Hypercubes (Tang 1993).
 
-\subsection{Latin Hypercubes and orthogonal arrays}
-The Latin Hypercube Sampling (LHS) is a well established procedure for defining pseudo-random design of samples in $\mathbb R^d$ which have: (i) enhanced capability to fill the d-dimensional space, (ii) avoid overlapping of point locations in the one dimensional projections, (iii) reduce the dependence of the number of points necessary on the dimensionality $d$.
+\subsection{Latin Hypercubes and orthogonal arrays - Andrea}
+The Latin Hypercube Sampling (LHS) is a well established procedure for defining pseudo-random designs of samples in $\mathbb R^d$, with good properties with respect to the uniform probability distribution on an hypercube $[0,1]^d$. In particular, compared to a random sampling, a LHS: (i) enhances the capability to fill the d-dimensional space with a finite number of points, (ii) in case $d>1$, avoids the overlapping of point locations in the one dimensional projections, (iii) reduces the dependence of the number of points necessary on the dimensionality $d$.
 
-The procedure is simple: once the desired number of samples $N\in\mathbb N$ is selected, then the d-dimensional projections are divided in $N$ equal bins, and each bin will contain one and only one sample. There are a large number of possible designs, corresponding the number of permutations of the bins in the d-projections, i.e. $d\cdot N!$. If the permutations are randomly sampled there is a high possibility that the design will have good properties. However, this is not assured.
+\begin{definition}[Latin hypercube samplings]
+Let $\Xi=\{\xi_i\ :\ i=1,\dots,N\}$ be a set of points inside the d-dimensional hypercube $C=[0,1]^d$. Let $[0,1]=\bigcup_{j=1}^{N} I_j$, where $I_j=[\frac{(j-1)}{N},\frac{j}{N}]$. Let $\xi_i=\left(\xi_i^1,\dots,\xi_i^d\right)$, and for each $k\in\{1,\dots,d\}$, let $\Xi^k=\{\xi^k_i\ :\ i=1,\dots,N\}$. Let $\lambda^d$ be the uniform probability measure supported inside $C$, called Lebesgue measure. Then $\Xi$ is a latin hypercube w.r.t. $\lambda^d$ $\Longleftrightarrow$ $\forall j\in \{1,\dots,N\}$, $\forall k\in\{1,\dots,d\}$, $\left|I_j\cap\Xi^k\right|=1$.
+\end{definition}
 
-For this reason, we base our design on the orthogonal arrays (OA). An orthogonal array is an $n\times m$ matrix $Q$ with entries from a set of $s\ge 2 $ symbols. $Q$ is called an $OA(n,m,s,r)$ of strength $r$, size $n$, with $m$ constrains, and $s$ levels if each $n\times r$ submatrix of $Q$ contains all possible $1\times r$ row vectors with the same frequency $\lambda=n/s^r$, which is called the index of the array. Orthogonal arrays are very useful for defining latin hypercubes which are constrained to fill the space (or its r-dimensional subspaces) in a sufficient way.
+The procedure is simple: once the desired number of samples $N\in\mathbb N$ is selected, and $[0,1]$ is divided in $N$ equal bins, then each bin will contain one and only one projection of the samples over every coordinate. The LHS definition is trivially generalized over $C=\prod^d_i [a_i, b_i]$, i.e. the cartesian product of $d$ arbitrary intervals. That will be applied in this study, defining LHS over the parameter domain of the flow models.
 
-Let $Q$ be an $OA(n,m,s,r)$. Then for each column of $Q$ we replace the $\lambda s^{r-1}$ elements with entry $k$ by a random permutation of $\left((k-1)\lambda s^{r-1} + h\right)_{h\in 1,\dots, \lambda s^{r-1}}$. After the replacement procedure is done, the newly obtained matrix $U$ is a LHS which inherits from $Q$ the property of fully covering $s^r$ equal r-dimensional hypercubes in every r-dimensional projection. Each hypercube contains $\lambda$ points. In other words, inside each r-dimensional projection, the design associated to $U$ fills the space like a regular grid at the scale of those $s^r$ hypercubes, but it is still an LHS at a finer scale, i.e. the $\lambda s^{r-1}$ one dimensional bins.
+There are a large number of possible designs, corresponding the number of permutations of the bins in the d-projections, i.e. $d\cdot N!$. If the permutations are randomly sampled there is a high possibility that the design will have good properties. However, this is not assured, and clusters o points or regions of void space may be observed in $C$. For this reason, we base our design on the orthogonal arrays (OA).
 
-What happens in the projections with dimension $r'>r$ is not controlled, and randomizing procedures are made more difficult by the additional structure imposed by the $OA$. Moreover, the total number of points necessary to achieve a full design increases with $r$, and hence is affected by dimensionality issues.
+\begin{definition}[Orthogonal arrays]
+Let $S=\{1,\dots,s\}$, where $s\ge 2$. Let $Q\in S^{n\times m}$ be a matrix of such integer values. Then $Q$ is called an $OA(n,m,s,r)$ $\Longleftrightarrow$ each $n\times r$ submatrix of $Q$ contains all possible $1\times r$ row vectors with the same frequency $\lambda=n/s^r$, which is called the index of the array. In particular, $r$ is called the strength, $n$ the size, $(m\ge r)$ the constrains, and $s$ the levels of the array.
+\end{definition}
 
-Dealing with relatively small $d$, i.e. $d\in\{3,4\}$, we adopt a LHS $U$ created by a $OA(s^d,d,s,d)$. The strength is equal to the dimension $d$, hence the design fills the entire space like a $d$ dimensional grid, but it is a LHS as well. In this case there is one point in each hypercube, and $\lambda=1$. We took $s=8$ for the 3-dimensional designs, i.e. $512$ points; we took $s=6$ for the 4-dimensional designs, i.e. 1296 points.
+Orthogonal arrays are very useful for defining latin hypercubes which are also forced to fill the space (or its r-dimensional subspaces) in a more robust way, at the cost of potentially requiring a larger number of points than a traditional LHS.
+
+\begin{proposition}
+Let $Q$ be an $OA(n,m,s,r)$. Then let $U\in\mathbb R^{n\times m}$ be defined as follows:
+$$\forall k\in \{1,\dots,s\},\ \forall j\in \{1,\dots,m\},\ \left\{Q[\cdot,j]\ :\ Q[i,j]=k\right\} = \Pi\left(\{(k-1)\lambda s^{r-1},\dots, k\lambda s^{r-1}\}\right),$$
+where $\Pi$ is a random permutation of $\lambda s^{r-1}$ elements. Then $\Xi=\{\xi_i=U[i,\cdot]\ :\ i=1,\dots,n\}$ is a LHS w.r.t to $\lambda^m$ over $C=[0,1]^m$. Moreover, let $[0,1]^r=\bigcup_{(h_1,\dots,h_r)=1}^{s} I_{(h_i)}$, where $I_{(h_i)}=\prod^r_i[\frac{(h_i-1)}{s},\frac{h_i}{s}]$. Then $\forall D=(d_1,\dots,d_r)\subseteq \{1,\dots,m\}$, let $\Xi^D=\{(\xi^{d_1},\dots,\xi^{d_r})\ :\ i=1,\dots,n\}$. We have that
+$$\forall k\in \{1,\dots,s\},\ \forall (h_i\ : i=1,\dots,r)\in\{1,\dots,d\}^r,\ \left|I_{(k_i)}\cap\Xi^D\right|=\lambda.$$
+\end{proposition}
+
+For each column of $Q$ we are replacing the $\lambda s^{r-1}$ elements with entry $k$ by a random permutation of $\left((k-1)\lambda s^{r-1} + h\right)_{h\in 1,\dots, \lambda s^{r-1}}$. After the replacement procedure is done, the newly obtained matrix $U$ is equivalent to a LHS which inherits from $Q$ the property of fully covering $s^r$ equal r-dimensional hypercubes in every r-dimensional projection. Each hypercube contains $\lambda$ points. In other words, inside each r-dimensional projection, the design associated to $U$ fills the space like a regular grid at the scale of those $s^r$ hypercubes, but it is still an LHS at a finer scale, i.e. the $\lambda s^{r-1}$ one dimensional bins. The proof is a straightforward verification of the required properties.
+
+However, even in an LHS based on an $OA(n,m,s,r)$, if $r<m$ what happens in the projections with dimension $r'>r$ is not controlled, and randomizing procedures are made more difficult by the additional structure imposed by the $OA$. Moreover, the total number of points necessary to achieve a full design increases with $r$, and hence is affected by dimensionality issues.
+
+Dealing with relatively small $d$, i.e. $d\in\{3,4\}$, we adopt a LHS $U$ created by a $OA(s^d,d,s,d)$. The strength is equal to the dimension $d$, hence the design fills the entire space like a $d$ dimensional grid, but it is a LHS as well. In this case there is one point in each hypercube, and $\lambda=1$. We take $s=8$ for the 3-dimensional designs over the parameter space of Mohr-Coulomb and Voellmy-Salm models, i.e. $512$ points; we took $s=6$ for the 4-dimensional designs over the more complex parameter space of the Pouliquen-Forterre model, i.e. 1296 points.
 
 \section{QoIs and Data Collected}
-\subsection{Flow down an inclined plane}
-In order to investigate the effects of constituent elements of each rheology model, we are interested in computing the quantitative contribution of each force component (gravitational, basal friction and material resistence forces) to the time evolution of the flowing material. However, there is not a straight forward way to simply obtain the quantitative contribution of these force components. The reason is that ``total force'' is not necerssarily a positive/negative or non-zero figure along time that we can simply extract the contribution of each force component based on it; therefore, the leading force component may vary with time. Furthermore, we there is no precise way to carry out this study without considering the spatial effects for the bulk of flowing material just as function of time. As a result, we pick four different locations on the planes center line, $y=0$, that are the slumping pile location ($x=-0.7$), middle of the inclined plane ($x=-0.35$), joint location of inclined and runout planes ($x=0.0$), and on the runout plane ($x=0.15$). According to the specified threshold for flow thickness, $h>1.0$ mm, we may consider temporal invaded region and check if the specified locations are inside that region. If so, we may find the maximum absolute value of force elements along each direction so that we can obtain the magnitude and type of ``dominant'' force elements, $\vert F_{\mathrm{dominant}}\vert$, along runout and lateral directions. Having computed temporal $\vert F_{\mathrm{dominant}}(t)\vert$, we now divide all the force components by $\vert F_{\mathrm{dominant}}(t)\vert$, so that the resulting quotients, $q_i(t)_{i=1,2,3,4}$, show us the temporal impact of each force type and its direction at the specified locations. We should consider that if $q_{\mathrm{dominant}}(t)=\pm 1$, the $i^\mathrm{{th}}$ force component is the dominant one and the other three non-dominant quotients would be $0 \leq \vert q_i(t) \vert < 1$. This is true for a sample simulated flow; however, when we consider the entire flow regime inside an ensemble of simulations, we can take the mean values of $q_i(t)$ as fair measure for the temporal impact of each force type and its direction (with respect to the flow direction) along the whole ensemble range. We should note that after taking the mean values of $\bar{q}_i(t)$, the dominant ones are \textit{not necessarily} $\bar{q}_{\mathrm{dominant}}(t)=\pm 1$; nevertheless, their absolute values are larger than other non-dominant averaged quotients. the following three sections include the results of the impact quotients, $\bar{q}_i(t)$ for the three rheology models of our study.
-\subsubsection{Mohr-Coulomb Model, Force Impact Quotients}
-\begin{figure}[H]
-        \begin{minipage}[b]{0.5\linewidth}
-                \centering
-                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF1_C_x.png}
-                \subcaption{$x=-0.7, \ y=0.0$, slumping pile location.}
-                \label{fig:Ramp-Cx1}
-        \end{minipage}
-        \begin{minipage}[b]{0.5\linewidth}
-                \centering
-                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF8_C_x.png}
-                \subcaption{$x=-0.35, \ y=0.0$, middle point on inclined plane.}
-                \label{fig:Ramp-Cx2}
-        \end{minipage}
-
-        \begin{minipage}[b]{0.5\linewidth}
-                \centering
-                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF15_C_x.png}
-                \subcaption{$x=0, \ y=0$, inclined and runout planes' joint location.}
-                \label{fig:Ramp-Cx3}
-        \end{minipage}
-        \begin{minipage}[b]{0.5\linewidth}
-                \centering
-                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF17_C_x.png}
-                \subcaption{$x=0.15, \ y=0.0$, a location on runout plane.}
-                \label{fig:Ramp-Cx4}
-        \end{minipage}
-        \caption{Time history of mean values for force impact quotients, $\bar{q}_i(t)$, along runout direction, Mohr-Coulomb model.}
-        \label{fig:Ramp-Cx}
-\end{figure}
-
-\begin{figure}[H]
-        \begin{minipage}[b]{0.5\linewidth}
-                \centering
-                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF1_C_y.png}
-                \subcaption{$x=-0.7, \ y=0.0$, slumping pile location.}
-                \label{fig:Ramp-Cy1}
-        \end{minipage}
-        \begin{minipage}[b]{0.5\linewidth}
-                \centering
-                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF8_C_y.png}
-                \subcaption{$x=-0.35, \ y=0.0$, middle point on inclined plane.}
-                \label{fig:Ramp-Cy2}
-        \end{minipage}
-
-        \begin{minipage}[b]{0.5\linewidth}
-                \centering
-                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF15_C_y.png}
-                \subcaption{$x=0, \ y=0$, inclined and runout planes' joint location.}
-                \label{fig:Ramp-Cy3}
-        \end{minipage}
-        \begin{minipage}[b]{0.5\linewidth}
-                \centering
-                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF17_C_y.png}
-                \subcaption{$x=0.15, \ y=0.0$, a location on runout plane.}
-                \label{fig:Ramp-Cy4}
-        \end{minipage}
-        \caption{Time history of mean values for force impact quotients, $\bar{q}_i(t)$, along the lateral direction, Mohr-Coulomb model.}
-        \label{fig:Ramp-Cy}
-\end{figure}
-
-\subsubsection{Pouliquen-Forterre Model, Force  Impact Quotients}
-\begin{figure}[H]
-        \begin{minipage}[b]{0.5\linewidth}
-                \centering
-                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF1_P_x.png}
-                \subcaption{$x=-0.7, \ y=0.0$, slumping pile location.}
-                \label{fig:Ramp-Px1}
-        \end{minipage}
-        \begin{minipage}[b]{0.5\linewidth}
-                \centering
-                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF8_P_x.png}
-                \subcaption{$x=-0.35, \ y=0.0$, middle point on inclined plane.}
-                \label{fig:Ramp-Px2}
-        \end{minipage}
-
-        \begin{minipage}[b]{0.5\linewidth}
-                \centering
-                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF15_P_x.png}
-                \subcaption{$x=0, \ y=0$, inclined and runout planes' joint location.}
-                \label{fig:Ramp-Px3}
-        \end{minipage}
-        \begin{minipage}[b]{0.5\linewidth}
-                \centering
-                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF17_P_x.png}
-                \subcaption{$x=0.15, \ y=0.0$, a location on runout plane.}
-                \label{fig:Ramp-Px4}
-        \end{minipage}
-        \caption{Time history of mean values for force impact quotients, $\bar{q}_i(t)$, along runout direction, Pouliquen-Forterre model.}
-        \label{fig:Ramp-Px}
-\end{figure}
-
-\begin{figure}[H]
-        \begin{minipage}[b]{0.5\linewidth}
-                \centering
-                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF1_P_y.png}
-                \subcaption{$x=-0.7, \ y=0.0$, slumping pile location.}
-                \label{fig:Ramp-Py1}
-        \end{minipage}
-        \begin{minipage}[b]{0.5\linewidth}
-                \centering
-                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF8_P_y.png}
-                \subcaption{$x=-0.35, \ y=0.0$, middle point on inclined plane.}
-                \label{fig:Ramp-Py2}
-        \end{minipage}
-
-        \begin{minipage}[b]{0.5\linewidth}
-                \centering
-                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF15_P_y.png}
-                \subcaption{$x=0, \ y=0$, inclined and runout planes' joint location.}
-                \label{fig:Ramp-Py3}
-        \end{minipage}
-        \begin{minipage}[b]{0.5\linewidth}
-                \centering
-                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF17_P_y.png}
-                \subcaption{$x=0.15, \ y=0.0$, a location on runout plane.}
-                \label{fig:Ramp-Py4}
-        \end{minipage}
-        \caption{Time history of mean values for force impact quotients, $\bar{q}_i(t)$, along the lateral direction, Pouliquen-Forterre model.}
-        \label{fig:Ramp-Py}
-\end{figure}
+\subsection{Flow down an inclined plane, and a change in slope to a flat plane}
 
 
-\subsubsection{Voellmy-Salm Model, Force Impact Quotients}
-\begin{figure}[H]
-        \begin{minipage}[b]{0.5\linewidth}
-                \centering
-                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF1_V_x.png}
-                \subcaption{$x=-0.7, \ y=0.0$, slumping pile location.}
-                \label{fig:Ramp-Vx1}
-        \end{minipage}
-        \begin{minipage}[b]{0.5\linewidth}
-                \centering
-                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF8_V_x.png}
-                \subcaption{$x=-0.35, \ y=0.0$, middle point on inclined plane.}
-                \label{fig:Ramp-Vx2}
-        \end{minipage}
-
-        \begin{minipage}[b]{0.5\linewidth}
-                \centering
-                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF15_V_x.png}
-                \subcaption{$x=0, \ y=0$, inclined and runout planes' joint location.}
-                \label{fig:Ramp-Vx3}
-        \end{minipage}
-        \begin{minipage}[b]{0.5\linewidth}
-                \centering
-                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF17_V_x.png}
-                \subcaption{$x=0.15, \ y=0.0$, a location on runout plane.}
-                \label{fig:Ramp-Vx4}
-        \end{minipage}
-        \caption{Time history of mean values for force impact quotients, $\bar{q}_i(t)$, along runout direction, Voellmy-Salm model.}
-        \label{fig:Ramp-Vx}
-\end{figure}
-
-\begin{figure}[H]
-        \begin{minipage}[b]{0.5\linewidth}
-                \centering
-                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF1_V_y.png}
-                \subcaption{$x=-0.7, \ y=0.0$, slumping pile location.}
-                \label{fig:Ramp-Vy1}
-        \end{minipage}
-        \begin{minipage}[b]{0.5\linewidth}
-                \centering
-                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF8_V_y.png}
-                \subcaption{$x=-0.35, \ y=0.0$, middle point on inclined plane.}
-                \label{fig:Ramp-Vy2}
-        \end{minipage}
-
-        \begin{minipage}[b]{0.5\linewidth}
-                \centering
-                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF15_V_y.png}
-                \subcaption{$x=0, \ y=0$, inclined and runout planes' joint location.}
-                \label{fig:Ramp-Vy3}
-        \end{minipage}
-        \begin{minipage}[b]{0.5\linewidth}
-                \centering
-                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF17_V_y.png}
-                \subcaption{$x=0.15, \ y=0.0$, a location on runout plane.}
-                \label{fig:Ramp-Vy4}
-        \end{minipage}
-        \caption{Time history of mean values for force impact quotients, $\bar{q}_i(t)$, along the lateral direction, Voellmy-Salm model.}
-        \label{fig:Ramp-Vy}
-\end{figure}
-
-\subsubsection{Temporal Records for Bulk of flowing material}
+\subsubsection{Temporal Records for Bulk of flowing material (Spatial averages) - Ali}
 
 \begin{figure}[H]
         \begin{minipage}[b]{0.5\linewidth}
@@ -376,7 +234,7 @@ In order to investigate the effects of constituent elements of each rheology mod
                 \subcaption{Mohr-Coulomb model, lateral direction.}
                 \label{fig:Ramp-SP-Fy-C}
         \end{minipage}
-        
+
         \begin{minipage}[b]{0.5\linewidth}
                 \centering
                 \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/P_Global_Fx.png}
@@ -452,6 +310,325 @@ In order to investigate the effects of constituent elements of each rheology mod
         \end{minipage}
         \caption{Full statistics of temporal records of inundated area by the flowing material.}
         \label{fig:Ramp-SP-InundAr}
+\end{figure}
+
+
+\subsubsection{Force contributions - Andrea+Ali}
+A statistical analysis capable of measuring the contributions of different force components in the rheology models is a fundamental task. This is also necessary to explore and compare the effects of the assumptions behind some modeling choices, onto the time evolution of the flowing material. Let $(F_i(x,t))_{i=1,\dots, n}$ be the array of force components, where $x\in\mathbb R^2$ is a spatial location, and $t\in T$ is a time instant. In our case study, $F_1$ is the gravitational force, $F_2$ is the basal friction, $F_3$ is the curvature correction, $F_4$ is a resistant force (or a pressure gradient corrective term, in the case of Pouliquen-Forterre rheology). However, this type of procedure can be applied to any additive decomposition of the physical forces. In this case we are projecting the forces on the directions X and Y, i.e. respectively in the slope direction, and orthogonal to the slope direction on an horizontal plane. Hence in the following the forces are scalar and not vectorial terms. It is important to remark that all the forces are depending on the sample $\eta$ on the parameter domains, and hence are considered as random variables.
+
+The degree of contribution of those force terms is significantly variable in space and time. For this reason, the following analysis is performed on locally sampled measurements, and not in a spatial averaging framework. In particular, four locations are selected among the center line of the flow. These are: the initial pile location $x_1=-0.7$ m, the middle of the inclined plane $x_2=-0.35$ m, the change in slope $x_3=0$ m, the middle of the flat plane $x_4=0.15$ m. Next notation will assume to be in a selected location $x=x_k$, where $k\in\{1,\dots, 4\}$. The definitions are not depending on the location, but all the results will significantly depend of that choice.
+
+The \emph{total force}, i.e $\sum_i F_i$, is not a good candidate with respect to which calculating the force contributions. Indeed, the terms often have opposite signs, and their sum can be really small. The core idea is to define instead the \emph{dominant force}, i.e. $\Phi:=\max_i |F_i|$. Moreover, another issue is given by the existence of a subset of times $\Theta$ characterized by the absence of flow in the selected location $x$. In $\Theta$ the dominant force is null, and cannot be adopted as a normalizing factor.
+
+\begin{definition}[Contribution coefficients]
+Let $(F_i)_{i=1,\dots, n}$ be random variables on $(\Omega, \mathcal F, P)$, representing the considered force components in location $x$ at time $t$. Then, for each component $i$, the contribution coefficient is defined as:
+$$C_i:=\mathbb E\left[\frac{F_i}{\Phi}\right],$$
+where $\Phi$ is the dominant force, defined as:
+$$\Phi:=\left\{
+    \begin{array}{ll}
+      \max_i |F_i|, & \hbox{if not null;} \\
+      1, & \hbox{otherwise.}
+    \end{array}
+  \right.$$
+\end{definition}
+
+In particular, for a particular location $x$, time $t$, and parameter sample $\eta$, we have three cases: $C_i=1$ if $F_i$ was the dominant component; $C_i=\frac{F_i}{|F_j|}<1$ if there is flow and $F_{j\neq i}$ is the dominant component; $C_i=0$ if there is no flow and all the forces are null. So taking the expectation of this random variable gives a value which is always in $[-1,1]$. Its value is reduced by the chance of $F_i$ being small compared to the leading term, or by the chance of having no flow in $(x,t)$. There is a useful result explaining the meaning of those coefficients through the conditional expectation.
+
+\begin{proposition}
+Let $(F_i)_{i=1,\dots, n}$ be random variables on $(\Omega, \mathcal F, P)$, representing the considered force components in location $x$ at time $t$. For each $i$, let $C_i$ be the contribution coefficient of force $F_i$. Then we have the following expression:
+$$C_i=\sum_j p_j \mathbb E\left[\frac{F_i}{|F_j|}\ \Big{|}\ \Phi=|F_j|\right],$$
+where $p_j:=P\left\{\Phi=|F_j|\right\}$.
+\end{proposition}
+
+\begin{proof}
+Let $Z$ be a discrete random variable such that, for each $j\in\mathbb N$, $(Z=j) \Longleftrightarrow (\Phi=|F_j|)$. Then, by the rule of chain expectation:
+$$C_i=\mathbb E\left[\frac{F_i}{\Phi}\right]=\mathbb E\left[\mathbb E\left[\frac{F_i}{\Phi}\ \Big{|}\ Z=j\right]\right]=$$
+$$=\mathbb E\left[\mathbb E\left[\frac{F_i}{|F_j|}\ \Big{|}\ Z=j\right]\right]=\sum_j P\left\{Z=j\right\} \mathbb E\left[\frac{F_i}{|F_j|}\ \Big{|}\ Z=j\right].$$
+Moreover, by definition, $p_j=P\left\{Z=j\right\}$. This completes the proof.
+\end{proof}
+
+The last proposition brings to the definition of the conditional contributions $\left(C_{ij}\right)_{i,j\in 1,\dots, k}$, and of the dominance factors $(p_j)_{j=1,\dots, k}$.
+
+\begin{definition}[Conditional contributions and dominance factors]
+Let $(F_i)_{i=1,\dots, k}$ be random variables on $(\Omega, \mathcal F, P)$, representing arbitrary force components in location $x$ at time $t$. Then, for each pair of components $(i,j)$, the conditional contribution is defined as:
+$$C_{i,j}:=\mathbb E\left[\frac{F_i}{|F_j|}\ \Big{|}\ \Phi=|F_j|\right],$$
+where $\Phi$ is the dominant force. Moreover, for each component $i$, the dominance factor is defined as:
+$$p_j:=P\left\{\Phi=|F_j|\right\}.$$
+\end{definition}
+
+In the following we display the contribution coefficients barplots as a function of time, for the locations $x_1,\dots,x_4$ defined above. Moreover, we report the conditional contributions and dominance factors in some special cases.
+
+
+\subsubsection{Mohr-Coulomb Model, Force Contribution Coefficients - Ali}
+\begin{figure}[H]
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF1_C_x.png}
+                \subcaption{$L_1=(-0.7,0)$, slumping pile location.}
+                \label{fig:Ramp-Cx1}
+        \end{minipage}
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF8_C_x.png}
+                \subcaption{$L_2=(-0.35,0)$, middle point on inclined plane.}
+                \label{fig:Ramp-Cx2}
+        \end{minipage}
+
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF15_C_x.png}
+                \subcaption{$L_3=(0,0)$, inclined and runout planes' joint location.}
+                \label{fig:Ramp-Cx3}
+        \end{minipage}
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF17_C_x.png}
+                \subcaption{$L_4=(0.15,0)$, a location on runout plane.}
+                \label{fig:Ramp-Cx4}
+        \end{minipage}
+        \caption{Time history of mean values for force impact quotients, $\bar{q}_i(t)$, along runout direction, Mohr-Coulomb model.}
+        \label{fig:Ramp-Cx}
+\end{figure}
+
+\begin{figure}[H]
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF1_C_y.png}
+                \subcaption{$L_1=(-0.7,0)$, slumping pile location.}
+                \label{fig:Ramp-Cy1}
+        \end{minipage}
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF8_C_y.png}
+                \subcaption{$L_2=(-0.35,0)$, middle point on inclined plane.}
+                \label{fig:Ramp-Cy2}
+        \end{minipage}
+
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF15_C_y.png}
+                \subcaption{$L_3=(0,0)$, inclined and runout planes' joint location.}
+                \label{fig:Ramp-Cy3}
+        \end{minipage}
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF17_C_y.png}
+                \subcaption{$L_4=(0.15,0)$, a location on runout plane.}
+                \label{fig:Ramp-Cy4}
+        \end{minipage}
+        \caption{Time history of mean values for force impact quotients, $\bar{q}_i(t)$, along the lateral direction, Mohr-Coulomb model.}
+        \label{fig:Ramp-Cy}
+\end{figure}
+
+%% Probability plots
+\begin{figure}[H]
+\centering
+	\includegraphics[width=0.9\textwidth]{InclinedPlane/LocalRecords/DominancePr_x1C.png}
+	\caption{$L_1=(-0.7,0)$, slumping pile location.}
+	\label{fig:Ramp-Prx1C}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+	\includegraphics[width=0.9\textwidth]{InclinedPlane/LocalRecords/DominancePr_x2C.png}
+	\caption{$L_2=(-0.35,0)$, middle point on inclined plane.}
+	\label{fig:Ramp-Prx2C}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+	\includegraphics[width=0.9\textwidth]{InclinedPlane/LocalRecords/DominancePr_x3C.png}
+	\caption{$L_3=(0,0)$, inclined and runout planes' joint location.}
+	\label{fig:Ramp-Prx3C}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+	\includegraphics[width=0.9\textwidth]{InclinedPlane/LocalRecords/DominancePr_x4C.png}
+	\caption{$L_4=(0.15,0)$, a location on runout plane.}
+	\label{fig:Ramp-Prx4C}
+\end{figure}
+
+\subsubsection{Pouliquen-Forterre Model, Force  Contribution Coefficients - Ali}
+\begin{figure}[H]
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF1_P_x.png}
+                \subcaption{$L_1=(-0.7,0)$, slumping pile location.}
+                \label{fig:Ramp-Px1}
+        \end{minipage}
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF8_P_x.png}
+                \subcaption{$L_2=(-0.35,0)$, middle point on inclined plane.}
+                \label{fig:Ramp-Px2}
+        \end{minipage}
+
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF15_P_x.png}
+                \subcaption{$L_3=(0,0)$, inclined and runout planes' joint location.}
+                \label{fig:Ramp-Px3}
+        \end{minipage}
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF17_P_x.png}
+                \subcaption{$L_4=(0.15,0)$, a location on runout plane.}
+                \label{fig:Ramp-Px4}
+        \end{minipage}
+        \caption{Time history of mean values for force impact quotients, $\bar{q}_i(t)$, along runout direction, Pouliquen-Forterre model.}
+        \label{fig:Ramp-Px}
+\end{figure}
+
+\begin{figure}[H]
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF1_P_y.png}
+                \subcaption{$L_1=(-0.7,0)$, slumping pile location.}
+                \label{fig:Ramp-Py1}
+        \end{minipage}
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF8_P_y.png}
+                \subcaption{$L_2=(-0.35,0)$, middle point on inclined plane.}
+                \label{fig:Ramp-Py2}
+        \end{minipage}
+
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF15_P_y.png}
+                \subcaption{$L_3=(0,0)$, inclined and runout planes' joint location.}
+                \label{fig:Ramp-Py3}
+        \end{minipage}
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF17_P_y.png}
+                \subcaption{$L_4=(0.15,0)$, a location on runout plane.}
+                \label{fig:Ramp-Py4}
+        \end{minipage}
+        \caption{Time history of mean values for force impact quotients, $\bar{q}_i(t)$, along the lateral direction, Pouliquen-Forterre model.}
+        \label{fig:Ramp-Py}
+\end{figure}
+
+
+%% Probability plots
+\begin{figure}[H]
+\centering
+	\includegraphics[width=0.9\textwidth]{InclinedPlane/LocalRecords/DominancePr_x1P.png}
+	\caption{$L_1=(-0.7,0)$, slumping pile location.}
+	\label{fig:Ramp-Prx1P}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+	\includegraphics[width=0.9\textwidth]{InclinedPlane/LocalRecords/DominancePr_x2P.png}
+	\caption{$L_2=(-0.35,0)$, middle point on inclined plane.}
+	\label{fig:Ramp-Prx2P}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+	\includegraphics[width=0.9\textwidth]{InclinedPlane/LocalRecords/DominancePr_x3P.png}
+	\caption{$L_3=(0,0)$, inclined and runout planes' joint location.}
+	\label{fig:Ramp-Prx3P}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+	\includegraphics[width=0.9\textwidth]{InclinedPlane/LocalRecords/DominancePr_x4P.png}
+	\caption{$L_4=(0.15,0)$, a location on runout plane.}
+	\label{fig:Ramp-Prx4P}
+\end{figure}
+
+
+\subsubsection{Voellmy-Salm Model, Force Contribution Coefficients - Ali}
+\begin{figure}[H]
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF1_V_x.png}
+                \subcaption{$L_1=(-0.7,0)$, slumping pile location.}
+                \label{fig:Ramp-Vx1}
+        \end{minipage}
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF8_V_x.png}
+                \subcaption{$L_2=(-0.35,0)$, middle point on inclined plane.}
+                \label{fig:Ramp-Vx2}
+        \end{minipage}
+
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF15_V_x.png}
+                \subcaption{$L_3=(0,0)$, inclined and runout planes' joint location.}
+                \label{fig:Ramp-Vx3}
+        \end{minipage}
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF17_V_x.png}
+                \subcaption{$L_4=(0.15,0)$, a location on runout plane.}
+                \label{fig:Ramp-Vx4}
+        \end{minipage}
+        \caption{Time history of mean values for force impact quotients, $\bar{q}_i(t)$, along runout direction, Voellmy-Salm model.}
+        \label{fig:Ramp-Vx}
+\end{figure}
+
+\begin{figure}[H]
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF1_V_y.png}
+                \subcaption{$L_1=(-0.7,0)$, slumping pile location.}
+                \label{fig:Ramp-Vy1}
+        \end{minipage}
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF8_V_y.png}
+                \subcaption{$L_2=(-0.35,0)$, middle point on inclined plane.}
+                \label{fig:Ramp-Vy2}
+        \end{minipage}
+
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF15_V_y.png}
+                \subcaption{$L_3=(0,0)$, inclined and runout planes' joint location.}
+                \label{fig:Ramp-Vy3}
+        \end{minipage}
+        \begin{minipage}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF17_V_y.png}
+                \subcaption{$L_4=(0.15,0)$, a location on runout plane.}
+                \label{fig:Ramp-Vy4}
+        \end{minipage}
+        \caption{Time history of mean values for force impact quotients, $\bar{q}_i(t)$, along the lateral direction, Voellmy-Salm model.}
+        \label{fig:Ramp-Vy}
+\end{figure}
+
+%% Probability plots
+\begin{figure}[H]
+\centering
+	\includegraphics[width=0.9\textwidth]{InclinedPlane/LocalRecords/DominancePr_x1V.png}
+	\caption{$L_1=(-0.7,0)$, slumping pile location.}
+	\label{fig:Ramp-Prx1V}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+	\includegraphics[width=0.9\textwidth]{InclinedPlane/LocalRecords/DominancePr_x2V.png}
+	\caption{$L_2=(-0.35,0)$, middle point on inclined plane.}
+	\label{fig:Ramp-Prx2V}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+	\includegraphics[width=0.9\textwidth]{InclinedPlane/LocalRecords/DominancePr_x3V.png}
+	\caption{$L_3=(0,0)$, inclined and runout planes' joint location.}
+	\label{fig:Ramp-Prx3V}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+	\includegraphics[width=0.9\textwidth]{InclinedPlane/LocalRecords/DominancePr_x4V.png}
+	\caption{$L_4=(0.15,0)$, a location on runout plane.}
+	\label{fig:Ramp-Prx4V}
 \end{figure}
 
 \section{Results and Discussion -- All}
