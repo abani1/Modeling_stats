@@ -1,0 +1,50 @@
+-NOTES-
+
+PLAN
+-CALCULATE FROUDE NUMBER 
+
+-CHANGE PARAMETER RANGES phi_bed should be smaller, second parameter should be phi_int-phi_bed, in [3-10] deg.
+Do the same change also for the Voellmy and Pouliquen.
+
+-NORMALIZATION STRATEGY oF PARAMETER SPACES? MAYBE BASED ON THE NORM OF DEVIATORIC STRESS?
+
+
+-MAKE PLOT of 'EVER INVADED AREA' THROUGH TIME - WE CAN SIMPLY GET THE AREA OF MAXPILEHEIGHT MATRIX WHICH IS ABOVE THE FLOW_TINY 
+
+-INCLUDE left-hand side FORCES PLOTS - inertial and convective
+
+-PLOT TOGHETER SAME FORCE BUT DIFFERENT MODELS.
+
+-MAKE ANOTHER CONTRIBUTION COEFFICIENT, WITH PHI:= \sum_i |F_i|/2, including fictious forces.
+
+
+
+-MAKE ANOVA IN ADDITION TO EXPECTATION (i.e. MAX CONTRIBUTION TO VARIANCE OF THE TOTAL FORCE)
+
+
+-PLOT DIFFERENCE OF FLOWS COMPARING DIFFERENT MODELS? POSSIBLY plot at time t THE MAX of DIFFERENCE OVER TIME [0,t].
+
+
+-make the variance based analysis in an appendix to justify parameter space reduction of Pouliquen.
+
+
+-INCLUDE PLOT OF THE REAL EXPERIMENT, and manually shift time axis to better fit the simulation. 
+Say that we are not making further analysis because measures are difficult and we are not making calibration, but parameter spaces exploration here.
+
+
+
+
+
+
+SMALL CORRECTIONS
+-put caption above the figures
+
+-correct everywhere: local 'forces' are indeed local 'stresses'. We should use the term 'force' if we divide by m2. 10^4 N/m2 is not a force.
+Another strategy is to divide by the element area and plot the Newtons obtained.
+
+-make section 1.2 less volcanological
+
+
+-split section 1.3 in two - kinematic + rheology assumptions
+
+-put global average plots before local plots
