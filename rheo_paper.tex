@@ -57,7 +57,7 @@
 \author[4]{E. Bruce Pitman}
 
 \affil[1]{\textit{Dept. of Mech. and  Aero. Eng., University at Buffalo, Buffalo NY 14260} }
-\affil[2]{\textit{Dept. of Geology., University at Buffalo, Buffalo NY 14260} }
+\affil[2]{\textit{Dept. of Geology, University at Buffalo, Buffalo NY 14260} }
 \affil[3]{\textit{Comp. Data Science and Eng., University at Buffalo, Buffalo NY 14260} }
 \affil[4]{\textit{Dept. of Materials Design and Innovation, University at Buffalo, NY, 14260}}
 
@@ -80,10 +80,10 @@ interest in simulations based on three established models (Mohr-Coulomb, Pouliqu
 
 \subsection{An Overview of Geophysical Flow Types - Ali}\label{subsec:FlowTypes}
 The term ``geophysical flow'' describes a broad class of flows that covers small mudflows and rockfalls, debris flows, pyroclastic density currents (including pumice and ash and block and ash flows), lava, and dry volcanic debris avalanches. Particles in block and ash flows, debris avalanches, and debris flows typically range from centimeters to meters in size. These flows are sometimes tens of kilometers in length and may travel at speeds as fast as hundreds of meters per second. Their deposits can be as much as 100 meters deep and kilometers long. In other words, there is no single universal description of a ``typical'' geophysical mass flow, even if we restrict ourselves to those flows occurring at a single volcano. Different types of flows are the results of different types of mechanisms/processes and so different types of flows will have significantly different physical characteristics. For the sake of clarification, let us consider three different types of events that are \textit{pyroclastic pumice and ash flow} (resulting from a column collapse), \textit{pyroclastic block and ash flow} (resulting from a dome collapse) an \textit{volcanic debris avalanche}.
-  
+
   {\bf Make Less Volcano specific??}
-  
-  
+
+
 A column collapse pyroclastic flow is formed from a vertically-ejected eruption column. Instead of rising in the eruption plume, denser than air material collapses back to the ground and begins to flow as a gravity current. The kinetic energy of the material that lands on the upper slopes of the volcano is therefore redirected into downslope motion. These types of flow involve ash and low density pumiceous material, formed by vesiculation and fragmentation of gas-rich magmas in the volcanic conduit during the explosions. In a column collapse, during the horizontal component of flow, ambient air is entrained into the flow and heated. The flows therefore involve a mixture of hot gas, ash, and small pumice clasts (a few [cm] to 0.5 [m]). This extremely hot mixture can have initial downslope speeds in the range of 30 -- 80 meters per second. The volume of material involved in such a flow is roughly constrained to the volume of the plug and upper conduit (for short-lived explosive eruptions) and therefore will most likely be in the range $10^4$ -- $10^6$ [$\mathrm{m^3}$].
 
 A dome collapse occurs when there is a significant amount of (recently extruded) viscous lava piled up in an unstable configuration around a vent. Further extrusion and/or externals forces such as intense rainfall cause the still hot dome of viscous lava to collapse, disintegrate, and avalanche downhill. The hot, dense blocks in this ``block and ash'' flow will typically range from centimeters to a few meters in size. The matrix is composed of fine ash from the comminuted blocks. The amount of material involved in these collapses is constrained by the size of the newly extruded and still hot dome but usually involves volumes in the range $10^4$ -- $10^8$ [$\mathrm{m^3}$].
@@ -162,40 +162,36 @@ A first approach to look at the data is to choose a reasonable design of spatial
 
 In general, for each QoI and degree of integration, during a Monte Carlo simulation we sample the input variables and obtain a family of temporal graphs in (A), (B), and numeric values in (C), (D). These results are statistically summarized - plotting their expectation, their standard deviation, their 5th and 95 percentiles. Their correlation structure is also explored, presenting the plots of the Pearson coefficients of the most interesting pairs of quantities in (1), (2), (3). In the following, we will detail the considered input variables and quantities of interest for each of our cases study.
 
-Our sampling technique of the input variables is based on the Latin Hypercube idea, and in particular, on the orthogonal array-based Latin Hypercubes (Tang 1993).
+Our sampling technique of the input variables is based on the Latin Hypercube Sampling (LHS) idea, and in particular, on the improved space-filling properties of the orthogonal array-based Latin Hypercubes (see Appendix A). The LHS is performed over $[0,1]^3$ for the MC and VS input parameters, and $[0,1]^4$ for PF input parameters. Those samples are homothetically transformed to fill the required intervals.
 
-\subsection{Latin Hypercubes and orthogonal arrays - Andrea}
-The Latin Hypercube Sampling (LHS) is a well established procedure for defining pseudo-random designs of samples in $\mathbb R^d$, with good properties with respect to the uniform probability distribution on an hypercube $[0,1]^d$. In particular, compared to a random sampling, a LHS: (i) enhances the capability to fill the d-dimensional space with a finite number of points, (ii) in case $d>1$, avoids the overlapping of point locations in the one dimensional projections, (iii) reduces the dependence of the number of points necessary on the dimensionality $d$.
+\subsection{Definition and consistency of the Input parameters}
+In general, the three rheologies considered in this study, MC, PF, and VS, have different parameters, but in all them it is defined a basal friction stress $F$. That is $F=\tan(\phi_{bed})$ in MC, $F=\tan(\phi_2)$ for $Fr\gg h$ in PF, $F=\mu$ in VS. We use those relations to define parameter spaces which produce reasonably consistent ranges of basal frictions. In the following sections, we start defining a range for $\phi_{bed}$ of MC, specific of the scenario and obtained from the more rich literature of that rheology, then we impose a consistent range for the related parameters of PF and VS, and leave the other parameters unchanged. In particular:
 
-\begin{definition}[Latin hypercube samplings]
-Let $\Xi=\{\xi_i\ :\ i=1,\dots,N\}$ be a set of points inside the d-dimensional hypercube $C=[0,1]^d$. Let $[0,1]=\bigcup_{j=1}^{N} I_j$, where $I_j=[\frac{(j-1)}{N},\frac{j}{N}]$. Let $\xi_i=\left(\xi_i^1,\dots,\xi_i^d\right)$, and for each $k\in\{1,\dots,d\}$, let $\Xi^k=\{\xi^k_i\ :\ i=1,\dots,N\}$. Let $\lambda^d$ be the uniform probability measure supported inside $C$, called Lebesgue measure. Then $\Xi$ is a latin hypercube w.r.t. $\lambda^d$ $\Longleftrightarrow$ $\forall j\in \{1,\dots,N\}$, $\forall k\in\{1,\dots,d\}$, $\left|I_j\cap\Xi^k\right|=1$.
-\end{definition}
+\vskip.3cm\noindent \textbf{MC}
+\par\noindent $\phi_{bed} \in [a, b]$, depending on the case study.
+\par\noindent $\phi_{int}-\phi_{bed}=\Delta \phi \in [2, 10]$, following \cite{Dalbey2008a}, but 25\% enlargement on the higher side of the uncertainty range.
 
-The procedure is simple: once the desired number of samples $N\in\mathbb N$ is selected, and $[0,1]$ is divided in $N$ equal bins, then each bin will contain one and only one projection of the samples over every coordinate. The LHS definition is trivially generalized over $C=\prod^d_i [a_i, b_i]$, i.e. the cartesian product of $d$ arbitrary intervals. That will be applied in this study, defining LHS over the parameter domain of the flow models.
+\vskip.3cm\noindent \textbf{PF}
+\par\noindent $\phi_2 = \phi_{bed}$, but with $\sim$20\% enlargement on the higher side of the uncertainty range.
+\par\noindent $\phi_2-\phi_1=\Delta \phi_{12} \in [5, 15]$ (\cite{Gray2014} used 9 degrees, \cite{Barker2015} 11 degrees).
+\par\noindent $\beta \in [0.1, 0.85]$  (\cite{Gray2014} assumed $\beta=0.14$, \cite{Forterre2003} $\beta=0.65$)
+\par\noindent $L=10^{-3}$, $\phi_3=35$ \citep{Gray2014} due to their reduced sensitivity (see Appendix B).
 
-There are a large number of possible designs, corresponding the number of permutations of the bins in the d-projections, i.e. $d\cdot N!$. If the permutations are randomly sampled there is a high possibility that the design will have good properties. However, this is not assured, and clusters o points or regions of void space may be observed in $C$. For this reason, we base our design on the orthogonal arrays (OA).
-
-\begin{definition}[Orthogonal arrays]
-Let $S=\{1,\dots,s\}$, where $s\ge 2$. Let $Q\in S^{n\times m}$ be a matrix of such integer values. Then $Q$ is called an $OA(n,m,s,r)$ $\Longleftrightarrow$ each $n\times r$ submatrix of $Q$ contains all possible $1\times r$ row vectors with the same frequency $\lambda=n/s^r$, which is called the index of the array. In particular, $r$ is called the strength, $n$ the size, $(m\ge r)$ the constrains, and $s$ the levels of the array.
-\end{definition}
-
-Orthogonal arrays are very useful for defining latin hypercubes which are also forced to fill the space (or its r-dimensional subspaces) in a more robust way, at the cost of potentially requiring a larger number of points than a traditional LHS.
-
-\begin{proposition}
-Let $Q$ be an $OA(n,m,s,r)$. Then let $U\in\mathbb R^{n\times m}$ be defined as follows:
-$$\forall k\in \{1,\dots,s\},\ \forall j\in \{1,\dots,m\},\ \left\{Q[\cdot,j]\ :\ Q[i,j]=k\right\} = \Pi\left(\{(k-1)\lambda s^{r-1},\dots, k\lambda s^{r-1}\}\right),$$
-where $\Pi$ is a random permutation of $\lambda s^{r-1}$ elements. Then $\Xi=\{\xi_i=U[i,\cdot]\ :\ i=1,\dots,n\}$ is a LHS w.r.t to $\lambda^m$ over $C=[0,1]^m$. Moreover, let $[0,1]^r=\bigcup_{(h_1,\dots,h_r)=1}^{s} I_{(h_i)}$, where $I_{(h_i)}=\prod^r_i[\frac{(h_i-1)}{s},\frac{h_i}{s}]$. Then $\forall D=(d_1,\dots,d_r)\subseteq \{1,\dots,m\}$, let $\Xi^D=\{(\xi^{d_1},\dots,\xi^{d_r})\ :\ i=1,\dots,n\}$. We have that
-$$\forall k\in \{1,\dots,s\},\ \forall (h_i\ : i=1,\dots,r)\in\{1,\dots,d\}^r,\ \left|I_{(k_i)}\cap\Xi^D\right|=\lambda.$$
-\end{proposition}
-
-For each column of $Q$ we are replacing the $\lambda s^{r-1}$ elements with entry $k$ by a random permutation of $\left((k-1)\lambda s^{r-1} + h\right)_{h\in 1,\dots, \lambda s^{r-1}}$. After the replacement procedure is done, the newly obtained matrix $U$ is equivalent to a LHS which inherits from $Q$ the property of fully covering $s^r$ equal r-dimensional hypercubes in every r-dimensional projection. Each hypercube contains $\lambda$ points. In other words, inside each r-dimensional projection, the design associated to $U$ fills the space like a regular grid at the scale of those $s^r$ hypercubes, but it is still an LHS at a finer scale, i.e. the $\lambda s^{r-1}$ one dimensional bins. The proof is a straightforward verification of the required properties.
-
-However, even in an LHS based on an $OA(n,m,s,r)$, if $r<m$ what happens in the projections with dimension $r'>r$ is not controlled, and randomizing procedures are made more difficult by the additional structure imposed by the $OA$. Moreover, the total number of points necessary to achieve a full design increases with $r$, and hence is affected by dimensionality issues.
-
-Dealing with relatively small $d$, i.e. $d\in\{3,4\}$, we adopt a LHS $U$ created by a $OA(s^d,d,s,d)$. The strength is equal to the dimension $d$, hence the design fills the entire space like a $d$ dimensional grid, but it is a LHS as well. In this case there is one point in each hypercube, and $\lambda=1$. We take $s=8$ for the 3-dimensional designs over the parameter space of Mohr-Coulomb and Voellmy-Salm models, i.e. $512$ points; we took $s=6$ for the 4-dimensional designs over the more complex parameter space of the Pouliquen-Forterre model, i.e. 1296 points.
+\vskip.3cm\noindent \textbf{VS}
+\par\noindent $\mu = \tan(\phi_{bed})$, with $\sim$20\% enlargement of the uncertainty range.
+\par\noindent $\log(\xi) \in [1.7, 4] = \log[50, 10^4]$, i.e. in this case the uniform sampling is accomplished in log-scale.
 
 \section{QoIs and Data Collected}
 \subsection{Flow down an inclined plane, and a change in slope to a flat plane}
+The parameter ranges adopted in this case study are:
+
+\vskip.3cm\noindent \textbf{MC} - $\phi_{bed} \in [15, 30]$ \citep{Dalbey2008a}, $\quad \Delta\phi \in [2, 10]$.
+
+\vskip.3cm\noindent \textbf{PF} - $\phi_2 \in [15, 35]$, $\quad\Delta\phi_{12} \in [5, 15]$, $\quad\beta \in [0.1, 0.85]$, $\quad L=10^{-3}$, $\quad \phi_3=34$.
+
+\vskip.3cm\noindent \textbf{VS} - $\mu \in [0.2, 0.7]$, $\quad \log(\xi) \in [1.7, 4]$.
+
+
 
 \subsubsection{Temporal Records for flowing material (Local Measurements) - Ali}
 
@@ -212,7 +208,7 @@ Dealing with relatively small $d$, i.e. $d\in\{3,4\}$, we adopt a LHS $U$ create
     	\subcaption{$L=(-0.35,0)$, middle point on inclined plane.}
     	\label{fig:Ramp-L2-Vel}
     \end{minipage}
-    
+
 	\begin{minipage}[b]{0.5\linewidth}
     	\centering
     	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Vel_L15.png}
@@ -226,7 +222,7 @@ Dealing with relatively small $d$, i.e. $d\in\{3,4\}$, we adopt a LHS $U$ create
     	\label{fig:Ramp-L4-Vel}
     \end{minipage}
     \caption{Records of flow velocity, $\Vert \underline{\mathbf{u}} \Vert(L,t)$.}
-    \label{fig:Ramp-LM-Vel}    
+    \label{fig:Ramp-LM-Vel}
 \end{figure}
 
 \begin{figure}[H]
@@ -242,7 +238,7 @@ Dealing with relatively small $d$, i.e. $d\in\{3,4\}$, we adopt a LHS $U$ create
     	\subcaption{$L=(-0.35,0)$, middle point on inclined plane.}
     	\label{fig:Ramp-L2-H}
     \end{minipage}
-    
+
 	\begin{minipage}[b]{0.5\linewidth}
     	\centering
     	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/H_L15.png}
@@ -256,7 +252,7 @@ Dealing with relatively small $d$, i.e. $d\in\{3,4\}$, we adopt a LHS $U$ create
     	\label{fig:Ramp-L4-H}
     \end{minipage}
     \caption{Records of flow height, $h(L,t)$.}
-    \label{fig:Ramp-LM-H}    
+    \label{fig:Ramp-LM-H}
 \end{figure}
 
 \begin{figure}[H]
@@ -272,7 +268,7 @@ Dealing with relatively small $d$, i.e. $d\in\{3,4\}$, we adopt a LHS $U$ create
     	\subcaption{$L=(-0.35,0)$, middle point on inclined plane.}
     	\label{fig:Ramp-L2-Acc}
     \end{minipage}
-    
+
 	\begin{minipage}[b]{0.5\linewidth}
     	\centering
     	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/accel_L15.png}
@@ -286,7 +282,7 @@ Dealing with relatively small $d$, i.e. $d\in\{3,4\}$, we adopt a LHS $U$ create
     	\label{fig:Ramp-L4-Acc}
     \end{minipage}
     \caption{Records of flow acceleration, $\Vert \underline{\mathbf{a}} \Vert(L,t)$.}
-    \label{fig:Ramp-LM-Acc}    
+    \label{fig:Ramp-LM-Acc}
 \end{figure}
 
 
@@ -303,7 +299,7 @@ Dealing with relatively small $d$, i.e. $d\in\{3,4\}$, we adopt a LHS $U$ create
     	\subcaption{$L=(-0.35,0)$, middle point on inclined plane.}
     	\label{fig:Ramp-L2-Ftot}
     \end{minipage}
-    
+
 	\begin{minipage}[b]{0.5\linewidth}
     	\centering
     	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Ftotal_L15.png}
@@ -317,7 +313,7 @@ Dealing with relatively small $d$, i.e. $d\in\{3,4\}$, we adopt a LHS $U$ create
     	\label{fig:Ramp-L4-Ftot}
     \end{minipage}
     \caption{Records of total forces.}
-    \label{fig:Ramp-LM-Ftot}     
+    \label{fig:Ramp-LM-Ftot}
 \end{figure}
 
 
@@ -334,7 +330,7 @@ Dealing with relatively small $d$, i.e. $d\in\{3,4\}$, we adopt a LHS $U$ create
     	\subcaption{$L=(-0.35,0)$, middle point on inclined plane.}
     	\label{fig:Ramp-L2-Fg}
     \end{minipage}
-    
+
 	\begin{minipage}[b]{0.5\linewidth}
     	\centering
     	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fg_L15.png}
@@ -348,7 +344,7 @@ Dealing with relatively small $d$, i.e. $d\in\{3,4\}$, we adopt a LHS $U$ create
     	\label{fig:Ramp-L4-Fg}
     \end{minipage}
     \caption{Records for gravitational forces.}
-    \label{fig:Ramp-LM-Fg}     
+    \label{fig:Ramp-LM-Fg}
 \end{figure}
 
 
@@ -365,7 +361,7 @@ Dealing with relatively small $d$, i.e. $d\in\{3,4\}$, we adopt a LHS $U$ create
     	\subcaption{$L=(-0.35,0)$, middle point on inclined plane.}
     	\label{fig:Ramp-L2-Fb}
     \end{minipage}
-    
+
 	\begin{minipage}[b]{0.5\linewidth}
     	\centering
     	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fb_L15.png}
@@ -379,7 +375,7 @@ Dealing with relatively small $d$, i.e. $d\in\{3,4\}$, we adopt a LHS $U$ create
     	\label{fig:Ramp-L4-Fb}
     \end{minipage}
     \caption{Records of basal friction forces with ``no curvature term'' effects.}
-    \label{fig:Ramp-LM-Fb}     
+    \label{fig:Ramp-LM-Fb}
 \end{figure}
 
 \begin{figure}[H]
@@ -395,7 +391,7 @@ Dealing with relatively small $d$, i.e. $d\in\{3,4\}$, we adopt a LHS $U$ create
     	\subcaption{$L=(-0.35,0)$, middle point on inclined plane.}
     	\label{fig:Ramp-L2-Fbc}
     \end{minipage}
-    
+
 	\begin{minipage}[b]{0.5\linewidth}
     	\centering
     	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fbc_L15.png}
@@ -409,7 +405,7 @@ Dealing with relatively small $d$, i.e. $d\in\{3,4\}$, we adopt a LHS $U$ create
     	\label{fig:Ramp-L4-Fbc}
     \end{minipage}
     \caption{Records of basal friction forces due to curvature terms.}
-    \label{fig:Ramp-LM-Fbc}    
+    \label{fig:Ramp-LM-Fbc}
 \end{figure}
 
 \begin{figure}[H]
@@ -425,7 +421,7 @@ Dealing with relatively small $d$, i.e. $d\in\{3,4\}$, we adopt a LHS $U$ create
     	\subcaption{$L=(-0.35,0)$, middle point on inclined plane.}
     	\label{fig:Ramp-L2-Fr}
     \end{minipage}
-    
+
 	\begin{minipage}[b]{0.5\linewidth}
     	\centering
     	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fr_L15.png}
@@ -439,7 +435,7 @@ Dealing with relatively small $d$, i.e. $d\in\{3,4\}$, we adopt a LHS $U$ create
     	\label{fig:Ramp-L4-Fr}
     \end{minipage}
     \caption{Material resistance force records.}
-    \label{fig:Ramp-LM-Fr}    
+    \label{fig:Ramp-LM-Fr}
 \end{figure}
 
 \subsubsection{Temporal Records for Bulk of flowing material (Spatial averages) - Ali}
@@ -879,8 +875,38 @@ In the following we display the contribution coefficients barplots as a function
 
 \section{Results and Discussion -- All}
 
+\section*{Appendix A: Latin Hypercubes and orthogonal arrays - Andrea}
+The Latin Hypercube Sampling (LHS) is a well established procedure for defining pseudo-random designs of samples in $\mathbb R^d$, with good properties with respect to the uniform probability distribution on an hypercube $[0,1]^d$ \citep{McKay1979,Stein1987,Ranjan2014,Mingyao2016}. In particular, compared to a random sampling, a LHS: (i) enhances the capability to fill the d-dimensional space with a finite number of points, (ii) in case $d>1$, avoids the overlapping of point locations in the one dimensional projections, (iii) reduces the dependence of the number of points necessary on the dimensionality $d$.
+
+\begin{definition}[Latin hypercube sampling]
+Let $\Xi=\{\xi_i\ :\ i=1,\dots,N\}$ be a set of points inside the d-dimensional hypercube $C=[0,1]^d$. Let $[0,1]=\bigcup_{j=1}^{N} I_j$, where $I_j=[\frac{(j-1)}{N},\frac{j}{N}]$. Let $\xi_i=\left(\xi_i^1,\dots,\xi_i^d\right)$, and for each $k\in\{1,\dots,d\}$, let $\Xi^k=\{\xi^k_i\ :\ i=1,\dots,N\}$. Let $\lambda^d$ be the uniform probability measure supported inside $C$, called Lebesgue measure. Then $\Xi$ is a latin hypercube w.r.t. $\lambda^d$ $\Longleftrightarrow$ $\forall j\in \{1,\dots,N\}$, $\forall k\in\{1,\dots,d\}$, $\left|I_j\cap\Xi^k\right|=1$.
+\end{definition}
+
+The procedure is simple: once the desired number of samples $N\in\mathbb N$ is selected, and $[0,1]$ is divided in $N$ equal bins, then each bin will contain one and only one projection of the samples over every coordinate. The LHS definition is trivially generalized over $C=\prod^d_i [a_i, b_i]$, i.e. the cartesian product of $d$ arbitrary intervals. That will be applied in this study, defining LHS over the parameter domain of the flow models.
+
+There are a large number of possible designs, corresponding the number of permutations of the bins in the d-projections, i.e. $d\cdot N!$. If the permutations are randomly sampled there is a high possibility that the design will have good properties. However, this is not assured, and clusters o points or regions of void space may be observed in $C$. For this reason, we base our design on the orthogonal arrays (OA) \citep{Owen1992,Tang1993}.
+
+\begin{definition}[Orthogonal arrays]
+Let $S=\{1,\dots,s\}$, where $s\ge 2$. Let $Q\in S^{n\times m}$ be a matrix of such integer values. Then $Q$ is called an $OA(n,m,s,r)$ $\Longleftrightarrow$ each $n\times r$ submatrix of $Q$ contains all possible $1\times r$ row vectors with the same frequency $\lambda=n/s^r$, which is called the index of the array. In particular, $r$ is called the strength, $n$ the size, $(m\ge r)$ the constrains, and $s$ the levels of the array.
+\end{definition}
+
+Orthogonal arrays are very useful for defining latin hypercubes which are also forced to fill the space (or its r-dimensional subspaces) in a more robust way, at the cost of potentially requiring a larger number of points than a traditional LHS.
+
+\begin{proposition}
+Let $Q$ be an $OA(n,m,s,r)$. Then let $U\in\mathbb R^{n\times m}$ be defined as follows:
+$$\forall k\in \{1,\dots,s\},\ \forall j\in \{1,\dots,m\},\ \left\{Q[\cdot,j]\ :\ Q[i,j]=k\right\} = \Pi\left(\{(k-1)\lambda s^{r-1},\dots, k\lambda s^{r-1}\}\right),$$
+where $\Pi$ is a random permutation of $\lambda s^{r-1}$ elements. Then $\Xi=\{\xi_i=U[i,\cdot]\ :\ i=1,\dots,n\}$ is a LHS w.r.t to $\lambda^m$ over $C=[0,1]^m$. Moreover, let $[0,1]^r=\bigcup_{(h_1,\dots,h_r)=1}^{s} I_{(h_i)}$, where $I_{(h_i)}=\prod^r_i[\frac{(h_i-1)}{s},\frac{h_i}{s}]$. Then $\forall D=(d_1,\dots,d_r)\subseteq \{1,\dots,m\}$, let $\Xi^D=\{(\xi^{d_1},\dots,\xi^{d_r})\ :\ i=1,\dots,n\}$. We have that
+$$\forall k\in \{1,\dots,s\},\ \forall (h_i\ : i=1,\dots,r)\in\{1,\dots,d\}^r,\ \left|I_{(k_i)}\cap\Xi^D\right|=\lambda.$$
+\end{proposition}
+
+For each column of $Q$ we are replacing the $\lambda s^{r-1}$ elements with entry $k$ by a random permutation of $\left((k-1)\lambda s^{r-1} + h\right)_{h\in 1,\dots, \lambda s^{r-1}}$. After the replacement procedure is done, the newly obtained matrix $U$ is equivalent to a LHS which inherits from $Q$ the property of fully covering $s^r$ equal r-dimensional hypercubes in every r-dimensional projection. Each hypercube contains $\lambda$ points. In other words, inside each r-dimensional projection, the design associated to $U$ fills the space like a regular grid at the scale of those $s^r$ hypercubes, but it is still an LHS at a finer scale, i.e. the $\lambda s^{r-1}$ one dimensional bins. A complete proof can be found in \cite{Tang1993} and it is a straightforward verification of the required properties.
+
+However, even in an LHS based on an $OA(n,m,s,r)$, if $r<m$ what happens in the projections with dimension $r'>r$ is not controlled, and randomizing procedures are made more difficult by the additional structure imposed by the $OA$. Moreover, the total number of points necessary to achieve a full design increases with $r$, and hence is affected by dimensionality issues.
+
+Dealing with relatively small $d$, i.e. $d\in\{3,4\}$, we adopt a LHS $U$ created by a $OA(s^d,d,s,d)$. The strength is equal to the dimension $d$, hence the design fills the entire space like a $d$ dimensional grid, but it is a LHS as well. In this case there is one point in each hypercube, and $\lambda=1$. We take $s=8$ for the 3-dimensional designs over the parameter space of Mohr-Coulomb and Voellmy-Salm models, i.e. $512$ points; we took $s=6$ for the 4-dimensional designs over the more complex parameter space of the Pouliquen-Forterre model, i.e. 1296 points.
+
 \newpage
-\bibliographystyle{unsrt}
+\bibliographystyle{apa}
 \bibliography{mybibfile}
 
 \end{document}
