@@ -556,28 +556,48 @@ The parameter ranges adopted in this case study are:
 \end{figure}
 
 \subsubsection{Force contributions - Andrea+Ali}
-A statistical analysis capable of measuring the contributions of different force components in the rheology models is a fundamental task. This is also necessary to explore and compare the effects of the assumptions behind some modeling choices, onto the time evolution of the flowing material. Let $(F_i(x,t))_{i=1,\dots, n}$ be the array of force components, where $x\in\mathbb R^2$ is a spatial location, and $t\in T$ is a time instant. In our case study, $F_1$ is the gravitational force, $F_2$ is the basal friction, $F_3$ is the curvature correction, $F_4$ is a resistant force (or a pressure gradient corrective term, in the case of Pouliquen-Forterre rheology). However, this type of procedure can be applied to any additive decomposition of the physical forces. In this case we are projecting the forces on the directions X and Y, i.e. respectively in the slope direction, and orthogonal to the slope direction on an horizontal plane. Hence in the following the forces are scalar and not vectorial terms. It is important to remark that all the forces are depending on the sample $\eta$ on the parameter domains, and hence are considered as random variables.
+A statistical analysis capable of measuring the contributions of different force components in the rheology models is a fundamental task. This is also necessary to explore and compare the effects of the assumptions behind some modeling choices, onto the time evolution of the flowing material. Let $(F_i(x,t))_{i=1,\dots, n}$ be the array of force components, where $x\in\mathbb R^2$ is a spatial location, and $t\in T$ is a time instant. In our case study, $F_1$ is the gravitational force, $F_2$ is the basal friction, $F_3$ is the curvature correction, $F_4$ is a resistant force (or the hydrostatic pressure term, in the case of Pouliquen-Forterre rheology). However, this type of procedure can be applied to any additive decomposition of the physical forces. In addition, we can include in the analysis also the component of the inertial forces, i.e. $F_4$ the convective force and $F_5$ the transient force. The analysis of local effects can be compared to the contribution of global dynamics.
+
+In this case we are projecting the forces on the directions X and Y, i.e. respectively in the slope direction, and orthogonal to the slope direction on an horizontal plane. Hence in the following the forces are scalar and not vectorial terms. It is important to remark that all the forces are depending on the sample $\eta$ on the parameter domains, and hence are considered as random variables.
 
 The degree of contribution of those force terms is significantly variable in space and time. For this reason, the following analysis is performed on locally sampled measurements, and not in a spatial averaging framework. In particular, four locations are selected among the center line of the flow. These are: the initial pile location $x_1=-0.7$ m, the middle of the inclined plane $x_2=-0.35$ m, the change in slope $x_3=0$ m, the middle of the flat plane $x_4=0.15$ m. Next notation will assume to be in a selected location $x=x_k$, where $k\in\{1,\dots, 4\}$. The definitions are not depending on the location, but all the results will significantly depend of that choice.
-
-The \emph{total force}, i.e $\sum_i F_i$, is not a good candidate with respect to which calculating the force contributions. Indeed, the terms often have opposite signs, and their sum can be really small. The core idea is to define instead the \emph{dominant force}, i.e. $\Phi:=\max_i |F_i|$. Moreover, another issue is given by the existence of a subset of times $\Theta$ characterized by the absence of flow in the selected location $x$. In $\Theta$ the dominant force is null, and cannot be adopted as a normalizing factor.
 
 \begin{definition}[Contribution coefficients]
 Let $(F_i)_{i=1,\dots, n}$ be random variables on $(\Omega, \mathcal F, P)$, representing the considered force components in location $x$ at time $t$. Then, for each component $i$, the contribution coefficient is defined as:
 $$C_i:=\mathbb E\left[\frac{F_i}{\Phi}\right],$$
-where $\Phi$ is the dominant force, defined as:
-$$\Phi:=\left\{
+where $\Phi$ is a dominating function, i.e. $\Phi\ge |F_i|$, $\forall i$.
+\end{definition}
+The \emph{total force}, i.e $\sum_i F_i$ excluding the inertial terms, is not a good candidate for a dominating function. Indeed, the terms often have opposite signs, and their sum can be really small. Another issue is given by the existence of a subset of times $\Theta$ characterized by the absence of flow in the selected location $x$. In $\Theta$ the dominant force is null, and cannot be the denominator of a fraction.
+
+We explore two alternative $\Phi$ choices: $\Phi_1$ is based on the $l^1$ norm, and defined as:
+$$\Phi_1:=\left\{
+    \begin{array}{ll}
+      \sum_i \frac{|F_i|}{2}, & \hbox{if not null;} \\
+      1, & \hbox{otherwise.}
+    \end{array}
+  \right.$$
+In case we exclude the inertial forces from the analysis, we must take $\hat{\Phi_1}=2\Phi_1$. In contrast $\Phi_2$ is the dominant force, based on the $l^\infty$ norm:
+$$\Phi_2:=\left\{
     \begin{array}{ll}
       \max_i |F_i|, & \hbox{if not null;} \\
       1, & \hbox{otherwise.}
     \end{array}
   \right.$$
-\end{definition}
-
-In particular, for a particular location $x$, time $t$, and parameter sample $\eta$, we have three cases: $C_i=1$ if $F_i$ was the dominant component; $C_i=\frac{F_i}{|F_j|}<1$ if there is flow and $F_{j\neq i}$ is the dominant component; $C_i=0$ if there is no flow and all the forces are null. So taking the expectation of this random variable gives a value which is always in $[-1,1]$. Its value is reduced by the chance of $F_i$ being small compared to the leading term, or by the chance of having no flow in $(x,t)$. There is a useful result explaining the meaning of those coefficients through the conditional expectation.
-
+In particular, for a particular location $x$, time $t$, and parameter sample $\eta$, we have $C_i=0$ if there is no flow or all the forces are null. The expectation of $C_i$ is reduced by the chance of $F_i$ being small compared to the other terms, or by the chance of having no flow in $(x,t)$. Moreover, $\mathbb E[C_i]\in[-1,1]$, $\forall i$.
 \begin{proposition}
-Let $(F_i)_{i=1,\dots, n}$ be random variables on $(\Omega, \mathcal F, P)$, representing the considered force components in location $x$ at time $t$. For each $i$, let $C_i$ be the contribution coefficient of force $F_i$. Then we have the following expression:
+Let $\Phi_k$, $k=1,2$ be the functions described above. Then they are well defined dominating function, i.e. $\Phi_k\ge |F_j|$, $\forall j,k$.
+\end{proposition}
+\begin{proof}
+If $k=1$, the Newton equation states $\sum_{j\in J} F_j =\sum_{i\in I} F_i,$ where $(F_j)_{j\in J}$ are inertial forces, and $(F_i)_{i\in I}$ the local forces. Then, $\forall h\in I$
+$$F_h=\sum_{i\neq h,\ i\in I} F_i - \sum_{j\in J} F_j.$$
+And hence
+$$|F_h|\le |F_h|+\sum_{i\neq k,\ i\in I} |F_i| - \sum_{j\in J} |F_j|=2\Phi_1.$$
+A similar equation is valid $\forall k\in J$. If $k=2$, or if the inertial forces are not included, the proof is trivial. 
+\end{proof}
+
+Furthermore, assuming $\Phi=\Phi_2$, there is a useful result explaining the meaning of those coefficients through the conditional expectation.
+\begin{proposition}
+Let $(F_i)_{i=1,\dots, n}$ be random variables on $(\Omega, \mathcal F, P)$, representing the considered force components in location $x$ at time $t$. For each $i$, let $C_i$ be the contribution coefficient of force $F_i$, assuming $\Phi=\Phi_2$. Then we have the following expression:
 $$C_i=\sum_j p_j \mathbb E\left[\frac{F_i}{|F_j|}\ \Big{|}\ \Phi=|F_j|\right],$$
 where $p_j:=P\left\{\Phi=|F_j|\right\}$.
 \end{proposition}
@@ -589,16 +609,16 @@ $$=\mathbb E\left[\mathbb E\left[\frac{F_i}{|F_j|}\ \Big{|}\ Z=j\right]\right]=\
 Moreover, by definition, $p_j=P\left\{Z=j\right\}$. This completes the proof.
 \end{proof}
 
-The last proposition brings to the definition of the conditional contributions $\left(C_{ij}\right)_{i,j\in 1,\dots, k}$, and of the dominance factors $(p_j)_{j=1,\dots, k}$.
+The last proposition brings to the definition of the dominance factors $(p_j)_{j=1,\dots, k}$, i.e. the probability of each $F_j$ to be the dominant force in $(x,t)$.
 
-\begin{definition}[Conditional contributions and dominance factors]
-Let $(F_i)_{i=1,\dots, k}$ be random variables on $(\Omega, \mathcal F, P)$, representing arbitrary force components in location $x$ at time $t$. Then, for each pair of components $(i,j)$, the conditional contribution is defined as:
+\begin{definition}[Dominance factors and conditional contributions]
+Let $(F_i)_{i=1,\dots, k}$ be random variables on $(\Omega, \mathcal F, P)$, representing arbitrary force components in location $x$ at time $t$. Then, for each pair of components $(i,j)$, the conditional contribution $C_{i,j}$ is defined as:
 $$C_{i,j}:=\mathbb E\left[\frac{F_i}{|F_j|}\ \Big{|}\ \Phi=|F_j|\right],$$
-where $\Phi$ is the dominant force. Moreover, for each component $i$, the dominance factor is defined as:
+where $\Phi=\Phi_2$ is the dominant force. In particular, for each component $i$, the dominance factor is defined as:
 $$p_j:=P\left\{\Phi=|F_j|\right\}.$$
 \end{definition}
 
-In the following we display the contribution coefficients barplots as a function of time, for the locations $x_1,\dots,x_4$ defined above. Moreover, we report the conditional contributions and dominance factors in some special cases.
+In the following we display the contribution coefficients barplots as a function of time, for the locations $x_1,\dots,x_4$ defined above. Moreover, we report the dominance factors plots, a very useful tool to read the dynamical significance of the forces as a function of time and location.
 
 
 \subsubsection{Mohr-Coulomb Model, Force Contribution Coefficients - Ali}
