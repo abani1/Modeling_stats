@@ -187,7 +187,7 @@ The parameter ranges adopted in this case study are:
 
 \vskip.3cm\noindent \textbf{MC} - $\phi_{bed} \in [15, 30]$ \citep{Dalbey2008a}, $\quad \Delta\phi \in [2, 10]$.
 
-\vskip.3cm\noindent \textbf{PF} - $\phi_2 \in [15, 35]$, $\quad\Delta\phi_{12} \in [5, 15]$, $\quad\beta \in [0.1, 0.85]$, $\quad L=10^{-3}$, $\quad \phi_3=34$.
+\vskip.3cm\noindent \textbf{PF} - $\phi_2 \in [15, 35]$, $\quad\Delta\phi_{12} \in [5, 15]$, $\quad\beta \in [0.1, 0.85]$, $\quad L=10^{-3}$, $\quad \phi_3=\phi_1 + 1$.
 
 \vskip.3cm\noindent \textbf{VS} - $\mu \in [0.2, 0.7]$, $\quad \log(\xi) \in [1.7, 4]$.
 
@@ -204,30 +204,37 @@ The parameter ranges adopted in this case study are:
 	\begin{minipage}[b]{0.5\linewidth}
     	\centering
     	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Vel_L1.png}
-    	\subcaption{$L=(-0.7,0)$, slumping pile location.}
+    	\subcaption{$L=(-0.7,0)$, .}
     	\label{fig:Ramp-L1-Vel}
 	\end{minipage}
 	\begin{minipage}[b]{0.5\linewidth}
 		\centering
-		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Vel_L8.png}
+		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Vel_L2.png}
     	\subcaption{$L=(-0.35,0)$, middle point on inclined plane.}
     	\label{fig:Ramp-L2-Vel}
     \end{minipage}
 
 	\begin{minipage}[b]{0.5\linewidth}
     	\centering
-    	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Vel_L15.png}
+    	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Vel_L3.png}
     	\subcaption{$L=(0,0)$, inclined and runout planes' joint location.}
     	\label{fig:Ramp-L3-Vel}
 	\end{minipage}
 	\begin{minipage}[b]{0.5\linewidth}
 		\centering
-		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Vel_L17.png}
+		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Vel_L4.png}
     	\subcaption{$L=(0.15,0)$,  a location on runout plane.}
     	\label{fig:Ramp-L4-Vel}
     \end{minipage}
     \caption{Records of flow velocity, $\Vert \underline{\mathbf{u}} \Vert(L,t)$.}
     \label{fig:Ramp-LM-Vel}
+\end{figure}
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Vel_mean.png}
+        \caption{Comparison between mean values of flow velocity, $\Vert \underline{\mathbf{u}} \Vert(L,t)$, recorded at locations of interest, $L_i, \ _{i=1,...,4}$.}
+        \label{fig:Ramp-LM-Vel-means}
 \end{figure}
 
 \begin{figure}[H]
@@ -239,20 +246,20 @@ The parameter ranges adopted in this case study are:
 	\end{minipage}
 	\begin{minipage}[b]{0.5\linewidth}
 		\centering
-		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/H_L8.png}
+		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/H_L2.png}
     	\subcaption{$L=(-0.35,0)$, middle point on inclined plane.}
     	\label{fig:Ramp-L2-H}
     \end{minipage}
 
 	\begin{minipage}[b]{0.5\linewidth}
     	\centering
-    	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/H_L15.png}
+    	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/H_L3.png}
     	\subcaption{$L=(0,0)$, inclined and runout planes' joint location.}
     	\label{fig:Ramp-L3-H}
 	\end{minipage}
 	\begin{minipage}[b]{0.5\linewidth}
 		\centering
-		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/H_L17.png}
+		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/H_L4.png}
     	\subcaption{$L=(0.15,0)$,  a location on runout plane.}
     	\label{fig:Ramp-L4-H}
     \end{minipage}
@@ -261,304 +268,488 @@ The parameter ranges adopted in this case study are:
 \end{figure}
 
 \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/H_mean.png}
+        \caption{Comparison between mean values of flow height, $h(L,t)$, recorded at locations of interest, $L_i, \ _{i=1,...,4}$.}
+        \label{fig:Ramp-LM-H-means}
+\end{figure}
+
+\begin{figure}[H]
 	\begin{minipage}[b]{0.5\linewidth}
     	\centering
-    	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/accel_L1.png}
+    	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/accel_L1R.png}
     	\subcaption{$L=(-0.7,0)$, slumping pile location.}
-    	\label{fig:Ramp-L1-Acc}
+    	\label{fig:Ramp-L1-AccR}
 	\end{minipage}
 	\begin{minipage}[b]{0.5\linewidth}
 		\centering
-		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/accel_L8.png}
+		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/accel_L2R.png}
     	\subcaption{$L=(-0.35,0)$, middle point on inclined plane.}
-    	\label{fig:Ramp-L2-Acc}
+    	\label{fig:Ramp-L2-AccR}
     \end{minipage}
 
 	\begin{minipage}[b]{0.5\linewidth}
     	\centering
-    	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/accel_L15.png}
+    	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/accel_L3R.png}
     	\subcaption{$L=(0,0)$, inclined and runout planes' joint location.}
-    	\label{fig:Ramp-L3-Acc}
+    	\label{fig:Ramp-L3-AccR}
 	\end{minipage}
 	\begin{minipage}[b]{0.5\linewidth}
 		\centering
-		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/accel_L17.png}
+		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/accel_L4R.png}
     	\subcaption{$L=(0.15,0)$,  a location on runout plane.}
-    	\label{fig:Ramp-L4-Acc}
+    	\label{fig:Ramp-L4-AccR}
     \end{minipage}
-    \caption{Records of flow acceleration, $\Vert \underline{\mathbf{a}} \Vert(L,t)$.}
-    \label{fig:Ramp-LM-Acc}
+    \caption{Records of flow acceleration (computed from RHS), $\Vert \underline{\mathbf{a}} \Vert(L,t)$.}
+    \label{fig:Ramp-LM-AccR}
+\end{figure}
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/accel_meanR.png}
+        \caption{Comparison between mean values of flow acceleration (computed from RHS), $\Vert \underline{a} \Vert(L,t)$, recorded at locations of interest, $L_i, \ _{i=1,...,4}$.}
+        \label{fig:Ramp-LM-AccR-means}
 \end{figure}
 
 
 \begin{figure}[H]
 	\begin{minipage}[b]{0.5\linewidth}
     	\centering
-    	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Ftotal_L1.png}
+    	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/accel_L1L.png}
     	\subcaption{$L=(-0.7,0)$, slumping pile location.}
-    	\label{fig:Ramp-L1-Ftot}
+    	\label{fig:Ramp-L1-AccL}
 	\end{minipage}
 	\begin{minipage}[b]{0.5\linewidth}
 		\centering
-		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Ftotal_L8.png}
+		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/accel_L2L.png}
     	\subcaption{$L=(-0.35,0)$, middle point on inclined plane.}
-    	\label{fig:Ramp-L2-Ftot}
+    	\label{fig:Ramp-L2-AccL}
     \end{minipage}
 
 	\begin{minipage}[b]{0.5\linewidth}
     	\centering
-    	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Ftotal_L15.png}
+    	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/accel_L3L.png}
     	\subcaption{$L=(0,0)$, inclined and runout planes' joint location.}
-    	\label{fig:Ramp-L3-Ftot}
+    	\label{fig:Ramp-L3-AccL}
 	\end{minipage}
 	\begin{minipage}[b]{0.5\linewidth}
 		\centering
-		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Ftotal_L17.png}
+		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/accel_L4L.png}
     	\subcaption{$L=(0.15,0)$,  a location on runout plane.}
-    	\label{fig:Ramp-L4-Ftot}
+    	\label{fig:Ramp-L4-AccL}
     \end{minipage}
-    \caption{Records of total forces.}
-    \label{fig:Ramp-LM-Ftot}
-\end{figure}
-
-
-\begin{figure}[H]
-	\begin{minipage}[b]{0.5\linewidth}
-    	\centering
-    	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fg_L1.png}
-    	\subcaption{$L=(-0.7,0)$, slumping pile location.}
-    	\label{fig:Ramp-L1-Fg}
-	\end{minipage}
-	\begin{minipage}[b]{0.5\linewidth}
-		\centering
-		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fg_L8.png}
-    	\subcaption{$L=(-0.35,0)$, middle point on inclined plane.}
-    	\label{fig:Ramp-L2-Fg}
-    \end{minipage}
-
-	\begin{minipage}[b]{0.5\linewidth}
-    	\centering
-    	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fg_L15.png}
-    	\subcaption{$L=(0,0)$, inclined and runout planes' joint location.}
-    	\label{fig:Ramp-L3-Fg}
-	\end{minipage}
-	\begin{minipage}[b]{0.5\linewidth}
-		\centering
-		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fg_L17.png}
-    	\subcaption{$L=(0.15,0)$,  a location on runout plane.}
-    	\label{fig:Ramp-L4-Fg}
-    \end{minipage}
-    \caption{Records for gravitational forces.}
-    \label{fig:Ramp-LM-Fg}
-\end{figure}
-
-
-\begin{figure}[H]
-	\begin{minipage}[b]{0.5\linewidth}
-    	\centering
-    	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fb_L1.png}
-    	\subcaption{$L=(-0.7,0)$, slumping pile location.}
-    	\label{fig:Ramp-L1-Fb}
-	\end{minipage}
-	\begin{minipage}[b]{0.5\linewidth}
-		\centering
-		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fb_L8.png}
-    	\subcaption{$L=(-0.35,0)$, middle point on inclined plane.}
-    	\label{fig:Ramp-L2-Fb}
-    \end{minipage}
-
-	\begin{minipage}[b]{0.5\linewidth}
-    	\centering
-    	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fb_L15.png}
-    	\subcaption{$L=(0,0)$, inclined and runout planes' joint location.}
-    	\label{fig:Ramp-L3-Fb}
-	\end{minipage}
-	\begin{minipage}[b]{0.5\linewidth}
-		\centering
-		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fb_L17.png}
-    	\subcaption{$L=(0.15,0)$,  a location on runout plane.}
-    	\label{fig:Ramp-L4-Fb}
-    \end{minipage}
-    \caption{Records of basal friction forces with ``no curvature term'' effects.}
-    \label{fig:Ramp-LM-Fb}
+    \caption{Records of flow acceleration (computed from LHS), $\Vert \underline{\mathbf{a}} \Vert(L,t)$.}
+    \label{fig:Ramp-LM-AccL}
 \end{figure}
 
 \begin{figure}[H]
-	\begin{minipage}[b]{0.5\linewidth}
-    	\centering
-    	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fbc_L1.png}
-    	\subcaption{$L=(-0.7,0)$, slumping pile location.}
-    	\label{fig:Ramp-L1-Fbc}
-	\end{minipage}
-	\begin{minipage}[b]{0.5\linewidth}
-		\centering
-		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fbc_L8.png}
-    	\subcaption{$L=(-0.35,0)$, middle point on inclined plane.}
-    	\label{fig:Ramp-L2-Fbc}
-    \end{minipage}
-
-	\begin{minipage}[b]{0.5\linewidth}
-    	\centering
-    	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fbc_L15.png}
-    	\subcaption{$L=(0,0)$, inclined and runout planes' joint location.}
-    	\label{fig:Ramp-L3-Fbc}
-	\end{minipage}
-	\begin{minipage}[b]{0.5\linewidth}
-		\centering
-		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fbc_L17.png}
-    	\subcaption{$L=(0.15,0)$,  a location on runout plane.}
-    	\label{fig:Ramp-L4-Fbc}
-    \end{minipage}
-    \caption{Records of basal friction forces due to curvature terms.}
-    \label{fig:Ramp-LM-Fbc}
+        \centering
+        \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/accel_meanL.png}
+        \caption{Comparison between mean values of flow acceleration (computed from LHS), $\Vert \underline{a} \Vert(L,t)$, recorded at locations of interest, $L_i, \ _{i=1,...,4}$.}
+        \label{fig:Ramp-LM-AccL-means}
 \end{figure}
 
-\begin{figure}[H]
-	\begin{minipage}[b]{0.5\linewidth}
-    	\centering
-    	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fr_L1.png}
-    	\subcaption{$L=(-0.7,0)$, slumping pile location.}
-    	\label{fig:Ramp-L1-Fr}
-	\end{minipage}
-	\begin{minipage}[b]{0.5\linewidth}
-		\centering
-		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fr_L8.png}
-    	\subcaption{$L=(-0.35,0)$, middle point on inclined plane.}
-    	\label{fig:Ramp-L2-Fr}
-    \end{minipage}
 
-	\begin{minipage}[b]{0.5\linewidth}
-    	\centering
-    	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fr_L15.png}
-    	\subcaption{$L=(0,0)$, inclined and runout planes' joint location.}
-    	\label{fig:Ramp-L3-Fr}
-	\end{minipage}
-	\begin{minipage}[b]{0.5\linewidth}
-		\centering
-		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fr_L17.png}
-    	\subcaption{$L=(0.15,0)$,  a location on runout plane.}
-    	\label{fig:Ramp-L4-Fr}
-    \end{minipage}
-    \caption{Material resistance force records.}
-    \label{fig:Ramp-LM-Fr}
-\end{figure}
+%\begin{figure}[H]
+%	\begin{minipage}[b]{0.5\linewidth}
+%    	\centering
+%    	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Ftotal_L1.png}
+%    	\subcaption{$L=(-0.7,0)$, slumping pile location.}
+%    	\label{fig:Ramp-L1-Ftot}
+%	\end{minipage}
+%	\begin{minipage}[b]{0.5\linewidth}
+%		\centering
+%		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Ftotal_L8.png}
+%    	\subcaption{$L=(-0.35,0)$, middle point on inclined plane.}
+%    	\label{fig:Ramp-L2-Ftot}
+%    \end{minipage}
+%
+%	\begin{minipage}[b]{0.5\linewidth}
+%    	\centering
+%    	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Ftotal_L15.png}
+%    	\subcaption{$L=(0,0)$, inclined and runout planes' joint location.}
+%    	\label{fig:Ramp-L3-Ftot}
+%	\end{minipage}
+%	\begin{minipage}[b]{0.5\linewidth}
+%		\centering
+%		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Ftotal_L17.png}
+%    	\subcaption{$L=(0.15,0)$,  a location on runout plane.}
+%    	\label{fig:Ramp-L4-Ftot}
+%    \end{minipage}
+%    \caption{Records of total forces.}
+%    \label{fig:Ramp-LM-Ftot}
+%\end{figure}
+%
+%
+%\begin{figure}[H]
+%	\begin{minipage}[b]{0.5\linewidth}
+%    	\centering
+%    	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fg_L1.png}
+%    	\subcaption{$L=(-0.7,0)$, slumping pile location.}
+%    	\label{fig:Ramp-L1-Fg}
+%	\end{minipage}
+%	\begin{minipage}[b]{0.5\linewidth}
+%		\centering
+%		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fg_L8.png}
+%    	\subcaption{$L=(-0.35,0)$, middle point on inclined plane.}
+%    	\label{fig:Ramp-L2-Fg}
+%    \end{minipage}
+%
+%	\begin{minipage}[b]{0.5\linewidth}
+%    	\centering
+%    	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fg_L15.png}
+%    	\subcaption{$L=(0,0)$, inclined and runout planes' joint location.}
+%    	\label{fig:Ramp-L3-Fg}
+%	\end{minipage}
+%	\begin{minipage}[b]{0.5\linewidth}
+%		\centering
+%		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fg_L17.png}
+%    	\subcaption{$L=(0.15,0)$,  a location on runout plane.}
+%    	\label{fig:Ramp-L4-Fg}
+%    \end{minipage}
+%    \caption{Records for gravitational forces.}
+%    \label{fig:Ramp-LM-Fg}
+%\end{figure}
+%
+%
+%\begin{figure}[H]
+%	\begin{minipage}[b]{0.5\linewidth}
+%    	\centering
+%    	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fb_L1.png}
+%    	\subcaption{$L=(-0.7,0)$, slumping pile location.}
+%    	\label{fig:Ramp-L1-Fb}
+%	\end{minipage}
+%	\begin{minipage}[b]{0.5\linewidth}
+%		\centering
+%		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fb_L8.png}
+%    	\subcaption{$L=(-0.35,0)$, middle point on inclined plane.}
+%    	\label{fig:Ramp-L2-Fb}
+%    \end{minipage}
+%
+%	\begin{minipage}[b]{0.5\linewidth}
+%    	\centering
+%    	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fb_L15.png}
+%    	\subcaption{$L=(0,0)$, inclined and runout planes' joint location.}
+%    	\label{fig:Ramp-L3-Fb}
+%	\end{minipage}
+%	\begin{minipage}[b]{0.5\linewidth}
+%		\centering
+%		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fb_L17.png}
+%    	\subcaption{$L=(0.15,0)$,  a location on runout plane.}
+%    	\label{fig:Ramp-L4-Fb}
+%    \end{minipage}
+%    \caption{Records of basal friction forces with ``no curvature term'' effects.}
+%    \label{fig:Ramp-LM-Fb}
+%\end{figure}
+%
+%\begin{figure}[H]
+%	\begin{minipage}[b]{0.5\linewidth}
+%    	\centering
+%    	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fbc_L1.png}
+%    	\subcaption{$L=(-0.7,0)$, slumping pile location.}
+%    	\label{fig:Ramp-L1-Fbc}
+%	\end{minipage}
+%	\begin{minipage}[b]{0.5\linewidth}
+%		\centering
+%		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fbc_L8.png}
+%    	\subcaption{$L=(-0.35,0)$, middle point on inclined plane.}
+%    	\label{fig:Ramp-L2-Fbc}
+%    \end{minipage}
+%
+%	\begin{minipage}[b]{0.5\linewidth}
+%    	\centering
+%    	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fbc_L15.png}
+%    	\subcaption{$L=(0,0)$, inclined and runout planes' joint location.}
+%    	\label{fig:Ramp-L3-Fbc}
+%	\end{minipage}
+%	\begin{minipage}[b]{0.5\linewidth}
+%		\centering
+%		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fbc_L17.png}
+%    	\subcaption{$L=(0.15,0)$,  a location on runout plane.}
+%    	\label{fig:Ramp-L4-Fbc}
+%    \end{minipage}
+%    \caption{Records of basal friction forces due to curvature terms.}
+%    \label{fig:Ramp-LM-Fbc}
+%\end{figure}
+%
+%\begin{figure}[H]
+%	\begin{minipage}[b]{0.5\linewidth}
+%    	\centering
+%    	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fr_L1.png}
+%    	\subcaption{$L=(-0.7,0)$, slumping pile location.}
+%    	\label{fig:Ramp-L1-Fr}
+%	\end{minipage}
+%	\begin{minipage}[b]{0.5\linewidth}
+%		\centering
+%		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fr_L8.png}
+%    	\subcaption{$L=(-0.35,0)$, middle point on inclined plane.}
+%    	\label{fig:Ramp-L2-Fr}
+%    \end{minipage}
+%
+%	\begin{minipage}[b]{0.5\linewidth}
+%    	\centering
+%    	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fr_L15.png}
+%    	\subcaption{$L=(0,0)$, inclined and runout planes' joint location.}
+%    	\label{fig:Ramp-L3-Fr}
+%	\end{minipage}
+%	\begin{minipage}[b]{0.5\linewidth}
+%		\centering
+%		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fr_L17.png}
+%    	\subcaption{$L=(0.15,0)$,  a location on runout plane.}
+%    	\label{fig:Ramp-L4-Fr}
+%    \end{minipage}
+%    \caption{Material resistance force records.}
+%    \label{fig:Ramp-LM-Fr}
+%\end{figure}
 
 \subsubsection{Temporal Records for Bulk of flowing material (Spatial averages) - Ali}
 
-\begin{figure}[H]
-        \begin{minipage}[b]{0.5\linewidth}
-                \centering
-                \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/C_Global_Vel.png}
-                \subcaption{Mohr-Coulomb model.}
-                \label{fig:Ramp-SP-Vel-C}
-        \end{minipage}
-        \begin{minipage}[b]{0.5\linewidth}
-                \centering
-                \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/P_Global_Vel.png}
-                \subcaption{Pouliquen-Forterre model.}
-                \label{fig:Ramp-SP-Vel-P}
-        \end{minipage}
+%\begin{figure}[H]
+%        \begin{minipage}[b]{0.5\linewidth}
+%                \centering
+%                \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/C_Global_Vel.png}
+%                \subcaption{Mohr-Coulomb model.}
+%                \label{fig:Ramp-SP-Vel-C}
+%        \end{minipage}
+%        \begin{minipage}[b]{0.5\linewidth}
+%                \centering
+%                \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/P_Global_Vel.png}
+%                \subcaption{Pouliquen-Forterre model.}
+%                \label{fig:Ramp-SP-Vel-P}
+%        \end{minipage}
+%
+%        \begin{minipage}[b]{1\linewidth}
+%                \centering
+%                \includegraphics[width=0.5\textwidth]{InclinedPlane/GlobalRecords/V_Global_Vel.png}
+%                \subcaption{Voellmy-Salm model.}
+%                \label{fig:Ramp-SP-Vel-V}
+%        \end{minipage}
+%        \caption{Full statistics of velocity records for bulk of material.}
+%        \label{fig:Ramp-SP-Vel}
+%\end{figure}
 
-        \begin{minipage}[b]{1\linewidth}
-                \centering
-                \includegraphics[width=0.5\textwidth]{InclinedPlane/GlobalRecords/V_Global_Vel.png}
-                \subcaption{Voellmy-Salm model.}
-                \label{fig:Ramp-SP-Vel-V}
-        \end{minipage}
-        \caption{Full statistics of velocity records for bulk of material.}
-        \label{fig:Ramp-SP-Vel}
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/crossEXTsStats.png}
+        \caption{Full statistics for temporal records of maximum flow extent along the lateral directions.}
+        \label{fig:Ramp-extLat}
 \end{figure}
 
 \begin{figure}[H]
-        \begin{minipage}[b]{0.5\linewidth}
-                \centering
-                \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/C_Global_Fx.png}
-                \subcaption{Mohr-Coulomb model, runout direction.}
-                \label{fig:Ramp-SP-Fx-C}
-        \end{minipage}
-        \begin{minipage}[b]{0.5\linewidth}
-                \centering
-                \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/C_Global_Fy.png}
-                \subcaption{Mohr-Coulomb model, lateral direction.}
-                \label{fig:Ramp-SP-Fy-C}
-        \end{minipage}
-
-        \begin{minipage}[b]{0.5\linewidth}
-                \centering
-                \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/P_Global_Fx.png}
-                \subcaption{Pouliquen-Forterre model, runout direction.}
-                \label{fig:Ramp-SP-Fx-P}
-        \end{minipage}
-        \begin{minipage}[b]{0.5\linewidth}
-                \centering
-                \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/P_Global_Fy.png}
-                \subcaption{Pouliquen-Forterre model, lateral direction.}
-                \label{fig:Ramp-SP-Fy-P}
-        \end{minipage}
-
-        \begin{minipage}[b]{0.5\linewidth}
-                \centering
-                \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/V_Global_Fx.png}
-                \subcaption{Voellmy-Salm model, runout direction.}
-                \label{fig:Ramp-SP-Fx-V}
-        \end{minipage}
-        \begin{minipage}[b]{0.5\linewidth}
-                \centering
-                \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/V_Global_Fy.png}
-                \subcaption{Voellmy-Salm model, lateral direction.}
-                \label{fig:Ramp-SP-Fy-V}
-        \end{minipage}
-        \caption{Full statistics for temporal records of total forces for bulk of material along the runout and lateral directions.}
-        \label{fig:Ramp-SP-F}
+        \centering
+        \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/Fxall.png}
+        \caption{Full statistics for temporal records of mean values of all sources of force along the runout direction. Dashed lines are the total forces related to each model.}
+        \label{fig:Ramp-ForcexAll}
 \end{figure}
 
 \begin{figure}[H]
-        \begin{minipage}[b]{0.5\linewidth}
-                \centering
-                \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/C_Global_Ptot.png}
-                \subcaption{Mohr-Coulomb model.}
-                \label{fig:Ramp-SP-Power-C}
-        \end{minipage}
-        \begin{minipage}[b]{0.5\linewidth}
-                \centering
-                \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/P_Global_Ptot.png}
-                \subcaption{Pouliquen-Forterre model.}
-                \label{fig:Ramp-SP-Power-P}
-        \end{minipage}
-
-        \begin{minipage}[b]{1\linewidth}
-                \centering
-                \includegraphics[width=0.5\textwidth]{InclinedPlane/GlobalRecords/V_Global_Ptot.png}
-                \subcaption{Voellmy-Salm model.}
-                \label{fig:Ramp-SP-Power-V}
-        \end{minipage}
-        \caption{Full statistics of temporal records of total power for bulk of material.}
-        \label{fig:Ramp-SP-Power}
+        \centering
+        \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/Fyall.png}
+        \caption{Full statistics for temporal records of mean values of all sources of force along the lateral direction. Dashed lines are the total forces related to each model.}
+        \label{fig:Ramp-ForceyAll}
 \end{figure}
 
 \begin{figure}[H]
-        \begin{minipage}[b]{0.5\linewidth}
-                \centering
-                \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/C_Global_Ar.png}
-                \subcaption{Mohr-Coulomb model.}
-                \label{fig:Ramp-SP-InundAr-C}
-        \end{minipage}
-        \begin{minipage}[b]{0.5\linewidth}
-                \centering
-                \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/P_Global_Ar.png}
-                \subcaption{Pouliquen-Forterre model.}
-                \label{fig:Ramp-SP-InundAr-P}
-        \end{minipage}
-
-        \begin{minipage}[b]{1\linewidth}
-                \centering
-                \includegraphics[width=0.5\textwidth]{InclinedPlane/GlobalRecords/V_Global_Ar.png}
-                \subcaption{Voellmy-Salm model.}
-                \label{fig:Ramp-SP-InundAr-V}
-        \end{minipage}
-        \caption{Full statistics of temporal records of inundated area by the flowing material.}
-        \label{fig:Ramp-SP-InundAr}
+        \centering
+        \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/Ftrnsx.png}
+        \caption{Full statistics for temporal records of transient force (LHS) along the runout direction.}
+        \label{fig:Ramp-Ftrnsx}
 \end{figure}
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/Ftrnsy.png}
+        \caption{Full statistics for temporal records of transient force (LHS) along the lateral direction.}
+        \label{fig:Ramp-Ftrnsy}
+\end{figure}
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/Fconvx.png}
+        \caption{Full statistics for temporal records of convective force (LHS) along the runout direction.}
+        \label{fig:Ramp-Fconvx}
+\end{figure}
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/Fconvy.png}
+        \caption{Full statistics for temporal records of convective force (LHS) along the lateral direction.}
+        \label{fig:Ramp-Fconvy}
+\end{figure}
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/Fgravx.png}
+        \caption{Full statistics for temporal records of gravitational force (RHS) along the runout direction.}
+        \label{fig:Ramp-Fgravx}
+\end{figure}
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/Fgravy.png}
+        \caption{Full statistics for temporal records of gravitational force (RHS) along the lateral direction.}
+        \label{fig:Ramp-Fgravy}
+\end{figure}
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/Fbedx.png}
+        \caption{Full statistics for temporal records of bed friction force (RHS) along the runout direction.}
+        \label{fig:Ramp-Fbedx}
+\end{figure}
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/Fbedy.png}
+        \caption{Full statistics for temporal records of bed friction force (RHS) along the lateral direction.}
+        \label{fig:Ramp-Fbedy}
+\end{figure}
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/Fbedcx.png}
+        \caption{Full statistics for temporal records of curvature based bed friction force (RHS) along the runout direction.}
+        \label{fig:Ramp-Fbedcx}
+\end{figure}
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/Fbedcy.png}
+        \caption{Full statistics for temporal records of curvature based bed friction force (RHS) along the lateral direction.}
+        \label{fig:Ramp-Fbedcy}
+\end{figure}
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/Fresx.png}
+        \caption{Full statistics for temporal records of other resiting force (RHS) along the runout direction.}
+        \label{fig:Ramp-Fresx}
+\end{figure}
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/Fresy.png}
+        \caption{Full statistics for temporal records of other resiting force (RHS) along the lateral direction.}
+        \label{fig:Ramp-Fresy}
+\end{figure}
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/FRHSx.png}
+        \caption{Full statistics for temporal records of the total force (RHS) along the runout direction.}
+        \label{fig:Ramp-Ftotalx}
+\end{figure}
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/FRHSy.png}
+        \caption{Full statistics for temporal records of the total force (RHS) along the lateral direction.}
+        \label{fig:Ramp-Ftotaly}
+\end{figure}
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/Powerall.png}
+        \caption{Full statistics for temporal records of mean values of all sources of power. Dashed lines are the total powers related to each model.}
+        \label{fig:Ramp-PowerAll}
+\end{figure}
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/Ptrns.png}
+        \caption{Full statistics for temporal records of power by transient forces.}
+        \label{fig:Ramp-Ptrns}
+\end{figure}
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/Pconv.png}
+        \caption{Full statistics for temporal records of power by convective forces.}
+        \label{fig:Ramp-Pconv}
+\end{figure}
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/Pgrav.png}
+        \caption{Full statistics for temporal records of power by gravitational forces.}
+        \label{fig:Ramp-Pgrav}
+\end{figure}
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/Pbed.png}
+        \caption{Full statistics for temporal records of power by bed friction forces.}
+        \label{fig:Ramp-Pbed}
+\end{figure}
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/Pbedc.png}
+        \caption{Full statistics for temporal records of power by curvature based bed friction forces.}
+        \label{fig:Ramp-Pbedc}
+\end{figure}
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/Pres.png}
+        \caption{Full statistics for temporal records of power by other source of resisting forces.}
+        \label{fig:Ramp-Pres}
+\end{figure}
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/PRHS.png}
+        \caption{Full statistics for temporal records of power by total external forces (RHS).}
+        \label{fig:Ramp-Ptotal}
+\end{figure}
+
+%\begin{figure}[H]
+%        \begin{minipage}[b]{0.5\linewidth}
+%                \centering
+%                \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/C_Global_Ptot.png}
+%                \subcaption{Mohr-Coulomb model.}
+%                \label{fig:Ramp-SP-Power-C}
+%        \end{minipage}
+%        \begin{minipage}[b]{0.5\linewidth}
+%                \centering
+%                \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/P_Global_Ptot.png}
+%                \subcaption{Pouliquen-Forterre model.}
+%                \label{fig:Ramp-SP-Power-P}
+%        \end{minipage}
+%
+%        \begin{minipage}[b]{1\linewidth}
+%                \centering
+%                \includegraphics[width=0.5\textwidth]{InclinedPlane/GlobalRecords/V_Global_Ptot.png}
+%                \subcaption{Voellmy-Salm model.}
+%                \label{fig:Ramp-SP-Power-V}
+%        \end{minipage}
+%        \caption{Full statistics of temporal records of total power for bulk of material.}
+%        \label{fig:Ramp-SP-Power}
+%\end{figure}
+%
+%\begin{figure}[H]
+%        \begin{minipage}[b]{0.5\linewidth}
+%                \centering
+%                \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/C_Global_Ar.png}
+%                \subcaption{Mohr-Coulomb model.}
+%                \label{fig:Ramp-SP-InundAr-C}
+%        \end{minipage}
+%        \begin{minipage}[b]{0.5\linewidth}
+%                \centering
+%                \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/P_Global_Ar.png}
+%                \subcaption{Pouliquen-Forterre model.}
+%                \label{fig:Ramp-SP-InundAr-P}
+%        \end{minipage}
+%
+%        \begin{minipage}[b]{1\linewidth}
+%                \centering
+%                \includegraphics[width=0.5\textwidth]{InclinedPlane/GlobalRecords/V_Global_Ar.png}
+%                \subcaption{Voellmy-Salm model.}
+%                \label{fig:Ramp-SP-InundAr-V}
+%        \end{minipage}
+%        \caption{Full statistics of temporal records of inundated area by the flowing material.}
+%        \label{fig:Ramp-SP-InundAr}
+%\end{figure}
 
 \subsubsection{Force contributions - Andrea+Ali}
 A statistical analysis capable of measuring the contributions of different force components in the rheology models is a fundamental task. This is also necessary to explore and compare the effects of the assumptions behind some modeling choices, onto the time evolution of the flowing material. Let $(F_i(x,t))_{i=1,\dots, n}$ be the array of force components, where $x\in\mathbb R^2$ is a spatial location, and $t\in T$ is a time instant. In our case study, $F_1$ is the gravitational force, $F_2$ is the basal friction, $F_3$ is the curvature correction, $F_4$ is a resistant force (or the hydrostatic pressure term, in the case of Pouliquen-Forterre rheology). However, this type of procedure can be applied to any additive decomposition of the physical forces. In addition, we can include in the analysis also the component of the inertial forces, i.e. $F_4$ the convective force and $F_5$ the transient force. The analysis of local effects can be compared to the contribution of global dynamics.
