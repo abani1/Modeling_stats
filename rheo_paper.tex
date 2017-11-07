@@ -204,7 +204,7 @@ The parameter ranges adopted in this case study are:
 	\begin{minipage}[b]{0.5\linewidth}
     	\centering
     	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Vel_L1.png}
-    	\subcaption{$L=(-0.7,0)$, .}
+    	\subcaption{$L=(-0.7,0)$, slumping pile location.}
     	\label{fig:Ramp-L1-Vel}
 	\end{minipage}
 	\begin{minipage}[b]{0.5\linewidth}
@@ -223,7 +223,7 @@ The parameter ranges adopted in this case study are:
 	\begin{minipage}[b]{0.5\linewidth}
 		\centering
 		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Vel_L4.png}
-    	\subcaption{$L=(0.15,0)$,  a location on runout plane.}
+    	\subcaption{$L=(0.15,0)$, a location on runout plane.}
     	\label{fig:Ramp-L4-Vel}
     \end{minipage}
     \caption{Records of flow velocity, $\Vert \underline{\mathbf{u}} \Vert(L,t)$.}
@@ -260,7 +260,7 @@ The parameter ranges adopted in this case study are:
 	\begin{minipage}[b]{0.5\linewidth}
 		\centering
 		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/H_L4.png}
-    	\subcaption{$L=(0.15,0)$,  a location on runout plane.}
+    	\subcaption{$L=(0.15,0)$, a location on runout plane.}
     	\label{fig:Ramp-L4-H}
     \end{minipage}
     \caption{Records of flow height, $h(L,t)$.}
@@ -752,7 +752,7 @@ The parameter ranges adopted in this case study are:
 %\end{figure}
 
 \subsubsection{Force contributions - Andrea+Ali}
-A statistical analysis capable of measuring the contributions of different force components in the rheology models is a fundamental task. This is also necessary to explore and compare the effects of the assumptions behind some modeling choices, onto the time evolution of the flowing material. Let $(F_i(x,t))_{i=1,\dots, n}$ be the array of force components, where $x\in\mathbb R^2$ is a spatial location, and $t\in T$ is a time instant. In our case study, $F_1$ is the gravitational force, $F_2$ is the basal friction, $F_3$ is the curvature correction, $F_4$ is a resistant force (or the hydrostatic pressure term, in the case of Pouliquen-Forterre rheology). However, this type of procedure can be applied to any additive decomposition of the physical forces. In addition, we can include in the analysis also the component of the inertial forces, i.e. $F_4$ the convective force and $F_5$ the transient force. The analysis of local effects can be compared to the contribution of global dynamics.
+A statistical analysis capable of measuring the contributions of different force components in the rheology models is a fundamental task. This is also necessary to explore and compare the effects of the assumptions behind some modeling choices, onto the time evolution of the flowing material. Let $(F_i(x,t))_{i=1,\dots, n}$ be the array of force components, where $x\in\mathbb R^2$ is a spatial location, and $t\in T$ is a time instant. In our case study, $F_1$ is the gravitational force, $F_2$ is the basal friction, $F_3$ is the curvature correction, $F_4$ is a resistive force (or the hydrostatic pressure term, in the case of Pouliquen-Forterre rheology). However, this type of procedure can be applied to any additive decomposition of the physical forces. In addition, we can include in the analysis also the component of the inertial forces, i.e. $F_4$ the convective force and $F_5$ the transient force. The analysis of local effects can be compared to the contribution of global dynamics.
 
 In this case we are projecting the forces on the directions X and Y, i.e. respectively in the slope direction, and orthogonal to the slope direction on an horizontal plane. Hence in the following the forces are scalar and not vectorial terms. It is important to remark that all the forces are depending on the sample $\eta$ on the parameter domains, and hence are considered as random variables.
 
@@ -820,56 +820,56 @@ In the following we display the contribution coefficients barplots as a function
 \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/DominancePrX_L1.png}
-        \caption{Likelihoods of events $X_i, \ _{i=1,...,7}$ and $X \equiv C$: \emph{Mohr-Coulomb} model, $X \equiv P$: \emph{Pouliquen-Forterre} model, and $X \equiv V$: \emph{Voellmy-Salm} model. Here $i=1$ corresponds to \emph{transient forces}, $i=2$ \emph{convective forces}, $i=3$ \emph{gravitational forces}, $i=4$ \emph{basal friction forces}, $i=5$ \emph{curvature based basal friction forces}, and $i=6$ \emph{other sorces of resisting force}; however, $i=7$ corresponds to the \emph{no flow} event. All the measurements were recorded at $L_1=(-0.7,0)$ and along the runout direction.}
+        \caption{Probability of events $(C_i)_{i=1,...,6}:=\left\{\Phi_2=|F_i|\right\}$ for the \emph{Mohr-Coulomb} model, $(P_i)_{i=1,...,6}:=\left\{\Phi_2=|F_i|\right\}$ for the \emph{Pouliquen-Forterre} model, $(V_i)_{i=1,...,6}:=\left\{\Phi_2=|F_i|\right\}$ for \emph{Voellmy-Salm} model, where $F_1$ is the \emph{transient force}, $F_2$ the \emph{convective force}, $F_3$ the \emph{gravitational force}, $F_4$ the \emph{basal friction force}, $F_5$ the \emph{curvature based basal friction force}, and $F_6$ the \emph{resisting force} (or the hydrostatic pressure term, in the case of Pouliquen-Forterre rheology). Moreover, $C_7,\ P_7,\ V_7$ correspond to the event of \emph{no flow}. All the measurements were recorded at $L_1=(-0.7,0)$ and along the runout direction.}
         \label{fig:Ramp-FXDominance-L1}
 \end{figure}
 
 \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/DominancePrY_L1.png}
-        \caption{Likelihoods of events $X_i, \ _{i=1,...,7}$ and $X \equiv C$: \emph{Mohr-Coulomb} model, $X \equiv P$: \emph{Pouliquen-Forterre} model, and $X \equiv V$: \emph{Voellmy-Salm} model. Here $i=1$ corresponds to \emph{transient forces}, $i=2$ \emph{convective forces}, $i=3$ \emph{gravitational forces}, $i=4$ \emph{basal friction forces}, $i=5$ \emph{curvature based basal friction forces}, and $i=6$ \emph{other sorces of resisting force}; however, $i=7$ corresponds to the \emph{no flow} event. All the measurements were recorded at $L_1=(-0.7,0)$ and along the lateral direction.}
+        \caption{Probability of events $(C_i)_{i=1,...,6}:=\left\{\Phi_2=|F_i|\right\}$ for the \emph{Mohr-Coulomb} model, $(P_i)_{i=1,...,6}:=\left\{\Phi_2=|F_i|\right\}$ for the \emph{Pouliquen-Forterre} model, $(V_i)_{i=1,...,6}:=\left\{\Phi_2=|F_i|\right\}$ for \emph{Voellmy-Salm} model, where $F_1$ is the \emph{transient force}, $F_2$ the \emph{convective force}, $F_3$ the \emph{gravitational force}, $F_4$ the \emph{basal friction force}, $F_5$ the \emph{curvature based basal friction force}, and $F_6$ the \emph{resisting force} (or the hydrostatic pressure term, in the case of Pouliquen-Forterre rheology). Moreover, $C_7,\ P_7,\ V_7$ correspond to the event of \emph{no flow}. All the measurements were recorded at $L_1=(-0.7,0)$ and along the lateral direction.}
         \label{fig:Ramp-FYDominance-L1}
 \end{figure}
 
 \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/DominancePrX_L2.png}
-        \caption{Likelihoods of events $X_i, \ _{i=1,...,7}$ and $X \equiv C$: \emph{Mohr-Coulomb} model, $X \equiv P$: \emph{Pouliquen-Forterre} model, and $X \equiv V$: \emph{Voellmy-Salm} model. Here $i=1$ corresponds to \emph{transient forces}, $i=2$ \emph{convective forces}, $i=3$ \emph{gravitational forces}, $i=4$ \emph{basal friction forces}, $i=5$ \emph{curvature based basal friction forces}, and $i=6$ \emph{other sorces of resisting force}; however, $i=7$ corresponds to the \emph{no flow} event. All the measurements were recorded at $L_2=(-0.35,0)$ and along the runout direction.}
+        \caption{Probability of events $(C_i)_{i=1,...,6}:=\left\{\Phi_2=|F_i|\right\}$ for the \emph{Mohr-Coulomb} model, $(P_i)_{i=1,...,6}:=\left\{\Phi_2=|F_i|\right\}$ for the \emph{Pouliquen-Forterre} model, $(V_i)_{i=1,...,6}:=\left\{\Phi_2=|F_i|\right\}$ for \emph{Voellmy-Salm} model, where $F_1$ is the \emph{transient force}, $F_2$ the \emph{convective force}, $F_3$ the \emph{gravitational force}, $F_4$ the \emph{basal friction force}, $F_5$ the \emph{curvature based basal friction force}, and $F_6$ the \emph{resisting force} (or the hydrostatic pressure term, in the case of Pouliquen-Forterre rheology). Moreover, $C_7,\ P_7,\ V_7$ correspond to the event of \emph{no flow}. All the measurements were recorded at $L_2=(-0.35,0)$ and along the runout direction.}
         \label{fig:Ramp-FXDominance-L2}
 \end{figure}
 
 \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/DominancePrY_L2.png}
-        \caption{Likelihoods of events $X_i, \ _{i=1,...,7}$ and $X \equiv C$: \emph{Mohr-Coulomb} model, $X \equiv P$: \emph{Pouliquen-Forterre} model, and $X \equiv V$: \emph{Voellmy-Salm} model. Here $i=1$ corresponds to \emph{transient forces}, $i=2$ \emph{convective forces}, $i=3$ \emph{gravitational forces}, $i=4$ \emph{basal friction forces}, $i=5$ \emph{curvature based basal friction forces}, and $i=6$ \emph{other sorces of resisting force}; however, $i=7$ corresponds to the \emph{no flow} event. All the measurements were recorded at $L_2=(-0.35,0)$ and along the lateral direction.}
+        \caption{Probability of events $(C_i)_{i=1,...,6}:=\left\{\Phi_2=|F_i|\right\}$ for the \emph{Mohr-Coulomb} model, $(P_i)_{i=1,...,6}:=\left\{\Phi_2=|F_i|\right\}$ for the \emph{Pouliquen-Forterre} model, $(V_i)_{i=1,...,6}:=\left\{\Phi_2=|F_i|\right\}$ for \emph{Voellmy-Salm} model, where $F_1$ is the \emph{transient force}, $F_2$ the \emph{convective force}, $F_3$ the \emph{gravitational force}, $F_4$ the \emph{basal friction force}, $F_5$ the \emph{curvature based basal friction force}, and $F_6$ the \emph{resisting force} (or the hydrostatic pressure term, in the case of Pouliquen-Forterre rheology). Moreover, $C_7,\ P_7,\ V_7$ correspond to the event of \emph{no flow}. All the measurements were recorded at $L_2=(-0.35,0)$ and along the lateral direction.}
         \label{fig:Ramp-FYDominance-L2}
 \end{figure}
 
 \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/DominancePrX_L3.png}
-        \caption{Likelihoods of events $X_i, \ _{i=1,...,7}$ and $X \equiv C$: \emph{Mohr-Coulomb} model, $X \equiv P$: \emph{Pouliquen-Forterre} model, and $X \equiv V$: \emph{Voellmy-Salm} model. Here $i=1$ corresponds to \emph{transient forces}, $i=2$ \emph{convective forces}, $i=3$ \emph{gravitational forces}, $i=4$ \emph{basal friction forces}, $i=5$ \emph{curvature based basal friction forces}, and $i=6$ \emph{other sorces of resisting force}; however, $i=7$ corresponds to the \emph{no flow} event. All the measurements were recorded at $L_3=(0,0)$ and along the runout direction.}
+        \caption{Probability of events $(C_i)_{i=1,...,6}:=\left\{\Phi_2=|F_i|\right\}$ for the \emph{Mohr-Coulomb} model, $(P_i)_{i=1,...,6}:=\left\{\Phi_2=|F_i|\right\}$ for the \emph{Pouliquen-Forterre} model, $(V_i)_{i=1,...,6}:=\left\{\Phi_2=|F_i|\right\}$ for \emph{Voellmy-Salm} model, where $F_1$ is the \emph{transient force}, $F_2$ the \emph{convective force}, $F_3$ the \emph{gravitational force}, $F_4$ the \emph{basal friction force}, $F_5$ the \emph{curvature based basal friction force}, and $F_6$ the \emph{resisting force} (or the hydrostatic pressure term, in the case of Pouliquen-Forterre rheology). Moreover, $C_7,\ P_7,\ V_7$ correspond to the event of \emph{no flow}. All the measurements were recorded at $L_3=(0,0)$ and along the runout direction.}
         \label{fig:Ramp-FXDominance-L3}
 \end{figure}
 
 \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/DominancePrY_L3.png}
-        \caption{Likelihoods of events $X_i, \ _{i=1,...,7}$ and $X \equiv C$: \emph{Mohr-Coulomb} model, $X \equiv P$: \emph{Pouliquen-Forterre} model, and $X \equiv V$: \emph{Voellmy-Salm} model. Here $i=1$ corresponds to \emph{transient forces}, $i=2$ \emph{convective forces}, $i=3$ \emph{gravitational forces}, $i=4$ \emph{basal friction forces}, $i=5$ \emph{curvature based basal friction forces}, and $i=6$ \emph{other sorces of resisting force}; however, $i=7$ corresponds to the \emph{no flow} event. All the measurements were recorded at $L_3=(0,0)$ and along the lateral direction.}
+        \caption{Probability of events $(C_i)_{i=1,...,6}:=\left\{\Phi_2=|F_i|\right\}$ for the \emph{Mohr-Coulomb} model, $(P_i)_{i=1,...,6}:=\left\{\Phi_2=|F_i|\right\}$ for the \emph{Pouliquen-Forterre} model, $(V_i)_{i=1,...,6}:=\left\{\Phi_2=|F_i|\right\}$ for \emph{Voellmy-Salm} model, where $F_1$ is the \emph{transient force}, $F_2$ the \emph{convective force}, $F_3$ the \emph{gravitational force}, $F_4$ the \emph{basal friction force}, $F_5$ the \emph{curvature based basal friction force}, and $F_6$ the \emph{resisting force} (or the hydrostatic pressure term, in the case of Pouliquen-Forterre rheology). Moreover, $C_7,\ P_7,\ V_7$ correspond to the event of \emph{no flow}. All the measurements were recorded at $L_3=(0,0)$ and along the lateral direction.}
         \label{fig:Ramp-FXDominance-L3}
 \end{figure}
 
 \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/DominancePrX_L4.png}
-        \caption{Likelihoods of events $X_i, \ _{i=1,...,7}$ and $X \equiv C$: \emph{Mohr-Coulomb} model, $X \equiv P$: \emph{Pouliquen-Forterre} model, and $X \equiv V$: \emph{Voellmy-Salm} model. Here $i=1$ corresponds to \emph{transient forces}, $i=2$ \emph{convective forces}, $i=3$ \emph{gravitational forces}, $i=4$ \emph{basal friction forces}, $i=5$ \emph{curvature based basal friction forces}, and $i=6$ \emph{other sorces of resisting force}; however, $i=7$ corresponds to the \emph{no flow} event. All the measurements were recorded at $L_4=(0.15,0)$ and along the runout direction.}
+        \caption{Probability of events $(C_i)_{i=1,...,6}:=\left\{\Phi_2=|F_i|\right\}$ for the \emph{Mohr-Coulomb} model, $(P_i)_{i=1,...,6}:=\left\{\Phi_2=|F_i|\right\}$ for the \emph{Pouliquen-Forterre} model, $(V_i)_{i=1,...,6}:=\left\{\Phi_2=|F_i|\right\}$ for \emph{Voellmy-Salm} model, where $F_1$ is the \emph{transient force}, $F_2$ the \emph{convective force}, $F_3$ the \emph{gravitational force}, $F_4$ the \emph{basal friction force}, $F_5$ the \emph{curvature based basal friction force}, and $F_6$ the \emph{resisting force} (or the hydrostatic pressure term, in the case of Pouliquen-Forterre rheology). Moreover, $C_7,\ P_7,\ V_7$ correspond to the event of \emph{no flow}. All the measurements were recorded at $L_4=(0.15,0)$ and along the runout direction.}
         \label{fig:Ramp-FXDominance-L4}
 \end{figure}
 
 \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/DominancePrY_L4.png}
-        \caption{Likelihoods of events $X_i, \ _{i=1,...,7}$ and $X \equiv C$: \emph{Mohr-Coulomb} model, $X \equiv P$: \emph{Pouliquen-Forterre} model, and $X \equiv V$: \emph{Voellmy-Salm} model. Here $i=1$ corresponds to \emph{transient forces}, $i=2$ \emph{convective forces}, $i=3$ \emph{gravitational forces}, $i=4$ \emph{basal friction forces}, $i=5$ \emph{curvature based basal friction forces}, and $i=6$ \emph{other sorces of resisting force}; however, $i=7$ corresponds to the \emph{no flow} event. All the measurements were recorded at $L_4=(0.15,0)$ and along the lateral direction.}
+        \caption{Probability of events $(C_i)_{i=1,...,6}:=\left\{\Phi_2=|F_i|\right\}$ for the \emph{Mohr-Coulomb} model, $(P_i)_{i=1,...,6}:=\left\{\Phi_2=|F_i|\right\}$ for the \emph{Pouliquen-Forterre} model, $(V_i)_{i=1,...,6}:=\left\{\Phi_2=|F_i|\right\}$ for \emph{Voellmy-Salm} model, where $F_1$ is the \emph{transient force}, $F_2$ the \emph{convective force}, $F_3$ the \emph{gravitational force}, $F_4$ the \emph{basal friction force}, $F_5$ the \emph{curvature based basal friction force}, and $F_6$ the \emph{resisting force} (or the hydrostatic pressure term, in the case of Pouliquen-Forterre rheology). Moreover, $C_7,\ P_7,\ V_7$ correspond to the event of \emph{no flow}. All the measurements were recorded at $L_4=(0.15,0)$ and along the lateral direction.}
         \label{fig:Ramp-FYDominance-L4}
 \end{figure}
 
