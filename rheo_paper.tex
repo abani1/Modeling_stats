@@ -55,6 +55,7 @@
 \author[2]{Andrea Bevilacqua}
 \author[1,3]{Abani K. Patra}
 \author[4]{E. Bruce Pitman}
+\author[2]{Marcus I. Bursik}
 
 \affil[1]{\textit{Dept. of Mech. and  Aero. Eng., University at Buffalo, Buffalo NY 14260} }
 \affil[2]{\textit{Dept. of Geology, University at Buffalo, Buffalo NY 14260} }
@@ -67,32 +68,32 @@
 \maketitle
 
 \abstract
-Dense large scale granular avalanches are a complex class of flows with physics that has often been poorly captured by models that are computationally tractable. Sparsity of actual flow data (usually only a posteriori  deposit information is available) and large uncertainty in the mechanisms of initiation and flow propagation make the modeling task challenging and a
-subject of much continuing interest. Models that appear to represent the physics well
- in certain flows turn out to be poorly behaved in others due to intrinsic mathematical or numerical issues.
-Nevertheless, given the large implications on life and property many models with different modeling assumptions have been proposed.
+Dense large scale granular avalanches are a complex class of flows with physics that has often been poorly captured by models that are computationally tractable. Sparsity of actual flow data (usually only a posteriori  deposit information is available) and large uncertainty in the mechanisms of initiation and flow propagation make the modeling task challenging and a subject of much continuing interest. Models that appear to represent the physics well in certain flows turn out to be poorly behaved in others due to intrinsic mathematical or numerical issues. Nevertheless, given the large implications on life and property many models with different modeling assumptions have been proposed.
 
-While, inverse problems can shed some light on parameter choices it is difficult to make firm judgements on the validity or appropriateness of any single or set of modeling assumptions for a particular target flow or potential flows that needs to be modeled for predictive use in hazard analysis. We will present here an uncertainty quantification  based approach to carefully, analyze the effect of modeling assumptions on quantities of
-interest in simulations based on three established models (Mohr-Coulomb, Pouliquen-Forterre and Voellmy-Salm) and thereby derive a model (from a set of modeling assumptions) suitable for use in a particular context. We also illustrate that a simpler though more restrictive approach is to use a Bayesian modeling average approach based on the limited data to combine the outcomes of different models.
-{\bf  REAL DATA?? NOTION OF CONTRIBUTION OF DIFFERENT MECHANISMS OR MODEL ELEMENTS??}
+While, inverse problems can shed some light on parameter choices it is difficult to make firm judgements on the validity or appropriateness of any single or set of modeling assumptions for a particular target flow or potential flows that needs to be modeled for predictive use in hazard analysis. We will present here an uncertainty quantification  based approach to carefully, analyze the effect of modeling assumptions on quantities of interest in simulations based on three established models (Mohr-Coulomb, Pouliquen-Forterre and Voellmy-Salm) and thereby derive a model (from a set of modeling assumptions) suitable for use in a particular context. We also illustrate that a simpler though more restrictive approach is to use a Bayesian modeling average approach based on the limited data to combine the outcomes of different models.
+
+We juxtapose observation data to the simulation results, only with the purpose to maintain a link to the real occurrence of a geophysical flow representing a possible outcome of the case studies described. The fundamental focus of this paper is the exploration of the dynamics of the simulated flows, enabling a notion of the contribution of different mechanisms or models elements inside the simulation procedure, in a fully quantitative, predictive-use oriented and statistical framework.
+
 \newpage
-\section{Introduction -- Andrea}\label{sec:Intro}
+\section{Introduction - Andrea}\label{sec:Intro}
 
-\subsection{Geophysical mass Flows -- Andrea+Ali}\label{subsec:FlowTypes}
+\subsection{Geophysical mass Flows - Andrea}\label{subsec:FlowTypes}
 Geophysical mass flows include debris and mud flows, landslides, snow and rock avalanches, glacier flows, pyroclastic surges, block and ash flows, and pumice flows, lahars, jokulhaups and many other examples. These flows are sometimes tens of kilometers in length and may travel at speeds as fast as hundreds of meters per second. Their deposits can be as much as tens of meters deep and kilometers long. In other words, there is no single universal description of a ``typical'' geophysical mass flow. Different types of flows are the results of different types of mechanisms/processes and hence different types of flows will have significantly different physical characteristics.
 
 The rheology complexity of the fluidized material, the mathematical problem of modeling and computing, make the description of the dynamics of those flows really challenging. In many cases the flows are \emph{shallow}, i.e. the horizontal dimension is significantly larger than the flow depth. This assumption allows a depth-integration of the governing 3D Navier-Stokes-type equations, leading to the formulation of the 2D Shallow Water Equations (SWE), also called Saint Venant Equations \citep{Batchelor2000, Luca2016}. A large number of studies were focused on the modeling of depth-averaged geophysical flows, many of them reviewed in \cite{PudasainiHutter2007}. In \cite{SavageHutter1989,Jaeger1989, Hutter1993, FraccarolloToro1995, DadeHuppert1998} a depth-averaged model for granular material was first developed, and applied to the case study of an inclined plane, following the Mohr-Coulomb rheology (MC).
 
 The modeling of a granular flow down an inclined plane was explored in detail by several further studies, both theoretical and experimental \citep{Pouliquen1999, RuyerQuil2000, Silbert2001, Balmforth2005, Bursik2005, DaCruz2005, Lajeunesse2005}. Terrain erosion effects were explored \citep{Pitman2003b, Edwards2015}, and also material deposition and self-channelling effects \citep{Mangeney2005, Mangeney2007}. The inclined plane experiments also led to the development of the Pouliquen-Forterre rheology (PF), assuming a changing frictional behavior as a function of flow regime, allowing for an improved wave-propagation and vortices-evolution in the flow \citep{Pouliquen1999, ForterrePouliquen2002, PouliquenForterre2002, ForterrePouliquen2003, Forterre2006, Jop2006}.
 
-In parallel to the earth avalanches experiments, the study of snow avalanches led to the development of the Voellmy rheology (VS) \citep{Voellmy1955, Bartelt1999, Salm1990, Salm1993, BarteltMcArdell2009}.  In addition to the Mohr-Coulomb frictional term, there is a velocity dependent \emph{turbulent} friction term. Many experimental and theoretical studies were developed in this framework \citep{Gruber2007, Kern2009, Christen2010, Fischer2012}. Specific efforts were also devoted to the modeling of volcanic mass flows with SWE \citep{FreundtBursik1998,Saucedo2005, Kelfoun2005,Kelfoun2009,Procter2010,Kelfoun2011}. Volcanoes are a great source of a rich variety of geophysical flows examples, as well as field data.
+In parallel to the earth avalanches experiments, the study of snow avalanches led to the development of the Voellmy rheology (VS) \citep{Voellmy1955, Bartelt1999, Salm1990, Salm1993, BarteltMcArdell2009}.  Such rheology assumes a velocity dependent \emph{turbulent} friction term in addition to the Coulomb friction. Many experimental and theoretical studies were developed in this framework \citep{Gruber2007, Kern2009, Christen2010, Fischer2012}. 
 
 In \cite{Iverson1997, Iverson2001, Denlinger2001, Denlinger2004, Iverson2004} the depth-averaged model was further studied and applied on a realistic terrain. \cite{Wieland1999, Gray1999, Gray2003} tested the model on fast avalanches, exploring the effects of channelizing/chuting topographies. A compensation for the effect of earth pressure changes was implemented and explored in detail \citep{Pirulli2007,Pirulli2008}, as well as the effects of significant curvature in the terrain \citep{Greve1994, PudasainiHutter2003, Fischer2012}. Several specific studies on the pore pressure effects on the flow initiation and fluidization were developed \citep{SavageIverson2003, Iordanoff2004, Iverson2014}. A two-phase model was also implemented to replicate heterogenous flows, with a significant quantity of interstitial fluid \citep{PitmanLe2005} All these complex modeling choices correspond to alternative or cumulative physical assumptions, and they are sometimes very difficult to ponder, compare or combine together.
 
-In this study we will take advantage of the TITAN2D code solving the shallow-water equations, and implementing the MC, PF and VS rheologies in the same platform \citep{Pitman2003a, Patra2005, Patra2006, Yu2009, Aghakhani2016}. The TITAN2D code already achieved many successful applications in the simulation of different geophysical mass flows, with specific peculiarities \citep{Rupp2004, Sheridan2005,Rupp2006, Procter2010, Sheridan2010, Capra2011, Charbonnier2015}. Several studies involving TITAN2D were also directed towards a statistical study of geophysical flows, focusing on the uncertainty quantification and propagation \citep{Dalbey2008, Dalbey2009, Stefanescu2012a, Stefanescu2012b}, or on the more efficient production of hazard maps \citep{Bayarri2009, Spiller2014,Bayarri2015, Ogburn2016}. This study for the first time applies a statistical approach to the detailed exploration of the stresses and powers in the flow, as well as on the velocity and height and inundated area. The former have a strong link with the dynamical equation terms, the latter have a direct link to field observation and hazard assessments. Our purpose is to reach an increased understanding of the different physical assumptions, both inside the flow and on the outputs.
+A particular interest is associated with the specific efforts devoted to the modeling of volcanic mass flows with SWE \citep{FreundtBursik1998,Bursik2005,Saucedo2005, Kelfoun2005,Charbonnier2009,Kelfoun2009,Procter2010,Sulpizio2010,Kelfoun2011,Charbonnier2013}. Volcanoes are a great source of a rich variety of geophysical flows examples, as well as field data.
 
-\subsection{Overview of the case studies -- Andrea, to finish including one figure for each case study}
-The first case study assumes very simple boundary conditions, and correspond to an experiment fully described in \cite{Webb2004, WebbBursik2016}. It is a classical flow down an inclined plane experiment, including a change in slope to an horizontal plane (Fig. \ref{fig:Ramp-first}).
+In this study we will take advantage of the TITAN2D code solving the shallow-water equations, and implementing the MC, PF and VS rheologies in the same platform \citep{Pitman2003a, Patra2005, Patra2006, Yu2009, Aghakhani2016}. The TITAN2D code already achieved many successful applications in the simulation of different geophysical mass flows, with specific peculiarities \citep{Sheridan2005, Rupp2006, Norini2008, Charbonnier2009, Procter2010, Sheridan2010, Sulpizio2010, Capra2011}. Several studies involving TITAN2D were recently directed towards a statistical study of geophysical flows, focusing on the uncertainty quantification and propagation \citep{Dalbey2008, Dalbey2009, Stefanescu2012a, Stefanescu2012b}, or on the more efficient production of hazard maps \citep{Bayarri2009, Spiller2014,Bayarri2015, Ogburn2016}. This study for the first time applies a statistical approach to the detailed exploration of the stresses and powers in the flow, as well as on the velocity and height and inundated area. The former have a strong link with the dynamical equation terms, the latter have a direct link to field observation and hazard assessments. Our purpose is the achievement of a quantitative and statistical understanding of the different physical assumptions, both inside the flow and on the outputs.
+
+\subsection{Overview of the case studies - Andrea}
+The first case study assumes very simple boundary conditions, and correspond to an experiment fully described in \cite{Webb2004, Bursik2005, WebbBursik2016}. It is a classical flow down an inclined plane experiment, including a change in slope to an horizontal plane (Fig. \ref{fig:Ramp-first}).
 
 \begin{figure}[H]
     \includegraphics[width=0.8\textwidth]{inclPlaneFig.jpg}
@@ -101,22 +102,22 @@ The first case study assumes very simple boundary conditions, and correspond to 
     \label{fig:Ramp-first}
 \end{figure}
 
-A second case study is a block and ash flow down the slope of Volcan de Colima (Mexico) \citep{DelPozzo1995,Sheridan1995, Zobin2002, Saucedo2002,Saucedo2004,Saucedo2005, Rupp2006,Capra2011,Zobin2015, ReyesDaVilla2016}. The flow is assumed to be generated by the gravitational collapse of a paraboloid dome placed on the summit area.
+A second case study is a block and ash flow down the slope of Volc{\'a}n de Colima (M{\'e}xico) - an andesitic stratovolcano that rises to 3,860 m above sea level, situated in the western portion of the Trans-Mexican Volcanic Belt (Fig. 2). Historically, it has been the most active volcano in M{\'e}xico \citep{DeLaCruzReina1993, Zobin2002, Gonzalez2002}. During July 10$^{th}$–11$^{th}$ 2015, the volcano underwent its most intense eruptive phase since its Subplinian–Plinian 1913 AD eruption \citep{Saucedo2010, Zobin2015, ReyesDaVilla2016, Capra2016}. The modeling of pyroclastic flows generated by explosive eruptions and lava dome collapses of Volc{\'a}n de Colima is a well studied problem \citep{DelPozzo1995,Sheridan1995,Saucedo2002,Saucedo2004,Saucedo2005, Sarocchi2011, Capra2015}. The volcano has been already used as a case study in several research involving the Titan2D code \citep{Rupp2004, Rupp2006, Dalbey2008, Yu2009, Sulpizio2010, Capra2011, Aghakhani2016}.
 
-A dome collapse occurs when there is a significant amount of (recently extruded) viscous lava piled up in an unstable configuration around a vent. Further extrusion and/or externals forces such as intense rainfall cause the still hot dome of viscous lava to collapse, disintegrate, and avalanche downhill. The hot, dense blocks in this ``block and ash'' flow will typically range from centimeters to a few meters in size. The matrix is composed of fine ash from the comminuted blocks. The amount of material involved in these collapses is constrained by the size of the newly extruded and still hot dome but usually involves volumes in the range $10^4$ -- $10^8$ [$\mathrm{m^3}$].
+In this study the flow is assumed to be generated by the gravitational collapse of a paraboloid dome placed close to the summit area. A dome collapse occurs when there is a significant amount of recently-extruded highly-viscous lava piled up in an unstable configuration around a vent. Further extrusion and/or externals forces can cause the still hot dome of viscous lava to collapse, disintegrate, and avalanche downhill \citep{Bursik2005}. The hot, dense blocks in this ``block and ash'' flow will typically range from centimeters to a few meters in size. The matrix is composed of fine ash from the comminuted blocks. Computations were performed on a DEM with 5m-pixel resolution, obtained from LiDAR data acquired in 2005 \citep{Davila2007, Sulpizio2010}.
 
-\textbf{Not sure if we have to include here all of them - here we should present DATA}
+\begin{figure}[H]
+    \includegraphics[width=0.8\textwidth]{ColimaFig.jpg}
+    \centering
+    \caption{Volc{\'a}n de Colima (M{\'e}xico) overview, including local samples sites (red stars) and four major ravines channeling the flow. Reported coordinates are in UTM zone 13N.}
+    \label{fig:Colima-first}
+\end{figure}
 
-A third case study is a rain-triggered debris avalanche down the channels of Nevado de Colima (Mexico).
-A debris avalanche is the failure of a major part of an established volcanic edifice. These usually involve predominantly cold and mechanically weakened rocks as well as large volumes, up to tens of cubic kilometers. The triggering mechanism can be internal (such as the intrusion of new magma and pressurization) or external (such as seismic acceleration, rainfall, etc.). As such, the material involved in these events can be a mixture or fresh magmatic components as well as ancient hydrothermally weakened rocks. The material volume is usually in the range of $10^4$ -- 3$\times10^{10}$ [$\mathrm{m^3}$]. These types of flows are distinguished in that they involve large parts of the edifice that are not thoroughly broken up, i.e. some particles can be up to hundreds of meters or even kilometers in diameter.
+\section{Review of Models -- Ali + Andrea}\label{sec:GeoPhFlows}
 
-A fourth case study is the pumice flow generated by a column collapse in the Mono-Inyo chain area (CA).
-A column collapse pyroclastic flow is formed from a vertically-ejected eruption column. Instead of rising in the eruption plume, denser than air material collapses back to the ground and begins to flow as a gravity current. The kinetic energy of the material that lands on the upper slopes of the volcano is therefore redirected into downslope motion. These types of flow involve ash and low density pumiceous material, formed by vesiculation and fragmentation of gas-rich magmas in the volcanic conduit during the explosions. In a column collapse, during the horizontal component of flow, ambient air is entrained into the flow and heated. The flows therefore involve a mixture of hot gas, ash, and small pumice clasts (a few [cm] to 0.5 [m]). This extremely hot mixture can have initial downslope speeds in the range of 30 -- 80 meters per second. The volume of material involved in such a flow is roughly constrained to the volume of the plug and upper conduit (for short-lived explosive eruptions) and therefore will most likely be in the range $10^4$ -- $10^6$ [$\mathrm{m^3}$].
+\subsection{Modeling Assumptions - Ali + Andrea}\label{subsec:ModelAssump}
+ Any numerical model of geophysical mass flows relies on several physical and mathematical assumptions. We will classify them in two groups - the general assumptions and the rheology assumptions. The main focus of this study is on the latter group, but in future the same procedure could be applied to the former.
 
-\section{Review of Models -- Ali}\label{sec:GeoPhFlows}
-
-\subsection{Modeling Assumptions - Ali}\label{subsec:ModelAssump}
-As a matter of fact, a very crucial feature of a sophisticated model for geophysical mass flows is that it is based on \textit{physical reasoning} and \textit{rigorous mathematical foundations}. Subsequently, several simplifying, but nevertheless realistic, assumptions were made that streamlined the mathematical formulation. They as follows:
 \begin{enumerate}
 \item The moving mass was assumed to be \textit{volume preserving}. Since the dynamics define the motion, assuming volume preserving is an adequate approximation.
 \item Geophysical mass flows are mostly assumed to be \textit{free surface} flows consist of granular material (i.e. a large collection of discrete particles, frequently with interstitial fluid, and whatever else that get caught in the flow path). In general, the ``typical particle'' is small compared to the depth and length of the flowing mass and makes it reasonable to model the flowing material as a continuum which implies that the thickness of sliding and deforming body extends over several particle diameters. Therefore, we can consider an ``equivalent flowing material'' whose rheological properties are chosen to approximate the bulk behavior that is expected of an actual mass flow; however, the properties of this ``equivalent material'' may not correspond to those of any component of the actual mass flow.
@@ -189,7 +190,7 @@ In general, for each QoI and degree of integration, during a Monte Carlo simulat
 
 Our sampling technique of the input variables is based on the Latin Hypercube Sampling (LHS) idea, and in particular, on the improved space-filling properties of the orthogonal array-based Latin Hypercubes (see Appendix A). The LHS is performed over $[0,1]^3$ for the MC and VS input parameters, and $[0,1]^4$ for PF input parameters. Those samples are homothetically transformed to fill the required intervals.
 
-\subsection{Definition and consistency of the Input parameters}
+\subsection{Definition and consistency of the Input parameters - Andrea + Ali}
 In general, the three rheologies considered in this study, MC, PF, and VS, have different parameters, but in all them it is defined a basal friction stress $F$. That is $F=\tan(\phi_{bed})$ in MC, $F=\tan(\phi_2)$ for $Fr\gg h$ in PF, $F=\mu$ in VS. We use those relations to define parameter spaces which produce reasonably consistent ranges of basal frictions. In the following sections, we start defining a range for $\phi_{bed}$ of MC, specific of the scenario and obtained from the more rich literature of that rheology, then we impose a consistent range for the related parameters of PF and VS, and leave the other parameters unchanged. In particular:
 
 \vskip.3cm\noindent \textbf{MC}
@@ -207,7 +208,7 @@ In general, the three rheologies considered in this study, MC, PF, and VS, have 
 \par\noindent $\log(\xi) \in [1.7, 4] = \log[50, 10^4]$, i.e. in this case the uniform sampling is accomplished in log-scale.
 
 \section{QoIs and Data Collected}
-\subsection{Flow down an inclined plane, and a change in slope to a flat plane}
+\subsection{Flow down an inclined plane, and a change in slope to a flat plane - Andrea+Ali}
 The parameter ranges adopted in this case study are:
 
 \vskip.3cm\noindent \textbf{MC} - $\phi_{bed} \in [15, 30]$ \citep{Dalbey2008}, $\quad \Delta\phi \in [2, 10]$.
@@ -369,183 +370,8 @@ The parameter ranges adopted in this case study are:
 \end{figure}
 
 
-%\begin{figure}[H]
-%	\begin{minipage}[b]{0.5\linewidth}
-%    	\centering
-%    	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Ftotal_L1.png}
-%    	\subcaption{$L=(-0.7,0)$, slumping pile location.}
-%    	\label{fig:Ramp-L1-Ftot}
-%	\end{minipage}
-%	\begin{minipage}[b]{0.5\linewidth}
-%		\centering
-%		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Ftotal_L8.png}
-%    	\subcaption{$L=(-0.35,0)$, middle point on inclined plane.}
-%    	\label{fig:Ramp-L2-Ftot}
-%    \end{minipage}
-%
-%	\begin{minipage}[b]{0.5\linewidth}
-%    	\centering
-%    	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Ftotal_L15.png}
-%    	\subcaption{$L=(0,0)$, inclined and runout planes' joint location.}
-%    	\label{fig:Ramp-L3-Ftot}
-%	\end{minipage}
-%	\begin{minipage}[b]{0.5\linewidth}
-%		\centering
-%		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Ftotal_L17.png}
-%    	\subcaption{$L=(0.15,0)$,  a location on runout plane.}
-%    	\label{fig:Ramp-L4-Ftot}
-%    \end{minipage}
-%    \caption{Records of total forces.}
-%    \label{fig:Ramp-LM-Ftot}
-%\end{figure}
-%
-%
-%\begin{figure}[H]
-%	\begin{minipage}[b]{0.5\linewidth}
-%    	\centering
-%    	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fg_L1.png}
-%    	\subcaption{$L=(-0.7,0)$, slumping pile location.}
-%    	\label{fig:Ramp-L1-Fg}
-%	\end{minipage}
-%	\begin{minipage}[b]{0.5\linewidth}
-%		\centering
-%		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fg_L8.png}
-%    	\subcaption{$L=(-0.35,0)$, middle point on inclined plane.}
-%    	\label{fig:Ramp-L2-Fg}
-%    \end{minipage}
-%
-%	\begin{minipage}[b]{0.5\linewidth}
-%    	\centering
-%    	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fg_L15.png}
-%    	\subcaption{$L=(0,0)$, inclined and runout planes' joint location.}
-%    	\label{fig:Ramp-L3-Fg}
-%	\end{minipage}
-%	\begin{minipage}[b]{0.5\linewidth}
-%		\centering
-%		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fg_L17.png}
-%    	\subcaption{$L=(0.15,0)$,  a location on runout plane.}
-%    	\label{fig:Ramp-L4-Fg}
-%    \end{minipage}
-%    \caption{Records for gravitational forces.}
-%    \label{fig:Ramp-LM-Fg}
-%\end{figure}
-%
-%
-%\begin{figure}[H]
-%	\begin{minipage}[b]{0.5\linewidth}
-%    	\centering
-%    	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fb_L1.png}
-%    	\subcaption{$L=(-0.7,0)$, slumping pile location.}
-%    	\label{fig:Ramp-L1-Fb}
-%	\end{minipage}
-%	\begin{minipage}[b]{0.5\linewidth}
-%		\centering
-%		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fb_L8.png}
-%    	\subcaption{$L=(-0.35,0)$, middle point on inclined plane.}
-%    	\label{fig:Ramp-L2-Fb}
-%    \end{minipage}
-%
-%	\begin{minipage}[b]{0.5\linewidth}
-%    	\centering
-%    	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fb_L15.png}
-%    	\subcaption{$L=(0,0)$, inclined and runout planes' joint location.}
-%    	\label{fig:Ramp-L3-Fb}
-%	\end{minipage}
-%	\begin{minipage}[b]{0.5\linewidth}
-%		\centering
-%		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fb_L17.png}
-%    	\subcaption{$L=(0.15,0)$,  a location on runout plane.}
-%    	\label{fig:Ramp-L4-Fb}
-%    \end{minipage}
-%    \caption{Records of basal friction forces with ``no curvature term'' effects.}
-%    \label{fig:Ramp-LM-Fb}
-%\end{figure}
-%
-%\begin{figure}[H]
-%	\begin{minipage}[b]{0.5\linewidth}
-%    	\centering
-%    	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fbc_L1.png}
-%    	\subcaption{$L=(-0.7,0)$, slumping pile location.}
-%    	\label{fig:Ramp-L1-Fbc}
-%	\end{minipage}
-%	\begin{minipage}[b]{0.5\linewidth}
-%		\centering
-%		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fbc_L8.png}
-%    	\subcaption{$L=(-0.35,0)$, middle point on inclined plane.}
-%    	\label{fig:Ramp-L2-Fbc}
-%    \end{minipage}
-%
-%	\begin{minipage}[b]{0.5\linewidth}
-%    	\centering
-%    	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fbc_L15.png}
-%    	\subcaption{$L=(0,0)$, inclined and runout planes' joint location.}
-%    	\label{fig:Ramp-L3-Fbc}
-%	\end{minipage}
-%	\begin{minipage}[b]{0.5\linewidth}
-%		\centering
-%		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fbc_L17.png}
-%    	\subcaption{$L=(0.15,0)$,  a location on runout plane.}
-%    	\label{fig:Ramp-L4-Fbc}
-%    \end{minipage}
-%    \caption{Records of basal friction forces due to curvature terms.}
-%    \label{fig:Ramp-LM-Fbc}
-%\end{figure}
-%
-%\begin{figure}[H]
-%	\begin{minipage}[b]{0.5\linewidth}
-%    	\centering
-%    	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fr_L1.png}
-%    	\subcaption{$L=(-0.7,0)$, slumping pile location.}
-%    	\label{fig:Ramp-L1-Fr}
-%	\end{minipage}
-%	\begin{minipage}[b]{0.5\linewidth}
-%		\centering
-%		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fr_L8.png}
-%    	\subcaption{$L=(-0.35,0)$, middle point on inclined plane.}
-%    	\label{fig:Ramp-L2-Fr}
-%    \end{minipage}
-%
-%	\begin{minipage}[b]{0.5\linewidth}
-%    	\centering
-%    	\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fr_L15.png}
-%    	\subcaption{$L=(0,0)$, inclined and runout planes' joint location.}
-%    	\label{fig:Ramp-L3-Fr}
-%	\end{minipage}
-%	\begin{minipage}[b]{0.5\linewidth}
-%		\centering
-%		\includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/Records/Fr_L17.png}
-%    	\subcaption{$L=(0.15,0)$,  a location on runout plane.}
-%    	\label{fig:Ramp-L4-Fr}
-%    \end{minipage}
-%    \caption{Material resistance force records.}
-%    \label{fig:Ramp-LM-Fr}
-%\end{figure}
 
 \subsubsection{Temporal Records for Bulk of flowing material (Spatial averages) - Ali}
-
-%\begin{figure}[H]
-%        \begin{minipage}[b]{0.5\linewidth}
-%                \centering
-%                \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/C_Global_Vel.png}
-%                \subcaption{Mohr-Coulomb model.}
-%                \label{fig:Ramp-SP-Vel-C}
-%        \end{minipage}
-%        \begin{minipage}[b]{0.5\linewidth}
-%                \centering
-%                \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/P_Global_Vel.png}
-%                \subcaption{Pouliquen-Forterre model.}
-%                \label{fig:Ramp-SP-Vel-P}
-%        \end{minipage}
-%
-%        \begin{minipage}[b]{1\linewidth}
-%                \centering
-%                \includegraphics[width=0.5\textwidth]{InclinedPlane/GlobalRecords/V_Global_Vel.png}
-%                \subcaption{Voellmy-Salm model.}
-%                \label{fig:Ramp-SP-Vel-V}
-%        \end{minipage}
-%        \caption{Full statistics of velocity records for bulk of material.}
-%        \label{fig:Ramp-SP-Vel}
-%\end{figure}
 
 \begin{figure}[H]
         \centering
@@ -722,53 +548,6 @@ The parameter ranges adopted in this case study are:
         \label{fig:Ramp-Ptotal}
 \end{figure}
 
-%\begin{figure}[H]
-%        \begin{minipage}[b]{0.5\linewidth}
-%                \centering
-%                \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/C_Global_Ptot.png}
-%                \subcaption{Mohr-Coulomb model.}
-%                \label{fig:Ramp-SP-Power-C}
-%        \end{minipage}
-%        \begin{minipage}[b]{0.5\linewidth}
-%                \centering
-%                \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/P_Global_Ptot.png}
-%                \subcaption{Pouliquen-Forterre model.}
-%                \label{fig:Ramp-SP-Power-P}
-%        \end{minipage}
-%
-%        \begin{minipage}[b]{1\linewidth}
-%                \centering
-%                \includegraphics[width=0.5\textwidth]{InclinedPlane/GlobalRecords/V_Global_Ptot.png}
-%                \subcaption{Voellmy-Salm model.}
-%                \label{fig:Ramp-SP-Power-V}
-%        \end{minipage}
-%        \caption{Full statistics of temporal records of total power for bulk of material.}
-%        \label{fig:Ramp-SP-Power}
-%\end{figure}
-%
-%\begin{figure}[H]
-%        \begin{minipage}[b]{0.5\linewidth}
-%                \centering
-%                \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/C_Global_Ar.png}
-%                \subcaption{Mohr-Coulomb model.}
-%                \label{fig:Ramp-SP-InundAr-C}
-%        \end{minipage}
-%        \begin{minipage}[b]{0.5\linewidth}
-%                \centering
-%                \includegraphics[width=1\textwidth]{InclinedPlane/GlobalRecords/P_Global_Ar.png}
-%                \subcaption{Pouliquen-Forterre model.}
-%                \label{fig:Ramp-SP-InundAr-P}
-%        \end{minipage}
-%
-%        \begin{minipage}[b]{1\linewidth}
-%                \centering
-%                \includegraphics[width=0.5\textwidth]{InclinedPlane/GlobalRecords/V_Global_Ar.png}
-%                \subcaption{Voellmy-Salm model.}
-%                \label{fig:Ramp-SP-InundAr-V}
-%        \end{minipage}
-%        \caption{Full statistics of temporal records of inundated area by the flowing material.}
-%        \label{fig:Ramp-SP-InundAr}
-%\end{figure}
 
 \subsubsection{Force contributions - Andrea+Ali}
 A statistical analysis capable of measuring the contributions of different force components in the rheology models is a fundamental task. This is also necessary to explore and compare the effects of the assumptions behind some modeling choices, onto the time evolution of the flowing material. Let $(F_i(x,t))_{i=1,\dots, n}$ be the array of force components, where $x\in\mathbb R^2$ is a spatial location, and $t\in T$ is a time instant. In our case study, $F_1$ is the gravitational force, $F_2$ is the basal friction, $F_3$ is the curvature correction, $F_4$ is a resistive force (or the hydrostatic pressure term, in the case of Pouliquen-Forterre rheology). However, this type of procedure can be applied to any additive decomposition of the physical forces. In addition, we can include in the analysis also the component of the inertial forces, i.e. $F_4$ the convective force and $F_5$ the transient force. The analysis of local effects can be compared to the contribution of global dynamics.
@@ -892,277 +671,6 @@ In the following we display the contribution coefficients barplots as a function
         \label{fig:Ramp-FYDominance-L4}
 \end{figure}
 
-%\subsubsection{Mohr-Coulomb Model, Force Contribution Coefficients - Ali}
-%\begin{figure}[H]
-%        \begin{minipage}[b]{0.5\linewidth}
-%                \centering
-%                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF1_C_x.png}
-%                \subcaption{$L_1=(-0.7,0)$, slumping pile location.}
-%                \label{fig:Ramp-Cx1}
-%        \end{minipage}
-%        \begin{minipage}[b]{0.5\linewidth}
-%                \centering
-%                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF8_C_x.png}
-%                \subcaption{$L_2=(-0.35,0)$, middle point on inclined plane.}
-%                \label{fig:Ramp-Cx2}
-%        \end{minipage}
-%
-%        \begin{minipage}[b]{0.5\linewidth}
-%                \centering
-%                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF15_C_x.png}
-%                \subcaption{$L_3=(0,0)$, inclined and runout planes' joint location.}
-%                \label{fig:Ramp-Cx3}
-%        \end{minipage}
-%        \begin{minipage}[b]{0.5\linewidth}
-%                \centering
-%                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF17_C_x.png}
-%                \subcaption{$L_4=(0.15,0)$, a location on runout plane.}
-%                \label{fig:Ramp-Cx4}
-%        \end{minipage}
-%        \caption{Time history of mean values for force impact quotients, $\bar{q}_i(t)$, along runout direction, Mohr-Coulomb model.}
-%        \label{fig:Ramp-Cx}
-%\end{figure}
-%
-%\begin{figure}[H]
-%        \begin{minipage}[b]{0.5\linewidth}
-%                \centering
-%                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF1_C_y.png}
-%                \subcaption{$L_1=(-0.7,0)$, slumping pile location.}
-%                \label{fig:Ramp-Cy1}
-%        \end{minipage}
-%        \begin{minipage}[b]{0.5\linewidth}
-%                \centering
-%                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF8_C_y.png}
-%                \subcaption{$L_2=(-0.35,0)$, middle point on inclined plane.}
-%                \label{fig:Ramp-Cy2}
-%        \end{minipage}
-%
-%        \begin{minipage}[b]{0.5\linewidth}
-%                \centering
-%                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF15_C_y.png}
-%                \subcaption{$L_3=(0,0)$, inclined and runout planes' joint location.}
-%                \label{fig:Ramp-Cy3}
-%        \end{minipage}
-%        \begin{minipage}[b]{0.5\linewidth}
-%                \centering
-%                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF17_C_y.png}
-%                \subcaption{$L_4=(0.15,0)$, a location on runout plane.}
-%                \label{fig:Ramp-Cy4}
-%        \end{minipage}
-%        \caption{Time history of mean values for force impact quotients, $\bar{q}_i(t)$, along the lateral direction, Mohr-Coulomb model.}
-%        \label{fig:Ramp-Cy}
-%\end{figure}
-%
-%%% Probability plots
-%\begin{figure}[H]
-%\centering
-%	\includegraphics[width=0.9\textwidth]{InclinedPlane/LocalRecords/DominancePr_x1C.png}
-%	\caption{$L_1=(-0.7,0)$, slumping pile location.}
-%	\label{fig:Ramp-Prx1C}
-%\end{figure}
-%
-%\begin{figure}[H]
-%\centering
-%	\includegraphics[width=0.9\textwidth]{InclinedPlane/LocalRecords/DominancePr_x2C.png}
-%	\caption{$L_2=(-0.35,0)$, middle point on inclined plane.}
-%	\label{fig:Ramp-Prx2C}
-%\end{figure}
-%
-%\begin{figure}[H]
-%\centering
-%	\includegraphics[width=0.9\textwidth]{InclinedPlane/LocalRecords/DominancePr_x3C.png}
-%	\caption{$L_3=(0,0)$, inclined and runout planes' joint location.}
-%	\label{fig:Ramp-Prx3C}
-%\end{figure}
-%
-%\begin{figure}[H]
-%\centering
-%	\includegraphics[width=0.9\textwidth]{InclinedPlane/LocalRecords/DominancePr_x4C.png}
-%	\caption{$L_4=(0.15,0)$, a location on runout plane.}
-%	\label{fig:Ramp-Prx4C}
-%\end{figure}
-%
-%\subsubsection{Pouliquen-Forterre Model, Force  Contribution Coefficients - Ali}
-%\begin{figure}[H]
-%        \begin{minipage}[b]{0.5\linewidth}
-%                \centering
-%                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF1_P_x.png}
-%                \subcaption{$L_1=(-0.7,0)$, slumping pile location.}
-%                \label{fig:Ramp-Px1}
-%        \end{minipage}
-%        \begin{minipage}[b]{0.5\linewidth}
-%                \centering
-%                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF8_P_x.png}
-%                \subcaption{$L_2=(-0.35,0)$, middle point on inclined plane.}
-%                \label{fig:Ramp-Px2}
-%        \end{minipage}
-%
-%        \begin{minipage}[b]{0.5\linewidth}
-%                \centering
-%                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF15_P_x.png}
-%                \subcaption{$L_3=(0,0)$, inclined and runout planes' joint location.}
-%                \label{fig:Ramp-Px3}
-%        \end{minipage}
-%        \begin{minipage}[b]{0.5\linewidth}
-%                \centering
-%                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF17_P_x.png}
-%                \subcaption{$L_4=(0.15,0)$, a location on runout plane.}
-%                \label{fig:Ramp-Px4}
-%        \end{minipage}
-%        \caption{Time history of mean values for force impact quotients, $\bar{q}_i(t)$, along runout direction, Pouliquen-Forterre model.}
-%        \label{fig:Ramp-Px}
-%\end{figure}
-%
-%\begin{figure}[H]
-%        \begin{minipage}[b]{0.5\linewidth}
-%                \centering
-%                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF1_P_y.png}
-%                \subcaption{$L_1=(-0.7,0)$, slumping pile location.}
-%                \label{fig:Ramp-Py1}
-%        \end{minipage}
-%        \begin{minipage}[b]{0.5\linewidth}
-%                \centering
-%                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF8_P_y.png}
-%                \subcaption{$L_2=(-0.35,0)$, middle point on inclined plane.}
-%                \label{fig:Ramp-Py2}
-%        \end{minipage}
-%
-%        \begin{minipage}[b]{0.5\linewidth}
-%                \centering
-%                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF15_P_y.png}
-%                \subcaption{$L_3=(0,0)$, inclined and runout planes' joint location.}
-%                \label{fig:Ramp-Py3}
-%        \end{minipage}
-%        \begin{minipage}[b]{0.5\linewidth}
-%                \centering
-%                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF17_P_y.png}
-%                \subcaption{$L_4=(0.15,0)$, a location on runout plane.}
-%                \label{fig:Ramp-Py4}
-%        \end{minipage}
-%        \caption{Time history of mean values for force impact quotients, $\bar{q}_i(t)$, along the lateral direction, Pouliquen-Forterre model.}
-%        \label{fig:Ramp-Py}
-%\end{figure}
-%
-%
-%%% Probability plots
-%\begin{figure}[H]
-%\centering
-%	\includegraphics[width=0.9\textwidth]{InclinedPlane/LocalRecords/DominancePr_x1P.png}
-%	\caption{$L_1=(-0.7,0)$, slumping pile location.}
-%	\label{fig:Ramp-Prx1P}
-%\end{figure}
-%
-%\begin{figure}[H]
-%\centering
-%	\includegraphics[width=0.9\textwidth]{InclinedPlane/LocalRecords/DominancePr_x2P.png}
-%	\caption{$L_2=(-0.35,0)$, middle point on inclined plane.}
-%	\label{fig:Ramp-Prx2P}
-%\end{figure}
-%
-%\begin{figure}[H]
-%\centering
-%	\includegraphics[width=0.9\textwidth]{InclinedPlane/LocalRecords/DominancePr_x3P.png}
-%	\caption{$L_3=(0,0)$, inclined and runout planes' joint location.}
-%	\label{fig:Ramp-Prx3P}
-%\end{figure}
-%
-%\begin{figure}[H]
-%\centering
-%	\includegraphics[width=0.9\textwidth]{InclinedPlane/LocalRecords/DominancePr_x4P.png}
-%	\caption{$L_4=(0.15,0)$, a location on runout plane.}
-%	\label{fig:Ramp-Prx4P}
-%\end{figure}
-%
-%
-%\subsubsection{Voellmy-Salm Model, Force Contribution Coefficients - Ali}
-%\begin{figure}[H]
-%        \begin{minipage}[b]{0.5\linewidth}
-%                \centering
-%                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF1_V_x.png}
-%                \subcaption{$L_1=(-0.7,0)$, slumping pile location.}
-%                \label{fig:Ramp-Vx1}
-%        \end{minipage}
-%        \begin{minipage}[b]{0.5\linewidth}
-%                \centering
-%                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF8_V_x.png}
-%                \subcaption{$L_2=(-0.35,0)$, middle point on inclined plane.}
-%                \label{fig:Ramp-Vx2}
-%        \end{minipage}
-%
-%        \begin{minipage}[b]{0.5\linewidth}
-%                \centering
-%                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF15_V_x.png}
-%                \subcaption{$L_3=(0,0)$, inclined and runout planes' joint location.}
-%                \label{fig:Ramp-Vx3}
-%        \end{minipage}
-%        \begin{minipage}[b]{0.5\linewidth}
-%                \centering
-%                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF17_V_x.png}
-%                \subcaption{$L_4=(0.15,0)$, a location on runout plane.}
-%                \label{fig:Ramp-Vx4}
-%        \end{minipage}
-%        \caption{Time history of mean values for force impact quotients, $\bar{q}_i(t)$, along runout direction, Voellmy-Salm model.}
-%        \label{fig:Ramp-Vx}
-%\end{figure}
-%
-%\begin{figure}[H]
-%        \begin{minipage}[b]{0.5\linewidth}
-%                \centering
-%                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF1_V_y.png}
-%                \subcaption{$L_1=(-0.7,0)$, slumping pile location.}
-%                \label{fig:Ramp-Vy1}
-%        \end{minipage}
-%        \begin{minipage}[b]{0.5\linewidth}
-%                \centering
-%                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF8_V_y.png}
-%                \subcaption{$L_2=(-0.35,0)$, middle point on inclined plane.}
-%                \label{fig:Ramp-Vy2}
-%        \end{minipage}
-%
-%        \begin{minipage}[b]{0.5\linewidth}
-%                \centering
-%                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF15_V_y.png}
-%                \subcaption{$L_3=(0,0)$, inclined and runout planes' joint location.}
-%                \label{fig:Ramp-Vy3}
-%        \end{minipage}
-%        \begin{minipage}[b]{0.5\linewidth}
-%                \centering
-%                \includegraphics[width=1\textwidth]{InclinedPlane/LocalRecords/ContribF17_V_y.png}
-%                \subcaption{$L_4=(0.15,0)$, a location on runout plane.}
-%                \label{fig:Ramp-Vy4}
-%        \end{minipage}
-%        \caption{Time history of mean values for force impact quotients, $\bar{q}_i(t)$, along the lateral direction, Voellmy-Salm model.}
-%        \label{fig:Ramp-Vy}
-%\end{figure}
-%
-%%% Probability plots
-%\begin{figure}[H]
-%\centering
-%	\includegraphics[width=0.9\textwidth]{InclinedPlane/LocalRecords/DominancePr_x1V.png}
-%	\caption{$L_1=(-0.7,0)$, slumping pile location.}
-%	\label{fig:Ramp-Prx1V}
-%\end{figure}
-%
-%\begin{figure}[H]
-%\centering
-%	\includegraphics[width=0.9\textwidth]{InclinedPlane/LocalRecords/DominancePr_x2V.png}
-%	\caption{$L_2=(-0.35,0)$, middle point on inclined plane.}
-%	\label{fig:Ramp-Prx2V}
-%\end{figure}
-%
-%\begin{figure}[H]
-%\centering
-%	\includegraphics[width=0.9\textwidth]{InclinedPlane/LocalRecords/DominancePr_x3V.png}
-%	\caption{$L_3=(0,0)$, inclined and runout planes' joint location.}
-%	\label{fig:Ramp-Prx3V}
-%\end{figure}
-%
-%\begin{figure}[H]
-%\centering
-%	\includegraphics[width=0.9\textwidth]{InclinedPlane/LocalRecords/DominancePr_x4V.png}
-%	\caption{$L_4=(0.15,0)$, a location on runout plane.}
-%	\label{fig:Ramp-Prx4V}
-%\end{figure}
 
 \section{Results and Discussion -- All}
 
