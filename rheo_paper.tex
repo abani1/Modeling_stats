@@ -377,8 +377,29 @@ In general, the three rheologies considered in this study, MC, PF, and VS, have 
 \par\noindent $\mu = \tan(\phi_{bed})$, with $\sim$20\% enlargement of the uncertainty range.
 \par\noindent $\log(\xi) \in [1.7, 4] = \log[50, 10^4]$, i.e. in this case the uniform sampling is accomplished in log-scale.
 
-\section{QoIs and Data Collected}
-\subsection{Flow down an inclined plane, and a change in slope to a flat plane}
+\section{QoIs and Data Collected}\label{sec:QoIs}
+\subsection{Flow down an inclined plane, and a change in slope to a flat plane}\label{subsec:Ramp-QoIs}
+
+\begin{itemize}
+
+\item \textbf{Material Volume:}
+\begin{table}[H]
+\caption{Material volume characteristics used for simulations of \\ flow down the inclined plane setup.}
+	\begin{center}
+	\label{tab:Ramp-Volume}
+		\begin{tabular}{l|c|c}
+                \hline \hline
+                & \textbf{\small Uncertainty Range} & \textbf{\small Mean Value} \\
+                \hline
+                \textbf{\small Material Volume} & $[449.0 \ ,\ 607.0] \ (cm^3)$ &  $528.0 \ (cm^3)$\\
+                                 & {\scriptsize ($\pm15\%$ of mean value)} & \\
+                \hline \hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\item \textbf{Rheology models' parameter space:}
+
 The parameter ranges adopted in this case study are:
 
 \vskip.3cm\noindent \textbf{MC} - $\phi_{bed} \in [15^{\mathrm{\circ}}, 30^{\mathrm{\circ}}]$ \citep{Dalbey2008}, $\quad \Delta\phi \in [2^{\mathrm{\circ}}, 10^{\mathrm{\circ}}]$.
@@ -387,6 +408,7 @@ The parameter ranges adopted in this case study are:
 
 \vskip.3cm\noindent \textbf{VS} - $\mu \in [0.2, 0.7]$, $\quad \log(\xi) \in [1.7, 4]$.
 
+\end{itemize}
 
 
 \subsubsection{Flow Height}
@@ -934,7 +956,27 @@ In the following we display the contribution coefficients barplots as a function
 \end{figure}
 
 
-\subsection{Volc{\'a}n de Colima block and ash flow}
+\subsection{Volc{\'a}n de Colima block and ash flow}\label{subsec:Colima-QoIs}
+\begin{itemize}
+
+\item \textbf{Material Volume:}
+\begin{table}[H]
+\caption{Material volume characteristics used for Block and Ash flow \\ simulations at Volc{\'a}n de Colima.}
+\label{tab:Colima-Volume}
+\begin{center}
+\begin{tabular}{l|c|c}
+                \hline \hline
+                & \textbf{\small Uncertainty Range} & \textbf{\small Mean Value} \\
+                \hline
+                \textbf{\small Material Volume} & $[ 2.08 \ ,\ 3.12] \times 10^5 \ (m^3)$ &  $2.6  \times 10^5 \ (m^3)$\\
+                                 & {\scriptsize ($\pm20\%$ of mean value)} & \\
+                \hline \hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\item \textbf{Rheology models' parameter space:}
+
 The parameter ranges adopted in this case study are:
 
 \vskip.3cm\noindent \textbf{MC} - $\phi_{bed} \in [10^{\mathrm{\circ}}, 25^{\mathrm{\circ}}]$ \citep{Dalbey2008, Spiller2014}, $\quad \Delta\phi \in [2^{\mathrm{\circ}}, 10^{\mathrm{\circ}}]$.
@@ -943,6 +985,7 @@ The parameter ranges adopted in this case study are:
 
 \vskip.3cm\noindent \textbf{VS} - $\mu \in [0.15, 0.55]$, $\quad \log(\xi) \in [1.7, 4]$.
 
+\end{itemize}
 
 \section{Results and Discussion}
 
