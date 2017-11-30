@@ -377,9 +377,8 @@ In general, the three rheologies considered in this study, MC, PF, and VS, have 
 \par\noindent $\mu = \tan(\phi_{bed})$, with $\sim$20\% enlargement of the uncertainty range.
 \par\noindent $\log(\xi) \in [1.7, 4] = \log[50, 10^4]$, i.e. in this case the uniform sampling is accomplished in log-scale.
 
-\section{QoIs and Data Collected}\label{sec:QoIs}
-\subsection{Flow down an inclined plane, and a change in slope to a flat plane}\label{subsec:Ramp-QoIs}
-
+\paragraph{Flow down an inclined plane}
+We relied on the published parameter choices to decide a comprehensive parameter range. 
 \begin{itemize}
 
 \item \textbf{Material Volume:}
@@ -402,7 +401,7 @@ In general, the three rheologies considered in this study, MC, PF, and VS, have 
 
 The parameter ranges adopted in this case study are:
 
-\vskip.3cm\noindent \textbf{MC} - $\phi_{bed} \in [15^{\mathrm{\circ}}, 30^{\mathrm{\circ}}]$ \citep{Dalbey2008}, $\quad \Delta\phi \in [2^{\mathrm{\circ}}, 10^{\mathrm{\circ}}]$.
+\vskip.3cm\noindent \textbf{MC} - $\phi_{bed} \in [15^{\mathrm{\circ}}, 30^{\mathrm{\circ}}]$, $\quad \Delta\phi \in [2^{\mathrm{\circ}}, 10^{\mathrm{\circ}}]$.
 
 \vskip.3cm\noindent \textbf{PF} - $\phi_2 \in [15^{\mathrm{\circ}}, 35^{\mathrm{\circ}}]$, $\quad\Delta\phi_{12} \in [5^{\mathrm{\circ}}, 15^{\mathrm{\circ}}]$, $\quad\beta \in [0.1, 0.85]$, $\quad \mathcal{L}=10^{-3} \ (m)$, $\quad \phi_3=\phi_1 + 1^{\mathrm{\circ}}$.
 
@@ -410,8 +409,132 @@ The parameter ranges adopted in this case study are:
 
 \end{itemize}
 
+\paragraph{Volc{\'a}n de Colima block and ash flow}
+In this more complex large scale simulation we couldn't rely on previous studies to decide the parameter range of Pouliquen-Forterre and Voellmy-Salm rheologies. Hence we made a preliminary testing with on the extremal cases of the different models, i.e. max volume -- min resistance, and min volume -- max resistance. We tentatively coupled the runout observed to the Mohr-Coulomb case, obtanining the following ranges. Figures \ref{Colima-MaxMinExtentsMC}, \ref{Colima-MaxMinExtentsPF}, \ref{Colima-MaxMinExtentsVS} display the map of max flow height and max velocities observed. 
 
-\subsubsection{Flow Height}
+\begin{figure}[H]
+         \centering
+        \includegraphics[width=1\textwidth]{Figures/MC.jpg}
+        \caption{Comparison between \emph{Max Flow Height Record} and \emph{Max Velocity Record} maps of simulated flow, assuming Mohr-Coulomb rheology. Extreme cases producing maximum and minimum runout, i.e. (a),(b) \emph{\textbf{max volume -- min resistance}} and (c),(d) \emph{\textbf{min volume -- max resistance}}. Parameters values and input options are also reported.}
+        \label{Colima-MaxMinExtentsMC}
+\end{figure}
+
+\begin{itemize}
+
+\item \textbf{Material Volume:}
+\begin{table}[H]
+\caption{Material volume characteristics used for Block and Ash flow \\ simulations at Volc{\'a}n de Colima.}
+\label{tab:Colima-Volume}
+\begin{center}
+\begin{tabular}{l|c|c}
+                \hline \hline
+                & \textbf{\small Uncertainty Range} & \textbf{\small Mean Value} \\
+                \hline
+                \textbf{\small Material Volume} & $[ 2.08 \ ,\ 3.12] \times 10^5 \ (m^3)$ &  $2.6  \times 10^5 \ (m^3)$\\
+                                 & {\scriptsize ($\pm20\%$ of mean value)} & \\
+                \hline \hline
+\end{tabular}
+\end{center}
+\end{table}
+\end{itemize}
+
+\begin{figure}[H]
+         \centering
+        \includegraphics[width=1\textwidth]{Figures/PF.jpg}
+        \caption{Comparison between \emph{Max Flow Height Record} and \emph{Max Velocity Record} maps of simulated flow, assuming Pouliquen-Forterre rheology. Extreme cases producing maximum and minimum runout, i.e. (a),(b) \emph{\textbf{max volume -- min resistance}} and (c),(d) \emph{\textbf{min volume -- max resistance}}. Parameters values and input options are also reported.}
+        \label{Colima-MaxMinExtentsPF}
+\end{figure}
+
+\begin{itemize}
+\item \textbf{Rheology models' parameter space:}
+
+The parameter ranges adopted in this case study are:
+
+\vskip.3cm\noindent \textbf{MC} - $\phi_{bed} \in [10^{\mathrm{\circ}}, 25^{\mathrm{\circ}}]$ \citep{Dalbey2008, Spiller2014}, $\quad \Delta\phi \in [2^{\mathrm{\circ}}, 10^{\mathrm{\circ}}]$.
+
+\vskip.3cm\noindent \textbf{PF} - $\phi_2 \in [18^{\mathrm{\circ}}, 33^{\mathrm{\circ}}]$, $\quad\Delta\phi_{12} \in [10^{\mathrm{\circ}}, 15^{\mathrm{\circ}}]$, $\quad\beta \in [0.1, 0.85]$, $\quad \mathcal{L}=10^{-1} \ (m)$, $\quad \phi_3=\phi_1 + 1^{\mathrm{\circ}}$.
+
+\vskip.3cm\noindent \textbf{VS} - $\mu \in [0.15, 0.45]$, $\quad \log(\xi) \in [1.7, 4]$.
+
+\end{itemize}
+
+\begin{figure}[H]
+         \centering
+        \includegraphics[width=1\textwidth]{Figures/VS.jpg}
+        \caption{Comparison between \emph{Max Flow Height Record} and \emph{Max Velocity Record} maps of simulated flow, assuming Voellmy-Salm rheology. Extreme cases producing maximum and minimum runout, i.e. (a),(b) \emph{\textbf{max volume -- min resistance}} and (c),(d) \emph{\textbf{min volume -- max resistance}}. Parameters values and input options are also reported.}
+        \label{Colima-MaxMinExtentsVS}
+\end{figure}
+
+\subsection{Statistical analysis of force contributions}
+A statistical analysis capable of measuring the contributions of different force components in the rheology models is a fundamental task. This is also necessary to explore and compare the effects of the assumptions behind some modeling choices, onto the time evolution of the flowing material. Let $(F_i(x,t))_{i=1,\dots, n}$ be the array of force components, where $x\in\mathbb R^2$ is a spatial location, and $t\in T$ is a time instant. In our case study, $F_1$ is the gravitational force, $F_2$ is the basal friction, $F_3$ is the curvature correction, $F_4$ is a resistive force (or the hydrostatic pressure term, in the case of Pouliquen-Forterre rheology). However, this type of procedure can be applied to any additive decomposition of the physical forces. In addition, we can include in the analysis also the component of the inertial forces, i.e. $F_4$ the convective force and $F_5$ the transient force. The analysis of local effects can be compared to the contribution of global dynamics.
+
+In this case we are projecting the forces on the directions X and Y, i.e. respectively in the slope direction, and orthogonal to the slope direction on an horizontal plane. Hence in the following the forces are scalar and not vectorial terms. It is important to remark that all the forces are depending on the sample $\eta$ on the parameter domains, and hence are considered as random variables.
+
+The degree of contribution of those force terms is significantly variable in space and time. For this reason, the following analysis is performed on locally sampled measurements, and not in a spatial averaging framework. In particular, four locations are selected among the center line of the flow. These are: the initial pile location $x_1=-0.7$ m, the middle of the inclined plane $x_2=-0.35$ m, the change in slope $x_3=0$ m, the middle of the flat plane $x_4=0.15$ m. Next notation will assume to be in a selected location $x=x_k$, where $k\in\{1,\dots, 4\}$. The definitions are not depending on the location, but all the results will significantly depend of that choice.
+
+\begin{definition}[Contribution coefficients]
+Let $(F_i)_{i=1,\dots, n}$ be random variables on $(\Omega, \mathcal F, P)$, representing the considered force components in location $x$ at time $t$. Then, for each component $i$, the contribution coefficient is defined as:
+$$C_i:=\mathbb E\left[\frac{F_i}{\Phi}\right],$$
+where $\Phi$ is a dominating function, i.e. $\Phi\ge |F_i|$, $\forall i$.
+\end{definition}
+The \emph{total force}, i.e $\sum_i F_i$ excluding the inertial terms, is not a good candidate for a dominating function. Indeed, the terms often have opposite signs, and their sum can be really small. Another issue is given by the existence of a subset of times $\Theta$ characterized by the absence of flow in the selected location $x$. In $\Theta$ the dominant force is null, and cannot be the denominator of a fraction.
+
+We explore two alternative $\Phi$ choices: $\Phi_1$ is based on the $l^1$ norm, and defined as:
+$$\Phi_1:=\left\{
+    \begin{array}{ll}
+      \sum_i \frac{|F_i|}{2}, & \hbox{if not null;} \\
+      1, & \hbox{otherwise.}
+    \end{array}
+  \right.$$
+In case we exclude the inertial forces from the analysis, we must take $\hat{\Phi_1}=2\Phi_1$. In contrast $\Phi_2$ is the dominant force, based on the $l^\infty$ norm:
+$$\Phi_2:=\left\{
+    \begin{array}{ll}
+      \max_i |F_i|, & \hbox{if not null;} \\
+      1, & \hbox{otherwise.}
+    \end{array}
+  \right.$$
+In particular, for a particular location $x$, time $t$, and parameter sample $\eta$, we have $C_i=0$ if there is no flow or all the forces are null. The expectation of $C_i$ is reduced by the chance of $F_i$ being small compared to the other terms, or by the chance of having no flow in $(x,t)$. Moreover, $\mathbb E[C_i]\in[-1,1]$, $\forall i$.
+\begin{proposition}
+Let $\Phi_k$, $k=1,2$ be the functions described above. Then they are well defined dominating function, i.e. $\Phi_k\ge |F_j|$, $\forall j,k$.
+\end{proposition}
+\begin{proof}
+If $k=1$, the Newton equation states $\sum_{j\in J} F_j =\sum_{i\in I} F_i,$ where $(F_j)_{j\in J}$ are inertial forces, and $(F_i)_{i\in I}$ the local forces. Then, $\forall h\in I$
+$$F_h=\sum_{i\neq h,\ i\in I} F_i - \sum_{j\in J} F_j.$$
+And hence
+$$|F_h|\le |F_h|+\sum_{i\neq k,\ i\in I} |F_i| - \sum_{j\in J} |F_j|=2\Phi_1.$$
+A similar equation is valid $\forall k\in J$. If $k=2$, or if the inertial forces are not included, the proof is trivial.
+\end{proof}
+
+Furthermore, assuming $\Phi=\Phi_2$, there is a useful result explaining the meaning of those coefficients through the conditional expectation.
+\begin{proposition}
+Let $(F_i)_{i=1,\dots, n}$ be random variables on $(\Omega, \mathcal F, P)$, representing the considered force components in location $x$ at time $t$. For each $i$, let $C_i$ be the contribution coefficient of force $F_i$, assuming $\Phi=\Phi_2$. Then we have the following expression:
+$$C_i=\sum_j p_j \mathbb E\left[\frac{F_i}{|F_j|}\ \Big{|}\ \Phi=|F_j|\right],$$
+where $p_j:=P\left\{\Phi=|F_j|\right\}$.
+\end{proposition}
+
+\begin{proof}
+Let $Z$ be a discrete random variable such that, for each $j\in\mathbb N$, $(Z=j) \Longleftrightarrow (\Phi=|F_j|)$. Then, by the rule of chain expectation:
+$$C_i=\mathbb E\left[\frac{F_i}{\Phi}\right]=\mathbb E\left[\mathbb E\left[\frac{F_i}{\Phi}\ \Big{|}\ Z=j\right]\right]=$$
+$$=\mathbb E\left[\mathbb E\left[\frac{F_i}{|F_j|}\ \Big{|}\ Z=j\right]\right]=\sum_j P\left\{Z=j\right\} \mathbb E\left[\frac{F_i}{|F_j|}\ \Big{|}\ Z=j\right].$$
+Moreover, by definition, $p_j=P\left\{Z=j\right\}$. This completes the proof.
+\end{proof}
+
+The last proposition brings to the definition of the dominance factors $(p_j)_{j=1,\dots, k}$, i.e. the probability of each $F_j$ to be the dominant force in $(x,t)$.
+
+\begin{definition}[Dominance factors and conditional contributions]
+Let $(F_i)_{i=1,\dots, k}$ be random variables on $(\Omega, \mathcal F, P)$, representing arbitrary force components in location $x$ at time $t$. Then, for each pair of components $(i,j)$, the conditional contribution $C_{i,j}$ is defined as:
+$$C_{i,j}:=\mathbb E\left[\frac{F_i}{|F_j|}\ \Big{|}\ \Phi=|F_j|\right],$$
+where $\Phi=\Phi_2$ is the dominant force. In particular, for each component $i$, the dominance factor is defined as:
+$$p_j:=P\left\{\Phi=|F_j|\right\}.$$
+\end{definition}
+
+In the following we display the contribution coefficients barplots as a function of time, for the locations $x_1,\dots,x_4$ defined above. Moreover, we report the dominance factors plots, a very useful tool to read the dynamical significance of the forces as a function of time and location.
+
+\newpage
+\section{QoIs and Data Collected - Flow down and inclined plane, and a change in slope to a flat plane}\label{sec:QoIs}
+First case study is the small scale experimental setting described above.
+
+\subsection{Flow Height}
 
 \begin{figure}[H]
 	\begin{minipage}[b]{0.5\linewidth}
@@ -471,7 +594,7 @@ The parameter ranges adopted in this case study are:
         \label{fig:Ramp-InundArea-spatial}
 \end{figure}
 
-\subsubsection{Flow Velocity}
+\subsection{Flow Velocity}
 \begin{figure}[H]
 	\begin{minipage}[b]{0.5\linewidth}
     	\centering
@@ -516,7 +639,7 @@ The parameter ranges adopted in this case study are:
         \label{fig:Ramp-Vel-spatial}
 \end{figure}
 
-\subsubsection{Froude Number}
+\subsection{Froude Number}
 \begin{figure}[H]
 	\begin{minipage}[b]{0.5\linewidth}
     	\centering
@@ -561,7 +684,7 @@ The parameter ranges adopted in this case study are:
         \label{fig:Ramp-Fr-spatial}
 \end{figure}
 
-\subsubsection{Flow Acceleration}
+\subsection{Flow Acceleration}
 \begin{figure}[H]
 	\begin{minipage}[b]{0.5\linewidth}
     	\centering
@@ -639,7 +762,7 @@ The parameter ranges adopted in this case study are:
 
 
 \newpage
-\subsubsection{Forces and Powers}
+\subsection{Forces and Powers}
 
 \begin{itemize}
 \item	\textbf{LHS$_1$}
@@ -787,71 +910,7 @@ The parameter ranges adopted in this case study are:
 
 \end{itemize}
 
-
-\subsection{Statistical analysis of force contributions}
-A statistical analysis capable of measuring the contributions of different force components in the rheology models is a fundamental task. This is also necessary to explore and compare the effects of the assumptions behind some modeling choices, onto the time evolution of the flowing material. Let $(F_i(x,t))_{i=1,\dots, n}$ be the array of force components, where $x\in\mathbb R^2$ is a spatial location, and $t\in T$ is a time instant. In our case study, $F_1$ is the gravitational force, $F_2$ is the basal friction, $F_3$ is the curvature correction, $F_4$ is a resistive force (or the hydrostatic pressure term, in the case of Pouliquen-Forterre rheology). However, this type of procedure can be applied to any additive decomposition of the physical forces. In addition, we can include in the analysis also the component of the inertial forces, i.e. $F_4$ the convective force and $F_5$ the transient force. The analysis of local effects can be compared to the contribution of global dynamics.
-
-In this case we are projecting the forces on the directions X and Y, i.e. respectively in the slope direction, and orthogonal to the slope direction on an horizontal plane. Hence in the following the forces are scalar and not vectorial terms. It is important to remark that all the forces are depending on the sample $\eta$ on the parameter domains, and hence are considered as random variables.
-
-The degree of contribution of those force terms is significantly variable in space and time. For this reason, the following analysis is performed on locally sampled measurements, and not in a spatial averaging framework. In particular, four locations are selected among the center line of the flow. These are: the initial pile location $x_1=-0.7$ m, the middle of the inclined plane $x_2=-0.35$ m, the change in slope $x_3=0$ m, the middle of the flat plane $x_4=0.15$ m. Next notation will assume to be in a selected location $x=x_k$, where $k\in\{1,\dots, 4\}$. The definitions are not depending on the location, but all the results will significantly depend of that choice.
-
-\begin{definition}[Contribution coefficients]
-Let $(F_i)_{i=1,\dots, n}$ be random variables on $(\Omega, \mathcal F, P)$, representing the considered force components in location $x$ at time $t$. Then, for each component $i$, the contribution coefficient is defined as:
-$$C_i:=\mathbb E\left[\frac{F_i}{\Phi}\right],$$
-where $\Phi$ is a dominating function, i.e. $\Phi\ge |F_i|$, $\forall i$.
-\end{definition}
-The \emph{total force}, i.e $\sum_i F_i$ excluding the inertial terms, is not a good candidate for a dominating function. Indeed, the terms often have opposite signs, and their sum can be really small. Another issue is given by the existence of a subset of times $\Theta$ characterized by the absence of flow in the selected location $x$. In $\Theta$ the dominant force is null, and cannot be the denominator of a fraction.
-
-We explore two alternative $\Phi$ choices: $\Phi_1$ is based on the $l^1$ norm, and defined as:
-$$\Phi_1:=\left\{
-    \begin{array}{ll}
-      \sum_i \frac{|F_i|}{2}, & \hbox{if not null;} \\
-      1, & \hbox{otherwise.}
-    \end{array}
-  \right.$$
-In case we exclude the inertial forces from the analysis, we must take $\hat{\Phi_1}=2\Phi_1$. In contrast $\Phi_2$ is the dominant force, based on the $l^\infty$ norm:
-$$\Phi_2:=\left\{
-    \begin{array}{ll}
-      \max_i |F_i|, & \hbox{if not null;} \\
-      1, & \hbox{otherwise.}
-    \end{array}
-  \right.$$
-In particular, for a particular location $x$, time $t$, and parameter sample $\eta$, we have $C_i=0$ if there is no flow or all the forces are null. The expectation of $C_i$ is reduced by the chance of $F_i$ being small compared to the other terms, or by the chance of having no flow in $(x,t)$. Moreover, $\mathbb E[C_i]\in[-1,1]$, $\forall i$.
-\begin{proposition}
-Let $\Phi_k$, $k=1,2$ be the functions described above. Then they are well defined dominating function, i.e. $\Phi_k\ge |F_j|$, $\forall j,k$.
-\end{proposition}
-\begin{proof}
-If $k=1$, the Newton equation states $\sum_{j\in J} F_j =\sum_{i\in I} F_i,$ where $(F_j)_{j\in J}$ are inertial forces, and $(F_i)_{i\in I}$ the local forces. Then, $\forall h\in I$
-$$F_h=\sum_{i\neq h,\ i\in I} F_i - \sum_{j\in J} F_j.$$
-And hence
-$$|F_h|\le |F_h|+\sum_{i\neq k,\ i\in I} |F_i| - \sum_{j\in J} |F_j|=2\Phi_1.$$
-A similar equation is valid $\forall k\in J$. If $k=2$, or if the inertial forces are not included, the proof is trivial.
-\end{proof}
-
-Furthermore, assuming $\Phi=\Phi_2$, there is a useful result explaining the meaning of those coefficients through the conditional expectation.
-\begin{proposition}
-Let $(F_i)_{i=1,\dots, n}$ be random variables on $(\Omega, \mathcal F, P)$, representing the considered force components in location $x$ at time $t$. For each $i$, let $C_i$ be the contribution coefficient of force $F_i$, assuming $\Phi=\Phi_2$. Then we have the following expression:
-$$C_i=\sum_j p_j \mathbb E\left[\frac{F_i}{|F_j|}\ \Big{|}\ \Phi=|F_j|\right],$$
-where $p_j:=P\left\{\Phi=|F_j|\right\}$.
-\end{proposition}
-
-\begin{proof}
-Let $Z$ be a discrete random variable such that, for each $j\in\mathbb N$, $(Z=j) \Longleftrightarrow (\Phi=|F_j|)$. Then, by the rule of chain expectation:
-$$C_i=\mathbb E\left[\frac{F_i}{\Phi}\right]=\mathbb E\left[\mathbb E\left[\frac{F_i}{\Phi}\ \Big{|}\ Z=j\right]\right]=$$
-$$=\mathbb E\left[\mathbb E\left[\frac{F_i}{|F_j|}\ \Big{|}\ Z=j\right]\right]=\sum_j P\left\{Z=j\right\} \mathbb E\left[\frac{F_i}{|F_j|}\ \Big{|}\ Z=j\right].$$
-Moreover, by definition, $p_j=P\left\{Z=j\right\}$. This completes the proof.
-\end{proof}
-
-The last proposition brings to the definition of the dominance factors $(p_j)_{j=1,\dots, k}$, i.e. the probability of each $F_j$ to be the dominant force in $(x,t)$.
-
-\begin{definition}[Dominance factors and conditional contributions]
-Let $(F_i)_{i=1,\dots, k}$ be random variables on $(\Omega, \mathcal F, P)$, representing arbitrary force components in location $x$ at time $t$. Then, for each pair of components $(i,j)$, the conditional contribution $C_{i,j}$ is defined as:
-$$C_{i,j}:=\mathbb E\left[\frac{F_i}{|F_j|}\ \Big{|}\ \Phi=|F_j|\right],$$
-where $\Phi=\Phi_2$ is the dominant force. In particular, for each component $i$, the dominance factor is defined as:
-$$p_j:=P\left\{\Phi=|F_j|\right\}.$$
-\end{definition}
-
-In the following we display the contribution coefficients barplots as a function of time, for the locations $x_1,\dots,x_4$ defined above. Moreover, we report the dominance factors plots, a very useful tool to read the dynamical significance of the forces as a function of time and location.
+\subsection{Dominance factors}
 
 \subsubsection{Inter-model comparisons between RHS components:}\label{subsubsec:ramp-intermodelsPrs}
 
@@ -955,60 +1014,11 @@ In the following we display the contribution coefficients barplots as a function
         \label{fig:Ramp-FDominance1-VY}
 \end{figure}
 
+\subsection{Contribution coefficients}
 
-\subsection{Volc{\'a}n de Colima block and ash flow}\label{subsec:Colima-QoIs}
-\begin{itemize}
+\section{QoIs and Data Collected - Volc{\'a}n de Colima block and ash flow}
 
-\item \textbf{Material Volume:}
-\begin{table}[H]
-\caption{Material volume characteristics used for Block and Ash flow \\ simulations at Volc{\'a}n de Colima.}
-\label{tab:Colima-Volume}
-\begin{center}
-\begin{tabular}{l|c|c}
-                \hline \hline
-                & \textbf{\small Uncertainty Range} & \textbf{\small Mean Value} \\
-                \hline
-                \textbf{\small Material Volume} & $[ 2.08 \ ,\ 3.12] \times 10^5 \ (m^3)$ &  $2.6  \times 10^5 \ (m^3)$\\
-                                 & {\scriptsize ($\pm20\%$ of mean value)} & \\
-                \hline \hline
-\end{tabular}
-\end{center}
-\end{table}
-
-\item \textbf{Rheology models' parameter space:}
-
-The parameter ranges adopted in this case study are:
-
-\vskip.3cm\noindent \textbf{MC} - $\phi_{bed} \in [10^{\mathrm{\circ}}, 25^{\mathrm{\circ}}]$ \citep{Dalbey2008, Spiller2014}, $\quad \Delta\phi \in [2^{\mathrm{\circ}}, 10^{\mathrm{\circ}}]$.
-
-\vskip.3cm\noindent \textbf{PF} - $\phi_2 \in [10^{\mathrm{\circ}}, 30^{\mathrm{\circ}}]$, $\quad\Delta\phi_{12} \in [5^{\mathrm{\circ}}, 15^{\mathrm{\circ}}]$, $\quad\beta \in [0.1, 0.85]$, $\quad \mathcal{L}=10^{-1} \ (m)$, $\quad \phi_3=\phi_1 + 1^{\mathrm{\circ}}$.
-
-\vskip.3cm\noindent \textbf{VS} - $\mu \in [0.15, 0.55]$, $\quad \log(\xi) \in [1.7, 4]$.
-
-\end{itemize}
-
-\begin{figure}[H]
-         \centering
-        \includegraphics[width=1\textwidth]{Figures/MC.jpg}
-        \caption{Comparison between \emph{Max Flow Height Record} and \emph{Max Velocity Record} maps of simulated flow, assuming Mohr-Coulomb rheology. Extreme cases producing maximum and minimum runout, i.e. (a),(b) \emph{\textbf{max volume -- min resistance}} and (c),(d) \emph{\textbf{min volume -- max resistance}}. Parameters values and input options are also reported.}
-        \label{Colima-MaxMinExtents}
-\end{figure}
-
-\begin{figure}[H]
-         \centering
-        \includegraphics[width=1\textwidth]{Figures/PF.jpg}
-        \caption{Comparison between \emph{Max Flow Height Record} and \emph{Max Velocity Record} maps of simulated flow, assuming Pouliquen-Forterre rheology. Extreme cases producing maximum and minimum runout, i.e. (a),(b) \emph{\textbf{max volume -- min resistance}} and (c),(d) \emph{\textbf{min volume -- max resistance}}. Parameters values and input options are also reported.}
-        \label{Colima-MaxMinExtents}
-\end{figure}
-
-\begin{figure}[H]
-         \centering
-        \includegraphics[width=1\textwidth]{Figures/VS.jpg}
-        \caption{Comparison between \emph{Max Flow Height Record} and \emph{Max Velocity Record} maps of simulated flow, assuming Voellmy-Salm rheology. Extreme cases producing maximum and minimum runout, i.e. (a),(b) \emph{\textbf{max volume -- min resistance}} and (c),(d) \emph{\textbf{min volume -- max resistance}}. Parameters values and input options are also reported.}
-        \label{Colima-MaxMinExtents}
-\end{figure}
-
-\section{Results and Discussion}
+\section{Discussion}
 
 \section*{Appendix A: Latin Hypercubes and orthogonal arrays}
 The Latin Hypercube Sampling (LHS) is a well established procedure for defining pseudo-random designs of samples in $\mathbb R^d$, with good properties with respect to the uniform probability distribution on an hypercube $[0,1]^d$ \citep{McKay1979,Owen1992b,Stein1987,Ranjan2014,Mingyao2016}. In particular, compared to a random sampling, a LHS: (i) enhances the capability to fill the d-dimensional space with a finite number of points, (ii) in case $d>1$, avoids the overlapping of point locations in the one dimensional projections, (iii) reduces the dependence of the number of points necessary on the dimensionality $d$.
