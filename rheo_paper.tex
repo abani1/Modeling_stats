@@ -378,7 +378,7 @@ In general, the three rheologies considered in this study, MC, PF, and VS, have 
 \par\noindent $\log(\xi) \in [1.7, 4] = \log[50, 10^4]$, i.e. in this case the uniform sampling is accomplished in log-scale.
 
 \paragraph{Flow down an inclined plane}
-We relied on the published parameter choices to decide a comprehensive parameter range. 
+We relied on the published parameter choices to decide a comprehensive parameter range.
 \begin{itemize}
 
 \item \textbf{Material Volume:}
@@ -408,16 +408,9 @@ The parameter ranges adopted in this case study are:
 \vskip.3cm\noindent \textbf{VS} - $\mu \in [0.2, 0.7]$, $\quad \log(\xi) \in [1.7, 4]$.
 
 \end{itemize}
-
+\newpage
 \paragraph{Volc{\'a}n de Colima block and ash flow}
-In this more complex large scale simulation we couldn't rely on previous studies to decide the parameter range of Pouliquen-Forterre and Voellmy-Salm rheologies. Hence we made a preliminary testing with on the extremal cases of the different models, i.e. max volume -- min resistance, and min volume -- max resistance. We tentatively coupled the runout observed to the Mohr-Coulomb case, obtanining the following ranges. Figures \ref{Colima-MaxMinExtentsMC}, \ref{Colima-MaxMinExtentsPF}, \ref{Colima-MaxMinExtentsVS} display the map of max flow height and max velocities observed. 
-
-\begin{figure}[H]
-         \centering
-        \includegraphics[width=1\textwidth]{Figures/MC.jpg}
-        \caption{Comparison between \emph{Max Flow Height Record} and \emph{Max Velocity Record} maps of simulated flow, assuming Mohr-Coulomb rheology. Extreme cases producing maximum and minimum runout, i.e. (a),(b) \emph{\textbf{max volume -- min resistance}} and (c),(d) \emph{\textbf{min volume -- max resistance}}. Parameters values and input options are also reported.}
-        \label{Colima-MaxMinExtentsMC}
-\end{figure}
+In this more complex large scale simulation we couldn't rely on previous studies to decide the parameter range of Pouliquen-Forterre and Voellmy-Salm rheologies. Hence we made a preliminary testing with on the extremal cases of the different models, i.e. max volume -- min resistance, and min volume -- max resistance. We tentatively coupled the runout observed to the Mohr-Coulomb case, obtanining the following ranges. Figures \ref{Colima-MaxMinExtentsMC}, \ref{Colima-MaxMinExtentsPF}, \ref{Colima-MaxMinExtentsVS} display the map of max flow height and max velocities observed.
 
 \begin{itemize}
 
@@ -436,16 +429,6 @@ In this more complex large scale simulation we couldn't rely on previous studies
 \end{tabular}
 \end{center}
 \end{table}
-\end{itemize}
-
-\begin{figure}[H]
-         \centering
-        \includegraphics[width=1\textwidth]{Figures/PF.jpg}
-        \caption{Comparison between \emph{Max Flow Height Record} and \emph{Max Velocity Record} maps of simulated flow, assuming Pouliquen-Forterre rheology. Extreme cases producing maximum and minimum runout, i.e. (a),(b) \emph{\textbf{max volume -- min resistance}} and (c),(d) \emph{\textbf{min volume -- max resistance}}. Parameters values and input options are also reported.}
-        \label{Colima-MaxMinExtentsPF}
-\end{figure}
-
-\begin{itemize}
 \item \textbf{Rheology models' parameter space:}
 
 The parameter ranges adopted in this case study are:
@@ -460,9 +443,9 @@ The parameter ranges adopted in this case study are:
 
 \begin{figure}[H]
          \centering
-        \includegraphics[width=1\textwidth]{Figures/VS.jpg}
-        \caption{Comparison between \emph{Max Flow Height Record} and \emph{Max Velocity Record} maps of simulated flow, assuming Voellmy-Salm rheology. Extreme cases producing maximum and minimum runout, i.e. (a),(b) \emph{\textbf{max volume -- min resistance}} and (c),(d) \emph{\textbf{min volume -- max resistance}}. Parameters values and input options are also reported.}
-        \label{Colima-MaxMinExtentsVS}
+        \includegraphics[width=0.87\textwidth]{Figures/Extremal.jpg}
+        \caption{Comparison between \emph{Max Flow Height Record} and \emph{Max Velocity Record} maps of simulated flow, assuming Mohr-Coulomb (a),(b), Pouliquen-Forterre (c),(d), and Voellmy-Salm (e),(f) rheology. Extreme cases producing maximum and minimum runout, i.e. (a),(c),(e) \emph{\textbf{max volume -- min resistance}} and (b),(d),(f) \emph{\textbf{min volume -- max resistance}}. Parameters values and input options are also reported.}
+        \label{Colima-MaxMinExtents}
 \end{figure}
 
 \subsection{Statistical analysis of force contributions}
@@ -534,8 +517,8 @@ In the following we display the contribution coefficients barplots as a function
 \section{QoIs and Data Collected - Flow down and inclined plane, and a change in slope to a flat plane}\label{sec:QoIs}
 First case study is the small scale experimental setting described above.
 
-\subsection{Flow Height}
-
+\subsection{Flow Spatial Extents}
+\subsubsection*{Flow Height - local measurements}
 \begin{figure}[H]
 	\begin{minipage}[b]{0.5\linewidth}
     	\centering
@@ -562,39 +545,35 @@ First case study is the small scale experimental setting described above.
     	\subcaption{$L=(0.15,0)$, a location on runout plane.}
     	\label{fig:Ramp-L4-H}
     \end{minipage}
-    \caption{Records of flow height, $h(L,t)$.}
+    \caption{Records of flow height, $h(L,t)$, at four spatial locations of interest. Bold line is mean value, dashed lines are 5$^th$ and 95$^th$ percentile bounds. Different rheology models are displayed separately.}
     \label{fig:Ramp-LM-H}
 \end{figure}
-
+\subsubsection*{Flow Height - model comparison on local measurements}
 \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{InclinedPlane/Height/H_mean.png}
-        \caption{Comparison between mean values of flow height, $h(L,t)$, recorded at locations of interest, $L_i, \ _{i=1,...,4}$.}
+        \caption{Mean values of flow height for the three models, $h(L,t)$, recorded at locations of interest, $L_i, \ _{i=1,...,4}$.}
         \label{fig:Ramp-LM-H-means}
 \end{figure}
 
+\subsubsection*{Flow Lateral Extent - $E(t)$}
 \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{InclinedPlane/Height/LateralExtent_SpatialRec.png}
-        \caption{Comparison between mean values of flow height recorded at locations of interest, $L_i, \ _{i=1,...,4}$.}
+        \caption{Comparison between mean values of flow lateral extent as a function of time.}
         \label{fig:Ramp-LatExtension-spatial}
 \end{figure}
 
-\begin{figure}[H]
-        \centering
-        \includegraphics[width=1\textwidth]{InclinedPlane/Height/Volume_SpatialRec.png}
-        \caption{Comparison between mean values of flow height, $h(L,t)$, recorded at locations of interest, $L_i, \ _{i=1,...,4}$.}
-        \label{fig:Ramp-Volume-spatial}
-\end{figure}
-
+\subsubsection*{Flow Area - $A(t)$}
 \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{InclinedPlane/Height/Area_SpatialRec.png}
-        \caption{Comparison between mean values of flow height, $h(L,t)$, recorded at locations of interest, $L_i, \ _{i=1,...,4}$.}
+        \caption{Comparison between mean values of flow area as a function of time.}
         \label{fig:Ramp-InundArea-spatial}
 \end{figure}
 
-\subsection{Flow Velocity}
+\subsection{Flow Speed}
+\subsubsection*{Flow Speed - local measurements}
 \begin{figure}[H]
 	\begin{minipage}[b]{0.5\linewidth}
     	\centering
@@ -621,25 +600,28 @@ First case study is the small scale experimental setting described above.
     	\subcaption{$L=(0.15,0)$, a location on runout plane.}
     	\label{fig:Ramp-L4-Vel}
     \end{minipage}
-    \caption{Records of flow velocity, $\Vert \underline{\mathbf{u}} \Vert(L,t)$.}
+    \caption{Records of flow speed, $\Vert \underline{\mathbf{u}} \Vert(L,t)$, at four spatial locations of interest. Bold line is mean value, dashed lines are 5$^th$ and 95$^th$ percentile bounds. Different rheology models are displayed separately.}
     \label{fig:Ramp-LM-Vel}
 \end{figure}
 
+\subsubsection*{Flow Speed - model comparison on local measurements}
 \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{InclinedPlane/Velocity/Vel_mean.png}
-        \caption{Comparison between mean values of flow velocity, $\Vert \underline{\mathbf{u}} \Vert(L,t)$, recorded at locations of interest, $L_i, \ _{i=1,...,4}$.}
+        \caption{Mean values of flow speed, $\Vert \underline{\mathbf{u}} \Vert(L,t)$, recorded at locations of interest, $L_i, \ _{i=1,...,4}$.}
         \label{fig:Ramp-LM-Vel-means}
 \end{figure}
 
+\subsubsection*{Flow Speed - spatial average}
 \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{InclinedPlane/Velocity/Vel_SpatialRec.png}
-        \caption{Comparison between mean values of flow velocity, $\Vert \underline{\mathbf{u}} \Vert(L,t)$, recorded at locations of interest, $L_i, \ _{i=1,...,4}$.}
+        \caption{Spatial average of flow speed. Bold line is mean value, dashed lines are 5$^th$ and 95$^th$ percentile bounds. Model comparison on the mean value is also displayed.}
         \label{fig:Ramp-Vel-spatial}
 \end{figure}
 
 \subsection{Froude Number}
+\subsubsection*{Froude Number - local measurements}
 \begin{figure}[H]
 	\begin{minipage}[b]{0.5\linewidth}
     	\centering
@@ -666,63 +648,28 @@ First case study is the small scale experimental setting described above.
     	\subcaption{$L=(0.15,0)$, a location on runout plane.}
     	\label{fig:Ramp-L4-Fr}
     \end{minipage}
-    \caption{Records of flow velocity, $\Vert \underline{\mathbf{u}} \Vert(L,t)$.}
+    \caption{Records of Froude number at four spatial locations of interest. Bold line is mean value, dashed lines are 5$^th$ and 95$^th$ percentile bounds. Different rheology models are displayed separately.}
     \label{fig:Ramp-LM-Fr}
 \end{figure}
 
+\subsubsection*{Froude Number - model comparison on local measurements}
 \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{InclinedPlane/Froude/Fr_mean.png}
-        \caption{Comparison between mean values of flow velocity, $\Vert \underline{\mathbf{u}} \Vert(L,t)$, recorded at locations of interest, $L_i, \ _{i=1,...,4}$.}
+        \caption{Mean values of Froude number, $\Vert \underline{\mathbf{u}} \Vert(L,t)$, recorded at locations of interest, $L_i, \ _{i=1,...,4}$.}
         \label{fig:Ramp-LM-Fr-means}
 \end{figure}
 
+\subsubsection*{Froude Number - spatial average}
 \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{InclinedPlane/Froude/Fr_SpatialRec.png}
-        \caption{Comparison between mean values of flow velocity, $\Vert \underline{\mathbf{u}} \Vert(L,t)$, recorded at locations of interest, $L_i, \ _{i=1,...,4}$.}
+        \caption{Spatial average of Froude number. Bold line is mean value, dashed lines are 5$^th$ and 95$^th$ percentile bounds. Model comparison on the mean value is also displayed.}
         \label{fig:Ramp-Fr-spatial}
 \end{figure}
 
 \subsection{Flow Acceleration}
-\begin{figure}[H]
-	\begin{minipage}[b]{0.5\linewidth}
-    	\centering
-    	\includegraphics[width=1\textwidth]{InclinedPlane/Acceleration/accel_L1R.png}
-    	\subcaption{$L=(-0.7,0)$, slumping pile location.}
-    	\label{fig:Ramp-L1-AccR}
-	\end{minipage}
-	\begin{minipage}[b]{0.5\linewidth}
-		\centering
-		\includegraphics[width=1\textwidth]{InclinedPlane/Acceleration/accel_L2R.png}
-    	\subcaption{$L=(-0.35,0)$, middle point on inclined plane.}
-    	\label{fig:Ramp-L2-AccR}
-    \end{minipage}
-
-	\begin{minipage}[b]{0.5\linewidth}
-    	\centering
-    	\includegraphics[width=1\textwidth]{InclinedPlane/Acceleration/accel_L3R.png}
-    	\subcaption{$L=(0,0)$, inclined and runout planes' joint location.}
-    	\label{fig:Ramp-L3-AccR}
-	\end{minipage}
-	\begin{minipage}[b]{0.5\linewidth}
-		\centering
-		\includegraphics[width=1\textwidth]{InclinedPlane/Acceleration/accel_L4R.png}
-    	\subcaption{$L=(0.15,0)$,  a location on runout plane.}
-    	\label{fig:Ramp-L4-AccR}
-    \end{minipage}
-    \caption{Records of flow acceleration (computed from RHS), $\Vert \underline{\mathbf{a}} \Vert(L,t)$.}
-    \label{fig:Ramp-LM-AccR}
-\end{figure}
-
-\begin{figure}[H]
-        \centering
-        \includegraphics[width=1\textwidth]{InclinedPlane/Acceleration/accel_meanR.png}
-        \caption{Comparison between mean values of flow acceleration (computed from RHS), $\Vert \underline{a} \Vert(L,t)$, recorded at locations of interest, $L_i, \ _{i=1,...,4}$.}
-        \label{fig:Ramp-LM-AccR-means}
-\end{figure}
-
-
+\subsubsection*{Flow Acceleration Magnitude - local measurements}
 \begin{figure}[H]
 	\begin{minipage}[b]{0.5\linewidth}
     	\centering
@@ -749,14 +696,15 @@ First case study is the small scale experimental setting described above.
     	\subcaption{$L=(0.15,0)$,  a location on runout plane.}
     	\label{fig:Ramp-L4-AccL}
     \end{minipage}
-    \caption{Records of flow acceleration (computed from LHS), $\Vert \underline{\mathbf{a}} \Vert(L,t)$.}
+    \caption{Records of flow acceleration magnitude (computed from LHS), $\Vert \underline{\mathbf{a}} \Vert(L,t)$. Bold line is mean value, dashed lines are 5$^th$ and 95$^th$ percentile bounds. Different rheology models are displayed separately.}
     \label{fig:Ramp-LM-AccL}
 \end{figure}
 
+\subsubsection*{Flow Acceleration Magnitude - model comparison on local measurements.}
 \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{InclinedPlane/Acceleration/accel_meanL.png}
-        \caption{Comparison between mean values of flow acceleration (computed from LHS), $\Vert \underline{a} \Vert(L,t)$, recorded at locations of interest, $L_i, \ _{i=1,...,4}$.}
+        \caption{Mean values of flow acceleration (computed from LHS), $\Vert \underline{a} \Vert(L,t)$, recorded at locations of interest, $L_i, \ _{i=1,...,4}$.}
         \label{fig:Ramp-LM-AccL-means}
 \end{figure}
 
@@ -764,151 +712,136 @@ First case study is the small scale experimental setting described above.
 \newpage
 \subsection{Forces and Powers}
 
-\begin{itemize}
-\item	\textbf{LHS$_1$}
-
+\textbf{LHS$_1$ - $\left(\frac{\partial}{\partial t} (h\bar{u}), \frac{\partial}{\partial t} (h\bar{v})\right)$}
+\subsubsection*{Force LHS$_1$ in the slope direction - spatial average}
 \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{InclinedPlane/Forces_Powers/LHS1/FLHS1x.png}
-        \caption{Comparison between mean values of flow acceleration (computed from LHS), $\Vert \underline{a} \Vert(L,t)$, recorded at locations of interest, $L_i, \ _{i=1,...,4}$.}
+        \caption{Spatial average of force LHS$_1$ in the slope direction. Bold line is mean value, dashed lines are 5$^th$ and 95$^th$ percentile bounds. Model comparison on the mean value is also displayed.}
         \label{fig:Ramp-LHS1-Fx-spatial}
 \end{figure}
-
+\subsubsection*{Force LHS$_1$ in the lateral direction - spatial average}
 \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{InclinedPlane/Forces_Powers/LHS1/FLHS1y.png}
-        \caption{Comparison between mean values of flow acceleration (computed from LHS), $\Vert \underline{a} \Vert(L,t)$, recorded at locations of interest, $L_i, \ _{i=1,...,4}$.}
+        \caption{Spatial average of force LHS$_1$ in the lateral direction. Bold line is mean value, dashed lines are 5$^th$ and 95$^th$ percentile bounds. Model comparison on the mean value is also displayed.}
         \label{fig:Ramp-LHS1-Fy-spatial}
 \end{figure}
-
+\subsubsection*{Power of LHS$_1$ - spatial average}
 \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{InclinedPlane/Forces_Powers/LHS1/PLHS1.png}
-        \caption{Comparison between mean values of flow acceleration (computed from LHS), $\Vert \underline{a} \Vert(L,t)$, recorded at locations of interest, $L_i, \ _{i=1,...,4}$.}
+        \caption{Spatial average of the power of LHS$_1$. Bold line is mean value, dashed lines are 5$^th$ and 95$^th$ percentile bounds. Model comparison on the mean value is also displayed.}
         \label{fig:Ramp-LHS1-Power-spatial}
 \end{figure}
 
 \newpage
-\item	\textbf{LHS$_2$}
-
+\textbf{LHS$_2$ - $\left(\frac{\partial}{\partial x}\left(h\bar{u}^2 + \frac{1}{2}k g_{z}h^2\right) + \frac{\partial}{\partial y}(h\bar{u}\bar{v}),\frac{\partial}{\partial x}(h\bar{u}\bar{v}) +
+\frac{\partial}{\partial y}\left(h\bar{v}^2 + \frac{1}{2}k g_{z}h^2\right)\right)$}
+\subsubsection*{Force LHS$_2$ in the slope direction - spatial average}
 \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{InclinedPlane/Forces_Powers/LHS2/FLHS2x.png}
-        \caption{Comparison between mean values of flow acceleration (computed from LHS), $\Vert \underline{a} \Vert(L,t)$, recorded at locations of interest, $L_i, \ _{i=1,...,4}$.}
+        \caption{Spatial average of force LHS$_2$ in the slope direction. Bold line is mean value, dashed lines are 5$^th$ and 95$^th$ percentile bounds. Model comparison on the mean value is also displayed.}
         \label{fig:Ramp-LHS2-Fx-spatial}
 \end{figure}
-
+\subsubsection*{Force LHS$_2$ in the lateral direction - spatial average}
 \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{InclinedPlane/Forces_Powers/LHS2/FLHS2y.png}
-        \caption{Comparison between mean values of flow acceleration (computed from LHS), $\Vert \underline{a} \Vert(L,t)$, recorded at locations of interest, $L_i, \ _{i=1,...,4}$.}
+        \caption{Spatial average of force LHS$_2$ in the lateral direction. Bold line is mean value, dashed lines are 5$^th$ and 95$^th$ percentile bounds. Model comparison on the mean value is also displayed.}
         \label{fig:Ramp-LHS2-Fy-spatial}
 \end{figure}
-
+\subsubsection*{Power of LHS$_2$ - spatial average}
 \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{InclinedPlane/Forces_Powers/LHS2/PLHS2.png}
-        \caption{Comparison between mean values of flow acceleration (computed from LHS), $\Vert \underline{a} \Vert(L,t)$, recorded at locations of interest, $L_i, \ _{i=1,...,4}$.}
+        \caption{Spatial average of the power of LHS$_2$. Bold line is mean value, dashed lines are 5$^th$ and 95$^th$ percentile bounds. Model comparison on the mean value is also displayed.}
         \label{fig:Ramp-LHS2-Power-spatial}
 \end{figure}
 
 \newpage
-\item	\textbf{RHS$_1$}
-
+\textbf{RHS$_1$ - $(g_x h,0)$}
+\subsubsection*{Force RHS$_1$ in the slope direction - spatial average}
 \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{InclinedPlane/Forces_Powers/RHS1/FRHS1x.png}
-        \caption{Comparison between mean values of flow acceleration (computed from LHS), $\Vert \underline{a} \Vert(L,t)$, recorded at locations of interest, $L_i, \ _{i=1,...,4}$.}
+        \caption{Spatial average of force RHS$_1$ in the slope direction. Bold line is mean value, dashed lines are 5$^th$ and 95$^th$ percentile bounds. Model comparison on the mean value is also displayed.}
         \label{fig:Ramp-RHS1-Fx-spatial}
 \end{figure}
-
-\begin{figure}[H]
-        \centering
-        \includegraphics[width=1\textwidth]{InclinedPlane/Forces_Powers/RHS1/FRHS1y.png}
-        \caption{Comparison between mean values of flow acceleration (computed from LHS), $\Vert \underline{a} \Vert(L,t)$, recorded at locations of interest, $L_i, \ _{i=1,...,4}$.}
-        \label{fig:Ramp-RHS1-Fy-spatial}
-\end{figure}
-
+\subsubsection*{Power of RHS$_1$ - spatial average}
 \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{InclinedPlane/Forces_Powers/RHS1/PRHS1.png}
-        \caption{Comparison between mean values of flow acceleration (computed from LHS), $\Vert \underline{a} \Vert(L,t)$, recorded at locations of interest, $L_i, \ _{i=1,...,4}$.}
+        \caption{Spatial average of the power of RHS$_1$. Bold line is mean value, dashed lines are 5$^th$ and 95$^th$ percentile bounds. Model comparison on the mean value is also displayed.}
         \label{fig:Ramp-RHS1-Power-spatial}
 \end{figure}
 
 \newpage
-\item	\textbf{RHS$_2$}
-
+\textbf{RHS$_2$ - Basal friction formulas}
+\subsubsection*{Force RHS$_2$ in the slope direction - spatial average}
 \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{InclinedPlane/Forces_Powers/RHS2/FRHS2x.png}
-        \caption{Comparison between mean values of flow acceleration (computed from LHS), $\Vert \underline{a} \Vert(L,t)$, recorded at locations of interest, $L_i, \ _{i=1,...,4}$.}
+        \caption{Spatial average of force RHS$_1$ in the slope direction. Bold line is mean value, dashed lines are 5$^th$ and 95$^th$ percentile bounds. Model comparison on the mean value is also displayed.}
         \label{fig:Ramp-RHS2-Fx-spatial}
 \end{figure}
-
+\subsubsection*{Force RHS$_2$ in the lateral direction - spatial average}
 \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{InclinedPlane/Forces_Powers/RHS2/FRHS2y.png}
-        \caption{Comparison between mean values of flow acceleration (computed from LHS), $\Vert \underline{a} \Vert(L,t)$, recorded at locations of interest, $L_i, \ _{i=1,...,4}$.}
+        \caption{Spatial average of force RHS$_2$ in the lateral direction. Bold line is mean value, dashed lines are 5$^th$ and 95$^th$ percentile bounds. Model comparison on the mean value is also displayed.}
         \label{fig:Ramp-RHS2-Fy-spatial}
 \end{figure}
-
+\subsubsection*{Power of RHS$_2$ - spatial average}
 \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{InclinedPlane/Forces_Powers/RHS2/PRHS2.png}
-        \caption{Comparison between mean values of flow acceleration (computed from LHS), $\Vert \underline{a} \Vert(L,t)$, recorded at locations of interest, $L_i, \ _{i=1,...,4}$.}
+        \caption{Spatial average of the power of RHS$_2$. Bold line is mean value, dashed lines are 5$^th$ and 95$^th$ percentile bounds. Model comparison on the mean value is also displayed.}
         \label{fig:Ramp-RHS2-Power-spatial}
 \end{figure}
 
 \newpage
-\item	\textbf{RHS$_3$}
-
+\textbf{RHS$_3$ - Curvature term formulas}
+\subsubsection*{Force RHS$_3$ in the slope direction - spatial average}
 \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{InclinedPlane/Forces_Powers/RHS3/FRHS3x.png}
-        \caption{Comparison between mean values of flow acceleration (computed from LHS), $\Vert \underline{a} \Vert(L,t)$, recorded at locations of interest, $L_i, \ _{i=1,...,4}$.}
+        \caption{Spatial average of force RHS$_3$ in the slope direction. Bold line is mean value, dashed lines are 5$^th$ and 95$^th$ percentile bounds. Model comparison on the mean value is also displayed.}
         \label{fig:Ramp-RHS3-Fx-spatial}
 \end{figure}
-
-\begin{figure}[H]
-        \centering
-        \includegraphics[width=1\textwidth]{InclinedPlane/Forces_Powers/RHS3/FRHS3y.png}
-        \caption{Comparison between mean values of flow acceleration (computed from LHS), $\Vert \underline{a} \Vert(L,t)$, recorded at locations of interest, $L_i, \ _{i=1,...,4}$.}
-        \label{fig:Ramp-RHS3-Fy-spatial}
-\end{figure}
-
+\subsubsection*{Power of RHS$_3$ - spatial average}
 \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{InclinedPlane/Forces_Powers/RHS3/PRHS3.png}
-        \caption{Comparison between mean values of flow acceleration (computed from LHS), $\Vert \underline{a} \Vert(L,t)$, recorded at locations of interest, $L_i, \ _{i=1,...,4}$.}
+        \caption{Spatial average of the power of RHS$_3$. Bold line is mean value, dashed lines are 5$^th$ and 95$^th$ percentile bounds. Model comparison on the mean value is also displayed.}
         \label{fig:Ramp-RHS3-Power-spatial}
 \end{figure}
 
 \newpage
-\item	\textbf{RHS$_4$}
-
+\textbf{RHS$_4$ - Corrective term formulas}
+\subsubsection*{Force RHS$_4$ in the slope direction - spatial average}
 \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{InclinedPlane/Forces_Powers/RHS4/FRHS4x.png}
         \caption{Comparison between mean values of flow acceleration (computed from LHS), $\Vert \underline{a} \Vert(L,t)$, recorded at locations of interest, $L_i, \ _{i=1,...,4}$.}
         \label{fig:Ramp-RHS4-Fx-spatial}
 \end{figure}
-
+\subsubsection*{Force RHS$_4$ in the lateral direction - spatial average}
 \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{InclinedPlane/Forces_Powers/RHS4/FRHS4y.png}
         \caption{Comparison between mean values of flow acceleration (computed from LHS), $\Vert \underline{a} \Vert(L,t)$, recorded at locations of interest, $L_i, \ _{i=1,...,4}$.}
         \label{fig:Ramp-RHS4-Fy-spatial}
 \end{figure}
-
+\subsubsection*{Power of RHS$_4$ - spatial average}
 \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{InclinedPlane/Forces_Powers/RHS4/PRHS4.png}
-        \caption{Comparison between mean values of flow acceleration (computed from LHS), $\Vert \underline{a} \Vert(L,t)$, recorded at locations of interest, $L_i, \ _{i=1,...,4}$.}
+        \caption{Spatial average of the power of RHS$_4$. Bold line is mean value, dashed lines are 5$^th$ and 95$^th$ percentile bounds. Model comparison on the mean value is also displayed.}
         \label{fig:Ramp-RHS4-Power-spatial}
 \end{figure}
 
-\end{itemize}
 
 \subsection{Dominance factors}
 
