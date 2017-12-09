@@ -78,40 +78,44 @@ We juxtapose observation data to the simulation results, only with the purpose t
 \section{Introduction}\label{sec:Intro}
 
 \subsection{Geophysical mass flows}\label{subsec:FlowTypes}
-Geophysical mass flows include debris and mud flows, landslides, snow and rock avalanches, glacier flows, pyroclastic surges, block and ash flows, and pumice flows, lahars, jokulhaups and many other examples. These flows are sometimes tens of kilometers in length and may travel at speeds as fast as hundreds of meters per second. Their deposits can be as much as tens of meters deep and kilometers long. In other words, there is no single universal description of a ``typical'' geophysical mass flow. Different types of flows are the results of different types of mechanisms/processes and hence different types of flows will have significantly different physical characteristics.
+Geophysical mass flows include debris and mud flows, landslides, snow and rock avalanches, glacier flows, pyroclastic surges, block and ash flows, and pumice flows, lahars, j\"okulhaups and many other examples. These flows are sometimes tens of kilometers in length and may travel at speeds as fast as hundreds of meters per second. Their deposits can be as much as tens of meters deep and kilometers long. In other words, there is no single universal description of a ``typical'' geophysical mass flow. Different types of flows are the results of different types of mechanisms/processes and hence different types of flows will have significantly different physical characteristics.
 
-The rheology complexity of the fluidized material, the mathematical problem of modeling and computing, make the description of the dynamics of those flows really challenging. In many cases the flows are \emph{shallow}, i.e. the horizontal dimension is significantly larger than the flow depth. This assumption allows to perform depth-integration on the governing 3D Navier-Stokes equations, resulting in the 2D formulation of Shallow Water Equations (SWE), also known as Saint Venant Equations \citep{Batchelor2000, Luca2016}. Pioneering work of \cite{SavageHutter1989} that was followed by \cite{Hutter1993,DadeHuppert1998} developed a depth-averaged model for flow of granular materials. Their model was used to model a flow of granular material down an inclined plane, originally using the Mohr-Coulomb rheology (MC) (see also \cite{Jaeger1989,FraccarolloToro1995}). Afterwards, large number of studies focused on the modeling of granular flows, including geophysical mass flows, using SWE approach and many of them were carefully reviewed in \cite{PudasainiHutter2007}.
+The rheology complexity of the fluidized material, and the mathematical problem of modeling and computing, make the description of the dynamics of those flows really challenging. In many cases the flows are \emph{shallow}, i.e. the horizontal dimension is significantly larger than the flow depth. This assumption allows to perform depth-integration on the governing 3D Navier-Stokes equations, resulting in the 2D formulation of Shallow Water Equations (SWE), also known as Saint Venant Equations \citep{Batchelor2000, Luca2016}. Pioneering work of \cite{SavageHutter1989} that was followed by \cite{Hutter1993,DadeHuppert1998} developed a depth-averaged model for flow of granular materials. Their model was used to model a flow of granular material down an inclined plane, originally using the Mohr-Coulomb rheology (MC) (see also \cite{Jaeger1989,FraccarolloToro1995}). Afterwards, large number of studies focused on the modeling of granular flows, including geophysical mass flows, using SWE approach and many of them were carefully reviewed in \cite{PudasainiHutter2007}.
 
 Modeling flow of granular material down an inclined plane was explored in detail by several further studies, both theoretically and experimentally \citep{Pouliquen1999, RuyerQuil2000, Silbert2001, Bursik2005, DaCruz2005}. Granular material slumping \citep{Balmforth2005,Lajeunesse2005}, rapid flow down smooth inclines \citep{Greve1994,Wieland1999} and shock waves \citep{Gray2003,Hokanardottir2005} were modeled and tested. Terrain erosion effects were investigated \citep{Pitman2003b, Edwards2015}, and also material deposition and self-channeling effects \citep{Mangeney2005, Mangeney2007}.
 
-In particular, the experiments on rough inclined planes led to the development of the Pouliquen-Forterre rheology (PF), assuming a variable frictional behavior as a function of flow regime ($Fr$) and flow depth \citep{Pouliquen1999, ForterrePouliquen2002, PouliquenForterre2002, ForterrePouliquen2003}. They allowed for an improved modeling of front propagation, mass spreading, surface wave-propagation and vortices-evolution in the flows on a rough terrain \citep{Forterre2006, Jop2006, ForterrePouliquen2008}.
+In particular, the experiments on rough inclined planes led to the development of the Pouliquen-Forterre rheology (PF), assuming a variable frictional behavior as a function of flow regime (i.e. Froude Number, $Fr$) and flow depth \citep{Pouliquen1999, ForterrePouliquen2002, PouliquenForterre2002, ForterrePouliquen2003}. They allowed for an improved modeling of front propagation, mass spreading, surface wave-propagation and vortices-evolution in the flows on a rough terrain \citep{Forterre2006, Jop2006, ForterrePouliquen2008}.
 
 In parallel to and sometimes anticipating the earth avalanches experiments and models, study of snow avalanches led to the development of the Voellmy-Salm rheology (VS) \citep{Voellmy1955, Salm1990, Salm1993, Bartelt1999}. Dense snow or debris avalanches consist of mobilized, rapidly flowing ice-snow mixed to debris-rock granules \citep{BarteltMcArdell2009}. The VS rheology assumes a velocity dependent resisting term in addition to the traditional basal friction, ideally capable of including an approximation of the turbulence-generated friction. Many experimental and theoretical studies were developed in this framework \citep{Gruber2007, Kern2009, Christen2010, Fischer2012}.
 
-In \cite{Iverson1997, Iverson2001, Denlinger2001, Denlinger2004, Iverson2004}, the depth-averaged model was further studied and applied in the simulation of geophysical flows over natural terrains. Moreover, \cite{Gray1999, Gray2003} tested modeling of fast avalanches, exploring the high-velocity effects of channelizing/chuting topographies. A compensation for the effect of earth pressure changes was implemented and explored in detail \citep{Pirulli2007,Pirulli2008}, as well as the implementation of a significant curvature in the terrain \citep{PudasainiHutter2003, Fischer2012}. Several specific studies on the pore pressure effects on the flow initiation and fluidization were developed \citep{SavageIverson2003, Iordanoff2004, Iverson2014}. A two-phase model was also implemented to more accurately simulate heterogenous flows with a significant portion of interstitial fluid \citep{PitmanLe2005}. All of these complex modeling choices correspond to alternative or additional physical assumptions, and they are sometimes very difficult to be evaluated, compared or even reasonably combined together.
+In \cite{Iverson1997, Iverson2001, Denlinger2001, Denlinger2004, Iverson2004}, the depth-averaged model was further studied and applied in the simulation of geophysical flows over digital models of natural terrains. Moreover, \cite{Gray1999, Gray2003} tested modeling of fast avalanches, exploring the high-velocity effects of channelizing/chuting topographies. A compensation for the effect of earth pressure changes was implemented and explored in detail \citep{Pirulli2007,Pirulli2008}, as well as the implementation of a significant curvature in the terrain \citep{PudasainiHutter2003, Fischer2012}. Several specific studies on the pore pressure effects on the flow initiation and fluidization were developed \citep{SavageIverson2003, Iordanoff2004, Iverson2014}. A two-phase model was also implemented to more accurately simulate heterogenous flows with a significant portion of interstitial fluid \citep{PitmanLe2005}. All of these complex modeling choices correspond to alternative or additional physical assumptions, and they are sometimes very difficult to be evaluated, compared or reasonably combined together.
 
 A particular interest is raised by the specific efforts devoted to the modeling of volcanic mass flows with SWE \citep{FreundtBursik1998,Bursik2005,Saucedo2005, Kelfoun2005,Charbonnier2009,Kelfoun2009,Procter2010,Sulpizio2010,Kelfoun2011,Charbonnier2013}. Volcanoes are great sources for a rich variety of geophysical flow types in addition to the collected field data from past flow events.
 
-In this study, we use TITAN2D software that is a publicly available toolkit for simulation of granular flows over natural terrains by solving depth-averaged equations using Digital Elevation Model (DEM) of terrain \citep{Pitman2003a, Patra2005, Patra2006, Yu2009, Aghakhani2016}. In the $\mathrm{4^{th}}$ release of TITAN2D, the capability of having multiple rheology options (MC, PF and VS rheologies) for simulation of flow in the same computational platform have been implemented. Therefore, we can perfectly make use of this opportunity and only focus on modeling characteristics of these rheology options without concerns about effects of diverse numerical frameworks. So far, TITAN2D achieved many successful applications in the simulation of different geophysical mass flows with specific peculiarities \citep{Sheridan2005, Rupp2006, Norini2008, Charbonnier2009, Procter2010, Sheridan2010, Sulpizio2010, Capra2011}. Several studies involving TITAN2D were recently directed towards a statistical study of geophysical flows, focusing on the uncertainty quantification and propagation \citep{Dalbey2008, Dalbey2009, Stefanescu2012a, Stefanescu2012b}, or on the more efficient production of hazard maps \citep{Bayarri2009, Spiller2014,Bayarri2015, Ogburn2016}. This study for the first time applies a statistical approach to the detailed investigation of the material model \emph{stress components} and their associated \emph{powers}, as well as the flow \emph{velocity}, \emph{height} and \emph{inundated area}. The stress components have a strong link with the dynamic equation terms; however, the observable quantities have a direct link to field data and hazard assessments. Our main purpose is to obtain a quantitative and statistical understanding of the different physical assumptions, both inside the flow and on the outputs.
+In this study, we use TITAN2D software that is a publicly available toolkit for simulation of granular flows over natural terrains by solving depth-averaged equations using Digital Elevation Model (DEM) of terrain \citep{Pitman2003a, Patra2005, Patra2006, Yu2009, Aghakhani2016}. In the $\mathrm{4^{th}}$ release of TITAN2D, the capability of having multiple rheology options (MC, PF and VS rheologies) for simulation of flow in the same computational platform have been implemented. Therefore, we can perfectly make use of this opportunity and only focus on modeling characteristics of these rheology options without concerns about effects of diverse numerical frameworks. So far, TITAN2D achieved many successful applications in the simulation of different geophysical mass flows with specific peculiarities \citep{Sheridan2005, Rupp2006, Norini2008, Charbonnier2009, Procter2010, Sheridan2010, Sulpizio2010, Capra2011}. Several studies involving TITAN2D were recently directed towards a statistical study of geophysical flows, focusing on the uncertainty quantification and propagation \citep{Dalbey2008, Dalbey2009, Stefanescu2012b, Stefanescu2012a}, or on the more efficient production of hazard maps \citep{Bayarri2009, Spiller2014,Bayarri2015, Ogburn2016}.
 
-\subsection{Overview of the case studies}
-The first case study assumes very simple boundary conditions, and correspond to an experiment fully described in \cite{Webb2004, Bursik2005, WebbBursik2016}. It is a classical flow down an inclined plane experiment, including a change in slope to an horizontal plane (Fig. \ref{fig:Ramp-first}).
+This study for the first time applies a statistical approach to the detailed investigation of the material model \emph{stress components} and their associated \emph{powers}, as well as the \emph{Froude Number} $Fr$, the \emph{acceleration} and observable quantities as the flow \emph{velocity}, \emph{height}, \emph{lateral extent}, and \emph{area}. The stress components have a strong link with the dynamic equation terms, while $Fr$ can give information on the flow regime; moreover, the observable quantities have a direct link to field data and hazard assessments. This can provide a complete description of the geophysical flow. Our main purpose is to obtain a quantitative and statistical understanding of the consequences of the different physical assumptions, both on the forces inside the flow and on the observable outputs in time and space.
+
+In particular, what we present is a procedure for the improved exploration and quantitative comparison of physical models and their assumptions through the collection of full statistical data. Behind each physical model there are different physical assumptions, and therefore it is more appropriate to look at those instead than at the entire model results. Our statistical approach shall enable a first step towards a data driven selection of the best modeling assumptions to use.
 
 \begin{figure}[H]
-    \includegraphics[width=0.8\textwidth]{InclinedPlane/inclPlaneFig.jpg}
+    \includegraphics[width=0.80\textwidth]{InclinedPlane/inclPlaneFig.jpg}
     \centering
     \caption{Inclined plane description, including local samples sites (red stars). Pile location is marked by a blue dot.}
     \label{fig:Ramp-first}
 \end{figure}
 
-A second case study is a block and ash flow down the slope of Volc{\'a}n de Colima (M{\'e}xico) - an andesitic stratovolcano that rises to 3,860 m above sea level, situated in the western portion of the Trans-Mexican Volcanic Belt (Fig. \ref{fig:Colima-first}). Historically, it has been the most active volcano in M{\'e}xico \citep{DeLaCruzReina1993, Zobin2002, Gonzalez2002}. During July 10$^{th}$-11$^{th}$ 2015, the volcano underwent its most intense eruptive phase since its Subplinian-Plinian 1913 AD eruption \citep{Saucedo2010, Zobin2015, ReyesDaVilla2016, Capra2016}. The modeling of pyroclastic flows generated by explosive eruptions and lava dome collapses of Volc{\'a}n de Colima is a well studied problem \citep{DelPozzo1995,Sheridan1995,Saucedo2002,Saucedo2004,Saucedo2005, Sarocchi2011, Capra2015}. The volcano has been already used as a case study in several research involving the Titan2D code \citep{Rupp2004, Rupp2006, Dalbey2008, Yu2009, Sulpizio2010, Capra2011, Aghakhani2016}.
+\subsection{Overview of the case studies}
+The first case study assumes very simple boundary conditions, and corresponds to an experiment fully described in \cite{Webb2004, Bursik2005, WebbBursik2016}. It is a classical flow down an inclined plane set-up, including a change in slope to an horizontal plane (Fig. \ref{fig:Ramp-first}).
 
-In this study the flow is assumed to be generated by the gravitational collapse of a paraboloid dome placed close to the summit area. A dome collapse occurs when there is a significant amount of recently-extruded highly-viscous lava piled up in an unstable configuration around a vent. Further extrusion and/or externals forces can cause the still hot dome of viscous lava to collapse, disintegrate, and avalanche downhill \citep{Bursik2005}. The hot, dense blocks in this ``block and ash'' flow will typically range from centimeters to a few meters in size. The matrix is composed of fine ash from the comminuted blocks. Computations were performed on a DEM with 5m-pixel resolution, obtained from LiDAR data acquired in 2005 \citep{Davila2007, Sulpizio2010}.
+The second case study is a block and ash flow down the slope of Volc{\'a}n de Colima (M{\'e}xico) - an andesitic stratovolcano that rises to 3,860 m above sea level, situated in the western portion of the Trans-Mexican Volcanic Belt (Fig. \ref{fig:Colima-first}). Historically, it has been the most active volcano in M{\'e}xico \citep{DeLaCruzReina1993, Zobin2002, Gonzalez2002}. The modeling of pyroclastic flows generated by explosive eruptions and lava dome collapses of Volc{\'a}n de Colima is a well studied problem \citep{DelPozzo1995,Sheridan1995,Saucedo2002,Saucedo2004,Saucedo2005, Sarocchi2011, Capra2015}. The volcano has been already used as a case study in several research involving the Titan2D code \citep{Rupp2004, Rupp2006, Dalbey2008, Yu2009, Sulpizio2010, Capra2011, Aghakhani2016}. During July 10$^{th}$-11$^{th}$, 2015, the volcano underwent its most intense eruptive phase since its Subplinian-Plinian 1913 AD eruption \citep{Saucedo2010, Zobin2015, ReyesDaVilla2016, Capra2016}.
+
+In this study the flow is assumed to be generated by the gravitational collapse of a paraboloid dome placed close to the summit area. A dome collapse occurs when there is a significant amount of recently-extruded highly-viscous lava piled up in an unstable configuration around a vent. Further extrusion and/or externals forces can cause the still hot dome of viscous lava to collapse, disintegrate, and avalanche downhill \citep{Bursik2005, Wolpert2016}. The hot, dense blocks in this ``block and ash'' flow will typically range from centimeters to a few meters in size. The matrix is composed of fine ash from the comminuted blocks. Computations were performed on a DEM with 5m-pixel resolution, obtained from LiDAR data acquired in 2005 \citep{Davila2007, Sulpizio2010}.
 
 \begin{figure}[H]
     \includegraphics[width=0.9\textwidth]{BAF_VolcanDeColima/ColimaFig.jpg}
     \centering
-    \caption{Volc{\'a}n de Colima (M{\'e}xico) overview, including 51 numbered local sample sites (stars) and four labeled major ravines channeling the flow. Pile location is marked by a blue dot. Reported coordinates are in UTM zone 13N. Digital elevation map and regional geology map are also displayed. Six points that will be adopted as preferred locations are highlighted in yellow.}
+    \caption{(a) Volc{\'a}n de Colima (M{\'e}xico) overview, including 51 numbered local sample sites (stars) and four labeled major ravines channeling the flow. Pile location is marked by a blue dot. Reported coordinates are in UTM zone 13N. Background is a satellite photo. (b) Regional geology map. (c) Digital elevation map. Six points that will be adopted as preferred locations are highlighted in yellow. Elevation isolines are included in blue, elevation values in red.}
     \label{fig:Colima-first}
 \end{figure}
 
@@ -124,7 +128,7 @@ The models of geophysical mass flows described in this study rely on several phy
 \begin{itemize}
 \item The \textit{shallowness} approximation is at the base of the depth-averaging procedure. In this approximation, the flow depth is assumed to be at least an order of magnitude less than the characteristic length of the flowing material. Variation of velocity within the flow depth is neglected.
 
-\item The material is assumed to be \textit{continuous}. The real flows consist of granular material and, sometimes, interstitial fluid. Usually the ``typical particle'' diameter is small compared to the depth and length of the flowing mass, and the rheological properties are imposed to approximate the bulk behavior that is expected of an actual mass flow.
+\item The material is assumed to be \textit{continuous}. The real flows consist of granular material and, often, interstitial fluid. Usually the ``typical particle'' diameter is small compared to the depth and length of the flowing mass, and the rheological properties are imposed to approximate the bulk behavior that is expected of an actual mass flow.
 
 \item The moving mass is assumed to be \textit{volume preserving}. In contrast, phenomena of erosion and deposition of material may violate this assumption.
 
@@ -134,10 +138,10 @@ The models of geophysical mass flows described in this study rely on several phy
 
 \item The mass flow is assumed to be \textit{free surface}. Air entrainment is instead frequently observed in the dilute real flows.
 
-\item The stress tensor is \textit{symmetric} w.r.t. the \textit{z} axis.
+\item The stress tensor is assumed \textit{symmetric} with respect to the \textit{z} axis.
 \end{itemize}
 
-The shallowness assumptions is very important, and brings several implications which may be considered additional assumptions on their own.
+The shallowness assumption is very important, and brings several implications which may be considered additional assumptions on their own.
 
 \paragraph{Consequences of Shallowness}
 \begin{itemize}
@@ -153,7 +157,7 @@ The list rheology assumptions is detailed when the models are presented.
 
 
 \subsection{Governing Equations and Boundary Conditions}\label{subsec:GovEqsBCs}
-The motion of the mass flow is described by the basic conservation of mass and momentum for an incompressible medium \citep{Patra2005}:
+The motion of the mass flow is described by the basic conservation of mass and momentum for an incompressible medium:
 \begin{eqnarray}\label{eq:N_S}
 \nabla \cdot\underline{{\textbf u}} &=& 0, \nonumber \\
 \dfrac{\partial}{\dt}(\rho \ \underline{{\textbf u}})+\nabla \cdot (\rho \ \underline{{\textbf u}}\otimes \underline{{\textbf u}}) &=& \nabla \cdot \underline{\underline{{\mathbf{T}}}}+\rho \ \underline{{\textbf g}},
@@ -180,7 +184,7 @@ The depth-averaged Saint-Venant equations that TITAN2D solves are:
 \frac{\partial}{\partial x}(h\bar{u}\bar{v}) +
 \frac{\partial}{\partial y}\left(h\bar{v}^2 + \frac{1}{2}k g_{z}h^2\right) &=& S_{y}\nonumber
 \end{eqnarray}
-Here the cartesian coordinate system is aligned such that $z$ is normal to the surface; $h$ is the flow height in the $z$ direction; $h\bar{u}$ and $h\bar{v}$ are respectively the components of momentum in the $x$ and $y$ directions; and $k$ is the coefficient which relates the lateral stress components, $\bar{\sigma}_{xx}$ and $\bar{\sigma}_{yy}$, to the normal stress component, $\bar{\sigma}_{zz}$. The definition of this coefficient depends on the constitutive model of the flowing material we choose. Note that $\frac{1}{2} k g_z h^2$ is the contribution of hydrostatic pressure to the momentum fluxes. $S_x$ and $S_y$ are the sum local stresses: they include the gravitational driving forces the basal friction force resisting to the motion of the material, and additional forces specific of rheology assumptions.
+Here the cartesian coordinate system is aligned such that $z$ is normal to the surface; $h$ is the flow height in the $z$ direction; $h\bar{u}$ and $h\bar{v}$ are respectively the components of momentum in the $x$ and $y$ directions; and $k$ is the coefficient which relates the lateral stress components, $\bar{\sigma}_{xx}$ and $\bar{\sigma}_{yy}$, to the normal stress component, $\bar{\sigma}_{zz}$. The definition of this coefficient depends on the constitutive model of the flowing material we choose. Note that $\frac{1}{2} k g_z h^2$ is the contribution of hydrostatic pressure to the momentum fluxes. $S_x$ and $S_y$ are the sum local stresses: they include the gravitational driving forces, the basal friction force resisting to the motion of the material, and additional forces specific of rheology assumptions.
 
 \subsubsection{Numerical solver}\label{NumS}
 Let $\textbf{U}=\left[h, \ h\bar{u}, \ h\bar{v}\right]^T$ be the vector of conservative variables and $\textbf{F}=\left[h\bar{u}, \ h\bar{u}^2+0.5 k_{ap} g_z h^2, \ h\bar{v}\bar{u}\right]^T$ and $\textbf{G}=\left[h\bar{v}, \ h\bar{u}\bar{v}, \ h\bar{v}^2+0.5 k_{ap} g_z h^2\right]^T$ be the physical flux vectors.
@@ -195,13 +199,13 @@ On the other hand, adaptive mesh refinement allows for the concentration of comp
 In the three following sections, we briefly describe \emph{Mohr-Coulomb} (MC), \emph{Pouliquen-Forterre} (PF) and \emph{Voellmy-Salm} (VS) models.
 
 \subsubsection{Mohr-Coulomb model}\label{MCM}
-Based on the long history of studies in soil mechanics \cite{Rankine1857}, the Mohr-Coulomb rheology model was developed and used to represent the behavior of geophysical mass flows \cite{SavageHutter1989}.
+Based on the long history of studies in soil mechanics \citep{Rankine1857}, the Mohr-Coulomb rheology model was developed and used to represent the behavior of geophysical mass flows \cite{SavageHutter1989}.
 
 Shear and normal stress are assumed to obey Coulomb friction equation, both within the flow and at its boundaries. In other words,
 \begin{equation}
 \tau = \sigma \tan \phi,
 \end{equation}
-where $\tau$ and $\sigma$ are respectively the shear and normal stresses on failure surfaces, and $\phi$ is a friction angle. This relationship does not depend on the magnitude of flow speed.
+where $\tau$ and $\sigma$ are respectively the shear and normal stresses on failure surfaces, and $\phi$ is a friction angle. This relationship does not depend on the flow speed.
 
 Under the assumption of symmetry of the stress tensor w.r.t. the \textit{z} axis, the earth pressure coefficient $k=k_{ap}$ can take on only one of three values indicated by the square dots shown in Figure \ref{mohr_circle}. The material yield criterion is represented by the two straight lines at angles $\pm \phi$ (the internal friction angle) relative to horizontal direction. Similarly, the normal and shear stress at the bed are represented by the line $\tau=-\sigma \tan(\delta)$ where $\delta$ is the bed friction angle. The three possible stress states in the \textit{xz}-plane are indicated by the square dots. The circular dots show the additional possible stress states for $\sigma_{yy}$ for a non-axisymmetric stress tensor.
 
@@ -224,7 +228,7 @@ k_{ap} = \begin{cases}
 \begin{figure}[H]
         \centering
         \includegraphics[width=.7\textwidth]{Figures/mohr.jpg}
-        \caption{Mohr-circle-diagram representing the stress state within a granular medium \cite{Pirulli2007}.}
+        \caption{Mohr-circle-diagram representing the stress state within a granular medium \citep{Pirulli2007}.}
         \label{mohr_circle}
 \end{figure}
 
@@ -234,7 +238,7 @@ S_x = g_x h  - \frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf u}} \|} \left[h\l
 S_y = g_y h  - \frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf u}} \|} \left[h\left(g_z +\frac{\bar{v}^2}{r_y}\right)\tan(\phi_{bed})\right] - h k_{ap} \ {\rm sgn}\left({\frac{\partial \bar{v}}{\partial x}}\right) \frac{\partial (g_z h)}{\partial x} \sin(\phi_{int})
 \end{eqnarray}
 Where, $\underset{^\sim}{\bar{\textbf u}} = (\bar{u} , \bar{v})$, is the depth-averaged velocity vector, $r_x$ and $r_y$ denote the radii of curvature
-of the local basal surface. It is possible to approximate the inverse of the radii of curvature by the partial derivatives of the basal slope, e.g., $1/r_x = \partial \theta_x/\partial x$, where $\theta_x$ is the local bed slope.
+of the local basal surface. The inverse of the radii of curvature is usually approximated with the partial derivatives of the basal slope, e.g., $1/r_x = \partial \theta_x/\partial x$, where $\theta_x$ is the local bed slope.
 
 \paragraph{MC rheology assumptions} In summary:
 \begin{itemize}
@@ -242,13 +246,13 @@ of the local basal surface. It is possible to approximate the inverse of the rad
 
 \item \textit{Internal Friction} gives a not negligible contribution and it is based on a constant friction angle.
 
-\item \textit{Earth pressure coefficient} formula depending on the Mohr-Coulomb circle.
+\item \textit{Earth pressure coefficient} formula depends on the Mohr-Coulomb circle.
 
 \item Velocity based \textit{curvature effects} are included into the equations.
 \end{itemize}
 
 \subsubsection{Pouliquen-Forterre model}\label{PFM}
-The scaling properties for granular flows down rough inclined planes led to a new formulation of the basal friction stress as a function of the flow depth and velocity \cite{Pouliquen1999}.
+The scaling properties for granular flows down rough inclined planes led to a new formulation of the basal friction stress as a function of the flow depth and velocity \citep{Pouliquen1999}.
 
 Two critical slope inclination angles are defined as functions of the flow thickness, namely $\phi_{start}(h)$ and $\phi_{stop}(h)$. The function $\phi_{stop}(h)$ gives the slope angle at which a steady uniform flow leaves a deposit of thickness $h$, while $\phi_{start}(h)$ is the angle at which a layer of thickness $h$ is mobilized. They define two different basal friction coefficients:
 \begin{eqnarray}
@@ -267,7 +271,7 @@ An empirical friction law $\mu_{b}(\|\underset{^\sim}{\bar{\textbf{u}}} \| , h)$
 \begin{equation}\label{mu_beta2}
 \mu(h, Fr)=\left(\frac{Fr}{\beta}\right)^\gamma [\mu_{stop}(h)-\mu_{start}(h)] + \mu_{start}(h),
 \end{equation}
-where $\gamma=10^{-3}$ is the power of extrapolation chosen in \cite{PouliquenForterre2002}. In particular, if $Fr=\beta$, then $\mu(h, Fr)=\mu_{stop}(h)$, and if $Fr = 0$, then $\mu(h, Fr)=\mu_{start}(h)$.
+where $\gamma$ is the power of extrapolation, assumed equal to $10^{-3}$ in the sequel \citep{PouliquenForterre2002}. In particular, if $Fr=\beta$, then $\mu(h, Fr)=\mu_{stop}(h)$, and if $Fr = 0$, then $\mu(h, Fr)=\mu_{start}(h)$.
 
 The functions $\mu_{stop}$ and $\mu_{start}$ are defined by:
 \begin{equation}\label{mu-stop}
@@ -277,11 +281,11 @@ and
 \begin{equation}\label{mu-start}
 \mu_{start}(h)=\tan\phi_{3} + \frac{\tan\phi_{2}-\tan\phi_{1}}{1+h/\it \mathcal{L}}
 \end{equation}
-The critical angles $\phi_{1}$, $\phi_{2}$ and $\phi_{3}$ and the parameters $\mathcal{L}, \beta$ are the material properties.
+The critical angles $\phi_{1}$, $\phi_{2}$ and $\phi_{3}$ and the parameters $\mathcal{L}, \beta$ are the parameters of the model.
 
 In particular, $\mathcal{L}$ is the characteristic depth of the flow over which a transition between the angles $\phi_{1}$ to $\phi_{2}$ occurs, in the $\mu_{stop}$ formula. In practice, if $h\ll \mathcal L$, then $\mu_{stop}(h)\approx \tan\phi_{2}$, and if $h\gg \mathcal L$, then $\mu_{stop}(h)\approx\tan\phi_{1}$. The effect of the topographic local curvatures is also taken into account.
 
-\paragraph{PF equations} The depth-averaged Eqs. (\ref{eq:D_A}) source terms take the following form:
+\paragraph{PF equations} The depth-averaged Eqs. (\ref{eq:D_A}) source terms thus take the following form:
 \begin{eqnarray}\label{eq:S_Pouliquen}
 S_{x} &=&  g_{x} h -  \frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf{u}}} \|}\left[h \left(g_z+\frac{\bar{u}^2}{r_x}\right) \ \mu_{b}(\|\underset{^\sim}{\bar{\textbf{u}}} \| , h)\right] \ + g_{z}h\frac{\partial h}{\partial x} \nonumber \\
 S_{y} &=&  g_{y} h - \frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf{u}}} \|}\left[h \left(g_z +\frac{\bar{v}^2}{r_y}\right) \ \mu_{b}(\|\underset{^\sim}{\bar{\textbf{u}}} \| , h)\right] \ + g_{z}h\frac{\partial h}{\partial y}
@@ -305,9 +309,9 @@ S_{y} &=&  g_{y} h - \frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf{u}}} \|}\le
 \subsubsection{Voellmy-Salm model}\label{VSM}
 The theoretical analysis of dense snow avalanches led to the VS rheology model \citep{Voellmy1955, Salm1993}. The following relation between shear and normal stresses holds:
 \begin{equation}
-\tau = \mu \sigma + \frac{\rho \| \underset{^\sim}{\textbf g} \|}{\xi} \| \underset{^\sim}{\bar{\textbf u}} \|^2,
+\tau = \mu \sigma + \frac{\rho \| \underline{\textbf g} \|}{\xi} \| \underset{^\sim}{\bar{\textbf u}} \|^2,
 \end{equation}
-where, $\sigma$ denotes the normal stress at the bottom of the fluid layer and $\underset{^\sim}{\textbf g} = (g_{x} , g_{y} , g_{z})$ represents the gravity vector. The VS rheology adds a velocity dependent \emph{turbulent} friction to the traditional velocity independent basal friction term which is proportional to the normal stress at the flow bottom. The two parameters of the model are the bed friction coefficient $\mu$ and the turbulent friction coefficient $\xi$. By dimension analysis, $\xi$ is equivalent to an acceleration, while $\mu$ is dimensionless. The division of the total basal friction into velocity independent and dependent parts allows the modeling of avalanche behavior when the avalanche is flowing with a high velocity in the acceleration zone and close to stopping in the runout zone.
+where, $\sigma$ denotes the normal stress at the bottom of the fluid layer and $\underline{\textbf g} = (g_{x} , g_{y} , g_{z})$ represents the gravity vector. The VS rheology adds a velocity dependent \emph{turbulent} friction to the traditional velocity independent basal friction term which is proportional to the normal stress at the flow bottom. The two parameters of the model are the bed friction coefficient $\mu$ and the turbulent friction coefficient $\xi$. By dimension analysis, $\xi$ is equivalent to an acceleration, while $\mu$ is dimensionless. The decomposition of the total basal friction into velocity independent and dependent parts allows the modeling of either the dynamic regime when the avalanche is flowing with a high velocity in the acceleration zone, and when it is close to stopping in the runout zone.
 
 The effect of the topographic local curvatures is again taken into account by adding the terms containing the local radii of curvature $r_x$ and $r_y$. In this case the formula is considering the modulus of velocity instead than the scalar component \citep{Fischer2012}.
 
@@ -333,34 +337,26 @@ S_{y} &=& g_{y} h - \frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf u}}\|} \ \le
 
 
 \section{UQ Process}
-The key purpose of this study is to present a procedure for the improved exploration and quantitative comparison of physical models and their assumptions through the collection of full statistical data. Models are not black boxes, behind each physical model there are different physical assumptions, and therefore it would be more appropriate to look at those instead than at the entire model results. Our statistical approach enables a first step towards a data driven selection of the best modeling assumptions to use.
+The key to a good forecasting capability in the context of mass flows requires the careful selection of the pair $\left(M(A), P_{M(A)}\right)$, where $A$ is a set of assumptions, $M(A)$ is the model which combines those assumptions, and $P_M$ is a probability distribution in the parameter space of $M$. For the sake of simplicity we are always taking $P_M$ uniformly distributed on selected parameter ranges.
 
-In particular, a good forecasting capability in the context of mass flows requires the careful selection of the pair $(M(A), P(M(A)))$, where $A$ is a set of assumptions, $M(A)$ is the model which combines those assumptions, and $P(M)$ is a probability distribution in the parameter space of $M$. An assumption is a quite general concept - for example it can be a specific equation for the internal stress, the implementation of bed curvature effects, of active-passive material stretching, or the use of a specific correction on the pressure effects, etc... Assumptions are what makes the models being different, and each model may be seen as the combined result of a set of assumptions. Sometimes a good model contains a useless assumption that may be removed, sometimes a good assumption should be implemented inside a different model - those are usually considered as subjective choices, not data driven. Moreover, the correct assumptions may change through time, making the analysis more difficult.
+\paragraph{Models and assumptions} An assumption is a quite general concept - for example it can be a specific equation for the internal stress, the implementation of bed curvature effects, of active-passive material stretching, or the use of a specific correction on the pressure effects. Assumptions are what makes the models being different, and each model may be seen as the combined result of a set of assumptions. Sometimes a good model contains a useless assumption that may be removed, sometimes a good assumption should be implemented inside a different model - those are usually considered as subjective choices, not data driven. Moreover, the correct assumptions may change through time, making the analysis more difficult. We provided a list of assumptions behind SWE general implementation, and behind each rheology in section \ref{sec:GeoPhFlows}.
 
-It is worth mentioning that whereas the support of $P(M)$ can be restricted to a single point in case an optimization procedure is performed for the reconstruction of a particular flow, this is not possible if we are interested in the general predictive capabilities of the model, i.e. what is desired in probabilistic hazard assessment. In this study we will always assume $P(M)\sim \bigotimes_{i=1}^{N_M} Unif(a_{i,M},b_{i,M})$, where $N_M$ is the number of parameters of $M$. These parameter ranges will not be selected under the influence of a particular observation, but we will try to use the information gathered in literature about the physical meaning of those values.
+\paragraph{Parameters ranges} It is worth mentioning that whereas the support of $P_M$ can be restricted to a single point in case an inverse problem is solved for the optimal reconstruction of a particular flow, this is not possible if we are interested in the general predictive capabilities of the model, i.e. the target of probabilistic hazard assessment. In this study we always assume $P_M\sim \bigotimes_{i=1}^{N_M} Unif(a_{i,M},b_{i,M})$, where $N_M$ is the number of parameters of $M$. These parameter ranges will not be selected under the influence of a particular observation, but we will try to use the information gathered in literature about the physical meaning of those values, together with a preliminary testing, coupling the range of possible runouts. This coupling step is detailed in section \ref{consistency}, and required to focus the statistical comparison on a consistence range of flow regimes.
 
-In general, the simulation algorithms can be classified as:
-$$\textmd{(1)INPUT VARIABLES} \longrightarrow \textmd{(2)DYNAMICAL QUANTITIES} \longrightarrow \textmd{(3)OBSERVABLE OUTPUTS}$$
+\paragraph{Simulated quantities} The simulation algorithms can be classified as:
+$$\textmd{(1)INPUT VARIABLES} \longrightarrow \textmd{(2)HIDDEN QUANTITIES} \longrightarrow \textmd{(3)OBSERVABLE OUTPUTS}$$
+The \emph{input variables} are the parameters of $M$, i.e. volume, rheology coefficients, but include also the initiation site and geometry, and the digital elevation map. The \emph{hidden quantities} include the stress terms in the Newton Equations that rule the simulation, their powers, other dynamical quantities as $Fr$. Those are hidden to the observation, but they directly depend on the parameters, and represent a fundamental link between the parameters and the observable outputs. Moreover, the models share some of those terms while change others, and this enables a detailed comparison of the real physics below the curtain. Finally, the \emph{observable outputs} include what can be measured in space and time: e.g. flow height, lateral extent, area, velocity and acceleration. In the sequel (2) and (3) are also called quantities of interest (QoI).
 
-The input variables can include: volume, rheology coefficients, initiation site and geometry, digital elevation map. We will focus on the former two of those, the volume of the pile and the rheology, which constitute our parameter space in all the case studies. The dynamical quantities are directly related to the force terms in the Newton Equations that rule the simulation, they include: driving and dissipative stresses and powers. The terms of the equations are hidden to the observation, but they directly depend on the parameters, and represent a fundamental link between the parameters and the observable outputs. Moreover, the models share some of those terms while change others, and this enables a detailed comparison of the real physics below the curtain. Finally, the observable outputs include: flow height, inundated area, flow velocity and acceleration. In the sequel (2) and (3) are also called quantities of interest (QoI).
+\paragraph{Local samples and spatial averaging}
+The QoI in the previous scheme which are evolving fields $f(\underline{\textbf x},t)$ in space-time, can be either \emph{locally sampled} or \emph{spatially averaged} (see sections \ref{sec:QoIs}, \ref{QoI2}). The spatial averaging is defined by $F(t)=\int_{\mathbb R^k}f(\underline{\textbf x},t) d\underline{\textbf x}$. In the most of the cases $k=2$, and $d\underline{\textbf x}$ is given by the area of the mesh elements. Sometimes $k=3$, e.g. concerning speed, and $d\underline{\textbf x}$ is the element of volume corresponding to the mesh elements.
 
-Another level of complexity can be achieved choosing the degree of integration of (2) and (3) in the previous scheme:
-\begin{description}
-  \item[(A)] LOCAL MEASUREMENTS
-  \item[(B)] SPATIAL AVERAGES
-  \item[(C)] TEMPORAL AVERAGES
-  \item[(D)] SPATIO-TEMPORAL (FULL) AVERAGES
-\end{description}
+A fundamental part of this research was made possible by the new implementation of a local sampling option in the TITAN2D cyber-infrastructure. In particular, once a set of sample points $(x_i)_{i=1,...,N}$ is chosen, each field $f(\underline{\textbf x},t)$ is calculated as a function of time on the elements of the numerical mesh which are found to contain the $(x_i)_{i=1,...,N}$. Exploring differences in time and location enable to constrain the changes in flow regime. Those are really important because if the flow behavior is radically different, then the significance and effects of the assumptions may also change.
 
-In particular, all the dynamical quantities, and most of the observable outputs, have a local meaning. They are calculated on the elements of the numerical mesh created by the code. Moreover, all those quantities are time dependent. Differences in time and location enable to constrain the changes in flow regime. Those are really important because if the flow behavior is radically different, then the significance and effects of the assumptions may also change.
+\paragraph{Monte Carlo simulation} In general, for each QoI, during a Monte Carlo simulation we sample the input variables and obtain a family of temporal graphs on time domains depending on the flow duration. These results are statistically summarized - plotting their expectation, and their 5$^{th}$ and 95$^{th}$ percentiles. In the following, we will detail the considered input variables and quantities of interest for each of our cases study.
 
-A first approach to look at the data is to choose a reasonable design of spatial locations and to calculate the graph of the quantities as a function of time. A second approach is to make the spatial integral of those quantities and calculate their temporal graph - this integration can be done with respect to the basal area, e.g. for the stresses and related powers, or with respect to the flow volume, e.g. velocity and acceleration. A third possible approach requires to make the integrals through time at each designed spatial site, a fourth approach the full integral in space-time.
+Our sampling technique of the input variables is based on the Latin Hypercube Sampling (LHS) idea, and in particular, on the improved space-filling properties of the orthogonal array-based Latin Hypercubes (see Appendix \ref{Appendix}). The LHS is performed over $[0,1]^3$ for the MC and VS input parameters, and $[0,1]^4$ for PF input parameters. Those adimensional samples are homothetically transformed to fill the required intervals.
 
-In general, for each QoI and degree of integration, during a Monte Carlo simulation we sample the input variables and obtain a family of temporal graphs in (A), (B), and numeric values in (C), (D). These results are statistically summarized - plotting their expectation, their standard deviation, their 5th and 95 percentiles. Their correlation structure is also explored, presenting the plots of the Pearson coefficients of the most interesting pairs of quantities in (1), (2), (3). In the following, we will detail the considered input variables and quantities of interest for each of our cases study.
-
-Our sampling technique of the input variables is based on the Latin Hypercube Sampling (LHS) idea, and in particular, on the improved space-filling properties of the orthogonal array-based Latin Hypercubes (see Appendix A). The LHS is performed over $[0,1]^3$ for the MC and VS input parameters, and $[0,1]^4$ for PF input parameters. Those samples are homothetically transformed to fill the required intervals.
-
-\subsection{Definition and consistency of the Input parameters}
+\subsection{Definition and consistency of the Input parameters}\label{consistency}
 In general, the three rheologies considered in this study, MC, PF, and VS, have different parameters, but in all them it is defined a basal friction stress $F$. That is $F=\tan(\phi_{bed})$ in MC, $F=\tan(\phi_2)$ for $Fr\gg h$ in PF, $F=\mu$ in VS. We use those relations to define parameter spaces which produce reasonably consistent ranges of basal frictions. In the following sections, we start defining a range for $\phi_{bed}$ of MC, specific of the scenario and obtained from the more rich literature of that rheology, then we impose a consistent range for the related parameters of PF and VS, and leave the other parameters unchanged. In particular:
 
 \vskip.3cm\noindent \textbf{MC}
@@ -856,8 +852,7 @@ First case study is the small scale experimental setting described above.
 \end{figure}
 
 
-\subsection{Dominance factors}
-\subsubsection{Intra-model comparisons between RHS components:}\label{subsubsec:ramp-intramodelsPrs}
+\subsection{Dominance factors - RHS terms}
 
 \begin{figure}[H]
         \centering
@@ -901,13 +896,13 @@ First case study is the small scale experimental setting described above.
         \label{fig:Ramp-FDominance1-VY}
 \end{figure}
 
-\subsection{Contribution coefficients}
+\subsection{Contribution coefficients - LHS and RHS terms}
 
-\section{QoIs and Data Collected - Volc{\'a}n de Colima block and ash flow}
+\section{QoIs and Data Collected - Volc{\'a}n de Colima block and ash flow}\label{QoI2}
 
 \section{Discussion}
 
-\section*{Appendix A: Latin Hypercubes and orthogonal arrays}
+\section*{Appendix A: Latin Hypercubes and orthogonal arrays}\label{Appendix}
 The Latin Hypercube Sampling (LHS) is a well established procedure for defining pseudo-random designs of samples in $\mathbb R^d$, with good properties with respect to the uniform probability distribution on an hypercube $[0,1]^d$ \citep{McKay1979,Owen1992b,Stein1987,Ranjan2014,Mingyao2016}. In particular, compared to a random sampling, a LHS: (i) enhances the capability to fill the d-dimensional space with a finite number of points, (ii) in case $d>1$, avoids the overlapping of point locations in the one dimensional projections, (iii) reduces the dependence of the number of points necessary on the dimensionality $d$.
 
 \begin{definition}[Latin hypercube sampling]
