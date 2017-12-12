@@ -359,7 +359,7 @@ A statistical analysis capable of measuring the contributions of different force
 
 In our case study, $(F_1,F_2):=($\textbf{LHS}$_1,$\textbf{LHS}$_2)$, i.e. the left-hand side terms in the momentum equation, while $(F_3,\dots,F_6):=($\textbf{RHS}$_1,\dots,$\textbf{RHS}$_4)$ are the right-hand side terms. These forces can take different formulations in the different models, which are detailed in section \ref{sec:QoIs}. This type of procedure can be applied to any additive decomposition of the physical forces. The analysis of $RHS$ can inform on local effects, while $LHS$ concerns the of un-local dynamics in space and time.
 
-In general we are projecting the forces on the slope direction, or along the velocity field obtaining the power related to the force. Hence, in the following the forces are scalar and not vectorial terms. It is important to remark that all the forces are hidden quantities (see above), depending on the input variables, and they are thus considered as random variables. The degree of contribution of those force terms is significantly variable in space and time, and we define the \emph{contribution coefficients} to model this. The definitions are not depending on the location, but all the results will significantly depend of that choice. Next notation will assume to be in a selected location $x=L_k$, where $k\ge 1$. In the following we will focus on \textbf{RHS} forces, although some testing including \textbf{LHS} forces has also been accomplished.
+In general we show the projection of the forces on the slope direction, or the product with the velocity field, i.e. the power related to them. Hence, in the following the forces are scalar and not vectorial terms. It is important to remark that all the forces are hidden quantities (see above), depending on the input variables, and they are thus considered as random variables. The degree of contribution of those force terms is significantly variable in space and time, and we define the \emph{contribution coefficients} to model this. The definitions are not depending on the location, but all the results will significantly depend of that choice. Next notation will assume to be in a selected location $x=L_k$, where $k\ge 1$. In the following we will focus on \textbf{RHS} forces, although some testing including \textbf{LHS} forces has also been accomplished.
 
 \begin{definition}[Contribution coefficients]
 Let $(F_i)_{i\in I}$ be random variables on $(\Omega, \mathcal F, P)$, representing the considered force components in location $x$ at time $t$. Then, for each component $i$, the contribution coefficient is defined as:
@@ -423,7 +423,7 @@ In sections \ref{stat1} and \ref{stat2} we display the contribution coefficients
 \subsection{Definition and consistency of the input variables}\label{consistency}
 In general, the three rheologies considered in this study, MC, PF, and VS, have totally different parameters. The statistical testing we perform requires to choose the parameter range $P_M$, and in principle it may be arbitrary. Nevertheless, if the total frictions of the models are not covering a similar span, the statistical comparison is dominated by trivial macroscopic differences, and cannot focus on the rheology details. Some degree of parameter consistency is required between the models.
 
-We can find several instances of parameter choices in literature, and in general the choice depends on the case study. In all the models it is defined a basal friction stress (see $RHS_2$ in in \ref{sec:QoIs}). However, PF interpolates different effective friction angles, while VS includes a velocity based additional term. We tested that a direct correlation of effective friction angles is problematic to do. Hence, we did not follow such approach. In contrast, we make a preliminary testing on the extreme values of the parameter space, i.e. giving max volume -- min resistance, and min volume -- max resistance.
+We can find several instances of parameter choices in literature, and in general the choice depends on the case study. In all the models it is defined a basal friction stress (see $RHS_2$ in in \ref{sec:QoIs}). However, PF interpolates different effective friction angles, while VS includes a velocity based additional term. We tested that a direct correlation of effective friction angles is problematic to do. Hence, we did not follow such approach. In contrast, we make a preliminary testing on the extreme values of the parameter space, i.e. giving \emph{\textbf{max volume -- min resistance}}, and \emph{\textbf{min volume -- max resistance}}.
 
 \paragraph{General definitions}
 We assume what follows to simplify testing. Except when differently specified, parameters are sampled uniformly in linear scale.
@@ -457,7 +457,7 @@ The parameter ranges adopted in this case study are:
 \begin{figure}[H]
 	\centering
     \includegraphics[width=0.85\textwidth]{Figures/MaxMinRunout.png}
-    \caption{Inclined plane setup. Contours of $h = 1.0$ mm at last simulated snapshot ($t = 1.5$ sec) for simulated flows with \underline{\texttt{minimum runout}} obtained from \emph{\textbf{min volume -- max resistance}}, and \underline{\texttt{maximum runout}} obtained from \emph{\textbf{max volume -- min resistance}}. {\color{blue} \textbf{---}} : MC, {\color{red} \textbf{---}} : PF, \textbf{---} : VS.}\label{fig:Ramp-MaxMinRunouts}
+    \caption{Inclined plane setup. Contours of $h = 1.0$ mm at last simulated snapshot ($t = 1.5$ sec) for simulated flows with \emph{minimum runout} obtained from \emph{\textbf{min volume -- max resistance}}, and \emph{maximum runout} obtained from \emph{\textbf{max volume -- min resistance}}. {\color{blue} \textbf{---}} : MC, {\color{red} \textbf{---}} : PF, \textbf{---} : VS.}\label{fig:Ramp-MaxMinRunouts}
 \end{figure}
 
 \paragraph{Volc{\'a}n de Colima block and ash flow}
@@ -480,7 +480,7 @@ The parameter ranges adopted in this case study are:
 \begin{figure}[H]
          \centering
         \includegraphics[width=0.87\textwidth]{Figures/Extremal.jpg}
-        \caption{Volc\'an de Colima BAF. Comparison between \emph{Max Flow Height Record} and \emph{Max Velocity Record} maps of simulated flow, assuming Mohr-Coulomb (a),(b), Pouliquen-Forterre (c),(d), and Voellmy-Salm (e),(f) rheology. Extreme cases producing maximum and minimum runout, i.e. (a),(c),(e) \emph{\textbf{max volume -- min resistance}} and (b),(d),(f) \emph{\textbf{min volume -- max resistance}}.}
+        \caption{Volc\'an de Colima BAF. Comparison between \emph{max flow height} maps of simulated flow, assuming Mohr-Coulomb (a),(b), Pouliquen-Forterre (c),(d), and Voellmy-Salm (e),(f) rheology. Extreme cases producing maximum and minimum runout, i.e. (a),(c),(e) \emph{\textbf{max volume -- min resistance}} and (b),(d),(f) \emph{\textbf{min volume -- max resistance}}.}
         \label{Colima-MaxMinExtents}
 \end{figure}
 
@@ -523,7 +523,7 @@ First case study is the small scale experimental setting described above.
 \end{figure}
 
 
-\subsubsection{Flow extents and averaged measurements}
+\subsubsection{Flow extents and averaged measurements (obsolete par. ranges, to update)}
 \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{Figures/Averaged_combine.png}
@@ -533,9 +533,8 @@ First case study is the small scale experimental setting described above.
 
 \newpage
 \subsection{Hidden quantities}\label{Hq1}
-Forces analyzed have been classified according to the terms of the momentum equation in \ref{eq:D_A}. Moreover, the forces terms in $S_x$ have been additionally classified, accordingly to equations \ref{S_terms_MC}, \ref{eq:S_terms_PF}, \ref{eq:S_terms_VS}, describing the three rheology models considered in this study.
+Forces analyzed have been classified according to the terms of the momentum equation in \ref{eq:D_A}. Moreover, the forces terms in $S_x$ have been additionally classified, accordingly to equations \ref{S_terms_MC}, \ref{eq:S_terms_PF}, \ref{eq:S_terms_VS}, describing the three rheology models considered in this study. What follows is a summary of the force terms, and this notation will be used in the following (see also Section \ref{statF}).
 
-This is a summary of the force terms, and this notation will be used in the following (see also Section \ref{statF}).
 \paragraph{Left-hand side, LHS forces}
 \begin{align}
 \boldsymbol{LHS_1} = \left[\frac{\partial}{\partial t} (h\bar{u}), \frac{\partial}{\partial t} (h\bar{v})\right],
@@ -575,7 +574,7 @@ All the three models have an additional force term, having a different formula a
 \boldsymbol{RHS_4} =  -\frac{\| \underset{^\sim}{\textbf g} \|}{\xi}\| \underset{^\sim}{\bar{\textbf u}} \|^2\left[\frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf u}}\|} \ ,\frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf u}}\|}\right],\textmd{ in VS model.}\nonumber
 \end{align}
 
-\subsubsection{Forces, spatial average}
+\subsubsection{Forces, spatial average (obsolete par. ranges, to update)}
 \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{Figures/Forces_combine.png}
@@ -583,7 +582,7 @@ All the three models have an additional force term, having a different formula a
         \label{fig:Ramp-Fx-spatial}
 \end{figure}
 
-\subsubsection{Powers, spatial average}
+\subsubsection{Powers, spatial average (obsolete par. ranges, to update)}
 \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{Figures/Powers_combine.png}
@@ -608,65 +607,52 @@ All the three models have an additional force term, having a different formula a
 \end{figure}
 
 \section{QoIs and Data Collected - Volc{\'a}n de Colima BAF}\label{QoI2}
-\subsection{Observable outputs} \label{Obs2}
-\subsubsection{Flow Height, local measurements}
+\subsection{Observable outputs overview - MC model}
+In our second case study, the number of spatial locations is significantly higher than previously. In fact, we placed 51 points to span the entire inundated area, in search of different flow regimes, displayed in Fig. \ref{fig:Colima-first}. First we show the average flow height, speed, and $Fr$ in all the locations, then, based on that, we select six points which we find representative of interesting flow regimes. Figures \ref{fig:BAF-H-MC}, \ref{fig:BAF-V-MC}, \ref{fig:BAF-Fr-MC} assume MC model, while the results related to PF and VS models are included in the Supporting Material.
+
+\subsubsection{Average flow Height, local measurements.}
 \begin{figure}[H]
          \centering
         \includegraphics[width=1\textwidth]{MC&VS_51/Height_MC.png}
-        \caption{MC model, records of average flow height, $h(L,t)$, at 51 spatial locations of interest.}
+        \caption{MC model, records of average flow height, $h(L,t)$, at 51 spatial locations of interest (Fig. \ref{fig:Colima-first}).}
         \label{fig:BAF-H-MC}
 \end{figure}
 
-\begin{figure}[H]
-         \centering
-        \includegraphics[width=1\textwidth]{MC&VS_51/Height_VS.png}
-        \caption{VS model, records of average flow height, $h(L,t)$, at 51 spatial locations of interest.}
-        \label{fig:BAF-H-VS}
-\end{figure}
-
-\subsubsection*{Flow Speed, local measurements.}
+\subsubsection{Average flow Speed, local measurements.}
 \begin{figure}[H]
          \centering
         \includegraphics[width=1\textwidth]{MC&VS_51/Velocity_MC.png}
-        \caption{MC model, records of average flow speed, $\vert\underline{u}\vert(L,t)$, at 51 spatial locations of interest.}
+        \caption{MC model, records of average flow speed, $\vert\underline{u}\vert(L,t)$, at 51 spatial locations of interest (Fig. \ref{fig:Colima-first}).}
         \label{fig:BAF-V-MC}
 \end{figure}
 
-\begin{figure}[H]
-         \centering
-        \includegraphics[width=1\textwidth]{MC&VS_51/Velocity_VS.png}
-        \caption{VS model, records of average flow speed, $\vert\underline{u}\vert(L,t)$, at 51 spatial locations of interest.}
-        \label{fig:BAF-V-VS}
-\end{figure}
-
-\subsubsection*{Froude Number, local measurements.}
+\subsubsection{Average Froude Number, local measurements.}
 \begin{figure}[H]
          \centering
         \includegraphics[width=1\textwidth]{MC&VS_51/Froude_MC.png}
-        \caption{MC model, records of average Froude Number at 51 spatial locations of interest.}
+        \caption{MC model, records of average Froude Number at 51 spatial locations of interest (Fig. \ref{fig:Colima-first}).}
         \label{fig:BAF-Fr-MC}
 \end{figure}
 
-\begin{figure}[H]
-         \centering
-        \includegraphics[width=1\textwidth]{MC&VS_51/Froude_VS.png}
-        \caption{VS models, records of average Froude Number at 51 spatial locations of interest.}
-        \label{fig:BAF-Fr-VS}
-\end{figure}
+\subsection{Observable outputs - six selected locations}\label{Obs2}
+The six selected locations are $[L_8, L_{10}, L_{17}, L_{39}, L_{43}, L_{46}]$, (see Fig. \ref{fig:Colima-first}). First two points, $L_8$ and $L_{10}$ are both significantly close to the initiation pile, the points $L_{17}$ and $L_{43}$ are placed where the slope is reducing and the ravine channels start, and $L_{39}$ and $L_{46}$ are placed in the channels, further down-slope. Moreover, $L_8$, $L_{43}$, and $L_{46}$ are placed at the western side of the inundated area, whereas $L_{10}$, $L_{17}$, and $L_{39}$ are placed at the eastern side.
 
-\subsubsection{Flow Acceleration, local measurements}
+\subsubsection{Flow Height, selected measurements}
 
-\subsubsection{Flow extents and averaged measurements}
+\subsubsection{Flow Speed, selected measurements}
+
+\subsubsection{Flow Acceleration, selected measurements}
+
+\subsubsection{Flow area and spatially averaged flow speed}
 
 \subsection{Hidden quantities}\label{Hq2}
-
-\subsubsection{Forces, spatial average}
+The current case study does not show a preferential direction, equivalent to the slope direction of the inclined plane. Hence, we will directly focus on the powers related to the force terms detailed in Section \ref{Hq1}.
 
 \subsubsection{Powers, spatial average}
 
-\subsubsection{Force contribution coefficients, RHS terms}
+\subsubsection{Power contribution coefficients, RHS terms}
 
-\subsubsection{Force dominance factors, RHS terms}\label{stat2}
+\subsubsection{Power dominance factors, RHS terms}\label{stat2}
 
 \section{Discussion}
 
