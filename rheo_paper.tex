@@ -234,7 +234,7 @@ k_{ap} = \begin{cases}
 \end{eqnarray}
 
 \paragraph{MC equations} As a result, we can write down the source terms of the Eqs. (\ref{eq:D_A}):
-\begin{eqnarray}
+\begin{eqnarray}\label{S_terms_MC}
 S_x = g_x h  - \frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf u}} \|} \left[h\left(g_z+\frac{\bar{u}^2}{r_x}\right)\tan(\phi_{bed})\right] - h k_{ap} \ {\rm sgn}\left(\frac{\partial \bar{u}}{\partial y}\right) \frac{\partial (g_z h)}{\partial y} \sin(\phi_{int}),\nonumber \\
 S_y = g_y h  - \frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf u}} \|} \left[h\left(g_z +\frac{\bar{v}^2}{r_y}\right)\tan(\phi_{bed})\right] - h k_{ap} \ {\rm sgn}\left({\frac{\partial \bar{v}}{\partial x}}\right) \frac{\partial (g_z h)}{\partial x} \sin(\phi_{int})
 \end{eqnarray}
@@ -263,12 +263,12 @@ Two critical slope inclination angles are defined as functions of the flow thick
 
 An empirical friction law $\mu_{b}(\|\underset{^\sim}{\bar{\textbf{u}}} \| , h)$ is then defined in the whole range of velocity and thickness. The expression changes depending on two flow regimes, according to a parameter $\beta$ and the Froude number $Fr=\| \underset{^\sim}{\bar{\textbf{u}}} \| / \ \sqrt{h g_{z}}$.
 
-\paragraph{Dynamic friction regime - $Fr \geq \beta$}
+\paragraph{Dynamic friction regime - $Fr \ge \beta$}
 \begin{equation}\label{mu_beta1}
 \mu(h, Fr)=\mu_{stop}(h \beta / Fr)
 \end{equation}
 
-\paragraph{Intermediate friction regime - $0 < Fr < \beta$}
+\paragraph{Intermediate friction regime - $0 \le Fr < \beta$}
 \begin{equation}\label{mu_beta2}
 \mu(h, Fr)=\left(\frac{Fr}{\beta}\right)^\gamma [\mu_{stop}(h)-\mu_{start}(h)] + \mu_{start}(h),
 \end{equation}
@@ -287,7 +287,7 @@ The critical angles $\phi_{1}$, $\phi_{2}$ and $\phi_{3}$ and the parameters $\m
 In particular, $\mathcal{L}$ is the characteristic depth of the flow over which a transition between the angles $\phi_{1}$ to $\phi_{2}$ occurs, in the $\mu_{stop}$ formula. In practice, if $h\ll \mathcal L$, then $\mu_{stop}(h)\approx \tan\phi_{2}$, and if $h\gg \mathcal L$, then $\mu_{stop}(h)\approx\tan\phi_{1}$. The effect of the topographic local curvatures is also taken into account.
 
 \paragraph{PF equations} The depth-averaged Eqs. (\ref{eq:D_A}) source terms thus take the following form:
-\begin{eqnarray}\label{eq:S_Pouliquen}
+\begin{eqnarray}\label{eq:S_terms_PF}
 S_{x} &=&  g_{x} h -  \frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf{u}}} \|}\left[h \left(g_z+\frac{\bar{u}^2}{r_x}\right) \ \mu_{b}(\|\underset{^\sim}{\bar{\textbf{u}}} \| , h)\right] \ + g_{z}h\frac{\partial h}{\partial x} \nonumber \\
 S_{y} &=&  g_{y} h - \frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf{u}}} \|}\left[h \left(g_z +\frac{\bar{v}^2}{r_y}\right) \ \mu_{b}(\|\underset{^\sim}{\bar{\textbf{u}}} \| , h)\right] \ + g_{z}h\frac{\partial h}{\partial y}
 \end{eqnarray}
@@ -316,7 +316,7 @@ The effect of the topographic local curvatures is again taken into account by ad
 
 \paragraph{VS equations} Therefore, the final source terms take the following form:
 \begin{eqnarray}
-\label{eq:S_terms_curv}
+\label{eq:S_terms_VS}
 S_{x} &=&  g_{x} h - \frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf u}}\|} \ \left[ h \left(g_{z} + \frac{\| \underset{^\sim}{\bar{\textbf u}} \|^2}{r_{x}} \right)\mu+ \frac{\| \underset{^\sim}{\textbf g} \|}{\xi}\| \underset{^\sim}{\bar{\textbf u}} \|^2\right], \nonumber \\
 S_{y} &=& g_{y} h - \frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf u}}\|} \ \left[ h \left(g_{z} + \frac{\| \underset{^\sim}{\bar{\textbf u}} \|^2}{r_{y}} \right)\mu+ \frac{\| \underset{^\sim}{\textbf g} \|}{\xi}\| \underset{^\sim}{\bar{\textbf u}} \|^2\right]
 \end{eqnarray}
@@ -343,7 +343,7 @@ The key to a good forecasting capability in the context of mass flows requires t
 
 \paragraph{Simulated quantities} The simulation algorithms can be classified as:
 $$\textmd{(1)INPUT VARIABLES} \longrightarrow \textmd{(2)HIDDEN QUANTITIES} \longrightarrow \textmd{(3)OBSERVABLE OUTPUTS}$$
-The \emph{input variables} are the parameters of $M$, i.e. volume, rheology coefficients, but include also the initiation site and geometry, and the digital elevation map. The \emph{hidden quantities} include the stress terms in the Newton Equations that rule the simulation, their powers, other dynamical quantities as $Fr$. Those are hidden to the observation, but they directly depend on the parameters, and represent a fundamental link between the parameters and the observable outputs. Moreover, the models share some of those terms while change others, and this enables a detailed comparison of the real physics below the curtain. Finally, the \emph{observable outputs} include what can be measured in space and time: e.g. flow height, lateral extent, area, velocity and acceleration. In the sequel (2) and (3) are also called quantities of interest (QoI).
+The \emph{input variables} are the parameters of $M$, i.e. volume, rheology coefficients, but can include also the initiation site and geometry, and the digital elevation map. The \emph{hidden quantities} include the stress terms in the Newton Equations that rule the simulation, and their powers. Those are hidden to the observation in a real flow, but they directly depend on the parameters, and represent a fundamental link between the parameters and the observable outputs. Moreover, the models share some of those terms while change others, and this enables a detailed comparison of the real physics below the curtain (see Sections \ref{Hq1},\ref{Hq2}). Finally, the \emph{observable outputs} include what can be measured in space and time: e.g. flow height, lateral extent, area, velocity, acceleration, and combined quantities as $Fr$ (see Sections \ref{Obs1}, \ref{Obs2}). In the sequel (2) and (3) are also called quantities of interest (QoI).
 
 \paragraph{Local samples and spatial averaging}
 The QoI in the previous scheme which are evolving fields $f(\underline{\textbf x},t)$ in space-time, can be either \emph{locally sampled} or \emph{spatially averaged} (see sections \ref{sec:QoIs}, \ref{QoI2}). The spatial averaging is defined by $F(t)=\int_{\mathbb R^k}f(\underline{\textbf x},t) d\underline{\textbf x}$. In the most of the cases $k=2$, and $d\underline{\textbf x}$ is given by the area of the mesh elements. Sometimes $k=3$, e.g. concerning speed, and $d\underline{\textbf x}$ is the element of volume corresponding to the mesh elements.
@@ -352,10 +352,10 @@ A fundamental part of this research was made possible by the new implementation 
 
 \paragraph{Monte Carlo simulation} In general, for each QoI, during a Monte Carlo simulation we sample the input variables and obtain a family of temporal graphs on time domains depending on the flow duration. These results are statistically summarized - plotting their expectation, and their 5$^{th}$ and 95$^{th}$ percentiles. In the following, we will detail the considered input variables and quantities of interest for each of our cases study.
 
-Our sampling technique of the input variables is based on the Latin Hypercube Sampling (LHS) idea, and in particular, on the improved space-filling properties of the orthogonal array-based Latin Hypercubes (see Appendix \ref{Appendix}). The LHS is performed over $[0,1]^3$ for the MC and VS input parameters, and $[0,1]^4$ for PF input parameters. Those adimensional samples are homothetically transformed to fill the required intervals.
+Our sampling technique of the input variables is based on the Latin Hypercube Sampling (LHS) idea, and in particular, on the improved space-filling properties of the orthogonal array-based Latin Hypercubes (see Appendix \ref{Appendix}). The LHS is performed over $[0,1]^3$ for the MC and VS input parameters, and $[0,1]^4$ for PF input parameters (see Section \ref{consistency}). Those adimensional samples are homothetically transformed to fill the required intervals.
 
 \subsection{Statistical analysis of force contributions}\label{statF}
-A statistical analysis capable of measuring the contributions of different force components in the rheology models is presented. That is helpful to explore and compare the effects of the assumptions behind some modeling choices, onto the time evolution of the flowing material. Let $(F_i(x,t))_{i=1,\dots, 6}$ be the array of force components, where $x\in\mathbb R^2$ is a spatial location, and $t\in T$ is a time instant. 
+A statistical analysis capable of measuring the contributions of different force components in the rheology models is presented. That is helpful to explore and compare the effects of the assumptions behind some modeling choices, onto the time evolution of the flowing material. Let $(F_i(x,t))_{i=1,\dots, 6}$ be the array of force components, where $x\in\mathbb R^2$ is a spatial location, and $t\in T$ is a time instant.
 
 In our case study, $(F_1,F_2):=($\textbf{LHS}$_1,$\textbf{LHS}$_2)$, i.e. the left-hand side terms in the momentum equation, while $(F_3,\dots,F_6):=($\textbf{RHS}$_1,\dots,$\textbf{RHS}$_4)$ are the right-hand side terms. These forces can take different formulations in the different models, which are detailed in section \ref{sec:QoIs}. This type of procedure can be applied to any additive decomposition of the physical forces. The analysis of $RHS$ can inform on local effects, while $LHS$ concerns the of un-local dynamics in space and time.
 
@@ -423,17 +423,20 @@ In sections \ref{stat1} and \ref{stat2} we display the contribution coefficients
 \subsection{Definition and consistency of the input variables}\label{consistency}
 In general, the three rheologies considered in this study, MC, PF, and VS, have totally different parameters. The statistical testing we perform requires to choose the parameter range $P_M$, and in principle it may be arbitrary. Nevertheless, if the total frictions of the models are not covering a similar span, the statistical comparison is dominated by trivial macroscopic differences, and cannot focus on the rheology details. Some degree of parameter consistency is required between the models.
 
-We can find several instances of parameter choices in literature, and in general the choice depends on the case study. In all the models it is defined a basal friction stress (see $RHS_2$ in in \ref{sec:QoIs}). However, PF interpolates different effective friction angles, while VS includes a velocity based additional term. We tested that a direct correlation of effective friction angles is problematic to do. Hence, we did not follow such approach. In contrast, we make a preliminary testing on the extreme values of the parameter space, i.e. giving max volume -- min resistance, and min volume -- max resistance. 
+We can find several instances of parameter choices in literature, and in general the choice depends on the case study. In all the models it is defined a basal friction stress (see $RHS_2$ in in \ref{sec:QoIs}). However, PF interpolates different effective friction angles, while VS includes a velocity based additional term. We tested that a direct correlation of effective friction angles is problematic to do. Hence, we did not follow such approach. In contrast, we make a preliminary testing on the extreme values of the parameter space, i.e. giving max volume -- min resistance, and min volume -- max resistance.
 
 \paragraph{General definitions}
-We assume what follows to simplify testing. 
+We assume what follows to simplify testing. Except when differently specified, parameters are sampled uniformly in linear scale.
 \begin{itemize}
-\item In MC, $\phi_{int}-\phi_{bed}=\Delta \phi \in [2^{\mathrm{\circ}}, 10^{\mathrm{\circ}}]$ \citep{Dalbey2008}.
+\item Material Volume $V$ is an additional input parameter in all the models, on the same range.
 
-\item In PF, $\phi_2-\phi_1=\Delta \phi_{12} \in [10^{\mathrm{\circ}}, 15^{\mathrm{\circ}}]$. Moreover, $\beta \in [0.1, 0.85]$, $\phi_3=\phi_1+1^\mathrm{\circ}$, and $\mathcal{L}$ is equal to 1 dm and 1 mm in the two case studies, respectively \citep{PouliquenForterre2002,ForterrePouliquen2003,Gray2014, Barker2015},.
+\item In MC, sampled input parameters are $\phi_{bed}$, and $\Delta \phi:=\phi_{int}-\phi_{bed}$. In particular, $\Delta \phi \in [2^{\mathrm{\circ}}, 10^{\mathrm{\circ}}]$ \citep{Dalbey2008}.
 
-\item In VS, $\xi$ uniform sampling is accomplished in log-scale. Values of $\xi$ between 250 and 4,000 $m/s^2$ have been described for snow avalanches \citep{Salm1993,Bartelt1999,Gruber2007}.
+\item In PF, sampled input parameters are $\phi_1$, $\Delta \phi_{12}:=\phi_2-\phi_1$, and $\beta$. In particular, $\Delta \phi_{12} \in [10^{\mathrm{\circ}}, 15^{\mathrm{\circ}}]$, and $\beta \in [0.1, 0.85]$. Moreover, $\phi_3=\phi_1+1^\mathrm{\circ}$, and $\mathcal{L}$ is equal to 1 dm and 1 mm in the two case studies, respectively \citep{PouliquenForterre2002,ForterrePouliquen2003,Gray2014, Barker2015},.
+
+\item In VS, sampled input parameters are $\mu$, and $\xi$. In detail, $\xi$ uniform sampling is accomplished in log-scale. In fact, values of $\xi$ between 250 and 4,000 $m/s^2$ have been described for snow avalanches \citep{Salm1993,Bartelt1999,Gruber2007}.
 \end{itemize}
+In summary, MC and VS have three-dimensional parameter spaces, while $PF$ a four-dimensional parameter space.
 
 \paragraph{Flow down an inclined plane}
 In this case study, \cite{Dalbey2008} assumed $\phi_{bed}=[15^\mathrm{\circ}, 30^\mathrm{\circ}]$, while \cite{WebbBursik2016} performed a series of laboratory experiments and found $\phi_{bed}=[18.2^\mathrm{\circ}, 34.4^\mathrm{\circ}]$. We relied on those published parameter choices to decide a comprehensive parameter range. Figure \ref{fig:Ramp-MaxMinRunouts} displays the maps of max flow height and max velocities observed in the extreme cases tested. Simulation options are - max\_time = 2 s, height/radius = 1.34, length\_scale = 1 m, number\_of\_cells\_across\_axis = 10, order = first, geoflow\_tiny = 1e4 \citep{Patra2005,Aghakhani2016}.
@@ -454,14 +457,14 @@ The parameter ranges adopted in this case study are:
 \begin{figure}[H]
 	\centering
     \includegraphics[width=0.85\textwidth]{Figures/MaxMinRunout.png}
-    \caption{Inclined plane setup. Contours of $h = 1.0 \ mm$ at last simulated snapshot ($t = 1.5$ sec) for simulated flows with \underline{\texttt{minimum runout}} obtained from \underline{\emph{\textbf{min volume -- max resistance}}}, and \underline{\texttt{maximum runout}} obtained from \underline{\emph{\textbf{max volume -- min resistance}}}. {\color{blue} \textbf{---}} : MC, {\color{red} \textbf{---}} : PF, \textbf{---} : VS.}\label{fig:Ramp-MaxMinRunouts}
+    \caption{Inclined plane setup. Contours of $h = 1.0$ mm at last simulated snapshot ($t = 1.5$ sec) for simulated flows with \underline{\texttt{minimum runout}} obtained from \emph{\textbf{min volume -- max resistance}}, and \underline{\texttt{maximum runout}} obtained from \emph{\textbf{max volume -- min resistance}}. {\color{blue} \textbf{---}} : MC, {\color{red} \textbf{---}} : PF, \textbf{---} : VS.}\label{fig:Ramp-MaxMinRunouts}
 \end{figure}
 
 \paragraph{Volc{\'a}n de Colima block and ash flow}
 In this case study, \cite{Dalbey2008} assumed $\phi_{bed}=[15^\mathrm{\circ}, 35^\mathrm{\circ}]$, while \citep{Capra2011} adopted $\phi_{bed}=30^\mathrm{\circ}$ in the simulation of a BAF in that same setting. Moreover, \cite{Spiller2014,Bayarri2015,Ogburn2016} found a statistical correlation between flow size and effective basal friction inferred from field observation of geophysical flows. The size of the BAF of this study would have $\phi_{bed}=[13\mathrm{\circ}, 18\mathrm{\circ}]$ according to their estimates. Figure \ref{Colima-MaxMinExtents} displays the maps of max flow height and max velocities observed in the extreme cases tested. Simulation options are - max\_time = 7200 s (2 hours), height/radius = 0.55, length\_scale = 4e3 m, number\_of\_cells\_across\_axis = 50, order = first, geoflow\_tiny = 1e4 \citep{Patra2005,Aghakhani2016}.
 
 \begin{itemize}
-\item \textbf{Material Volume:} $[2.08 \ ,\ 3.12] \times 10^5 \ m^3$, i.e. average of $2.6  \times 10^5 \ m^3$ and uncertainty of $\pm 20\%$.
+\item \textbf{Material Volume:} $[2.08, 3.12] \times 10^5 \ m^3$, i.e. average of $2.6  \times 10^5 \ m^3$ and uncertainty of $\pm 20\%$.
 \item \textbf{Rheology models' parameter space:}
 
 The parameter ranges adopted in this case study are:
@@ -484,201 +487,111 @@ The parameter ranges adopted in this case study are:
 \section{QoIs and Data Collected - Flow down and inclined plane, and a change in slope to a flat plane}\label{sec:QoIs}
 First case study is the small scale experimental setting described above.
 
-\subsection{Flow Spatial Extents}
-\subsubsection*{Flow Height - $h$ local measurements}
+\subsection{Observable outputs} \label{Obs1}
+\subsubsection{Flow Height, local measurements}
 \begin{figure}[H]
          \centering
         \includegraphics[width=1\textwidth]{NewTest/Height.png}
         \caption{Records of flow height, $h(L,t)$, at four spatial locations of interest. Bold line is mean value, dashed/dotted lines are 5$^{th}$ and 95$^{th}$ percentile bounds. Different rheology models are displayed with different colors.}
-        \label{fig:Ramp-LM-H}
+        \label{fig:Ramp-H}
 \end{figure}
 
-\subsubsection*{Flow Lateral Extent - $E(t)$, (not up to date)}
-\begin{figure}[H]
-        \centering
-        \includegraphics[width=1\textwidth]{InclinedPlane/Height/LateralExtent_SpatialRec.png}
-        \caption{Comparison between mean values of flow lateral extent as a function of time.}
-        \label{fig:Ramp-LatExtension-spatial}
-\end{figure}
-
-\subsubsection*{Flow Area - $A(t)$, (not up to date)}
-\begin{figure}[H]
-        \centering
-        \includegraphics[width=1\textwidth]{InclinedPlane/Height/Area_SpatialRec.png}
-        \caption{Comparison between mean values of flow area as a function of time.}
-        \label{fig:Ramp-InundArea-spatial}
-\end{figure}
-
-\subsection{Flow Speed}
-\subsubsection*{Flow Speed - $\Vert \underline{\mathbf{u}} \Vert$, local measurements}
+\subsubsection{Flow Speed, local measurements}
 \begin{figure}[H]
          \centering
         \includegraphics[width=1\textwidth]{NewTest/Velocity.png}
         \caption{Records of flow speed, $\Vert \underline{\mathbf{u}} \Vert(L,t)$, at four spatial locations of interest. Bold line is mean value, dashed/dotted lines are 5$^{th}$ and 95$^{th}$ percentile bounds. Different rheology models are displayed with different colors.}
-        \label{fig:Ramp-LM-Vel}
+        \label{fig:Ramp-Vel}
 \end{figure}
 
-\subsubsection*{Flow Speed - $\Vert \underline{\mathbf{u}} \Vert$, spatial average, (not up to date)}
-\begin{figure}[H]
-        \centering
-        \includegraphics[width=1\textwidth]{InclinedPlane/Velocity/Vel_SpatialRec.png}
-        \caption{Spatial average of flow speed. Bold line is mean value, dashed lines are 5$^{th}$ and 95$^{th}$ percentile bounds. Model comparison on the mean value is also displayed.}
-        \label{fig:Ramp-Vel-spatial}
-\end{figure}
-
-\subsection{Froude Number}
-\subsubsection*{Froude Number - $\frac{\Vert \underline{\mathbf{u}} \Vert}{\sqrt{gh}}$, local measurements}
+\subsubsection{Froude Number, local measurements}
 
 \begin{figure}[H]
          \centering
         \includegraphics[width=1\textwidth]{NewTest/Froude.png}
-        \caption{Records of Froude number at four spatial locations of interest. Bold line is mean value, dashed/dotted lines are 5$^{th}$ and 95$^{th}$ percentile bounds. Different rheology models are displayed with different colors.}
-        \label{fig:Ramp-LM-Fr}
+        \caption{Records of Froude number, $\frac{\Vert \underline{\mathbf{u}} \Vert}{\sqrt{gh}}$, at four spatial locations of interest. Bold line is mean value, dashed/dotted lines are 5$^{th}$ and 95$^{th}$ percentile bounds. Different rheology models are displayed with different colors.}
+        \label{fig:Ramp-Fr}
 \end{figure}
 
-\subsubsection*{Froude Number - $\frac{\Vert \underline{\mathbf{u}} \Vert}{\sqrt{gh}}$, spatial average (not up to date)}
-\begin{figure}[H]
-        \centering
-        \includegraphics[width=1\textwidth]{InclinedPlane/Froude/Fr_SpatialRec.png}
-        \caption{Spatial average of Froude number. Bold line is mean value, dashed lines are 5$^{th}$ and 95$^{th}$ percentile bounds. Model comparison on the mean value is also displayed.}
-        \label{fig:Ramp-Fr-spatial}
-\end{figure}
-
-\subsection{Flow Acceleration}
-\subsubsection*{Flow Acceleration - $\Vert \underline{\mathbf{a}} \Vert$, local measurements}
+\subsubsection{Flow Acceleration, local measurements}
 
 \begin{figure}[H]
          \centering
         \includegraphics[width=1\textwidth]{NewTest/Acceleration.png}
         \caption{Records of flow acceleration magnitude (computed from LHS), $\Vert \underline{\mathbf{a}} \Vert(L,t)$. Bold line is mean value, dashed lines are 5$^{th}$ and 95$^{th}$ percentile bounds. Different rheology models are displayed with different colors.}
-        \label{fig:Ramp-LM-AccL}
+        \label{fig:Ramp-AccL}
+\end{figure}
+
+
+\subsubsection{Flow extents and averaged measurements}
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{Figures/Averaged_combine.png}
+        \caption{Comparison between mean values of flow (a) maximum lateral extent, and (b) areal extent, as a function of time. Spatial average of (c) flow speed, and (d) Froude Number.}
+        \label{fig:Ramp-spatial}
 \end{figure}
 
 \newpage
-\subsection{Forces and Powers - (not up to date)}
-\subsubsection*{Force LHS$_1$ - spatial average}
-\textbf{LHS$_1$ - $\left(\frac{\partial}{\partial t} (h\bar{u}), \frac{\partial}{\partial t} (h\bar{v})\right)$}
+\subsection{Hidden quantities}\label{Hq1}
+Forces analyzed have been classified according to the terms of the momentum equation in \ref{eq:D_A}. Moreover, the forces terms in $S_x$ have been additionally classified, accordingly to equations \ref{S_terms_MC}, \ref{eq:S_terms_PF}, \ref{eq:S_terms_VS}, describing the three rheology models considered in this study.
+
+This is a summary of the force terms, and this notation will be used in the following (see also Section \ref{statF}).
+\paragraph{Left-hand side, LHS forces}
+\begin{align}
+\boldsymbol{LHS_1} = \left[\frac{\partial}{\partial t} (h\bar{u}), \frac{\partial}{\partial t} (h\bar{v})\right],
+\end{align}
+it is the temporal derivative of momentum.
+
+\begin{align}
+\boldsymbol{LHS_2} = \left[\frac{\partial}{\partial x}\left(h\bar{u}^2 + \frac{1}{2}k g_{z}h^2\right) + \frac{\partial}{\partial y}(h\bar{u}\bar{v}),\frac{\partial}{\partial x}(h\bar{u}\bar{v}) +
+\frac{\partial}{\partial y}\left(h\bar{v}^2 + \frac{1}{2}k g_{z}h^2\right)\right],
+\end{align}
+it is the material derivative of momentum, due to the advection.
+
+\paragraph{Right-hand side, RHS forces}
+\begin{align}
+\boldsymbol{RHS_1} = [g_x h,0],
+\end{align}
+it is the gravitational force term, it has the same formulation in all models.
+
+The formula of basal friction force $\boldsymbol{RHS_2}$ depends on the model:
+\begin{align}
+\boldsymbol{RHS_2} = -h g_z\tan(\phi_{bed})\left[\frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf u}} \|}, \frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf u}} \|} \right],\textmd{ in MC model.}\nonumber\\
+\boldsymbol{RHS_2} = - h g_z \ \mu_{b}(\|\underset{^\sim}{\bar{\textbf{u}}} \| , h)\left[\frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf{u}}} \|}, \frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf{u}}} \|}\right],\textmd{ in PF model.}\\
+\boldsymbol{RHS_2} = -h g_{z} \mu\left[\frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf u}}\|} , \frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf u}}\|}\right],\textmd{ in VS model.}\nonumber
+\end{align}
+
+The formula of the force related to the topography curvature, $\boldsymbol{RHS_3}$, also depends on the model:
+\begin{align}
+\boldsymbol{RHS_3} = \left[-\frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf u}} \|} h \frac{\bar{u}^2}{r_x} \tan(\phi_{bed}),0\right],\textmd{ in MC model.}\nonumber\\
+\boldsymbol{RHS_3} = \left[-\frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf{u}}} \|} h \frac{\bar{u}^2}{r_x} \ \mu_{b}\|\underset{^\sim}{\bar{\textbf{u}}} \| , 0\right],\textmd{ in PF model.}\\
+\boldsymbol{RHS_3} = \left[- \frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf u}}\|} \ h \frac{\| \underset{^\sim}{\bar{\textbf u}} \|^2}{r_{x}} \mu,0\right],\textmd{ in VS model.}\nonumber
+\end{align}
+
+All the three models have an additional force term, having a different formula and meaning in the three models:
+\begin{align}
+\boldsymbol{RHS_4} =  - h k_{ap}\sin(\phi_{int})\left[ \ {\rm sgn}(\frac{\partial \bar{u}}{\partial y}) \frac{\partial (g_z h)}{\partial y},\ {\rm sgn}({\frac{\partial \bar{v}}{\partial x}}) \frac{\partial (g_z h)}{\partial x}\right],\textmd{ in MC model.}\nonumber\\
+\boldsymbol{RHS_4} = g_{z}h\left[\frac{\partial h}{\partial x}, \frac{\partial h}{\partial y}\right],\textmd{ in PF model.}\\
+\boldsymbol{RHS_4} =  -\frac{\| \underset{^\sim}{\textbf g} \|}{\xi}\| \underset{^\sim}{\bar{\textbf u}} \|^2\left[\frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf u}}\|} \ ,\frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf u}}\|}\right],\textmd{ in VS model.}\nonumber
+\end{align}
+
+\subsubsection{Forces, spatial average}
 \begin{figure}[H]
         \centering
-        \includegraphics[width=1\textwidth]{InclinedPlane/Forces_Powers/LHS1/FLHS1x.png}
-        \caption{Spatial average of force LHS$_1$ in the slope direction. Bold line is mean value, dashed lines are 5$^{th}$ and 95$^{th}$ percentile bounds. Model comparison on the mean value is also displayed.}
-        \label{fig:Ramp-LHS1-Fx-spatial}
+        \includegraphics[width=1\textwidth]{Figures/Forces_combine.png}
+        \caption{Spatial average of LHS and RHS forces in the slope direction. Bold line is mean value, dashed lines are 5$^{th}$ and 95$^{th}$ percentile bounds.}
+        \label{fig:Ramp-Fx-spatial}
 \end{figure}
 
-\subsubsection*{Power of LHS$_1$ - spatial average}
+\subsubsection{Powers, spatial average}
 \begin{figure}[H]
         \centering
-        \includegraphics[width=1\textwidth]{InclinedPlane/Forces_Powers/LHS1/PLHS1.png}
-        \caption{Spatial average of the power of LHS$_1$. Bold line is mean value, dashed lines are 5$^{th}$ and 95$^{th}$ percentile bounds. Model comparison on the mean value is also displayed.}
-        \label{fig:Ramp-LHS1-Power-spatial}
+        \includegraphics[width=1\textwidth]{Figures/Powers_combine.png}
+        \caption{Spatial average of the LHS and RHS powers. Bold line is mean value, dashed lines are 5$^{th}$ and 95$^{th}$ percentile bounds. Model comparison on the mean value is also displayed.}
+        \label{fig:Ramp-Power-spatial}
 \end{figure}
 
-\newpage
-\subsubsection*{Force LHS$_2$ - spatial average}
-\textbf{LHS$_2$ - $\left(\frac{\partial}{\partial x}\left(h\bar{u}^2 + \frac{1}{2}k g_{z}h^2\right) + \frac{\partial}{\partial y}(h\bar{u}\bar{v}),\frac{\partial}{\partial x}(h\bar{u}\bar{v}) +
-\frac{\partial}{\partial y}\left(h\bar{v}^2 + \frac{1}{2}k g_{z}h^2\right)\right)$}
-\begin{figure}[H]
-        \centering
-        \includegraphics[width=1\textwidth]{InclinedPlane/Forces_Powers/LHS2/FLHS2x.png}
-        \caption{Spatial average of force LHS$_2$ in the slope direction. Bold line is mean value, dashed lines are 5$^{th}$ and 95$^{th}$ percentile bounds. Model comparison on the mean value is also displayed.}
-        \label{fig:Ramp-LHS2-Fx-spatial}
-\end{figure}
-
-\subsubsection*{Power of LHS$_2$ - spatial average}
-\begin{figure}[H]
-        \centering
-        \includegraphics[width=1\textwidth]{InclinedPlane/Forces_Powers/LHS2/PLHS2.png}
-        \caption{Spatial average of the power of LHS$_2$. Bold line is mean value, dashed lines are 5$^{th}$ and 95$^{th}$ percentile bounds. Model comparison on the mean value is also displayed.}
-        \label{fig:Ramp-LHS2-Power-spatial}
-\end{figure}
-
-\newpage
-\subsubsection*{Force RHS$_1$ - spatial average}
-\textbf{RHS$_1$ - $(g_x h,0)$}
-\begin{figure}[H]
-        \centering
-        \includegraphics[width=1\textwidth]{InclinedPlane/Forces_Powers/RHS1/FRHS1x.png}
-        \caption{Spatial average of force RHS$_1$ in the slope direction. Bold line is mean value, dashed lines are 5$^{th}$ and 95$^{th}$ percentile bounds. Model comparison on the mean value is also displayed.}
-        \label{fig:Ramp-RHS1-Fx-spatial}
-\end{figure}
-
-\subsubsection*{Power of RHS$_1$ - spatial average}
-\begin{figure}[H]
-        \centering
-        \includegraphics[width=1\textwidth]{InclinedPlane/Forces_Powers/RHS1/PRHS1.png}
-        \caption{Spatial average of the power of RHS$_1$. Bold line is mean value, dashed lines are 5$^{th}$ and 95$^{th}$ percentile bounds. Model comparison on the mean value is also displayed.}
-        \label{fig:Ramp-RHS1-Power-spatial}
-\end{figure}
-
-\newpage
-\subsubsection*{Force RHS$_2$ - spatial average}
-\textbf{RHS$_2 = -h g_z\tan(\phi_{bed})\left(\frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf u}} \|}, \frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf u}} \|} \right)$ in Mohr-Coulomb model.}
-
-\noindent\textbf{RHS$_2 = - h g_z \ \mu_{b}(\|\underset{^\sim}{\bar{\textbf{u}}} \| , h)\left(\frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf{u}}} \|}, \frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf{u}}} \|}\right)$ in Pouliquen-Forterre model.}
-
-\noindent\textbf{RHS$_2 = -h g_{z} \mu\left(\frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf u}}\|} , \frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf u}}\|}\right)$ in Voellmy-Salm model.}
-
-\begin{figure}[H]
-        \centering
-        \includegraphics[width=1\textwidth]{InclinedPlane/Forces_Powers/RHS2/FRHS2x.png}
-        \caption{Spatial average of force RHS$_1$ in the slope direction. Bold line is mean value, dashed lines are 5$^{th}$ and 95$^{th}$ percentile bounds. Model comparison on the mean value is also displayed.}
-        \label{fig:Ramp-RHS2-Fx-spatial}
-\end{figure}
-
-\subsubsection*{Power of RHS$_2$ - spatial average}
-\begin{figure}[H]
-        \centering
-        \includegraphics[width=1\textwidth]{InclinedPlane/Forces_Powers/RHS2/PRHS2.png}
-        \caption{Spatial average of the power of RHS$_2$. Bold line is mean value, dashed lines are 5$^{th}$ and 95$^{th}$ percentile bounds. Model comparison on the mean value is also displayed.}
-        \label{fig:Ramp-RHS2-Power-spatial}
-\end{figure}
-
-\newpage
-\subsubsection*{Force RHS$_3$ - spatial average}
-\textbf{RHS$_3$ - $ \left(-\frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf u}} \|} h \frac{\bar{u}^2}{r_x} \tan(\phi_{bed}),0\right)$ in Mohr-Coulomb model.}
-
-\noindent\textbf{RHS$_3$ - $\left(-\frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf{u}}} \|} h \frac{\bar{u}^2}{r_x} \ \mu_{b}\|\underset{^\sim}{\bar{\textbf{u}}} \| , 0\right)$ in Pouliquen-Forterre model.}
-
-\noindent\textbf{RHS$_3$ - $\left(- \frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf u}}\|} \ h \frac{\| \underset{^\sim}{\bar{\textbf u}} \|^2}{r_{x}} \mu,0\right)$ in Voellmy-Salm model.}
-\begin{figure}[H]
-        \centering
-        \includegraphics[width=1\textwidth]{InclinedPlane/Forces_Powers/RHS3/FRHS3x.png}
-        \caption{Spatial average of force RHS$_3$ in the slope direction. Bold line is mean value, dashed lines are 5$^{th}$ and 95$^{th}$ percentile bounds. Model comparison on the mean value is also displayed.}
-        \label{fig:Ramp-RHS3-Fx-spatial}
-\end{figure}
-
-\subsubsection*{Power of RHS$_3$ - spatial average}
-\begin{figure}[H]
-        \centering
-        \includegraphics[width=1\textwidth]{InclinedPlane/Forces_Powers/RHS3/PRHS3.png}
-        \caption{Spatial average of the power of RHS$_3$. Bold line is mean value, dashed lines are 5$^{th}$ and 95$^{th}$ percentile bounds. Model comparison on the mean value is also displayed.}
-        \label{fig:Ramp-RHS3-Power-spatial}
-\end{figure}
-
-\newpage
-\subsubsection*{Force RHS$_4$ - spatial average}
-\textbf{RHS$_4 = - h k_{ap}\sin(\phi_{int})\left( \ {\rm sgn}(\frac{\partial \bar{u}}{\partial y}) \frac{\partial (g_z h)}{\partial y},\ {\rm sgn}({\frac{\partial \bar{v}}{\partial x}}) \frac{\partial (g_z h)}{\partial x}\right)$ in Mohr-Coulomb model.}
-
-\noindent\textbf{RHS$_4 = g_{z}h\left(\frac{\partial h}{\partial x}, \frac{\partial h}{\partial y}\right)$ in Pouliquen-Forterre model.}
-
-\noindent\textbf{RHS$_4 = -\frac{\| \underset{^\sim}{\textbf g} \|}{\xi}\| \underset{^\sim}{\bar{\textbf u}} \|^2\left(\frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf u}}\|} \ ,\frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf u}}\|}\right)$ in Voellmy-Salm model.}
-
-\begin{figure}[H]
-        \centering
-        \includegraphics[width=1\textwidth]{InclinedPlane/Forces_Powers/RHS4/FRHS4x.png}
-        \caption{Comparison between mean values of flow acceleration (computed from LHS), $\Vert \underline{a} \Vert(L,t)$, recorded at locations of interest, $L_i, \ _{i=1,...,4}$.}
-        \label{fig:Ramp-RHS4-Fx-spatial}
-\end{figure}
-
-\subsubsection*{Power of RHS$_4$ - spatial average}
-\begin{figure}[H]
-        \centering
-        \includegraphics[width=1\textwidth]{InclinedPlane/Forces_Powers/RHS4/PRHS4.png}
-        \caption{Spatial average of the power of RHS$_4$. Bold line is mean value, dashed lines are 5$^{th}$ and 95$^{th}$ percentile bounds. Model comparison on the mean value is also displayed.}
-        \label{fig:Ramp-RHS4-Power-spatial}
-\end{figure}
-
-\subsection{Contribution coefficients - RHS terms}
+\subsubsection{Force contribution coefficients, RHS terms}
 \begin{figure}[H]
          \centering
         \includegraphics[width=1\textwidth]{NewTest/Ci_x.png}
@@ -686,73 +599,74 @@ First case study is the small scale experimental setting described above.
         \label{fig:Ci_x}
 \end{figure}
 
-
-\subsection{Dominance factors - RHS terms}\label{stat1}
+\subsubsection{Force dominance factors, RHS terms}\label{stat1}
 \begin{figure}[H]
          \centering
         \includegraphics[width=1\textwidth]{NewTest/Pr_x.png}
         \caption{Records of dominance probabilities of \textbf{RHS} forces, in the slope direction, at four spatial locations of interest. Bold line is mean value, dashed/dotted lines are 5$^{th}$ and 95$^{th}$ percentile bounds. Different rheology models are displayed with different colors. No-flow probability is also displayed.}
-        \label{fig:Ci_x}
+        \label{fig:Pr_x}
 \end{figure}
 
-\newpage
 \section{QoIs and Data Collected - Volc{\'a}n de Colima BAF}\label{QoI2}
-\subsubsection*{Flow Height - $h$ local measurements}
-\textbf{Mohr-Coulomb rheology.}
+\subsection{Observable outputs} \label{Obs2}
+\subsubsection{Flow Height, local measurements}
 \begin{figure}[H]
          \centering
         \includegraphics[width=1\textwidth]{MC&VS_51/Height_MC.png}
-        \caption{Records of average flow height, $h(L,t)$, at 51 spatial locations of interest, according to MC model.}
-        \label{fig:Ramp-LM-H}
+        \caption{MC model, records of average flow height, $h(L,t)$, at 51 spatial locations of interest.}
+        \label{fig:BAF-H-MC}
 \end{figure}
 
-\textbf{Voellmy-Salm rheology.}
 \begin{figure}[H]
          \centering
         \includegraphics[width=1\textwidth]{MC&VS_51/Height_VS.png}
-        \caption{Records of average flow height, $h(L,t)$, at 51 spatial locations of interest, according to VS model.}
-        \label{fig:Ramp-LM-H}
+        \caption{VS model, records of average flow height, $h(L,t)$, at 51 spatial locations of interest.}
+        \label{fig:BAF-H-VS}
 \end{figure}
 
-\subsection{Flow Speed}
-\subsubsection*{Flow Speed - $\Vert \underline{\mathbf{u}} \Vert$, local measurements}
-\textbf{Mohr-Coulomb rheology.}
+\subsubsection*{Flow Speed, local measurements.}
 \begin{figure}[H]
          \centering
         \includegraphics[width=1\textwidth]{MC&VS_51/Velocity_MC.png}
-        \caption{Records of average flow speed, $\vert\underline{u}\vert(L,t)$, at 51 spatial locations of interest, according to MC model.}
-        \label{fig:Ramp-LM-H}
+        \caption{MC model, records of average flow speed, $\vert\underline{u}\vert(L,t)$, at 51 spatial locations of interest.}
+        \label{fig:BAF-V-MC}
 \end{figure}
 
-\textbf{Voellmy-Salm rheology.}
 \begin{figure}[H]
          \centering
         \includegraphics[width=1\textwidth]{MC&VS_51/Velocity_VS.png}
-        \caption{Records of average flow speed, $\vert\underline{u}\vert(L,t)$, at 51 spatial locations of interest, according to VS model.}
-        \label{fig:Ramp-LM-H}
+        \caption{VS model, records of average flow speed, $\vert\underline{u}\vert(L,t)$, at 51 spatial locations of interest.}
+        \label{fig:BAF-V-VS}
 \end{figure}
 
-\subsection{Froude Number}
-\subsubsection*{Froude Number - $\frac{\Vert \underline{\mathbf{u}} \Vert}{\sqrt{gh}}$, local measurements}
-
-\textbf{Mohr-Coulomb rheology.}
+\subsubsection*{Froude Number, local measurements.}
 \begin{figure}[H]
          \centering
         \includegraphics[width=1\textwidth]{MC&VS_51/Froude_MC.png}
-        \caption{Records of average Froude Number at 51 spatial locations of interest, according to MC model.}
-        \label{fig:Ramp-LM-H}
+        \caption{MC model, records of average Froude Number at 51 spatial locations of interest.}
+        \label{fig:BAF-Fr-MC}
 \end{figure}
 
-\textbf{Voellmy-Salm rheology.}
 \begin{figure}[H]
          \centering
         \includegraphics[width=1\textwidth]{MC&VS_51/Froude_VS.png}
-        \caption{Records of average Froude Number at 51 spatial locations of interest, according to VS model.}
-        \label{fig:Ramp-LM-H}
+        \caption{VS models, records of average Froude Number at 51 spatial locations of interest.}
+        \label{fig:BAF-Fr-VS}
 \end{figure}
 
+\subsubsection{Flow Acceleration, local measurements}
 
-\subsection{Dominance factors - RHS terms}\label{stat2}
+\subsubsection{Flow extents and averaged measurements}
+
+\subsection{Hidden quantities}\label{Hq2}
+
+\subsubsection{Forces, spatial average}
+
+\subsubsection{Powers, spatial average}
+
+\subsubsection{Force contribution coefficients, RHS terms}
+
+\subsubsection{Force dominance factors, RHS terms}\label{stat2}
 
 \section{Discussion}
 
