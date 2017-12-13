@@ -341,8 +341,8 @@ The key to a good forecasting capability in the context of mass flows requires t
 
 \paragraph{Parameters ranges} It is worth mentioning that whereas the support of $P_M$ can be restricted to a single point in case an inverse problem is solved for the optimal reconstruction of a particular flow, this is not possible if we are interested in the general predictive capabilities of the model, i.e. the target of probabilistic hazard assessment. In this study we always assume $P_M\sim \bigotimes_{i=1}^{N_M} Unif(a_{i,M},b_{i,M})$, where $N_M$ is the number of parameters of $M$. These parameter ranges will not be selected under the influence of a particular observation, but we will try to use the information gathered in literature about the physical meaning of those values, together with a preliminary testing, coupling the range of possible runouts. This coupling step is detailed in section \ref{consistency}, and required to focus the statistical comparison on a consistence range of flow regimes.
 
-\paragraph{Simulated quantities} The simulation algorithms can be classified as:
-$$\textmd{(1)INPUT VARIABLES} \longrightarrow \textmd{(2)HIDDEN QUANTITIES} \longrightarrow \textmd{(3)OBSERVABLE OUTPUTS}$$
+\paragraph{Simulated quantities} The simulation algorithms can be schematized as:
+$$\textmd{(1)INPUT VARIABLES} \rightarrow \textmd{(2)HIDDEN DYNAMIC QUANTITIES} \rightarrow \textmd{(3)OBSERVABLE OUTPUTS}$$
 The \emph{input variables} are the parameters of $M$, i.e. volume, rheology coefficients, but can include also the initiation site and geometry, and the digital elevation map. The \emph{hidden quantities} include the stress terms in the Newton Equations that rule the simulation, and their powers. Those are hidden to the observation in a real flow, but they directly depend on the parameters, and represent a fundamental link between the parameters and the observable outputs. Moreover, the models share some of those terms while change others, and this enables a detailed comparison of the real physics below the curtain (see Sections \ref{Hq1},\ref{Hq2}). Finally, the \emph{observable outputs} include what can be measured in space and time: e.g. flow height, lateral extent, area, velocity, acceleration, and combined quantities as $Fr$ (see Sections \ref{Obs1}, \ref{Obs2}). In the sequel (2) and (3) are also called quantities of interest (QoI).
 
 \paragraph{Local samples and spatial averaging}
@@ -359,7 +359,7 @@ A statistical analysis capable of measuring the contributions of different force
 
 In our case study, $(F_1,F_2):=($\textbf{LHS}$_1,$\textbf{LHS}$_2)$, i.e. the left-hand side terms in the momentum equation, while $(F_3,\dots,F_6):=($\textbf{RHS}$_1,\dots,$\textbf{RHS}$_4)$ are the right-hand side terms. These forces can take different formulations in the different models, which are detailed in section \ref{sec:Fterms}. This type of procedure can be applied to any additive decomposition of the physical forces. The analysis of $RHS$ can inform on local effects, while $LHS$ concerns the of un-local dynamics in space and time.
 
-In general we show the projection of the forces on the slope direction, or the product with the velocity field, i.e. the power related to them. Hence, in the following the forces are scalar and not vectorial terms. It is important to remark that all the forces are hidden quantities (see above), depending on the input variables, and they are thus considered as random variables. The degree of contribution of those force terms is significantly variable in space and time, and we define the \emph{contribution coefficients} to model this. The definitions are not depending on the location, but all the results will significantly depend of that choice. Next notation will assume to be in a selected location $x=L_k$, where $k\ge 1$. In the following we will focus on \textbf{RHS} forces, although some testing including \textbf{LHS} forces has also been accomplished.
+In general we show the projection of the forces on the slope direction, or the product with the velocity field, i.e. the power related to them. Hence, in the following the forces are scalar and not vectorial terms. It is important to remark that all the forces are hidden dynamic quantities (see above), depending on the input variables, and they are thus considered as random variables. The degree of contribution of those force terms is significantly variable in space and time, and we define the \emph{contribution coefficients} to model this. The definitions are not depending on the location, but all the results will significantly depend of that choice. Next notation will assume to be in a selected location $x=L_k$, where $k\ge 1$. In the following we will focus on \textbf{RHS} forces, although some testing including \textbf{LHS} forces has also been accomplished.
 
 \begin{definition}[Contribution coefficients]
 Let $(F_i)_{i\in I}$ be random variables on $(\Omega, \mathcal F, P)$, representing the considered force components in location $x$ at time $t$. Then, for each component $i$, the contribution coefficient is defined as:
@@ -417,7 +417,7 @@ where $\Phi=\Phi_2$ is the dominant force. In particular, for each component $i$
 $$p_j:=P\left\{\Phi=|F_j|\right\}.$$
 \end{definition}
 
-In sections \ref{stat1} and \ref{stat2} we display the contribution coefficients as a function of time, assuming $\Phi=\Phi_1$. Moreover, we report the dominance factors plots, another very useful tool to read the dynamical significance of the forces as a function of time and location.
+In sections \ref{stat1} and \ref{stat2} we display the contribution coefficients as a function of time, assuming $\Phi=\Phi_1$. Moreover, we report the dominance factors plots, another very useful tool to read the dynamic significance of the forces as a function of time and location.
 
 \newpage
 \subsection{Forces terms definition}\label{sec:Fterms}
@@ -497,6 +497,8 @@ The parameter ranges adopted in this case study are:
 \vskip.3cm\noindent \textbf{VS} - $\mu \in [0.22, 0.45]$, $\quad \log(\xi) \in [3, 4]$.
 \end{itemize}
 
+Even if maximum and mininum runout are both matching, the shape and lateral extent of the flow is remarkably different in the max. runout case, according to the three models. In particular, MC model can produce the largest lateral extent, and VS model displays an accentuated wedge-like shape, due to the increased friction in the lateral margins. These features will be detailed in Section \ref{Obs1}.
+
 \begin{figure}[H]
 	\centering
     \includegraphics[width=0.85\textwidth]{Figures/MaxMinRunout.png}
@@ -520,6 +522,8 @@ The parameter ranges adopted in this case study are:
 
 \end{itemize}
 
+The models possess different features, even if the maximum runuout after channelization in the ravines is matching. In particular, VS lateral spreading is significant lower and material reaches higher thickness, whereas PF model seems to stop more gradually than MC with a more complex inundated area boundary lines. These features will be detailed in Section \ref{Obs2}.
+
 \begin{figure}[H]
          \centering
         \includegraphics[width=0.87\textwidth]{Figures/Extremal.jpg}
@@ -528,24 +532,30 @@ The parameter ranges adopted in this case study are:
 \end{figure}
 
 \section{QoIs and Data Collected - Flow down and inclined plane, and a change in slope to a flat plane}\label{sec:QoIs}
-First case study is the small scale experimental setting described above.
+First case study is the small scale experimental setting described above. First we describe the observable outputs (Section \ref{Obs1}), and then the hidden dynamic quantities (Section \ref{Hq1}).
 
 \subsection{Observable outputs} \label{Obs1}
+Observable outputs include the flow height, speed, $Fr$, and acceleration as a function of time, measure on the four location $L_1,\dots, L_4$ displayed in Fig. \ref{fig:Ramp-first}. In addition, max lateral extension, flow area, and spatially averaged speed and $Fr$ are displayed. UQ is also performed, accordingly to the parameter ranges described in Section \ref{consistency}.
+
 \subsubsection{Flow Height, local measurements}
+Figure \ref{fig:Ramp-H} shows the height of the flow at the points $(L_i)_{i=1,\dots,4}$, for the three rheology models.  
 \begin{figure}[H]
          \centering
         \includegraphics[width=1\textwidth]{NewTest/Height.png}
-        \caption{Records of flow height, $h(L,t)$, at four spatial locations of interest. Bold line is mean value, dashed/dotted lines are 5$^{th}$ and 95$^{th}$ percentile bounds. Different rheology models are displayed with different colors.}
+        \caption{Records of flow height, $h(L,t)$, at four spatial locations of interest. Bold line is mean value, dashed/dotted lines are 5$^{th}$ and 95$^{th}$ percentile bounds. Different rheology models are displayed with different colors. Plots have different scales, for simplifying lecture.}
         \label{fig:Ramp-H}
 \end{figure}
+In plot (a), related to point $L_1$ placed on the initial pile, the initial values of $\sim 6$ cm are the equal and only represent the pile height uncertainty, but then the flow height decreases slightly faster for the PF model, and slower for the MC, compared to the VS. Difference are more significant in plot (b), related to point $L_2$, placed in the middle of the slope. Flow max height is greater for the VS, and smaller for the PF model, which decreases slower after the height peak. However, the value is $\sim$15 times smaller than initial pile height, of $\sim 4$ mm. None of the models leaves a material deposit in $L_1$ or $L_2$, i.e. the 95$^{th}$ percentile of the height is null at the end-time. In contrast, a deposit is left at points $L_3$, placed at the change in slope, and $L_4$, in the middle of the flat runout. MC's deposit is higher than the other models' at $L_3$, while it is not significantly different at $L_4$ between the three models. It is of $\sim 3$ mm in average, but can range from $0$ to $8$ mm. In plots (b) and (c) we note the effect of the elimination of material when height is $<1$ mm, i.e. the 95$^{th}$ percentile is cut to zero below that threshold.
 
 \subsubsection{Flow Speed, local measurements}
+Figure \ref{fig:Ramp-Vel} shows the flow speed at the points $(L_i)_{i=1,\dots,4}$, for the three rheology models. 
 \begin{figure}[H]
          \centering
         \includegraphics[width=1\textwidth]{NewTest/Velocity.png}
-        \caption{Records of flow speed, $\Vert \underline{\mathbf{u}} \Vert(L,t)$, at four spatial locations of interest. Bold line is mean value, dashed/dotted lines are 5$^{th}$ and 95$^{th}$ percentile bounds. Different rheology models are displayed with different colors.}
+        \caption{Records of flow speed, $\Vert \underline{\mathbf{u}} \Vert(L,t)$, at four spatial locations of interest. Bold line is mean value, dashed/dotted lines are 5$^{th}$ and 95$^{th}$ percentile bounds. Different rheology models are displayed with different colors. Plots have different scales.}
         \label{fig:Ramp-Vel}
 \end{figure}
+In plot (a) and (b), related to points $L_1$ and $L_2$, speed peaks are similar between the models, at $\sim 10$ cm/s and $\sim 6$ cm/s, respectively. In plot (a) VS peak is higher, but then its speed decreases more linearly, while MC and PF have a more concave profile, making MC the faster model after $0.5$ s. In plot (b) it is the PF model to decrease more linearly. UQ shows that MC model uncertainty is remarkably larger than in the other models, and produces higher values in the 95$^{th}$ percentile plots. Speed values below $1$ cm/s are affected by the elimination of material below $1$ mm flow height threshold. In plots (c) and (d), related to points $L_3$ and $L_4$, the PF velocity profile is significantly lower than the other models, but it also decreases slower, and matches with the stopping times of them. Speed in the deposits is below $1$ cm/s at $L_3$, negligible at $L_4$.
 
 \subsubsection{Froude Number, local measurements}
 
@@ -574,7 +584,7 @@ First case study is the small scale experimental setting described above.
         \label{fig:Ramp-spatial}
 \end{figure}
 
-\subsection{Hidden quantities}\label{Hq1}
+\subsection{Hidden dynamic quantities}\label{Hq1}
 These include force terms and related powers, as well as their statistical analysis.
 
 \subsubsection{Forces, spatial average (obsolete par. ranges, to update)}
@@ -648,7 +658,7 @@ The six selected locations are $[L_8, L_{10}, L_{17}, L_{39}, L_{43}, L_{46}]$, 
 
 \subsubsection{Flow area and spatially averaged flow speed}
 
-\subsection{Hidden quantities}\label{Hq2}
+\subsection{Hidden dynamic quantities}\label{Hq2}
 The current case study does not show a preferential direction, equivalent to the slope direction of the inclined plane. Hence, we will directly focus on the powers related to the force terms detailed in Section \ref{Hq1}.
 
 \subsubsection{Powers, spatial average}
