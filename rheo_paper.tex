@@ -357,7 +357,7 @@ Our sampling technique of the input variables is based on the Latin Hypercube Sa
 \subsection{Statistical analysis of force contributions}\label{statF}
 A statistical analysis capable of measuring the contributions of different force components in the rheology models is presented. That is helpful to explore and compare the effects of the assumptions behind some modeling choices, onto the time evolution of the flowing material. Let $(F_i(x,t))_{i=1,\dots, 6}$ be the array of force components, where $x\in\mathbb R^2$ is a spatial location, and $t\in T$ is a time instant.
 
-In our case study, $(F_1,F_2):=($\textbf{LHS}$_1,$\textbf{LHS}$_2)$, i.e. the left-hand side terms in the momentum equation, while $(F_3,\dots,F_6):=($\textbf{RHS}$_1,\dots,$\textbf{RHS}$_4)$ are the right-hand side terms. These forces can take different formulations in the different models, which are detailed in section \ref{sec:QoIs}. This type of procedure can be applied to any additive decomposition of the physical forces. The analysis of $RHS$ can inform on local effects, while $LHS$ concerns the of un-local dynamics in space and time.
+In our case study, $(F_1,F_2):=($\textbf{LHS}$_1,$\textbf{LHS}$_2)$, i.e. the left-hand side terms in the momentum equation, while $(F_3,\dots,F_6):=($\textbf{RHS}$_1,\dots,$\textbf{RHS}$_4)$ are the right-hand side terms. These forces can take different formulations in the different models, which are detailed in section \ref{sec:Fterms}. This type of procedure can be applied to any additive decomposition of the physical forces. The analysis of $RHS$ can inform on local effects, while $LHS$ concerns the of un-local dynamics in space and time.
 
 In general we show the projection of the forces on the slope direction, or the product with the velocity field, i.e. the power related to them. Hence, in the following the forces are scalar and not vectorial terms. It is important to remark that all the forces are hidden quantities (see above), depending on the input variables, and they are thus considered as random variables. The degree of contribution of those force terms is significantly variable in space and time, and we define the \emph{contribution coefficients} to model this. The definitions are not depending on the location, but all the results will significantly depend of that choice. Next notation will assume to be in a selected location $x=L_k$, where $k\ge 1$. In the following we will focus on \textbf{RHS} forces, although some testing including \textbf{LHS} forces has also been accomplished.
 
@@ -419,7 +419,50 @@ $$p_j:=P\left\{\Phi=|F_j|\right\}.$$
 
 In sections \ref{stat1} and \ref{stat2} we display the contribution coefficients as a function of time, assuming $\Phi=\Phi_1$. Moreover, we report the dominance factors plots, another very useful tool to read the dynamical significance of the forces as a function of time and location.
 
+\newpage
+\subsection{Forces terms definition}\label{sec:Fterms}
+Forces analyzed have been classified according to the terms of the momentum equation in \ref{eq:D_A}. Moreover, the forces terms in $S_x$ have been additionally classified, accordingly to equations \ref{S_terms_MC}, \ref{eq:S_terms_PF}, \ref{eq:S_terms_VS}, describing the three rheology models considered in this study. What follows is a summary of the force terms, and this notation will be used in the following (see Sections \ref{Hq1}, \ref{Hq2}).
 
+\paragraph{Left-hand side, LHS forces}
+\begin{align}
+\boldsymbol{LHS_1} = \left[\frac{\partial}{\partial t} (h\bar{u}), \frac{\partial}{\partial t} (h\bar{v})\right],
+\end{align}
+it is the temporal derivative of momentum.
+
+\begin{align}
+\boldsymbol{LHS_2} = \left[\frac{\partial}{\partial x}\left(h\bar{u}^2 + \frac{1}{2}k g_{z}h^2\right) + \frac{\partial}{\partial y}(h\bar{u}\bar{v}),\frac{\partial}{\partial x}(h\bar{u}\bar{v}) +
+\frac{\partial}{\partial y}\left(h\bar{v}^2 + \frac{1}{2}k g_{z}h^2\right)\right],
+\end{align}
+it is the material derivative of momentum, due to the advection.
+
+\paragraph{Right-hand side, RHS forces}
+\begin{align}
+\boldsymbol{RHS_1} = [g_x h,0],
+\end{align}
+it is the gravitational force term, it has the same formulation in all models.
+
+The formula of basal friction force $\boldsymbol{RHS_2}$ depends on the model:
+\begin{align}
+\boldsymbol{RHS_2} = -h g_z\tan(\phi_{bed})\left[\frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf u}} \|}, \frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf u}} \|} \right],\textmd{ in MC model.}\nonumber\\
+\boldsymbol{RHS_2} = - h g_z \ \mu_{b}(\|\underset{^\sim}{\bar{\textbf{u}}} \| , h)\left[\frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf{u}}} \|}, \frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf{u}}} \|}\right],\textmd{ in PF model.}\\
+\boldsymbol{RHS_2} = -h g_{z} \mu\left[\frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf u}}\|} , \frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf u}}\|}\right],\textmd{ in VS model.}\nonumber
+\end{align}
+
+The formula of the force related to the topography curvature, $\boldsymbol{RHS_3}$, also depends on the model:
+\begin{align}
+\boldsymbol{RHS_3} = \left[-\frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf u}} \|} h \frac{\bar{u}^2}{r_x} \tan(\phi_{bed}),0\right],\textmd{ in MC model.}\nonumber\\
+\boldsymbol{RHS_3} = \left[-\frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf{u}}} \|} h \frac{\bar{u}^2}{r_x} \ \mu_{b}\|\underset{^\sim}{\bar{\textbf{u}}} \| , 0\right],\textmd{ in PF model.}\\
+\boldsymbol{RHS_3} = \left[- \frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf u}}\|} \ h \frac{\| \underset{^\sim}{\bar{\textbf u}} \|^2}{r_{x}} \mu,0\right],\textmd{ in VS model.}\nonumber
+\end{align}
+
+All the three models have an additional force term, having a different formula and meaning in the three models:
+\begin{align}
+\boldsymbol{RHS_4} =  - h k_{ap}\sin(\phi_{int})\left[ \ {\rm sgn}(\frac{\partial \bar{u}}{\partial y}) \frac{\partial (g_z h)}{\partial y},\ {\rm sgn}({\frac{\partial \bar{v}}{\partial x}}) \frac{\partial (g_z h)}{\partial x}\right],\textmd{ in MC model.}\nonumber\\
+\boldsymbol{RHS_4} = g_{z}h\left[\frac{\partial h}{\partial x}, \frac{\partial h}{\partial y}\right],\textmd{ in PF model.}\\
+\boldsymbol{RHS_4} =  -\frac{\| \underset{^\sim}{\textbf g} \|}{\xi}\| \underset{^\sim}{\bar{\textbf u}} \|^2\left[\frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf u}}\|} \ ,\frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf u}}\|}\right],\textmd{ in VS model.}\nonumber
+\end{align}
+
+\newpage
 \subsection{Definition and consistency of the input variables}\label{consistency}
 In general, the three rheologies considered in this study, MC, PF, and VS, have totally different parameters. The statistical testing we perform requires to choose the parameter range $P_M$, and in principle it may be arbitrary. Nevertheless, if the total frictions of the models are not covering a similar span, the statistical comparison is dominated by trivial macroscopic differences, and cannot focus on the rheology details. Some degree of parameter consistency is required between the models.
 
@@ -461,7 +504,7 @@ The parameter ranges adopted in this case study are:
 \end{figure}
 
 \paragraph{Volc{\'a}n de Colima block and ash flow}
-In this case study, \cite{Dalbey2008} assumed $\phi_{bed}=[15^\mathrm{\circ}, 35^\mathrm{\circ}]$, while \citep{Capra2011} adopted $\phi_{bed}=30^\mathrm{\circ}$ in the simulation of a BAF in that same setting. Moreover, \cite{Spiller2014,Bayarri2015,Ogburn2016} found a statistical correlation between flow size and effective basal friction inferred from field observation of geophysical flows. The size of the BAF of this study would have $\phi_{bed}=[13\mathrm{\circ}, 18\mathrm{\circ}]$ according to their estimates. Figure \ref{Colima-MaxMinExtents} displays the maps of max flow height and max velocities observed in the extreme cases tested. Simulation options are - max\_time = 7200 s (2 hours), height/radius = 0.55, length\_scale = 4e3 m, number\_of\_cells\_across\_axis = 50, order = first, geoflow\_tiny = 1e4 \citep{Patra2005,Aghakhani2016}.
+In this case study, \cite{Dalbey2008} assumed $\phi_{bed}=[15^\mathrm{\circ}, 35^\mathrm{\circ}]$, while \citep{Capra2011} adopted $\phi_{bed}=30^\mathrm{\circ}$ in the simulation of a BAF in that same setting. Moreover, \cite{Spiller2014,Bayarri2015,Ogburn2016} found a statistical correlation between flow size and effective basal friction inferred from field observation of geophysical flows. The size of the BAF of this study would have $\phi_{bed}=[13^\mathrm{\circ}, 18^\mathrm{\circ}]$ according to their estimates. Figure \ref{Colima-MaxMinExtents} displays the maps of max flow height and max velocities observed in the extreme cases tested. Simulation options are - max\_time = 7200 s (2 hours), height/radius = 0.55, length\_scale = 4e3 m, number\_of\_cells\_across\_axis = 50, order = first, geoflow\_tiny = 1e4 \citep{Patra2005,Aghakhani2016}.
 
 \begin{itemize}
 \item \textbf{Material Volume:} $[2.08, 3.12] \times 10^5 \ m^3$, i.e. average of $2.6  \times 10^5 \ m^3$ and uncertainty of $\pm 20\%$.
@@ -531,48 +574,8 @@ First case study is the small scale experimental setting described above.
         \label{fig:Ramp-spatial}
 \end{figure}
 
-\newpage
 \subsection{Hidden quantities}\label{Hq1}
-Forces analyzed have been classified according to the terms of the momentum equation in \ref{eq:D_A}. Moreover, the forces terms in $S_x$ have been additionally classified, accordingly to equations \ref{S_terms_MC}, \ref{eq:S_terms_PF}, \ref{eq:S_terms_VS}, describing the three rheology models considered in this study. What follows is a summary of the force terms, and this notation will be used in the following (see also Section \ref{statF}).
-
-\paragraph{Left-hand side, LHS forces}
-\begin{align}
-\boldsymbol{LHS_1} = \left[\frac{\partial}{\partial t} (h\bar{u}), \frac{\partial}{\partial t} (h\bar{v})\right],
-\end{align}
-it is the temporal derivative of momentum.
-
-\begin{align}
-\boldsymbol{LHS_2} = \left[\frac{\partial}{\partial x}\left(h\bar{u}^2 + \frac{1}{2}k g_{z}h^2\right) + \frac{\partial}{\partial y}(h\bar{u}\bar{v}),\frac{\partial}{\partial x}(h\bar{u}\bar{v}) +
-\frac{\partial}{\partial y}\left(h\bar{v}^2 + \frac{1}{2}k g_{z}h^2\right)\right],
-\end{align}
-it is the material derivative of momentum, due to the advection.
-
-\paragraph{Right-hand side, RHS forces}
-\begin{align}
-\boldsymbol{RHS_1} = [g_x h,0],
-\end{align}
-it is the gravitational force term, it has the same formulation in all models.
-
-The formula of basal friction force $\boldsymbol{RHS_2}$ depends on the model:
-\begin{align}
-\boldsymbol{RHS_2} = -h g_z\tan(\phi_{bed})\left[\frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf u}} \|}, \frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf u}} \|} \right],\textmd{ in MC model.}\nonumber\\
-\boldsymbol{RHS_2} = - h g_z \ \mu_{b}(\|\underset{^\sim}{\bar{\textbf{u}}} \| , h)\left[\frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf{u}}} \|}, \frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf{u}}} \|}\right],\textmd{ in PF model.}\\
-\boldsymbol{RHS_2} = -h g_{z} \mu\left[\frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf u}}\|} , \frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf u}}\|}\right],\textmd{ in VS model.}\nonumber
-\end{align}
-
-The formula of the force related to the topography curvature, $\boldsymbol{RHS_3}$, also depends on the model:
-\begin{align}
-\boldsymbol{RHS_3} = \left[-\frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf u}} \|} h \frac{\bar{u}^2}{r_x} \tan(\phi_{bed}),0\right],\textmd{ in MC model.}\nonumber\\
-\boldsymbol{RHS_3} = \left[-\frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf{u}}} \|} h \frac{\bar{u}^2}{r_x} \ \mu_{b}\|\underset{^\sim}{\bar{\textbf{u}}} \| , 0\right],\textmd{ in PF model.}\\
-\boldsymbol{RHS_3} = \left[- \frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf u}}\|} \ h \frac{\| \underset{^\sim}{\bar{\textbf u}} \|^2}{r_{x}} \mu,0\right],\textmd{ in VS model.}\nonumber
-\end{align}
-
-All the three models have an additional force term, having a different formula and meaning in the three models:
-\begin{align}
-\boldsymbol{RHS_4} =  - h k_{ap}\sin(\phi_{int})\left[ \ {\rm sgn}(\frac{\partial \bar{u}}{\partial y}) \frac{\partial (g_z h)}{\partial y},\ {\rm sgn}({\frac{\partial \bar{v}}{\partial x}}) \frac{\partial (g_z h)}{\partial x}\right],\textmd{ in MC model.}\nonumber\\
-\boldsymbol{RHS_4} = g_{z}h\left[\frac{\partial h}{\partial x}, \frac{\partial h}{\partial y}\right],\textmd{ in PF model.}\\
-\boldsymbol{RHS_4} =  -\frac{\| \underset{^\sim}{\textbf g} \|}{\xi}\| \underset{^\sim}{\bar{\textbf u}} \|^2\left[\frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf u}}\|} \ ,\frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf u}}\|}\right],\textmd{ in VS model.}\nonumber
-\end{align}
+These include force terms and related powers, as well as their statistical analysis.
 
 \subsubsection{Forces, spatial average (obsolete par. ranges, to update)}
 \begin{figure}[H]
