@@ -526,7 +526,7 @@ The models possess different features, even if the maximum runuout after channel
 
 \begin{figure}[H]
          \centering
-        \includegraphics[width=0.87\textwidth]{Figures/Extremal.jpg}
+        \includegraphics[width=0.87\textwidth]{Figures/ExtremeMaps.jpg}
         \caption{Volc\'an de Colima BAF. Comparison between \emph{max flow height} maps of simulated flow, assuming Mohr-Coulomb (a),(b), Pouliquen-Forterre (c),(d), and Voellmy-Salm (e),(f) rheology. Extreme cases producing maximum and minimum runout, i.e. (a),(c),(e) \emph{\textbf{max volume -- min resistance}} and (b),(d),(f) \emph{\textbf{min volume -- max resistance}}.}
         \label{Colima-MaxMinExtents}
 \end{figure}
@@ -541,7 +541,7 @@ Observable outputs include the flow height, speed, $Fr$, and acceleration as a f
 Figure \ref{fig:Ramp-H} shows the flow height, $h(L,t)$, at the points $(L_i)_{i=1,\dots,4}$, for the three rheology models.
 \begin{figure}[H]
          \centering
-        \includegraphics[width=1\textwidth]{NewTest/Height.png}
+        \includegraphics[width=1\textwidth]{InclinedPlane/LocalMeasurments/Height.png}
         \caption{Records of flow height at four spatial locations of interest. Bold line is mean value, dashed/dotted lines are 5$^{\mathrm{th}}$ and 95$^{\mathrm{th}}$ percentile bounds. Different rheology models are displayed with different colors. Plots are at different scale, for simplifying lecture.}
         \label{fig:Ramp-H}
 \end{figure}
@@ -551,17 +551,17 @@ In plot (a), related to point $L_1$ placed on the initial pile, the initial valu
 Figure \ref{fig:Ramp-Vel} shows the flow speed, $\Vert \underline{\mathbf{u}} \Vert(L,t)$, at the points $(L_i)_{i=1,\dots,4}$, for the three rheology models.
 \begin{figure}[H]
          \centering
-        \includegraphics[width=1\textwidth]{NewTest/Velocity.png}
+        \includegraphics[width=1\textwidth]{InclinedPlane/LocalMeasurments/Velocity.png}
         \caption{Records of flow speed at four spatial locations of interest. Bold line is mean value, dashed/dotted lines are 5$^{\mathrm{th}}$ and 95$^{\mathrm{th}}$ percentile bounds. Different rheology models are displayed with different colors. Plots are at different scale.}
         \label{fig:Ramp-Vel}
 \end{figure}
-In plot (a) and (b), related to points $L_1$ and $L_2$, speed peaks are similar between the models, at $\sim 10$ cm/s and $\sim 6$ cm/s, respectively. In plot (a) VS peak is higher, but then its speed decreases more linearly, while MC and PF have a more concave profile, making MC the faster model after $0.5$ s. In plot (b) it is the PF model to decrease more linearly. UQ shows that MC model uncertainty is remarkably larger than in the other models, and produces higher values in the 95$^{\mathrm{th}}$ percentile plots. Speed values below $1$ cm/s are affected by the elimination of material below $1$ mm flow height threshold. In plots (c) and (d), related to points $L_3$ and $L_4$, the PF velocity profile is significantly lower than the other models, but it also decreases slower, and matches with the stopping times of them. Speed in the deposits is below $1$ cm/s at $L_3$, negligible at $L_4$.
+In plot (a) and (b), related to points $L_1$ and $L_2$, speed peaks are similar between the models, at $\sim 10$ cm/s and $\sim 6$ cm/s, respectively. In plot (a) VS peak is higher, but then its speed decreases more linearly, while MC and PF have a more concave profile, making MC the faster model after $0.5$ sec. In plot (b) it is the PF model to decrease more linearly. UQ shows that MC model uncertainty is remarkably larger than in the other models, and produces higher values in the 95$^{\mathrm{th}}$ percentile plots. Speed values below $1$ cm/s are affected by the elimination of material below $1$ mm flow height threshold. In plots (c) and (d), related to points $L_3$ and $L_4$, the PF velocity profile is significantly lower than the other models, but it also decreases slower, and matches with the stopping times of them. Speed in the deposits is below $1$ cm/s at $L_3$, negligible at $L_4$.
 
 \subsubsection{Froude Number, local measurements}
 Figure \ref{fig:Ramp-Fr} shows the Froude Number, $\Vert \underline{\mathbf{u}} \Vert/\sqrt{gh}$, at the points $(L_i)_{i=1,\dots,4}$, for the three rheology models.
 \begin{figure}[H]
          \centering
-        \includegraphics[width=1\textwidth]{NewTest/Froude.png}
+        \includegraphics[width=1\textwidth]{InclinedPlane/LocalMeasurments/Froude.png}
         \caption{Records of Froude number at four spatial locations of interest. Bold line is mean value, dashed/dotted lines are 5$^{\mathrm{th}}$ and 95$^{\mathrm{th}}$ percentile bounds. Different rheology models are displayed with different colors. Plots are at different scale.}
         \label{fig:Ramp-Fr}
 \end{figure}
@@ -571,7 +571,7 @@ Froude Number combines the estimates of flow height and speed, described above. 
 Figure \ref{fig:Ramp-AccL} shows the flow speed, $\Vert \underline{\mathbf{a}} \Vert(L,t)$, at the points $(L_i)_{i=1,\dots,4}$, for the three rheology models.
 \begin{figure}[H]
          \centering
-        \includegraphics[width=1\textwidth]{NewTest/Acceleration.png}
+        \includegraphics[width=1\textwidth]{InclinedPlane/LocalMeasurments/Acceleration.png}
         \caption{Records of flow acceleration magnitude (computed from LHS). Bold line is mean value, dashed lines are 5$^{\mathrm{th}}$ and 95$^{\mathrm{th}}$ percentile bounds. Different rheology models are displayed with different colors. Plots are at different scale.}
         \label{fig:Ramp-AccL}
 \end{figure}
@@ -580,7 +580,7 @@ Acceleration is the link between force terms and observable motion. We calculate
 \subsubsection{Flow extents and averaged measurements (obsolete par. ranges, to update)}
 \begin{figure}[H]
         \centering
-        \includegraphics[width=1\textwidth]{Figures/Averaged_MeasuresIncline.png}
+        \includegraphics[width=1\textwidth]{InclinedPlane/AveragedMeasurments/Averaged_MeasuresIncline.png}
         \caption{Comparison between spatial averages of $(a)$ flow speed, and $(b)$ Froude Number in addition to the flow $(c)$ maximum lateral extent, and $(d)$ inundated area, as a function of time.}
         \label{fig:Ramp-spatial}
 \end{figure}
@@ -591,7 +591,7 @@ These include force terms and related powers, as well as their statistical analy
 \subsubsection{Forces, spatial average (obsolete par. ranges, to update)}
 \begin{figure}[H]
         \centering
-        \includegraphics[width=1\textwidth]{Figures/ForcesIncline.png}
+        \includegraphics[width=1\textwidth]{InclinedPlane/AveragedMeasurments/ForcesIncline.png}
         \caption{Spatial average of LHS and RHS forces in the slope direction. Bold line is mean value, dashed lines are 5$^{\mathrm{th}}$ and 95$^{\mathrm{th}}$ percentile bounds.}
         \label{fig:Ramp-Fx-spatial}
 \end{figure}
@@ -599,7 +599,7 @@ These include force terms and related powers, as well as their statistical analy
 \subsubsection{Powers, spatial average (obsolete par. ranges, to update)}
 \begin{figure}[H]
         \centering
-        \includegraphics[width=1\textwidth]{Figures/PowersIncline.png}
+        \includegraphics[width=1\textwidth]{InclinedPlane/AveragedMeasurments/PowersIncline.png}
         \caption{Spatial average of the LHS and RHS powers. Bold line is mean value, dashed lines are 5$^{\mathrm{th}}$ and 95$^{\mathrm{th}}$ percentile bounds. Model comparison on the mean value is also displayed.}
         \label{fig:Ramp-Power-spatial}
 \end{figure}
@@ -607,17 +607,17 @@ These include force terms and related powers, as well as their statistical analy
 \subsubsection{Force contribution coefficients, RHS terms}
 \begin{figure}[H]
          \centering
-        \includegraphics[width=1\textwidth]{NewTest/Ci_x.png}
+        \includegraphics[width=1\textwidth]{InclinedPlane/ForceContrib/Ci_x.png}
         \caption{Records of contribution coefficients of \textbf{RHS} forces, in the slope direction, at four spatial locations of interest. Bold line is mean value, dashed/dotted lines are 5$^{\mathrm{th}}$ and 95$^{\mathrm{th}}$ percentile bounds. Different rheology models are displayed with different colors. Dominant factor is calculated based on the $l^1$ norm (see Section \ref{statF})}
-        \label{fig:Ci_x}
+        \label{fig:Ramp-Ci_x}
 \end{figure}
 
 \subsubsection{Force dominance factors, RHS terms}\label{stat1}
 \begin{figure}[H]
          \centering
-        \includegraphics[width=1\textwidth]{NewTest/Pr_x.png}
+        \includegraphics[width=1\textwidth]{InclinedPlane/ForceContrib/Pr_x.png}
         \caption{Records of dominance probabilities of \textbf{RHS} forces, in the slope direction, at four spatial locations of interest. Bold line is mean value, dashed/dotted lines are 5$^{\mathrm{th}}$ and 95$^{\mathrm{th}}$ percentile bounds. Different rheology models are displayed with different colors. No-flow probability is also displayed.}
-        \label{fig:Pr_x}
+        \label{fig:Ramp-Pr_x}
 \end{figure}
 
 \section{QoIs and Data Collected - Volc{\'a}n de Colima BAF}\label{QoI2}
@@ -653,14 +653,58 @@ The six selected locations are $[L_8, L_{10}, L_{17}, L_{39}, L_{43}, L_{46}]$, 
 
 \subsubsection{Flow Height, selected measurements}
 
+\begin{figure}[H]
+         \centering
+        \includegraphics[width=1\textwidth]{BAF_VolcanDeColima/LocalMeasurments/Height.png}
+        \caption{Records of flow height at four spatial locations of interest. Bold line is mean value, dashed/dotted lines are 5$^{\mathrm{th}}$ and 95$^{\mathrm{th}}$ percentile bounds. Different rheology models are displayed with different colors. Plots are at different scale, for simplifying lecture.}
+        \label{fig:Colima-H}
+\end{figure}
+
 \subsubsection{Flow Speed, selected measurements}
 
+\begin{figure}[H]
+         \centering
+        \includegraphics[width=1\textwidth]{BAF_VolcanDeColima/LocalMeasurments/Velocity.png}
+        \caption{Records of flow speed at four spatial locations of interest. Bold line is mean value, dashed/dotted lines are 5$^{\mathrm{th}}$ and 95$^{\mathrm{th}}$ percentile bounds. Different rheology models are displayed with different colors. Plots are at different scale.}
+        \label{fig:Colima-Vel}
+\end{figure}
+
+\subsubsection{Froude Number, selected measurements}
+
+\begin{figure}[H]
+         \centering
+        \includegraphics[width=1\textwidth]{BAF_VolcanDeColima/LocalMeasurments/Froude1.png}
+        \caption{Records of Froude number at four spatial locations of interest. Bold line is mean value, dashed/dotted lines are 5$^{\mathrm{th}}$ and 95$^{\mathrm{th}}$ percentile bounds. Different rheology models are displayed with different colors. Plots are at different scale.}
+        \label{fig:Colima-Fr1}
+\end{figure}
+
+\begin{figure}[H]
+         \centering
+        \includegraphics[width=1\textwidth]{BAF_VolcanDeColima/LocalMeasurments/Froude2.png}
+        \caption{Records of Froude number at four spatial locations of interest. Bold line is mean value, dashed/dotted lines are 5$^{\mathrm{th}}$ and 95$^{\mathrm{th}}$ percentile bounds. Different rheology models are displayed with different colors. Plots are at different scale.}
+        \label{fig:Colima-Fr2}
+\end{figure}
+
 \subsubsection{Flow Acceleration, selected measurements}
+
+\begin{figure}[H]
+         \centering
+        \includegraphics[width=1\textwidth]{BAF_VolcanDeColima/LocalMeasurments/Acceleration1.png}
+        \caption{Records of flow acceleration magnitude (computed from LHS). Bold line is mean value, dashed lines are 5$^{\mathrm{th}}$ and 95$^{\mathrm{th}}$ percentile bounds. Different rheology models are displayed with different colors. Plots are at different scale.}
+        \label{fig:Colima-Accel1}
+\end{figure}
+
+\begin{figure}[H]
+         \centering
+        \includegraphics[width=1\textwidth]{BAF_VolcanDeColima/LocalMeasurments/Acceleration2.png}
+        \caption{Records of flow acceleration magnitude (computed from LHS). Bold line is mean value, dashed lines are 5$^{\mathrm{th}}$ and 95$^{\mathrm{th}}$ percentile bounds. Different rheology models are displayed with different colors. Plots are at different scale.}
+        \label{fig:Colima-Accel2}
+\end{figure}
 
 \subsubsection{Flow area and spatially averaged flow speed}
 \begin{figure}[H]
         \centering
-        \includegraphics[width=1\textwidth]{Figures/Averaged_MeasuresColima.png}
+        \includegraphics[width=1\textwidth]{BAF_VolcanDeColima/AveragedMeasurments/Averaged_MeasuresColima.png}
         \caption{Comparison between spatial averages of $(a)$ flow speed, and $(b)$ Froude Number in addition to the $(c)$ inundated area, as a function of time.}
         \label{fig:Colima-spatial}
 \end{figure}
@@ -670,14 +714,14 @@ The current case study does not show a preferential direction, equivalent to the
 \subsubsection{Forces, spatial average}
 \begin{figure}[H]
         \centering
-        \includegraphics[width=1\textwidth]{Figures/ForcesColima.png}
+        \includegraphics[width=1\textwidth]{BAF_VolcanDeColima/AveragedMeasurments/ForcesColima.png}
         \caption{Spatial average of LHS and RHS forces in the slope direction. Bold line is mean value, dashed lines are 5$^{\mathrm{th}}$ and 95$^{\mathrm{th}}$ percentile bounds.}
         \label{fig:Colima-F-spatial}
 \end{figure}
 \subsubsection{Powers, spatial average}
 \begin{figure}[H]
         \centering
-        \includegraphics[width=1\textwidth]{Figures/PowersColima.png}
+        \includegraphics[width=1\textwidth]{BAF_VolcanDeColima/AveragedMeasurments/PowersColima.png}
         \caption{Spatial average of the LHS and RHS powers. Bold line is mean value, dashed lines are 5$^{\mathrm{th}}$ and 95$^{\mathrm{th}}$ percentile bounds. Model comparison on the mean value is also displayed.}
         \label{fig:Colima-Power-spatial}
 \end{figure}
@@ -717,7 +761,7 @@ However, even in an LHS based on an $OA(n,m,s,r)$, if $r<m$ what happens in the 
 Dealing with relatively small $d$, i.e. $d\in\{3,4\}$, we adopt a LHS $U$ created by a $OA(s^d,d,s,d)$. The strength is equal to the dimension $d$, hence the design fills the entire space like a $d$ dimensional grid, but it is a LHS as well. In this case there is one point in each hypercube, and $\lambda=1$. We take $s=8$ for the 3-dimensional designs over the parameter space of Mohr-Coulomb and Voellmy-Salm models, i.e. $512$ points; we took $s=6$ for the 4-dimensional designs over the more complex parameter space of the Pouliquen-Forterre model, i.e. 1296 points.
 
 \newpage
-\bibliographystyle{apa}
+\bibliographystyle{apalike}
 \bibliography{mybibfile}
 
 \end{document}
