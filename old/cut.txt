@@ -1,0 +1,32 @@
+\subsubsection*{Force LHS$_1$ in the lateral direction - spatial average}
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{InclinedPlane/Forces_Powers/LHS1/FLHS1y.png}
+        \caption{Spatial average of force LHS$_1$ in the lateral direction. Bold line is mean value, dashed lines are 5$^th$ and 95$^th$ percentile bounds. Model comparison on the mean value is also displayed.}
+        \label{fig:Ramp-LHS1-Fy-spatial}
+\end{figure}
+
+
+\subsubsection*{Force LHS$_2$ in the lateral direction - spatial average}
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{InclinedPlane/Forces_Powers/LHS2/FLHS2y.png}
+        \caption{Spatial average of force LHS$_2$ in the lateral direction. Bold line is mean value, dashed lines are 5$^th$ and 95$^th$ percentile bounds. Model comparison on the mean value is also displayed.}
+        \label{fig:Ramp-LHS2-Fy-spatial}
+\end{figure}
+
+\subsubsection*{Force RHS$_2$ in the lateral direction - spatial average}
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{InclinedPlane/Forces_Powers/RHS2/FRHS2y.png}
+        \caption{Spatial average of force RHS$_2$ in the lateral direction. Bold line is mean value, dashed lines are 5$^th$ and 95$^th$ percentile bounds. Model comparison on the mean value is also displayed.}
+        \label{fig:Ramp-RHS2-Fy-spatial}
+\end{figure}
+
+\subsubsection*{Force RHS$_4$ in the lateral direction - spatial average}
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{InclinedPlane/Forces_Powers/RHS4/FRHS4y.png}
+        \caption{Comparison between mean values of flow acceleration (computed from LHS), $\Vert \underline{a} \Vert(L,t)$, recorded at locations of interest, $L_i, \ _{i=1,...,4}$.}
+        \label{fig:Ramp-RHS4-Fy-spatial}
+\end{figure}
