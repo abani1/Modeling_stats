@@ -67,6 +67,7 @@
 
 
 \maketitle
+\tableofcontents
 
 \abstract
 Dense large scale granular avalanches are a complex class of flows with physics that has often been poorly captured by models that are computationally tractable. Sparsity of actual flow data (usually only a posteriori deposit information is available), and large uncertainty in the mechanisms of initiation and flow propagation, make the modeling task challenging, and a subject of much continuing interest. Models that appear to represent the physics well in certain flows, may turn out to be poorly behaved in others, due to intrinsic mathematical or numerical issues. Nevertheless, given the large implications on life and property, many models with different modeling assumptions have been proposed.
@@ -159,7 +160,7 @@ The list rheology assumptions is detailed when the models are presented.
 
 
 
-\subsection{Governing Equations and Boundary Conditions}\label{subsec:GovEqsBCs}
+\subsection{Governing Equations,  Boundary Conditions and Numerical Solver}\label{subsec:GovEqsBCs}
 The motion of the mass flow is described by the basic conservation of mass and momentum for an incompressible medium:
 \begin{eqnarray}\label{eq:N_S}
 \nabla \cdot\underline{{\textbf u}} &=& 0, \nonumber \\
@@ -189,7 +190,7 @@ The depth-averaged Saint-Venant equations that TITAN2D solves are:
 \end{eqnarray}
 Here the cartesian coordinate system is aligned such that $z$ is normal to the surface; $h$ is the flow height in the $z$ direction; $h\bar{u}$ and $h\bar{v}$ are respectively the components of momentum in the $x$ and $y$ directions; and $k$ is the coefficient which relates the lateral stress components, $\bar{\sigma}_{xx}$ and $\bar{\sigma}_{yy}$, to the normal stress component, $\bar{\sigma}_{zz}$. The definition of this coefficient depends on the constitutive model of the flowing material we choose. Note that $\frac{1}{2} k g_z h^2$ is the contribution of hydrostatic pressure to the momentum fluxes. $S_x$ and $S_y$ are the sum local stresses: they include the gravitational driving forces, the basal friction force resisting to the motion of the material, and additional forces specific of rheology assumptions.
 
-\subsubsection{Numerical solver}\label{NumS}
+%\subsubsection{Numerical solver}\label{NumS}
 Let $\textbf{U}=\left[h, \ h\bar{u}, \ h\bar{v}\right]^T$ be the vector of conservative variables and $\textbf{F}=\left[h\bar{u}, \ h\bar{u}^2+0.5 k_{ap} g_z h^2, \ h\bar{v}\bar{u}\right]^T$ and $\textbf{G}=\left[h\bar{v}, \ h\bar{u}\bar{v}, \ h\bar{v}^2+0.5 k_{ap} g_z h^2\right]^T$ be the physical flux vectors.
 In order to solve the system of hyperbolic conservation laws (\ref{eq:D_A}), TITAN2D employs a finite volume Godunov solver, and the time-stepping procedure is achieved by an explicit Euler scheme \citep{Pitman2003a, Patra2005, Patra2006}. Assuming $\textbf{S}=\left[S_h, \ S_x, \ S_y\right]^T$ as the source terms vector containing the effect of the flow rheology, the flow in the next time step updates as:
 \begin{equation}\label{integrator}
@@ -734,14 +735,14 @@ Figure \ref{fig:Colima-Power-spatial} shows the spatial sum of the powers, for t
 The plots follow the same order used in Fig. \ref{fig:Colima-F-spatial}, but the scalar product with velocity imposes the bell-shaped profile already observed in Fig. \ref{fig:Ramp-Power-spatial}a. In plot \ref{fig:Colima-Power-spatial}a the power of $\boldsymbol{RHS_1}$ starts from zero and rises up to $\sim 1.4e11 W$ in MC, $\sim 1.2e11 W$ in PF, $\sim 6.5e10 W$ in VS. Uncertainty is $\pm 4e10 W$ in MC, $\pm 3e10 W$ in PF, $[-4e10,+5e10] W$ in VS. In plot \ref{fig:Colima-Power-spatial}b the power of  $\boldsymbol{RHS_2}$ is negative and peaks to $\sim -6.5e10 W$ in MC, $\sim -5e10 W$ in PF, $\sim -2e10 W$ in VS. Again VS power is significantly lower than in the other models. Uncertainty is $\pm 2e10 W$ in MC, $\pm 1.5e10 W$ in PF, $[-2e10,+1e10] W$ in VS. In plot \ref{fig:Colima-Power-spatial}c the power of $\boldsymbol{RHS_3}$ has a similar profile to the force, peaking to $\sim -7e10 W$ in MC, $\sim -4.5e10 W$ in PF, $\sim 5e9 W$ in VS. Uncertainty is $[-4.5e10,+3.5e10] W$ in MC, $[-2.5e10,+2e10] W$ in PF, $[-1e10,+5e9] W$ in VS. In plot \ref{fig:Colima-Power-spatial}d the power of $\boldsymbol{RHS_4}$ is relevant only in VS, although also in PF has a very short lasting positive peak up to $5e9 W$ before to become null at $\sim 10 s$. Peak negative power in VS is  $\sim -3.5e10 W$, $[-2e10,+1e10] W$. In plot \ref{fig:Colima-Power-spatial}e the power of the total force $\sum^4_{i=1}\boldsymbol{RHS_i}$ summarizes the energy accumulation and dissipation, following, like in the inclined plane case study, a sinusoid profile. As observed in Fig. \ref{fig:Ramp-Fx-spatial}e, MC profile is delayed compared to the others, and is affected by a larger uncertainty.
 
 \subsubsection{Force contribution coefficients, RHS terms}
-Figure \ref{fig:Colima-Ci_1} shows the Contributions Coefficients $(C_i)_{i=1,\dots,4}$, for the three rheology models and focusing on the RHS terms moduli (?).
+Figure \ref{fig:Colima-Ci_1} shows the Contributions Coefficients $(C_i)_{i=1,\dots,4}$, for the three rheology models and focusing on the RHS terms moduli. The different models are plotted separately: \ref{fig:Colima-Ci_1}a,d,g assume MC; \ref{fig:Colima-Ci_1}b,e,h assume PF; \ref{fig:Colima-Ci_1}c,f,i assume VS.
 \begin{figure}[H]
          \centering
         \includegraphics[width=1\textwidth]{BAF_VolcanDeColima/ForceContrib/Ci1_total.png}
-        \caption{Records of contribution coefficients of \textbf{RHS} force modeuli, at three spatial locations of interest, in the first km of runout. Bold line is mean value, dashed/dotted lines are 5$^{\mathrm{th}}$ and 95$^{\mathrm{th}}$ percentile bounds. Different rheology models are displayed with different colors. Dominant factor is calculated based on the $l^\infty$ norm (see Section \ref{statF})}
+        \caption{Records of contribution coefficients of \textbf{RHS} force moduli, at three spatial locations of interest, in the first km of runout. Bold line is mean value, dashed/dotted lines are 5$^{\mathrm{th}}$ and 95$^{\mathrm{th}}$ percentile bounds. Different rheology models are displayed with different colors. Dominant factor is calculated based on the $l^\infty$ norm (see Section \ref{statF})}
         \label{fig:Colima-Ci_1}
 \end{figure}
-
+The coefficients in the first two locations, points $L_8$ and $L_{10}$, are shown in \ref{fig:Colima-Ci_1}a,b,c and \ref{fig:Colima-Ci_1}d,e,f, respectively. Those points are close to the initial pile, in the western and eastern sectors of the inundated area. The pairs of plots related to the same model are similar. In all the models the greater contribution is given by $C_1$, significantly larger than $C_2$ and $C_3$, which have similar scales. $C_4$ gives a negligible contribution, except for in VS. 
 
 \subsubsection{Force dominance factors, RHS terms}\label{stat2}
 Figure \ref{fig:Colima-Pr1} and \ref{fig:Colima-Pr2} show the Dominance Factors $(P_i)_{i=1,\dots,4}$, for the three rheology models and focusing on the RHS terms moduli.
