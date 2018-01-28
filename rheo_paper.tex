@@ -94,8 +94,8 @@ In \cite{Iverson1997, Iverson2001, Denlinger2001, Denlinger2004, Iverson2004}, t
 
 A particular interest is raised by the specific efforts devoted to the modeling of volcanic mass flows with SWE \citep{FreundtBursik1998,Pitman2003a,Bursik2005,Saucedo2005, Kelfoun2005,Charbonnier2009,Kelfoun2009,Procter2010,Sulpizio2010,Kelfoun2011,Charbonnier2013}. Volcanoes are great sources for a rich variety of geophysical flow types and provide field data from past flow events.
 
-In this study, we use the TITAN2D software that is an open source toolkit for simulation of granular flows over natural terrains (represented by Digital Elevation Models (DEM)) by solving depth-averaged equations using 
-state of the art numerical methodology like adaptive mesh refinement, parallel computing  \citep{Pitman2003a, Patra2005, Patra2006, Yu2009}, special methods for wet-dry interface capture \citep{Aghakhani2016} and finds much use in hazard analysis of such flows using uncertainty quantification methods. In the $\mathrm{4^{\mathrm{th}}}$ release of TITAN2D, the capability of having multiple rheology options (MC, PF and VS rheologies) for simulation of flow in the same computational platform have been implemented. Therefore, we can leverage this capability and focus on modeling characteristics of these rheology options without concern for effects of diverse numerical methods. So far, TITAN2D achieved many successful applications in the simulation of different geophysical mass flows with specific peculiarities \citep{Sheridan2005, Rupp2006, Norini2008, Charbonnier2009, Procter2010, Sheridan2010, Sulpizio2010, Capra2011}. Several studies involving TITAN2D were recently directed towards a statistical study of geophysical flows, focusing on the uncertainty quantification and propagation \citep{Dalbey2008, Dalbey2009, Stefanescu2012b, Stefanescu2012a}, or on the more efficient production of hazard maps \citep{Bayarri2009, Spiller2014,Bayarri2015, Ogburn2016}.
+In this study, we use the open source TITAN2D software for simulation of granular flows over natural terrains (represented by Digital Elevation Models (DEM)).  TITAN2D solves depth-averaged equations using 
+state of the art numerical methodology like adaptive mesh refinement, parallel computing  \citep{Pitman2003a, Patra2005, Patra2006, Yu2009}, special methods for wet-dry interface capture \citep{Aghakhani2016} and finds much use in hazard analysis of such flows using uncertainty quantification methods. The $\mathrm{4^{\mathrm{th}}}$ release of TITAN2D offers multiple rheology options (MC, PF and VS rheologies)  in the same computational platform. We leverage this capability and focus on modeling characteristics of these rheology options without concern for effects of diverse numerical methods. So far, TITAN2D achieved many successful applications in the simulation of different geophysical mass flows with specific characterisitcs \citep{Sheridan2005, Rupp2006, Norini2008, Charbonnier2009, Procter2010, Sheridan2010, Sulpizio2010, Capra2011}. Several studies involving TITAN2D were recently directed towards a statistical study of geophysical flows, focusing on uncertainty quantification and propagation \citep{Dalbey2008, Dalbey2009, Stefanescu2012b, Stefanescu2012a}, or on the more efficient production of hazard maps \citep{Bayarri2009, Spiller2014,Bayarri2015, Ogburn2016}.
 
 This study for the first time applies a statistical approach to the detailed investigation of the material model. Quantitative statistical analysis of  \emph{stress components} and their associated \emph{powers}, as well as the \emph{Froude Number} $Fr$, the \emph{acceleration} and observable quantities as the flow \emph{velocity}, \emph{height}, \emph{lateral extent}, and \emph{area} over the full range of potential flows is obtained here. The stress components have a strong link with  terms in the equations, while $Fr$ can give information on the flow regime; moreover, the observable quantities have a direct link to field data and hazard assessments. {\it Our main purpose is to obtain a quantitative and statistical understanding of the consequences of the different physical assumptions, both on the forces inside the flow and on the observable outputs in time and space.}
 
@@ -112,15 +112,15 @@ The models of geophysical mass flows described in this study rely on several phy
 
 \item The material is assumed to be \textit{continuous}. The real flows consist of granular material and, often, interstitial fluid. Usually the ``typical particle'' diameter is small compared to the depth and length of the flowing mass, and the rheological properties are imposed to approximate the bulk behavior that is expected of an actual mass flow.
 
-\item The moving mass is assumed to be \textit{volume preserving}. In contrast, phenomena of erosion and deposition of material may violate this assumption.
+\item The moving mass is assumed to be \textit{volume preserving} and \textit{incompressible} . In contrast, phenomena of erosion and deposition of material may violate this assumption.
 
-\item The flowing mass is assumed to be consisted of an \textit{incompressible} fluid. This means that we are ignoring variations of density due to the void ratio (i.e. the density is uniform in space and time).
+%\item The flowing mass is assumed to be consisted of an \textit{incompressible} fluid. This means that we are ignoring variations of density due to the void ratio (i.e. the density is uniform in space and time).
 
 \item The body of mass is supposed to be in \textit{isothermal} state or, if not, thermal effects can be ignored.
 
 \item The mass flow is assumed to be \textit{free surface}. Air entrainment is instead frequently observed in the dilute real flows.
-
-\item The stress tensor is assumed \textit{symmetric} with respect to the \textit{z} axis.
+%
+%\item The stress tensor is assumed \textit{symmetric} with respect to the \textit{z} axis.
 \end{itemize}
 
 The shallowness assumption is very important, and brings several implications which may be considered additional assumptions on their own.
