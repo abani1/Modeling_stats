@@ -50,7 +50,7 @@
 
 \begin{document}
 
-\title{\bf Modeling of Geophysical Flows -- Analysis of Models and Modeling Assumptions Using UQ}
+\title{\bf Comparative anatomy of geophysical flow models and modeling assumptions using uncertainty quantification}
 \author[1,3]{Abani K. Patra}
 \author[2]{Andrea Bevilacqua}
 \author[1]{Ali Akhavan-Safaei}
@@ -77,9 +77,8 @@ While inverse problems can shed some light on parameter choices, it is difficult
 Statistical analysis is performed on spatially averaged dynamical quantities, but also focusing on locally sampled points of interest. This enables us to exploit the significant differences that remain hidden in the averaged analysis. The fundamental focus of this paper is the exploration of the dynamics of the simulated flows, enabling a notion of the contribution of different mechanisms or models elements inside the simulation procedure, in a fully quantitative, predictive-use oriented and statistical framework.
 
 \newpage
-%\section{Introduction}\label{sec:Intro}
-
-\section{Geophysical mass flows}\label{subsec:FlowTypes}
+\section{Introduction to geophysical mass flows modeling}\label{subsec:FlowTypes}
+%\section{Geophysical mass flows}\label{subsec:FlowTypes}
 Geophysical mass flows include debris and mud flows, landslides, snow and rock avalanches, glacier flows, pyroclastic surges, block and ash flows, and pumice flows, lahars, j\"okulhaups and many other examples. These flows are sometimes tens of kilometers in length and may travel at speeds as fast as hundreds of meters per second. Their deposits can be as much as tens of meters deep and kilometers long. In other words, there is no single universal description of a ``typical'' geophysical mass flow. Different types of flows are the results of different types of mechanisms/processes and hence different types of flows will have significantly different physical characteristics.
 
 The rheology complexity of the fluidized material, and the mathematical problem of modeling and computing, make the description of the dynamics of those flows really challenging. In many cases the flows are \emph{shallow}, i.e. the horizontal dimension is significantly larger than the flow depth. This assumption allows to perform depth-integration on the governing 3D Navier-Stokes equations, resulting in the 2D formulation of Shallow Water Equations (SWE), also known as Saint Venant Equations \citep{Batchelor2000, Luca2016}. Pioneering work of \cite{SavageHutter1989} that was followed by \cite{Hutter1993,DadeHuppert1998} developed a depth-averaged model for flow of granular materials. Their model was used to model a flow of granular material down an inclined plane, originally using the Mohr-Coulomb rheology (MC) (see also \cite{Jaeger1989,FraccarolloToro1995}). Afterwards, large number of studies focused on the modeling of granular flows, including geophysical mass flows, using SWE approach and many of them were carefully reviewed in \cite{PudasainiHutter2007}.
@@ -103,7 +102,7 @@ In particular, what we present is a procedure for the improved exploration and q
 
 \section{Overview of the models}\label{sec:GeoPhFlows}
 
-\subsection{Modeling Assumptions}\label{subsec:ModelAssump}
+\subsection{Modeling assumptions}\label{subsec:ModelAssump}
 The models of geophysical mass flows described in this study rely on several physical and mathematical assumptions. We will classify them in two groups - the general assumptions and the rheology assumptions. The main focus of this study is on the latter group, but, in principle, the same procedure could be applied to the former.
 
 \paragraph{General Assumptions}
@@ -138,7 +137,7 @@ The list rheology assumptions is detailed when the models are presented.
 
 
 
-\subsection{Governing Equations,  Boundary Conditions and Numerical Solver}\label{subsec:GovEqsBCs}
+\subsection{Governing equations and numerical solver}\label{subsec:GovEqsBCs}
 The motion of the mass flow is described by the basic conservation of mass and momentum for an incompressible medium:
 \begin{eqnarray}\label{eq:N_S}
 \nabla \cdot\underline{{\textbf u}} &=& 0, \nonumber \\
@@ -180,7 +179,7 @@ On the other hand, adaptive mesh refinement allows for the concentration of comp
 \subsection{Rheology assumptions}\label{subsec:Models}
 In the three following sections, we briefly describe \emph{Mohr-Coulomb} (MC), \emph{Pouliquen-Forterre} (PF) and \emph{Voellmy-Salm} (VS) models.
 
-\subsubsection{Mohr-Coulomb model}\label{MCM}
+\subsubsection{Mohr-Coulomb}\label{MCM}
 Based on the long history of studies in soil mechanics \citep{Rankine1857}, the Mohr-Coulomb rheology model was developed and used to represent the behavior of geophysical mass flows \cite{SavageHutter1989}.
 
 Shear and normal stress are assumed to obey Coulomb friction equation, both within the flow and at its boundaries. In other words,
@@ -233,7 +232,7 @@ of the local basal surface. The inverse of the radii of curvature is usually app
 \item Velocity based \textit{curvature effects} are included into the equations.
 \end{itemize}
 
-\subsubsection{Pouliquen-Forterre model}\label{PFM}
+\subsubsection{Pouliquen-Forterre}\label{PFM}
 The scaling properties for granular flows down rough inclined planes led to a new formulation of the basal friction stress as a function of the flow depth and velocity \citep{Pouliquen1999}.
 
 Two critical slope inclination angles are defined as functions of the flow thickness, namely $\phi_{start}(h)$ and $\phi_{stop}(h)$. The function $\phi_{stop}(h)$ gives the slope angle at which a steady uniform flow leaves a deposit of thickness $h$, while $\phi_{start}(h)$ is the angle at which a layer of thickness $h$ is mobilized. They define two different basal friction coefficients:
@@ -286,7 +285,7 @@ S_{y} &=&  g_{y} h - \frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf{u}}} \|}\le
 \item Velocity based \textit{curvature effects} are included into the equations.
 \end{itemize}
 
-\subsubsection{Voellmy-Salm model}\label{VSM}
+\subsubsection{Voellmy-Salm}\label{VSM}
 The theoretical analysis of dense snow avalanches led to the VS rheology model \citep{Voellmy1955, Salm1993}. The following relation between shear and normal stresses holds:
 \begin{equation}
 \tau = \mu \sigma + \frac{\rho \| \underline{\textbf g} \|}{\xi} \| \underset{^\sim}{\bar{\textbf u}} \|^2,
@@ -326,7 +325,7 @@ S_{y} &=& g_{y} h - \frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf u}}\|} \ \le
 \subsection{Overview of the case studies}
 The first case study assumes very simple boundary conditions, and corresponds to an experiment fully described in \cite{Webb2004, Bursik2005, WebbBursik2016}. It is a classical flow down an inclined plane set-up, including a change in slope to an horizontal plane (Fig. \ref{fig:Ramp-first}). Four locations are selected among the center line of the flow to accomplish local testing. These are: the initial pile location $L_1=(-0.7,0)$ m, the middle of the inclined plane $L_2=(-0.35,0)$ m, the change in slope $L_3=(0,0)$ m, the middle of the flat plane $L_4=(0.15,0)$ m (see Section \ref{sec:QoIs}).
 
-The second case study is a block and ash flow down the slope of Volc{\'a}n de Colima (M{\'e}xico) - an andesitic stratovolcano that rises to 3,860 m above sea level, situated in the western portion of the Trans-Mexican Volcanic Belt (Fig. \ref{fig:Colima-first}). Historically, it has been the most active volcano in M{\'e}xico \citep{DeLaCruzReina1993, Zobin2002, Gonzalez2002}. The modeling of pyroclastic flows generated by explosive eruptions and lava dome collapses of Volc{\'a}n de Colima is a well studied problem \citep{DelPozzo1995,Sheridan1995,Saucedo2002,Saucedo2004,Saucedo2005, Sarocchi2011, Capra2015}. The volcano has been already used as a case study in several research involving the Titan2D code \citep{Rupp2004, Rupp2006, Dalbey2008, Yu2009, Sulpizio2010, Capra2011, Aghakhani2016}. During July 10$^{\mathrm{th}}$-11$^{\mathrm{th}}$, 2015, the volcano underwent its most intense eruptive phase since its Subplinian-Plinian 1913 AD eruption \citep{Saucedo2010, Zobin2015, ReyesDaVilla2016, Capra2016, Macorps2017}.
+The second case study is a block and ash flow down the slope of Volc{\'a}n de Colima (MX) - an andesitic stratovolcano that rises to 3,860 m above sea level, situated in the western portion of the Trans-Mexican Volcanic Belt (Fig. \ref{fig:Colima-first}). Historically, it has been the most active volcano in M{\'e}xico \citep{DeLaCruzReina1993, Zobin2002, Gonzalez2002}. The modeling of pyroclastic flows generated by explosive eruptions and lava dome collapses of Volc{\'a}n de Colima is a well studied problem \citep{DelPozzo1995,Sheridan1995,Saucedo2002,Saucedo2004,Saucedo2005, Sarocchi2011, Capra2015}. The volcano has been already used as a case study in several research involving the Titan2D code \citep{Rupp2004, Rupp2006, Dalbey2008, Yu2009, Sulpizio2010, Capra2011, Aghakhani2016}. During July 10$^{\mathrm{th}}$-11$^{\mathrm{th}}$, 2015, the volcano underwent its most intense eruptive phase since its Subplinian-Plinian 1913 AD eruption \citep{Saucedo2010, Zobin2015, ReyesDaVilla2016, Capra2016, Macorps2017}.
 
 \begin{figure}[H]
     \includegraphics[width=0.9\textwidth]{BAF_VolcanDeColima/ColimaFig.jpg}
@@ -339,7 +338,7 @@ We assume the flow to be generated by the gravitational collapse of a material p
 sustain the weight of material due to loss of pressure, and hence it partially collapses down. The hot, dense blocks in this ``block and ash'' flow (BAF) will typically range from centimeters to a few meters in size. The matrix is composed of fine ash from the comminuted blocks. Computations were performed on a DEM with 5m-pixel resolution, obtained from LiDAR data acquired in 2005 \citep{Davila2007, Sulpizio2010}. We select 51 locations along the flow inundated area to accomplish local testing. Six of them are then adopted as preferred locations, being representative of different flow regimes (see Section \ref{QoI2}).
 
 
-\section{UQ Process}
+\section{Uncertainty quantification process}
 \subsection{General formulation}
 The key to a good forecasting capability in the context of mass flows requires the careful selection of the pair $\left(M(A), P_{M(A)}\right)$, where $A$ is a set of assumptions, $M(A)$ is the model which combines those assumptions, and $P_M$ is a probability distribution in the parameter space of $M$. For the sake of simplicity we are always taking $P_M$ uniformly distributed on selected parameter ranges.
 
@@ -408,7 +407,7 @@ All the three models have an additional force term, having a different formula a
 \boldsymbol{RHS_4} = -\frac{\| \underset{^\sim}{\textbf g} \|}{\xi}\| \underset{^\sim}{\bar{\textbf u}} \|^2\left[\frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf u}}\|} \ ,\frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf u}}\|}\right],\textmd{ in VS model.}\nonumber
 \end{align}
 
-\subsection{Alignment and consistency of the input variables}\label{consistency}
+\subsection{Alignment and consistency of the input ranges}\label{consistency}
 In general, the three rheologies considered in this study, MC, PF, and VS, have totally different parameters. The statistical testing we perform requires to choose the parameter range $P_M$, and in principle it may be arbitrary. Nevertheless, if the total frictions of the models are not covering a similar span, the statistical comparison is dominated by trivial macroscopic differences, and cannot focus on the rheology details. Some degree of parameter consistency is required between the models.
 
 We can find several instances of parameter choices in literature, and in general the choice depends on the case study. In all the models it is defined a basal friction stress (see $RHS_2$ in in \ref{sec:QoIs}). However, PF interpolates different effective friction angles, while VS includes a velocity based additional term. We tested that a direct correlation of effective friction angles is problematic to do. Hence, we did not follow such approach. In contrast, we make a preliminary testing on the extreme values of the parameter space, i.e. giving \emph{\textbf{max volume -- min resistance}}, and \emph{\textbf{min volume -- max resistance}}.
@@ -478,14 +477,14 @@ The models possess different features, even if the maximum runuout after channel
         \label{Colima-MaxMinExtents}
 \end{figure}
 
-\section{QoIs and Data Collected - Flow down and inclined plane}\label{sec:QoIs}
+\section{Results of small scale flows on inclined plane and flat runway}\label{sec:QoIs}
 First case study is the small scale experimental setting described above. First we describe the observable outputs (Section \ref{Obs1}), and then the hidden dynamic quantities (Section \ref{Hq1}). In many plots we note the effect of cutting the flow when height is $<1$ mm, which is at the scale of the smallest granular size. Continuity assumption would not be valid below this scale. In particular, in Fig. \ref{fig:Ramp-H} both the 5$^{\mathrm{th}}$ and 95$^{\mathrm{th}}$ percentile plots are vertically cut to zero when they decrease over that threshold. The mean plot is not cut to zero but it is dulled by this cutoff.
 
 \subsection{Observable outputs} \label{Obs1}
-Observable outputs include the flow height, speed, $Fr$, and acceleration as a function of time, measure on the four location $L_1,\dots, L_4$ displayed in Fig. \ref{fig:Ramp-first}. In addition, max lateral extension, flow area, and spatially averaged speed and $Fr$ are displayed. UQ is also performed, accordingly to the parameter ranges described in Section \ref{consistency}.
+Observable outputs include the flow height, speed, $Fr$, and acceleration as a function of time, measured on the four location $L_1,\dots, L_4$ displayed in Fig. \ref{fig:Ramp-first}. In addition, max lateral extension, flow area, and spatially averaged speed and $Fr$ are displayed. Uncertainty quantification (UQ) is also performed, accordingly to the parameter ranges described in Section \ref{consistency}.
 
 \newpage
-\subsubsection{Flow height, local measurements}
+\subsubsection{Flow height}
 Figure \ref{fig:Ramp-H} shows the flow height, $h(L,t)$, at the points $(L_i)_{i=1,\dots,4}$, for the three rheology models.
 \begin{figure}[H]
          \centering
@@ -495,7 +494,7 @@ Figure \ref{fig:Ramp-H} shows the flow height, $h(L,t)$, at the points $(L_i)_{i
 \end{figure}
 In plot \ref{fig:Ramp-H}a, related to point $L_1$ placed on the initial pile, the initial values of $\sim 6\pm 1$ cm are the equal and only represent the assigned pile height. Then the flow height decreases slightly faster for the PF model, and slower for the MC, compared to the VS. Differences are more significant in plot \ref{fig:Ramp-H}b, related to point $L_2$, placed in the middle of the slope. Maximum flow height is greater for the VS, $4.1\pm 0.2$ mm, more uncertain for the MC $3.9\pm 0.4$ mm, and smaller for the PF model $3.0\pm 0.1$ mm. After the peak, PF decreases significantly slower than the other models. These height values are about 15 times smaller than initial pile height. None of the models leaves a material deposit in $L_1$ or $L_2$, and hence the 95$^{\mathrm{th}}$ percentile of the height is null at the ending-time. In contrast, a deposit is left at points $L_3$ and $L_4$, i.e. plot \ref{fig:Ramp-H}c placed at the change in slope, and plot \ref{fig:Ramp-H}d in the middle of the flat runout. At $L_3$ MC's deposit, $2$ mm with uncertainty [-2,+8] mm, is higher than the other models'. The plot profile is bimodal, showing a first peak at $\sim 0.6$ s, and then a reduction until $1$ s, before the final accumulation. At $L_4$,deposit it is not significantly different between the three models. It is of $\sim 3$ mm in average, slightly larger in VS, with uncertainty [-3,+7] mm. In general, it is observed the elimination of material when flow height is $<1$ mm.
 
-\subsubsection{Flow speed, local measurements}
+\subsubsection{Flow speed}
 Figure \ref{fig:Ramp-Vel} shows the flow speed, $\Vert \underline{\mathbf{u}} \Vert(L,t)$, at the points $(L_i)_{i=1,\dots,4}$, for the three rheology models.
 \begin{figure}[H]
          \centering
@@ -505,7 +504,7 @@ Figure \ref{fig:Ramp-Vel} shows the flow speed, $\Vert \underline{\mathbf{u}} \V
 \end{figure}
 In plot \ref{fig:Ramp-Vel}a related to point $L_1$ speed peaks are $0.95 \pm 0.3$ m/s in MC, $1.1 \pm 0.2$ m/s in VS and PF. VS speed decreases almost linearly, while MC and PF have a more concave profile, making MC the faster model after $0.3$ sec. Plot \ref{fig:Ramp-Vel}b, related to point $L_2$, the peaks are $0.65 \pm 0.2$ m/s in MC, $0.7 \pm 0.1$ m/s in VS, and $0.52 \pm 0.08$ m/s in PF. In this case it is the PF model to decrease more linearly. In plot \ref{fig:Ramp-Vel}c, related to point $L_3$, peak velocity is $0.48$, $[+0.24, -0.20]$ m/s in MC, $0.54$, $[+0.1, -0.06]$ m/s in VS, and $0.36$, $[+0.06, -0.04]$ m/s in PF. In plot \ref{fig:Ramp-Vel}d, related to point $L_4$, peak velocity is $0.48$, $[+0.34, -0.48]$ m/s in MC, $0.48\pm 0.24$ m/s in VS, and $0.26$, $[+0.12, -0.26]$ m/s in PF. In all cases UQ shows that MC model uncertainty is remarkably larger than in the other models, and produces higher values in the 95$^{\mathrm{th}}$ percentile plots. Lowest speed values are affected by the elimination of material below $1$ mm flow height threshold. After $0.05$ s, the PF velocity profile is always significantly lower than the other models, but it also decreases slower, and matches with the stopping times of them. Moreover, it is worth noting that, curiously, PF reaches the points earlier. Speed in the deposits is below $0.1$ m/s in $L_3$, negligible in $L_4$.
 
-\subsubsection{Froude Number, local measurements}
+\subsubsection{Froude Number}
 Figure \ref{fig:Ramp-Fr} shows the Froude Number, $\Vert \underline{\mathbf{u}} \Vert/\sqrt{gh}$, at the points $(L_i)_{i=1,\dots,4}$, for the three rheology models.
 \begin{figure}[H]
          \centering
@@ -515,7 +514,7 @@ Figure \ref{fig:Ramp-Fr} shows the Froude Number, $\Vert \underline{\mathbf{u}} 
 \end{figure}
 Froude Number combines the estimates of flow height and speed, described above. In plot \ref{fig:Ramp-Fr}a, related to point $L_1$, $Fr$ maximum average value is smaller for the MC model, $\sim 4$, than for the others, $\sim 6$. However, UQ tells us that 95$^{\mathrm{th}}$ percentile almost reaches $\sim 10$ in all the three models. After the peak, the values decrease slower and more concavely in MC model than in the others. In plot \ref{fig:Ramp-Fr}b, related to point $L_2$, $Fr$ shows a bimodal profile in time, with two separate peaks at $\sim 10$ on average, but reaching $\sim 18$ in the 95$^{\mathrm{th}}$ percentile plot. In fact, first maximum, at $\sim 0.25$ s is due to the speed peak, and second, at $\sim 0.6$ s is related to $\sqrt{h}$ decreasing while the speed is not significantly changing. In plot \ref{fig:Ramp-Fr}c and \ref{fig:Ramp-Fr}d, related to points $L_3$ and $L_4$, bimodality is less accentuated and becomes a plateau profile in $\sim [0.5, 0.75]$ s. PF model gives significantly larger $Fr$ values, even $>20$ at $L_3$, due to a larger speed and a thinner flow. It is worth noting, for the sake of PF model, that $Fr>\beta$ and the flow is in the dynamic regime during the most of the time.
 
-\subsubsection{Flow acceleration, local measurements}
+\subsubsection{Flow acceleration}
 Figure \ref{fig:Ramp-AccL} shows the flow speed, $\Vert \underline{\mathbf{a}} \Vert(L,t)$, at the points $(L_i)_{i=1,\dots,4}$, for the three rheology models.
 \begin{figure}[H]
          \centering
@@ -531,14 +530,14 @@ Acceleration is the link between force terms and observable motion. We calculate
         \label{fig:Ramp-spatial}
 \end{figure}
 
-\subsubsection{Flow extents and averaged measurements}
+\subsubsection{Flow extents and spatial integrals}
 Figure \ref{fig:Ramp-spatial} shows the spatial average of speed and Froude Number, for the three rheology models. Moreover, it shows the (maximum) lateral extent and inundated area of flow, as a function of time. Spatial averages and global quantities as maximum lateral extent and inundated area have smoother plots than local measurements. Most of the details observed in local measurements are not easy to discern. In plot \ref{fig:Ramp-spatial}a the speed shows a bell-shaped profile in all the models, with an average peak at $\sim 1.4 m/s$ and uncertainty range, given by 5$^{\mathrm{th}}$ and 95$^{\mathrm{th}}$ percentiles, of $\pm 0.4 m/s$ for PF and VS. VS is slightly slower, reaching $\sim 1.3 m/s$ in the average. MC shows a larger uncertainty range, of $\pm 0.6 m/s$. The maximum speed is reached first by VS and PF at $\sim 0.55 s$, and last by MC at $\sim 0.65 s$. In plot \ref{fig:Ramp-spatial}b, also Froude Numbers have a bell-shaped profile. Fr peaks are temporally aligned with speed peaks, and are $\sim 10$ in VS, $\sim 11$ in MC, $\sim 13.5$ in PF, on average. Uncertainty range is about $\pm 4$ in all models. In plot \ref{fig:Ramp-spatial}c inundated area shows similar max values in PF and VS, at $\sim 0.6 m^2$ on average, and uncertainty of $\pm 0.15 m^2$. MC is lower, at $\sim 0.45 m^2$ on average, and less uncertain, $\pm 0.10 m^2$. VS does not decrease significantly after reaching the peak, whereas the other models contract their area, to approximately half of the maximum extent. In plot \ref{fig:Ramp-spatial}d the lateral extent starts equal to the pile diameter $15 cm$, and then rises in two stages in MC and PF, the second and greater rise starting at $\sim 0.6 s$, corresponding to the time of arrival at the change in slope $L_3$ (see Fig. \ref{fig:Ramp-H}c). VS rises without showing two phases. After the first phase, average lateral extent is at $\sim 50 cm$ in PF and VS, while it is $\sim 43 cm$ in MC. Uncertainty range is $\pm 7 cm$ for all models at that time. Final extent is $\sim 75 cm$ in PF, $\sim 65 cm$ in MC, $\sim 55 cm$ in VS. Uncertainty range is $\pm 5 cm$ in VS, but rises to $\pm 10 cm$ in MC and PF.
 
 \subsection{Statistical analysis of dynamic quantities}\label{Hq1}
 We focus on the force terms and related powers, as well as their statistical analysis. The classification follows the definitions in section \ref{sec:Fterms}. In particular, all the estimates assume a material density of the flow $\rho = 805 kg/m^3$. This a fixed scaling factor, and the plots aspect is not affected by its value.
 
-\subsubsection{Forces, spatial integral}
-Figure \ref{fig:Ramp-Fx-spatial} shows the spatial sum of the force terms in the slope direction, for the three rheology models. Force sum is performed on half spatial domain, due to the symmetry with respect to the flow central axis. In plot \ref{fig:Ramp-Fx-spatial}a $\boldsymbol{RHS_1}$ represents the effect of the gravity in all the models. It starts with a plateau at $\sim 1.3 N$ before $\sim 0.55 s$, then decreases to zero after the material crosses the change in slope. The force values are consistent with the expression $\rho \left(V/2\right) g_x$, representing half the weight of material, projected along the slope direction. Uncertainty range of $\pm 0.2 N$ on the peak values. MC decreases slower, and has a more significant uncertainty, after the change in slope. PF decreases faster. In plot \ref{fig:Ramp-Fx-spatial}b $\boldsymbol{RHS_2}$ represent the friction at the base of the flow. It is negative and opposed to the gravity. A similar profile is shared by the three models, with a first short-lasting weakening before $\sim 0.1 s$, a plateau with a small strengthening after $\sim 0.5 s$, and a final waning after $\sim 1 s$, at the conclusion of the dynamics. MC does not reach zero, while the other models do. VS values are generally $\sim 0.5 N$ weaker than MC, and PF is intermediate, except in the initial peak, where it is the weakest. Strongest forces are reached during the plateau, and are $\sim -0.55 N$, $\sim -0.75 N$, $\sim -0.9 N$, with uncertainty range of $\pm 0.25 N$ in the plateau. Uncertainty is reduced in the final stages of VS and PF, but increases in MC. In plot \ref{fig:Ramp-Fx-spatial}c $\boldsymbol{RHS_3}$ is related to the curvature effects, and is not null only at the change in slope. It is always negative, i.e. reducing flow velocity, indeed it is equivalent to the friction due to the additional weigh generated by centrifugal forces. Its scale is ten times smaller than the previous plots, with values above $0.1 N$ only in MC. VS displays a bimodal profile, with a second and weaker peak at $\sim 0.75 s$. In plot \ref{fig:Ramp-Fx-spatial}d $\boldsymbol{RHS_4}$ is related to the additional forces of the models, differently characterized. In MC and PF, they are significantly small forces before $0.1 s$, completely negligible later. In VS, this is the velocity dependent term. It is negative and plays a significant role. It reaches $\sim 1 N$ at the change in slope, with uncertainty $\pm 0.3 N$. It is bell shaped and null before $\sim 0.1 s$ and after $\sim 1 s$. In plot \ref{fig:Ramp-Fx-spatial}e $\sum^4_{i=1}\boldsymbol{RHS_i}$ represents the total force in the slope direction, and summarizes the previous plots. The profile is characterized by a positively valued stage at $\sim 0.5 N$ before the change in slope, and by a negatively valued stage after that, with bell-shaped profile, and a peak at $\sim -0.5 N$. In the first stage MC is more flat, while PF and VS decrease. In the second stage MC is occurring later in time, of $\sim 0.1 s$; PF and VS are remarkably similar, but VS wanes faster.
+\subsubsection{Forces terms}
+Figure \ref{fig:Ramp-Fx-spatial} shows the spatial integral of the force terms in the slope direction, for the three rheology models. The spatial integration is performed on half spatial domain, due to the symmetry with respect to the flow central axis. In plot \ref{fig:Ramp-Fx-spatial}a $\boldsymbol{RHS_1}$ represents the effect of the gravity in all the models. It starts with a plateau at $\sim 1.3 N$ before $\sim 0.55 s$, then decreases to zero after the material crosses the change in slope. The force values are consistent with the expression $\rho \left(V/2\right) g_x$, representing half the weight of material, projected along the slope direction. Uncertainty range of $\pm 0.2 N$ on the peak values. MC decreases slower, and has a more significant uncertainty, after the change in slope. PF decreases faster. In plot \ref{fig:Ramp-Fx-spatial}b $\boldsymbol{RHS_2}$ represent the friction at the base of the flow. It is negative and opposed to the gravity. A similar profile is shared by the three models, with a first short-lasting weakening before $\sim 0.1 s$, a plateau with a small strengthening after $\sim 0.5 s$, and a final waning after $\sim 1 s$, at the conclusion of the dynamics. MC does not reach zero, while the other models do. VS values are generally $\sim 0.5 N$ weaker than MC, and PF is intermediate, except in the initial peak, where it is the weakest. Strongest forces are reached during the plateau, and are $\sim -0.55 N$, $\sim -0.75 N$, $\sim -0.9 N$, with uncertainty range of $\pm 0.25 N$ in the plateau. Uncertainty is reduced in the final stages of VS and PF, but increases in MC. In plot \ref{fig:Ramp-Fx-spatial}c $\boldsymbol{RHS_3}$ is related to the curvature effects, and is not null only at the change in slope. It is always negative, i.e. reducing flow velocity, indeed it is equivalent to the friction due to the additional weigh generated by centrifugal forces. Its scale is ten times smaller than the previous plots, with values above $0.1 N$ only in MC. VS displays a bimodal profile, with a second and weaker peak at $\sim 0.75 s$. In plot \ref{fig:Ramp-Fx-spatial}d $\boldsymbol{RHS_4}$ is related to the additional forces of the models, differently characterized. In MC and PF, they are significantly small forces before $0.1 s$, completely negligible later. In VS, this is the velocity dependent term. It is negative and plays a significant role. It reaches $\sim 1 N$ at the change in slope, with uncertainty $\pm 0.3 N$. It is bell shaped and null before $\sim 0.1 s$ and after $\sim 1 s$. In plot \ref{fig:Ramp-Fx-spatial}e $\sum^4_{i=1}\boldsymbol{RHS_i}$ represents the total force in the slope direction, and summarizes the previous plots. The profile is characterized by a positively valued stage at $\sim 0.5 N$ before the change in slope, and by a negatively valued stage after that, with bell-shaped profile, and a peak at $\sim -0.5 N$. In the first stage MC is more flat, while PF and VS decrease. In the second stage MC is occurring later in time, of $\sim 0.1 s$; PF and VS are remarkably similar, but VS wanes faster.
 \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{InclinedPlane/AveragedMeasurments/ForcesIncline.png}
@@ -546,8 +545,8 @@ Figure \ref{fig:Ramp-Fx-spatial} shows the spatial sum of the force terms in the
         \label{fig:Ramp-Fx-spatial}
 \end{figure}
 
-\subsubsection{Powers, spatial integral}
-Figure \ref{fig:Ramp-Power-spatial} shows the spatial sum of the powers, for the three rheology models. Power sum is performed on half spatial domain, due to the symmetry with respect to the flow central axis. The plots follow the same order used in Fig. \ref{fig:Ramp-Fx-spatial}, but the scalar product with velocity imposes the bell-shaped profile observed in Fig. \ref{fig:Ramp-spatial}a. In plot \ref{fig:Ramp-Power-spatial}a the power of $\boldsymbol{RHS_1}$ starts from zero and rises up to $\sim 1.5 W$, with uncertainty of $\pm 0.5 W$. In plot \ref{fig:Ramp-Power-spatial}b the power of  $\boldsymbol{RHS_2}$ is negative and peaks to $\sim 1 W$ in MC and PF, $\sim 0.7 W$ in VS. The initial ripple observed in Fig. \ref{fig:Ramp-Fx-spatial}b is not observed, nor the plateau. In plot \ref{fig:Ramp-Power-spatial}c the power of $\boldsymbol{RHS_3}$ has a similar profile to the force it is weaker than $-0.1 W$ on average, although MC uncertainty reaches $\sim -0.25 W$. In plot \ref{fig:Ramp-Power-spatial}d the power of $\boldsymbol{RHS_4}$ is relevant only in VS, although also in PF has a very short lasting positive peak up to $0.3 W$ before to become null at $\sim 0.1 s$. Power in VS is  $\sim -0.7 W$, $\pm 0.3 W$. In plot \ref{fig:Ramp-Power-spatial}e the power of the total force $\sum^4_{i=1}\boldsymbol{RHS_i}$ summarizes the energy accumulation and dissipation, following a sinusoid profile. As observed in Fig. \ref{fig:Ramp-Fx-spatial}e, MC profile is delayed of $\sim 0.1 s$ compared to the others, and is affected by a larger uncertainty.
+\subsubsection{Power terms}
+Figure \ref{fig:Ramp-Power-spatial} shows the spatial integral of powers, for the three rheology models. The spatial integration is performed on half spatial domain, due to the symmetry with respect to the flow central axis. The plots follow the same order used in Fig. \ref{fig:Ramp-Fx-spatial}, but the scalar product with velocity imposes the bell-shaped profile observed in Fig. \ref{fig:Ramp-spatial}a. In plot \ref{fig:Ramp-Power-spatial}a the power of $\boldsymbol{RHS_1}$ starts from zero and rises up to $\sim 1.5 W$, with uncertainty of $\pm 0.5 W$. In plot \ref{fig:Ramp-Power-spatial}b the power of  $\boldsymbol{RHS_2}$ is negative and peaks to $\sim 1 W$ in MC and PF, $\sim 0.7 W$ in VS. The initial ripple observed in Fig. \ref{fig:Ramp-Fx-spatial}b is not observed, nor the plateau. In plot \ref{fig:Ramp-Power-spatial}c the power of $\boldsymbol{RHS_3}$ has a similar profile to the force it is weaker than $-0.1 W$ on average, although MC uncertainty reaches $\sim -0.25 W$. In plot \ref{fig:Ramp-Power-spatial}d the power of $\boldsymbol{RHS_4}$ is relevant only in VS, although also in PF has a very short lasting positive peak up to $0.3 W$ before to become null at $\sim 0.1 s$. Power in VS is  $\sim -0.7 W$, $\pm 0.3 W$. In plot \ref{fig:Ramp-Power-spatial}e the power of the total force $\sum^4_{i=1}\boldsymbol{RHS_i}$ summarizes the energy accumulation and dissipation, following a sinusoid profile. As observed in Fig. \ref{fig:Ramp-Fx-spatial}e, MC profile is delayed of $\sim 0.1 s$ compared to the others, and is affected by a larger uncertainty.
 \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{InclinedPlane/AveragedMeasurments/PowersIncline.png}
@@ -565,12 +564,12 @@ Figure \ref{fig:Ramp-Pr_x} shows the Dominance Factors $(P_i)_{i=1,\dots,4}$, fo
 \end{figure}
 
 \newpage
-\section{QoIs and Data Collected - Volc{\'a}n de Colima BAF}\label{QoI2}
-\subsection{Observable outputs overview - MC model}
-In our second case study, the number of spatial locations is significantly higher than previously. In fact, we placed 51 points to span the entire inundated area, in search of different flow regimes, displayed in Fig. \ref{fig:Colima-first}. First we show the average flow height, speed, and $Fr$ in all the locations, then, based on that, we select six points which we find representative of interesting flow regimes. Figures \ref{fig:BAF-H-MC}, \ref{fig:BAF-V-MC}, \ref{fig:BAF-Fr-MC} assume MC model, while the results related to PF and VS models are detailed on six selected points.
+\section{Results of large scale flows on the SW slope of Volc{\'a}n de Colima (MX)}\label{QoI2}
+\subsection{Observable outputs overview - Mohr-Coulomb model}
+In our second case study, the number of spatial locations is significantly higher than previously. We placed 51 points to span the entire inundated area, in search of different flow regimes, displayed in Fig. \ref{fig:Colima-first}. First we show the average flow height, speed, and $Fr$ in all the locations, then, based on that, we select six points which we find representative of interesting flow regimes. Figures \ref{fig:BAF-H-MC}, \ref{fig:BAF-V-MC}, \ref{fig:BAF-Fr-MC} assume MC model, while the results related to PF and VS models are detailed on six selected points.
 
-\subsubsection{Average flow height, local measurements.}
-Figure \ref{fig:BAF-H-MC} shows the flow height, $h(L,t)$, at the 51 spatial locations of interest, according to MC.
+\subsubsection{Flow height}
+Figure \ref{fig:BAF-H-MC} shows the mean flow height, $h(L,t)$, at the 51 spatial locations of interest, according to MC.
 \begin{figure}[H]
          \centering
         \includegraphics[width=1\textwidth]{MC&VS_51/Height_MC2.png}
@@ -579,8 +578,8 @@ Figure \ref{fig:BAF-H-MC} shows the flow height, $h(L,t)$, at the 51 spatial loc
 \end{figure}
 Different plots have different scales on either time and space axes. In plot \ref{fig:BAF-H-MC}a, the only location is set on the center of the initial pile, and the profile is similar to what observed in point $L_1$ of the inclined plane case study, in Fig.\ref{fig:Ramp-H}a. In particular, the height decreases from the initial value to zero, in about 15 s. In plots \ref{fig:BAF-H-MC}b,c,d,e, the locations are are set at less than $\sim 1$ km radius from the initial pile (projected distance, without considering slope). Their profiles are similar to point $L_2$ in Fig.\ref{fig:Ramp-H}b. The height profile is bell-shaped, starting from zero and then waning back to zero in $\sim 20$ s. All the dynamics occurs during the first minute. Plot (b) shows transitional features, and focuses on points at the boundary of the initial pile. In plots \ref{fig:BAF-H-MC}f,g,h,i,j, points are set where the slope reduces, and the flow can channelize and leave a deposit. Projected distance from the initial pile is $\sim 2-3$ km. The profiles are sometimes similar to $L_3$ of Fig.\ref{fig:Ramp-H}c, other times to $L_4$ of Fig.\ref{fig:Ramp-H}d, in a few cases showing intermediate aspects. In general is either observed an initial short-lasting bulge followed by a slow decrease lasting minutes and asymptotically tending to a positive height, or a steady increase of material height tending to a positive height. In both cases it is sometimes observed a bimodal profile in the first 5 minutes. Finally, plots \ref{fig:BAF-H-MC}k,l focus on three points set at about the runout distance of the flow, in the most important ravines, at $\sim 4-5$ km projected distance from the initial pile. Profiles are similar to what observed in point $L_4$ of Fig.\ref{fig:Ramp-H}d.
 
-\subsubsection{Average flow speed, local measurements.}
-Figure \ref{fig:BAF-V-MC} shows the flow speed, $h(L,t)$, at the 51 spatial locations of interest, according to MC.
+\subsubsection{Flow speed}
+Figure \ref{fig:BAF-V-MC} shows the mean flow speed, $h(L,t)$, at the 51 spatial locations of interest, according to MC.
 \begin{figure}[H]
          \centering
         \includegraphics[width=1\textwidth]{MC&VS_51/Velocity_MC3.png}
@@ -589,8 +588,8 @@ Figure \ref{fig:BAF-V-MC} shows the flow speed, $h(L,t)$, at the 51 spatial loca
 \end{figure}
 Again the different plots have different scales on either time and space axes. The plot profiles are similar to what observed in figure \ref{fig:Ramp-Vel}, following the plot profile classification described above. Maximum speed of $\sim 200 m/s$ is observed in proximity of the initial pile, in plot \ref{fig:BAF-V-MC}b, and it is related to the initiation collapse dynamics. After 1 km runout (horizontal projection), in plot \ref{fig:BAF-V-MC}e, the max speed is ten times smaller, $\sim 20 m/s$. At about 2 km from the initiation, when entering the main ravines, speed is $\sim 10 m/s$, and becomes $\sim 5 m/s$ or less in the distal part of the ravines.  In detail, in plots  \ref{fig:BAF-V-MC}f,g,h,i,j, the speed often shows bimodal profiles, not observed in the inclined plane case study. Moreover, in plots \ref{fig:BAF-V-MC}h,i,j, positive asymptotes are sometimes observed, meaning a slowly and steadily moving material even minutes after the collapse.
 
-\subsubsection{Average Froude Number, local measurements.}
-Figure \ref{fig:BAF-Fr-MC} shows the Froude Number, $\Vert \underline{\mathbf{u}} \Vert/\sqrt{gh}$, at the 51 spatial locations of interest, according to MC.
+\subsubsection{Froude Number}
+Figure \ref{fig:BAF-Fr-MC} shows the mean Froude Number, $\Vert \underline{\mathbf{u}} \Vert/\sqrt{gh}$, at the 51 spatial locations of interest, according to MC.
 \begin{figure}[H]
          \centering
         \includegraphics[width=1\textwidth]{MC&VS_51/Froude_MC2.png}
@@ -600,7 +599,7 @@ Figure \ref{fig:BAF-Fr-MC} shows the Froude Number, $\Vert \underline{\mathbf{u}
 Froude Number combines height and speed measurements, and plot profiles are similar to what observed in Figure \ref{fig:Ramp-Fr}. In particular, in plots \ref{fig:BAF-Fr-MC}b,c,d, strongly bimodal profile are observed due to the interplay between flow height and flow speed. In plots \ref{fig:BAF-Fr-MC}f,g,h,i,j, sharp changes are observed, and the plots are significantly rough when the speed is significantly small.
 
 \newpage
-\subsection{Observable outputs - six selected locations}\label{Obs2}
+\subsection{Observable outputs - UQ on six selected locations}\label{Obs2}
 The six selected locations are $[L_8, L_{10}, L_{17}, L_{39}, L_{43}, L_{46}]$, displayed in Figure \ref{fig:Colima-extra}). First two points, $L_8$ and $L_{10}$ are both significantly close to the initiation pile, the points $L_{17}$ and $L_{43}$ are placed where the slope is reducing and the ravine channels start, and $L_{39}$ and $L_{46}$ are placed in the channels, further down-slope. Moreover, $L_8$, $L_{43}$, and $L_{46}$ are placed at the western side of the inundated area, whereas $L_{10}$, $L_{17}$, and $L_{39}$ are placed at the eastern side.
 \begin{figure}[H]
          \centering
@@ -609,7 +608,7 @@ The six selected locations are $[L_8, L_{10}, L_{17}, L_{39}, L_{43}, L_{46}]$, 
         \label{fig:Colima-extra}
 \end{figure}
 
-\subsubsection{Flow height, selected measurements}
+\subsubsection{Flow height}
 Figure \ref{fig:Colima-H} shows the flow height, $h(L,t)$, at the points $(L_i)_{i=8,10,17,39,43,46}$, for the three rheology models. In plots \ref{fig:Colima-H}a,b, we show the flow height in points $L_8$ and $L_{10}$, $\sim 200 m$ and $\sim 500 m$ from the initial pile, respectively. $L_8$ is on the east side, and $L_{10}$ on the west side of the flow. Models MC and PF have similar profiles, lasting less $\sim 15 s$ and bell-shaped. VS requires a significantly longer time to decrease, particularly in point $L_{10}$, where the average flow height is still positive after $\sim 200 s$. Peak average values in $L_8$ are $3.4 m$ for $PF$, $4.3 m$ for MC, $4.7 m$ for VS, with uncertainty of $\sim \pm 2 m$, halved on the lower side for $MC$, and $PF$. In $L_{10}$, models MC and PF are almost indistinguishable, with peak height at $1.4 m$ and uncertainty $\pm 0.5 m$. Model VS, in contrast, has a maximum height of $1.1 m$ lasting for $50s$, and 95$^{th}$ percentile reaching $3.7 m$. In plots \ref{fig:Colima-H}c,e, we show the flow height in points $L_{17}$ and $L_{43}$, both at $\sim 2 km$ from the initial pile, on the west and east side of the flow, respectively. All the three models show in both the points a fast spike in the first minute, followed by a slow decrease, still showing a positive average height after 30 m. Again, VS is significantly different from MC and PF, and has a secondary rise peaking at $\sim 450 s$, which is not observed in the other models. This produces higher values for the most of the temporal duration, but converges to similar deposit thickness after more than 1 hour. Maximum values are $1 m$ for MC, $2 m$ for PF, and $1.5 m$ for VS, in both locations. The 5$^{th}$ percentile is zero for all the three models, meaning that the parameter range does not always allow the flow to reach those locations. The 95$^{th}$ percentile is above $5m$ for the models, except in VS, point $L_{17}$. In plots \ref{fig:Colima-H}d,f, we show the flow height in points $L_{39}$ and $L_{46}$, both at more than $3 km$ from the initial pile, on the west and east side of the flow, respectively. The three models all show an increasing profile, except for MC in point $L_{39}$ which has an initial spike and a decrease before to rise again. A similar decreasing profile can be also observed in the 95$^{th}$ percentiles of all the models. It is significant that the 5$^{th}$ percentile of PF becomes positive after $\sim 5400 s$, meaning that the flows almost surely have reached that location. Deposit thickness is $\sim 0.5 m$ for all the models in point $L_{39}$, and $1.7 m$ for VS, $1.6 m$ for PF, $1.2 m$ for MC, in $L_{46}$.
 \begin{figure}[H]
          \centering
@@ -618,7 +617,7 @@ Figure \ref{fig:Colima-H} shows the flow height, $h(L,t)$, at the points $(L_i)_
         \label{fig:Colima-H}
 \end{figure}
 
-\subsubsection{Flow speed, selected measurements}
+\subsubsection{Flow speed}
 Figure \ref{fig:Colima-Vel} shows the flow speed, $\Vert \underline{\mathbf{u}} \Vert(L,t)$, at the points $(L_i)_{i=8,10,17,39,43,46}$, for the three rheology models. Like observed in Fig.\ref{fig:Colima-H}, pair of points $L_8$ and $L_{10}$, points $L_{17}$ and $L_{43}$, and points $L_{39}$ and $L_{46}$ have significantly similar plot profiles. In plot \ref{fig:Colima-Vel}a MC shows higher average speed, $\sim 80 m/s$, than PF and VS, both $\sim 70 m/s$. 95$^{th}$ percentile values can reach $150 m/s$ in MC, $140 m/s$ in VS, $130 m/s$ in PF. MC and PF are null after $20 s$, while VS decreases slower, and becomes null at $\sim 60 s$. In plot \ref{fig:Colima-Vel}b, the average peak values are $\sim 40 m/s$ in MC and PF, while only $20 m/s$ in VS. All the three models show 95$^{th}$ percentile values above $60 m/s$. VS speed decreases remarkably slower than in the other models, requiring more than $120 s$ to become null, while MC and PF speed remains positive for $\sim 25 s$. In plot \ref{fig:Colima-Vel}c, average speed is $\sim 20 m/s$ in PF, $\sim 10 m/s$ in MC, $\sim 2 m/s$ in VS. 95$^{th}$ percentile values can reach $\sim 55 m/s$ in PF, $\sim 48 m/s$ in MC, $\sim 24 m/s$ in VS. The duration of positive velocity in VS can be long hundredths of seconds. A very similar situation is pictured in plot \ref{fig:Colima-Vel}e. Instead in plot \ref{fig:Colima-Vel}d, only MC shows a max speed above $3 m/s$, the 95$^{th}$ percentile values at $\sim 15 m/s$. In the other models the average speed is always below $1 m/s$ and the 95$^{th}$ percentile values have an increasing profile followed by a slightly decreasing plateau, at $\sim 2 m/s$ in VS, $\sim 1 m/s$ in PF. VS can have a speed above $\sim 1 m/s$ at $\sim 3600 s$. In plot \ref{fig:Colima-Vel}f, only MC shows an average speed above zero, while in the other models even the 95$^{th}$ percentile values are always below $\sim 0.5 m/s$, and start to be positive only at $\sim 200 s$ in PF, and $\sim 600 s$ in VS. MC can have speed at $\sim 1 m/s$ for more than $\sim 500 s$, but the plot is very noisy.
 \begin{figure}[H]
          \centering
@@ -627,7 +626,7 @@ Figure \ref{fig:Colima-Vel} shows the flow speed, $\Vert \underline{\mathbf{u}} 
         \label{fig:Colima-Vel}
 \end{figure}
 \newpage
-\subsubsection{Froude Number, selected measurements}
+\subsubsection{Froude Number}
 Figure \ref{fig:Colima-Fr1} shows the Froude Number, $\Vert \underline{\mathbf{u}} \Vert/\sqrt{gh}$, at the points $(L_i)_{i=8,10,17,39,43,46}$, for the three rheology models.
 \begin{figure}[H]
          \centering
@@ -637,7 +636,7 @@ Figure \ref{fig:Colima-Fr1} shows the Froude Number, $\Vert \underline{\mathbf{u
 \end{figure}
 Froude Number is proportional on the ratio between the flow speed and the square root of flow height, and hence the observed plots profiles are the combine effects of Fig.\ref{fig:Colima-H}  and \ref{fig:Colima-Vel}. Largest values are observed when the speed is significantly high compared to the flow height. Similarly to what observed in Fig. \ref{fig:Ramp-Fr} and \ref{fig:BAF-Fr-MC}, in plots \ref{fig:Colima-Fr1}a,b bimodal profiles are displayed. The first peak when the flow arrives in the location, the second when it leaves the location. Due to the slower dynamics of VS, the bimodal profile is almost absent. In PF the peaks, at $\sim 15$ and $\sim 30$, respectively, are slightly more prominent than in MC. In contrast, in plot \ref{fig:Colima-Fr1}c, MC displays an average Fr of $\sim 15$ significantly larger than in PF, $\sim 5$, and VS is almost null. In plot \ref{fig:Colima-Fr1}e the profile is significantly similar, but with lower values. In plots \ref{fig:Colima-Fr1}d,f, only MC displays a significantly positive Fr, the average below $5$, but the 95$^{th}$ percentile can reach above $20$. Finally, in plots \ref{fig:Colima-Fr1}g,h,i, a zoom on the low Fr values in the distal locations is displayed on a long time window. Observations are sometimes noisy, and only \ref{fig:Colima-Fr1}g shows the 95$^{th}$ percentile above 1. The rest of the plots are significantly lower. In general, PF has a more decreasing and less noisy character than MC and VS, while the latter is the most noisy and also has a weakly increasing profile.
 
-\subsubsection{Flow acceleration, selected measurements}
+\subsubsection{Flow acceleration}
 Figure \ref{fig:Colima-Accel1} shows the flow speed, $\Vert \underline{\mathbf{a}} \Vert(L,t)$, at the points $(L_i)_{i=8,10,17,39,43,46}$, for the three rheology models.
 \begin{figure}[H]
          \centering
@@ -647,7 +646,7 @@ Figure \ref{fig:Colima-Accel1} shows the flow speed, $\Vert \underline{\mathbf{a
 \end{figure}
 In plot \ref{fig:Colima-Accel1}a,b, MC and PF display a higher maximum acceleration, both at $\sim 6 m/s^2$ and $\sim 2.5 m/s^2$ in the first and second plot respectively, than VS, $\sim 3.5 m/s^2$ and $\sim 0.5 m/s^2$, respectively. The latter has a slower decrease to zero, consistent with what observed on the speed and Froude. Uncertainty in VS is more significant in plot \ref{fig:Colima-Accel1}a, than in plot \ref{fig:Colima-Accel1}. It is the opposite in MC and PF. In plot \ref{fig:Colima-Accel1}c, in MC and PF there can a significant peak in acceleration, up to $\sim 15 m/s^2$ and $\sim 10 m/s^2$, in the 95$^{th}$ percentile values, respectively. The same peak is absent in the average plots, which are significantly flat in all the models, with values at $\sim 1 m/s^2$ in MC and PF, and $\sim 0.5 m/s^2$ in VS, at $\sim 200 s$. Plot \ref{fig:Colima-Accel1}e is similar, but PF is significantly reduced and lack of the peak in the 95$^{th}$ percentile values. In plot \ref{fig:Colima-Accel1}d,f, only MC shows significant acceleration values. Like in Fig.\ref{fig:Colima-Fr1}, plots \ref{fig:Colima-Accel1}g,h,i, are a zoom on the acceleration values in the distal locations, displayed on a long time window of $7200 s$. The last two plots are more noisy and possess an increasing trend. All the three show, in all the models, values up to $\sim 1 m/s^2$. In general, PF acceleration tends to be lower than in the other models.
 
-\subsubsection{Flow area and spatially averaged measurements}
+\subsubsection{Flow area and spatial integrals}
 Figure \ref{fig:Colima-spatial} shows the spatial average of speed and Froude Number, for the three rheology models. Moreover, it shows the inundated area of flow, as a function of time.
 \begin{figure}[H]
         \centering
@@ -660,7 +659,7 @@ Like in Fig.\ref{fig:Ramp-spatial},spatial averages and inundated area have smoo
 \subsection{Statistical analysis of dynamic quantities}\label{Hq2}
 The current case study does not show a preferential direction, equivalent to the slope direction of the inclined plane. Hence, we will focus on the moduli, and powers, of the force terms detailed in Section \ref{Hq1}. In particular, all the estimates assume the material density of the flow $\rho = 1800 kg/m^3$. This a fixed scaling factor, and the plots aspect is not affected by its value.
 
-\subsubsection{Forces, spatial integral}
+\subsubsection{Force terms}
 Figure \ref{fig:Colima-F-spatial} shows the spatial sum of the force terms moduli, for the three rheology models.
 \begin{figure}[H]
         \centering
@@ -670,7 +669,7 @@ Figure \ref{fig:Colima-F-spatial} shows the spatial sum of the force terms modul
 \end{figure}
 The figure can be compared with Fig. \ref{fig:Ramp-Fx-spatial}, which was related to forces in the slope direction in the inclined plane case study. In plot \ref{fig:Colima-F-spatial}a $\boldsymbol{RHS_1}$ represents the effect of the gravity in all the models. It is decreasing in all the models, but more gradually in VS than in the others. Initial values are $2.8e9 N$ in all the models, uncertainty $\pm 2.5e8 N$. Force values are consistent with the material weight component along the mountain slope, and their decrease is related to the slope reduction. At $\sim 10 s$ all the models show a slowing down of the decrease, which is permanent in VS, and lasting $10 s$ in MC and PF. The latter models, reach a flat profile after $\sim 60 s$, at $6e8 N$ and $7e8 N$, respectively, and uncertainty of $\pm 2e8 N$ and $1.5e8 N$. VS, which flattens more gradually, is $1.3e9 N$ at $200 s$, uncertainty $[-7e8,+8e8] N$. In plot  \ref{fig:Colima-F-spatial}b $\boldsymbol{RHS_2}$ represents the effect of the basal friction in all the models. In MC, shows a bimodal profile, with a peak at $5 s$, and a second one at $60 s$. Both of them at $9.5e8 N$ on average, with uncertainty of $[-4e8,+5e8] N$ in the first peak, and $[-5e8,+7e8] N$ in the second. The minimum between the two peaks is at $8e8 N$ and lasts from $10 s$ to $30 s$. After the second peak there is significant decrease, reaching $6e8 N$ at $90 s$, and becoming flat. Final uncertainty is $[-4e8, +6e8] N$. In PF, the plot starts from lower initial values than in the other models, but then has a unimodal peak of $1.4e9 N$ at $40 s$, on average. Uncertainty $\pm 5e8 N$. After that, the plot decreases, reaching $7.5e8 N$ at $90 s$, and becoming flat. Final uncertainty is $\pm 3.5e8 N N$, lower than in the other models. In VS, there is slow increase until the plot reaches $1.05e9 N$ at $70 s$. Then the average force is almost flat, at $1.0e9 N$, with significant uncertainty of $[-5e8,+6e8] N$. In plot \ref{fig:Colima-F-spatial}c $\boldsymbol{RHS_3}$ represents the effect of the curvature of terrain. The three models all show a bell-shaped profile, waning to zero at $90 s$. However, MC has reaches $1.1e9 N$ at $30 s$, PF $8e8 N$ at $20 s$, VS $2.5e8 N$ at $10 s$. The rise has a similar profile, but a different duration. The decrease is more gradual in VS. Uncertainty at the peak value is $\pm 4.5e8 N$ in MC, $[-2.5e8,+3.5e8] N$ in PF, $\pm 2e8 N$ in VS. In plot \ref{fig:Colima-F-spatial}d $\boldsymbol{RHS_4}$ has a different meaning in the three models. In MC it is the internal friction term, and it has a small peak in the first second, at $1e8 N$. After that it flattens to negligible values, but shows again values at $5e7 N$ after $60 s$. In PF it is the a depth averaged correction in the hydrostatic pressure, and has a almost negligible effect only in the first second, at $5e7 N$. In VS, instead, it is the velocity dependent term, and has a very relevant effect. The plot shows a bell-shaped profile, with a peak of $1.45e9 N$ at $20 s$. Uncertainty is $[-5.5e8, +6.6e8] N$, at the peak. After that, the force gradually decreases, and is $3e8 N$ at $200 s$, on average. Uncertainty $[-3e8, +7e8] N$. In plot \ref{fig:Colima-F-spatial}d, the modulus of the total force $\sum^4_{i=1}\boldsymbol{RHS_i}$ is shown, with the complex interplay between the terms. First a steep decrease due to the domination of the gravity upon the friction, then a bell-shaped increase when the friction stops the dynamics.
 \newpage
-\subsubsection{Powers, spatial integral}
+\subsubsection{Power terms}
 Figure \ref{fig:Colima-Power-spatial} shows the spatial sum of the powers, for the three rheology models.
 \begin{figure}[H]
         \centering
@@ -700,7 +699,7 @@ Figure \ref{fig:Colima-Pr2} show the Dominance Factors $(P_i)_{i=1,\dots,4}$, fo
 The plots \ref{fig:Colima-Pr2}a,b,c and \ref{fig:Colima-Pr2}g,h,i are related to point $L_{39}$ and $L_{46}$, respectively, and they are significantly similar. Those points are both in the most distal part of the ravines, on the western and eastern side of the inundated area, respectively. They are also similar to the dominance factors at point $L_{17}$, shown in plots \ref{fig:Colima-Pr1}g,h,i, but the no-flow probability never wanes in this case, and the probability of $\boldsymbol{RHS_2}$ being the dominant force is $P_2>90\%$ till the end of the temporal window. Moreover, $\boldsymbol{RHS_1}$ does not show any initial peak in $P_2$, and generally increases slowly, reaching at most $P_2=10\%$ chance of being the dominant force in $L_{46}$, after more than $3600 s$, in all the models. Plots \ref{fig:Colima-Pr2}d,e,f, are related to point $L_{43}$, are remarkably different. In MC, either $\boldsymbol{RHS_1}$ and $\boldsymbol{RHS_2}$ can be dominant forces, both with chances of $\sim 35\%$ in the first $200 s$. Then, $\boldsymbol{RHS_2}$ increases its chance, and becomes the only dominant force after $3600 s$. The no-flow probability is neve below $30\%$. $\boldsymbol{RHS_3}$ has a chance $P_3$ up to $35\%$ for a short amount of time, i.e. $[40, 60] s$. In PF, it is $\boldsymbol{RHS_1}$ to be the dominant force, with chance above $P_1=90\%$ until $3600 s$. $\boldsymbol{RHS_2}$ rises only in the very last amount of time, reaching $P_2=40\%$ at $7200 s$, at the same level of $P_1$. The no-flow probability is very low for the most of the temporal window, rising at $20\%$ only at $7200 s$. Both $\boldsymbol{RHS_3}$ and $\boldsymbol{RHS_4}$ have a short peak of dominance factor, at about $10\%$ for a few seconds, at $[50,60] s$. Finally, in VS the no-flow probability is never below $20\%$, and the profile is similar to MC, although $\boldsymbol{RHS_1}$ is more relevant, up to $4000 s$. The other force are almost never dominant.
 
 
-\section{Discussion}
+\section{Discussion on the comparative anatomy of geophysical flow models}
 
 \section{Conclusions}
 
@@ -734,7 +733,7 @@ However, even in an LHS based on an $OA(n,m,s,r)$, if $r<m$ what happens in the 
 
 Dealing with relatively small $d$, i.e. $d\in\{3,4\}$, we adopt a LHS $U$ created by a $OA(s^d,d,s,d)$. The strength is equal to the dimension $d$, hence the design fills the entire space like a $d$ dimensional grid, but it is a LHS as well. In this case there is one point in each hypercube, and $\lambda=1$. We take $s=8$ for the 3-dimensional designs over the parameter space of Mohr-Coulomb and Voellmy-Salm models, i.e. $512$ points; we took $s=6$ for the 4-dimensional designs over the more complex parameter space of the Pouliquen-Forterre model, i.e. 1296 points.
 
-\section{Appendix B: Force contribution coefficients}
+\section{Appendix B: Force contribution coefficients, and their conditional decomposition}
 The \emph{contribution coefficients} are normalized quantities related to the force terms. They are obtained dividing the force terms described in section \ref{sec:Fterms} by a dominant function $\Phi$. This is a tool to compare the different force terms, scaling the plots by the dominant function $\Phi$ - in this case in $[-1,1]$. It also represent the degree of relevance of the assumptions behind the force terms, changing as a function of time.
 
 In general we focus on the moduli of the forces, or their projection on the slope direction. Hence, in the following the forces are scalar and not vectorial terms. It is important to remark that all the forces depend on the input variables, and they are thus considered as random variables. The definitions are not depending on the location, but all the results will significantly depend of that choice. Next notation will assume to be in a selected location $x=L_k$, where $k\ge 1$.
@@ -786,9 +785,9 @@ $$=\mathbb E\left[\mathbb E\left[\frac{F_i}{|F_j|}\ \Big{|}\ Z=j\right]\right]=\
 Moreover, by definition, $p_j=P\left\{Z=j\right\}$. This completes the proof.
 \end{proof}
 
-The last proposition brings to the definition of the \emph{dominance factors} $(p_j)_{j=1,\dots, k}$, i.e. the probability of each $F_j$ to be the dominant force in $(x,t)$.
+The last proposition brings to a conditional decomposition of the contribution coeffients, taking advantage of the \emph{dominance factors} $(p_j)_{j=1,\dots, k}$, i.e. the probability of each $F_j$ to be the dominant force in $(x,t)$.
 
-\begin{definition}[Dominance factors and conditional contributions]
+\begin{definition}[Conditional contributions and dominance factors]
 Let $(F_i)_{i=1,\dots, k}$ be random variables on $(\Omega, \mathcal F, P)$, representing arbitrary force components in location $x$ at time $t$. Then, for each pair of components $(i,j)$, the conditional contribution $C_{i,j}$ is defined as:
 $$C_{i,j}:=\mathbb E\left[\frac{F_i}{|F_j|}\ \Big{|}\ \Phi=|F_j|\right],$$
 where $\Phi=\Phi_2$ is the dominant force. In particular, for each component $i$, the dominance factor is defined as:
