@@ -101,7 +101,7 @@ Let us define $\left(M(A), P_{M(A)}\right)$, where $A$ is a set of assumptions, 
 $$P_M\sim \bigotimes_{i=1}^{N_M} Unif(a_{i,M},b_{i,M}),$$
 where $N_M$ is the number of parameters of $M$. These parameter ranges will be chosen using information gathered from the literature about the physical meaning of those values together with a preliminary testing for physical consistency of model outcomes and range of inputs/outcomes of interest.
 
-\paragraph{Stage 2 Simulations and Data Gathering} 
+\paragraph{Stage 2 Simulations and Data Gathering}
 The simulation algorithms can be represented as:
 \begin{figure}[H]
 \centerline{\includegraphics[width=0.85\textwidth]{modelproc.pdf}}
@@ -136,7 +136,7 @@ Here the Cartesian coordinate system is aligned such that $z$ is normal to the s
 The final class of assumptions are the assumptions on the rheology of the flows -- in particular in this context assumptions used to model different dissipation mechanisms embedded in $S_x, S_y$ that lead to a plethora of models with much controversy on the most suitable model.
 
 \subsection{Overview of the models}\label{subsec:Models}
-In the three following sections, we briefly describe \emph{Mohr-Coulomb} (MC), \emph{Pouliquen-Forterre} (PF) and \emph{Voellmy-Salm} (VS) models. Models based on additional heterogeneous assumptions are possible, either more complex \citep{PitmanLe2005} or more simple \citep{DadeHuppert1998}, but we are focusing on those because of their historical relevance and their comparable degree of complexity.
+In the three following sections, we briefly describe \emph{Mohr-Coulomb} (MC), \emph{Pouliquen-Forterre} (PF) and \emph{Voellmy-Salm} (VS) models. Models based on additional heterogeneous assumptions are possible, either more complex \citep{PitmanLe2005,Iverson2014} or more simple \citep{DadeHuppert1998}, but we are focusing on those because of their historical relevance and their comparable degree of complexity.
 
 \subsubsection{Mohr-Coulomb}\label{MCM}
 Based on the long history of studies in soil mechanics \citep{Rankine1857,Jaeger1989}, the Mohr-Coulomb rheology (MC) was developed and used to represent the behavior of geophysical mass flows \cite{SavageHutter1989}.
@@ -290,7 +290,7 @@ Following the simulations, we generate data for each sample run and each outcome
 We devise many statistical measures for analyzing the data. For instance, let $(F_i(x,t))_{i=1,\dots, 4}$ be an array of force components, where $x\in \mathbf R^2$ is a spatial location, and $t\in T$ is a time instant. The degree of contribution of those force terms can be significantly variable in space and time, and we define the \emph{dominance factors} $(p_j)_{j=1,\dots, k}$, i.e., the probability of each $F_j$ to be the dominant force at $(x,t)$. Those probabilities provide insight into the dominance of a particular source or dissipation (identified with a particular modeling assumption) term on the model dynamics. The dominance factors can be adopted to define a statistical decomposition of the contributions of the forces, as detailed in Appendix B.
 
 \subsection{Overview of the case studies}
-The first case study assumes very simple boundary conditions, and corresponds to an experiment fully described in \cite{Webb2004, Bursik2005, WebbBursik2016}. It is a classical flow down an inclined plane set-up, including a change in slope to an horizontal plane (Fig. \ref{fig:Ramp-first}). Modeling flow of granular material down an inclined plane was explored in detail by several studies, both theoretically and experimentally \citep{RuyerQuil2000, Silbert2001, DaCruz2005}.
+The first case study assumes very simple boundary conditions, and corresponds to an experiment fully described in \cite{Webb2004, Bursik2005, WebbBursik2016}. It is a classical flow down an inclined plane set-up, including a change in slope to an horizontal plane (Fig. \ref{fig:Ramp-first}). Modeling flow of granular material down an inclined plane was explored in detail by several studies, both theoretically and experimentally \citep{RuyerQuil2000, Silbert2001, Pitman2003b, DaCruz2005}.
 
 In our setting, four locations are selected among the center line of the flow to accomplish local testing. These are: the initial pile location $L_1=(-0.7,0)$ m, the middle of the inclined plane $L_2=(-0.35,0)$ m, the change in slope $L_3=(0,0)$ m, the middle of the flat plane $L_4=(0.15,0)$ m (see Section \ref{sec:QoIs}).
 
