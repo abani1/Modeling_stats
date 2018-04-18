@@ -70,117 +70,73 @@
 \tableofcontents
 
 \abstract
-Dense large scale granular avalanches are a complex class of flows with physics that has often been poorly captured by models that are computationally tractable. Sparsity of actual flow data (usually only a posteriori deposit information is available), and large uncertainty in the mechanisms of initiation and flow propagation, make the modeling task challenging, and a subject of much continuing interest. Models that appear to represent the physics well in certain flows, may turn out to be poorly behaved in others, due to intrinsic mathematical or numerical issues. Nevertheless, given the large implications on life and property, many models with different modeling assumptions have been proposed.
-
-While inverse problems can shed some light on parameter choices, it is difficult to make firm judgements on the validity or appropriateness of any single or set of modeling assumptions for a particular target flow, or potential flows, that needs to be modeled for predictive use in hazard analysis. We present here an uncertainty quantification based approach to carefully analyze the effect of several modeling assumptions on quantities of interest in simulations based on three established models, i.e Mohr-Coulomb, Pouliquen-Forterre and Voellmy-Salm. In doing this, we take advantage of the versatile implementation of all the models on the same infrastructure, given by TITAN2D.
-
-Statistical analysis is performed on spatially averaged dynamical quantities, but also focusing on locally sampled points of interest. This enables us to exploit the significant differences that remain hidden in the averaged analysis. The fundamental focus of this paper is the exploration of the dynamics of the simulated flows, enabling a notion of the contribution of different mechanisms or models elements inside the simulation procedure, in a fully quantitative, predictive-use oriented and statistical framework.
+Complex systems (e.g., volcanoes, debris flows, climate) commonly have many models advocated by different modelers and incorporating different modeling assumptions. Limited and sparse data on the modeled phenomena does not permit a clean discrimination among models for fitness of purpose, and, heuristic choices are usually made, especially for critical predictions of behavior that has not been experienced. We advocate here for characterizing models and the modeling assumptions they represent using a statistical approach over the full range of applicability of the models. Such a characterization may then be used to decide the appropriateness of a model for use, and, perhaps as needed weighted compositions of models for better predictive power. We use the example of dense granular representations of natural mass flows in volcanic debris avalanches, to illustrate our approach.
 
 \newpage
-\section{Introduction to geophysical mass flows modeling}\label{subsec:FlowTypes}
-%\section{Geophysical mass flows}\label{subsec:FlowTypes}
-Geophysical mass flows include debris and mud flows, landslides, snow and rock avalanches, glacier flows, pyroclastic surges, block and ash flows, and pumice flows, lahars, j\"okulhaups and many other examples. These flows are sometimes tens of kilometers in length and may travel at speeds as fast as hundreds of meters per second. Their deposits can be as much as tens of meters deep and kilometers long. In other words, there is no single universal description of a ``typical'' geophysical mass flow. Different types of flows are the results of different types of mechanisms/processes and hence different types of flows will have significantly different physical characteristics.
+\section{Introduction}
+This paper presents a systematic approach to the study of models of complex systems, applied to the case of geophysical mass flows modeling.
 
-The rheology complexity of the fluidized material, and the mathematical problem of modeling and computing, make the description of the dynamics of those flows really challenging. In many cases the flows are \emph{shallow}, i.e. the horizontal dimension is significantly larger than the flow depth. This assumption allows to perform depth-integration on the governing 3D Navier-Stokes equations, resulting in the 2D formulation of Shallow Water Equations (SWE), also known as Saint Venant Equations \citep{Batchelor2000, Luca2016}. Pioneering work of \cite{SavageHutter1989} that was followed by \cite{Hutter1993,DadeHuppert1998} developed a depth-averaged model for flow of granular materials. Their model was used to model a flow of granular material down an inclined plane, originally using the Mohr-Coulomb rheology (MC) (see also \cite{Jaeger1989,FraccarolloToro1995}). Afterwards, large number of studies focused on the modeling of granular flows, including geophysical mass flows, using SWE approach and many of them were carefully reviewed in \cite{PudasainiHutter2007}.
-
-Modeling flow of granular material down an inclined plane was explored in detail by several further studies, both theoretically and experimentally \citep{Pouliquen1999, RuyerQuil2000, Silbert2001, Bursik2005, DaCruz2005}. Granular material slumping \citep{Balmforth2005,Lajeunesse2005}, rapid flow down smooth inclines \citep{Greve1994,Wieland1999} and shock waves \citep{Gray2003,Hokanardottir2005} were modeled and tested. Terrain erosion effects were investigated \citep{Pitman2003b, Edwards2015}, and also material deposition and self-channeling effects \citep{Mangeney2005, Mangeney2007}.
-
-In particular, the experiments on rough inclined planes led to the development of the Pouliquen-Forterre rheology (PF), assuming a variable frictional behavior as a function of flow regime (i.e. Froude Number, $Fr$) and flow depth \citep{Pouliquen1999, ForterrePouliquen2002, PouliquenForterre2002, ForterrePouliquen2003}. They allowed for an improved modeling of front propagation, mass spreading, surface wave-propagation and vortices-evolution in the flows on a rough terrain \citep{Forterre2006, Jop2006, ForterrePouliquen2008}.
-
-In parallel to and sometimes anticipating the earth avalanches experiments and models, study of snow avalanches led to the development of the Voellmy-Salm rheology (VS) \citep{Voellmy1955, Salm1990, Salm1993, Bartelt1999}. Dense snow or debris avalanches consist of mobilized, rapidly flowing ice-snow mixed to debris-rock granules \citep{BarteltMcArdell2009}. The VS rheology assumes a velocity dependent resisting term in addition to the traditional basal friction, ideally capable of including an approximation of the turbulence-generated dissipation. Many experimental and theoretical studies were developed in this framework \citep{Gruber2007, Kern2009, Christen2010, Fischer2012}.
-
-In \cite{Iverson1997, Iverson2001, Denlinger2001, Denlinger2004, Iverson2004}, the depth-averaged model was further studied and applied in the simulation of test geophysical flows in large scale flume experiments. Moreover, \cite{Gray1999, Gray2003} tested modeling of fast avalanches, exploring the high-velocity effects of channelizing/chuting topographies. A compensation for the effect of earth pressure changes was implemented and explored in detail \citep{Pirulli2007,Pirulli2008}, as well as the implementation of a significant curvature in the terrain \citep{PudasainiHutter2003, Fischer2012}. Several specific studies on the pore pressure effects on the flow initiation and fluidization were developed \citep{SavageIverson2003, Iordanoff2004, Iverson2014}. A two-phase model was also implemented to more accurately simulate heterogenous flows with a significant portion of interstitial fluid \citep{PitmanLe2005}. {\it All of these complex modeling choices correspond to alternative or additional physical assumptions, and they are sometimes very difficult to evaluate, compare or reasonably combine together.}
-
-A particular interest is raised by the specific efforts devoted to the modeling of volcanic mass flows with SWE \citep{FreundtBursik1998,Pitman2003a,Bursik2005,Saucedo2005, Kelfoun2005,Charbonnier2009,Kelfoun2009,Procter2010,Sulpizio2010,Kelfoun2011,Charbonnier2013}. Volcanoes are great sources for a rich variety of geophysical flow types and provide field data from past flow events.
-
-In this study, we use the open source TITAN2D software for simulation of granular flows over natural terrains (represented by Digital Elevation Models (DEM)).  TITAN2D solves depth-averaged equations using
-state of the art numerical methodology like adaptive mesh refinement, parallel computing  \citep{Pitman2003a, Patra2005, Patra2006, Yu2009}, special methods for wet-dry interface capture \citep{Aghakhani2016} and finds much use in hazard analysis of such flows using uncertainty quantification methods. The $\mathrm{4^{\mathrm{th}}}$ release of TITAN2D offers multiple rheology options (MC, PF and VS rheologies)  in the same computational platform. We leverage this capability and focus on modeling characteristics of these rheology options without concern for effects of diverse numerical methods. So far, TITAN2D achieved many successful applications in the simulation of different geophysical mass flows with specific characterisitcs \citep{Sheridan2005, Rupp2006, Norini2008, Charbonnier2009, Procter2010, Sheridan2010, Sulpizio2010, Capra2011}. Several studies involving TITAN2D were recently directed towards a statistical study of geophysical flows, focusing on uncertainty quantification and propagation \citep{Dalbey2008, Dalbey2009, Stefanescu2012b, Stefanescu2012a}, or on the more efficient production of hazard maps \citep{Bayarri2009, Spiller2014,Bayarri2015, Ogburn2016}.
-
-This study for the first time applies a statistical approach to the detailed investigation of the material model. Quantitative statistical analysis of  \emph{stress components} and their associated \emph{powers}, as well as the \emph{Froude Number} $Fr$, the \emph{acceleration} and observable quantities as the flow \emph{height}, \emph{lateral extent}, and \emph{area} over the full range of potential flows is obtained here. The stress components have a strong link with  terms in the equations; moreover, the observable quantities have a direct link to field data and hazard assessments. {\it Our main purpose is to obtain a quantitative and statistical understanding of the consequences of the different physical assumptions, both on the forces inside the flow and on the observable outputs in time and space.}
-
-In particular, what we present is a procedure for the improved exploration and quantitative comparison of physical models and their assumptions through the collection of full statistical data. Behind each physical model there are different physical assumptions, and therefore it is more appropriate to look at those instead than at the entire model results. Our statistical approach shall enable a first step towards a data driven selection of the best modeling assumptions to use.
-
-\section{Overview of the models}\label{sec:GeoPhFlows}
-
-\subsection{Modeling assumptions}\label{subsec:ModelAssump}
-The models of geophysical mass flows described in this study rely on several physical and mathematical assumptions. We will classify them in two groups - the general assumptions and the rheology assumptions. The main focus of this study is on the latter group, but, in principle, the same procedure could be applied to the former.
-
-\paragraph{General Assumptions}
+A simple though not necessarily comprehensive definition of a model is that: \begin{quote} {\it A model is a representation of a postulated relationship among inputs and outputs of a system usually informed by observation and a hypothesis that  best explains them.} \end{quote} The definition  captures two of the most important characteristics
 \begin{itemize}
-\item The \textit{shallowness} approximation is at the base of the depth-averaging procedure. In this approximation, the flow depth is assumed to be at least an order of magnitude less than the characteristic length of the flowing material. Variation of velocity within the flow depth is neglected.
-
-\item The material is assumed to be \textit{continuous}. The real flows consist of granular material and, often, interstitial fluid. Usually the ``typical particle'' diameter is small compared to the depth and length of the flowing mass, and the rheological properties are imposed to approximate the bulk behavior that is expected of an actual mass flow.
-
-\item The moving mass is assumed to be \textit{volume preserving} and \textit{incompressible} . In contrast, phenomena of erosion and deposition of material may violate this assumption.
-
-%\item The flowing mass is assumed to be consisted of an \textit{incompressible} fluid. This means that we are ignoring variations of density due to the void ratio (i.e. the density is uniform in space and time).
-
-\item The body of mass is supposed to be in \textit{isothermal} state or, if not, thermal effects can be ignored.
-
-\item The mass flow is assumed to be \textit{free surface}. Air entrainment is instead frequently observed in the dilute real flows.
-%
-%\item The stress tensor is assumed \textit{symmetric} with respect to the \textit{z} axis.
+\item models depend on a {\it hypothesis}, and,
+\item models use the {\it data from observation} to validate and refine the hypothesis.
 \end{itemize}
+Errors and uncertainty in the data and limitations in the hypothesis (usually a tractable and computable mathematical construct articulating beliefs like proportionality, linearity etc.) are immediate challenges that must be overcome to construct useful and credible models.
 
-The shallowness assumption is very important, and brings several implications which may be considered additional assumptions on their own.
+A model is most useful in predicting the behavior of a system for unobserved inputs and interpretability or explainability of the system's behavior. Since, models require a hypotheses implies that the model is a formulation of a belief about the data. The immediate consequence of this that the model may be  very poor about such prediction even when sufficient care is taken to use all the available data and information since the {\it subjectivity of the belief} can never be completely eliminated. Secondly, the data at hand may not provide enough information about the system to characterize its behavior at the desired prediction. What makes this problem even more acute is that we are often interested in modeling outcomes that are not observed and perhaps sometimes not observable.
 
-\paragraph{Consequences of Shallowness}
-\begin{itemize}
-\item The shallowness assumption implies a \textit{hydrostatic} expression for the normal pressure in the direction perpendicular to the basal surface. Moreover, the downslope and cross-slope pressure components are assumed to be varying linearly with the normal pressure component through the flow depth.
+The consequence of this lack of knowledge and limited data is the multiplicity of beliefs about the complex system being modeled and a profusion of models based on different modeling assumptions and data use. These competing models lead to much debate among scientists. Principles like ``Occam's razor" and Bayesian statistics \cite{Farrell2015} provide some guidance but simple robust approaches that allow the testing of models for fitness need to be developed. We present in this paper a simple data driven approach to discriminate among models and the modeling assumptions implicit in each model, given a range of phenomena to be studied. We  illustrate  the approach by work on granular flow models of large mass flows.
 
-\item The \textit{boundary layer} where the shearing deformation takes place is collapsed to zero thickness. The sliding and shearing velocity are combined to a single sliding law with a somewhat larger modelled sliding velocity.
+\subsection{Models and assumptions}
+An assumption is a simple concept -- any atomic postulate about relationships among quantities under study  e.g., a linear stress strain relationship $\sigma=E\epsilon$ or neglecting some quantities in comparison to larger quantities $\theta \approx \sin (\theta) $ for small $\theta$. Models are  compositions of many such assumptions. The study of models is thus implicitly a study of these assumptions and their composability and applicability in a particular context. Sometimes a good model contains a useless assumption that may be removed, sometimes a good assumption should be implemented inside a different model - these are usually subjective choices, not data driven. Moreover, the correct assumptions may change through time, making {\em model choice} more difficult.
 
-\item The \textit{lateral shear stresses can be neglected}, compared to the basal shear stresses. Motion of the bulk of mass consists of ``shearing within the deforming mass'' and ``sliding along the basal surface''.
-\end{itemize}
+The rest of the paper will define our approach and a simple illustration using 3 models for large scale mass flows incorporated in our large scale mass flow simulation framework  TITAN2D \cite{Patra2005,Patra2006, Yu2009, Aghakhani2016}. The $\mathrm{4^{\mathrm{th}}}$ release of TITAN2D offers multiple rheology options in the same cyber-infrastructure. The availability of 3 distinct models for similar phenomena in the same tool provides us the  ability to directly compare inputs, outputs and internal variables in all the 3 models.
 
-The list rheology assumptions is detailed when the models are presented.
+So far, TITAN2D achieved many successful applications in the simulation of different geophysical mass flows with specific characteristics \citep{Sheridan2005, Rupp2006, Norini2008, Charbonnier2009, Procter2010, Sheridan2010, Sulpizio2010, Capra2011}. Several studies involving TITAN2D were recently directed towards a statistical study of geophysical flows, focusing on uncertainty quantification and propagation \citep{Dalbey2008, Dalbey2009, Stefanescu2012b, Stefanescu2012a}, or on the more efficient production of hazard maps \citep{Bayarri2009, Spiller2014,Bayarri2015, Ogburn2016}.
 
+\subsection{Analysis of Modeling assumptions and models }
+Let us define $\left(M(A), P_{M(A)}\right)$, where $A$ is a set of assumptions, $M(A)$ is the model which combines those assumptions, and $P_M$ is a probability distribution in the parameter space of $M$. For the sake of simplicity we assume $P_M$ to be uniformly distributed on selected parameter ranges. While the support of $P_M$ can be restricted to a single value by solving an inverse problem   for the optimal reconstruction of a particular flow, this is not possible if we are interested in the general predictive capabilities of the model, where we are interested in the outcomes over a whole range.
 
+\paragraph{Stage 1: Parameter Ranges} In this study, we always assume
+$$P_M\sim \bigotimes_{i=1}^{N_M} Unif(a_{i,M},b_{i,M}),$$
+where $N_M$ is the number of parameters of $M$. These parameter ranges will be chosen using information gathered from the literature about the physical meaning of those values together with a preliminary testing for physical consistency of model outcomes and range of inputs/outcomes of interest.
 
-\subsection{Governing equations and numerical solver}\label{subsec:GovEqsBCs}
-The motion of the mass flow is described by the basic conservation of mass and momentum for an incompressible medium:
-\begin{eqnarray}\label{eq:N_S}
-\nabla \cdot\underline{{\textbf u}} &=& 0, \nonumber \\
-\dfrac{\partial}{\dt}(\rho \ \underline{{\textbf u}})+\nabla \cdot (\rho \ \underline{{\textbf u}}\otimes \underline{{\textbf u}}) &=& \nabla \cdot \underline{\underline{{\mathbf{T}}}}+\rho \ \underline{{\textbf g}},
-\end{eqnarray}
-Where $\underline{{\textbf u}}=[u, v, w]^{\mathrm{T}}$ is the material velocity in cartesian coordinates, $\rho$ is its constant density, $\underline{\underline{{\mathbf{T}}}}$ is the \textit{Cauchy} stress tensor, and $\underline{{\textbf g}}$ is the gravity acceleration vector.
+\paragraph{Stage 2 Simulations and Data Gathering} The simulation algorithms can be represented as:
+\begin{figure}
+\centerline{\includegraphics[width=0.8\textwidth]{modelproc.pdf}}
+\caption{Models and variables}
+\end{figure}
 
-The Cauchy stress tensor, $\underline{\underline{{\mathbf{T}}}}$, depends on the rheology assumptions. The kinetic boundary conditions are defined on the free surface $F^s=s(x,y,t)-z=0$ and basal surface $F^b=b(x,y,t)-z=0$ interfaces:
-\begin{equation}\label{eq:SurKinBC}
-\frac{\partial F^s}{\dt} + \underline{{\textbf u}}\cdot\nabla F^s = 0, \ \ at \ F^s(x,y,t)=0
-\end{equation}
-\begin{equation}\label{eq:BedKinBC}
-\frac{\partial F^b}{\dt} + \underline{{\textbf u}}\cdot\nabla F^b = 0, \ \ at \ F^b(x,y,t)=0
-\end{equation}
+The \emph{model inputs} are the parameters of $M$, the \emph{latent variables} include quantities in the model evaluation that are ascribable to specific assumptions $A_i$. These are usually not observed as outputs from the model. For example in momentum balances of complex flow calculations these could be values of different source terms, dissipation terms and inertia terms. Finally, the \emph{model outputs}  include explicit outcomes e.g., for flow calculations these could be  flow height, lateral extent, area, velocity, acceleration, and derived quantities such as Froude number $Fr$. In general, for each  quantity of interest (QoI), we use a Monte Carlo simulation, sampling the input variables and obtaining a family of  graphs  plotting their expectation, and their 5$^{\mathrm{th}}$ and 95$^{\mathrm{th}}$ percentiles. Our sampling technique of the input variables is based on the Latin Hypercube Sampling (LHS) idea, and in particular, on the improved space-filling properties of the orthogonal array-based Latin Hypercubes (see Appendix A).
 
-The depth-averaged Saint-Venant equations that TITAN2D solves are:
+\paragraph{Stage 3 Results Analysis} These and other statistics can now be compared to determine the need for different modeling assumptions and the relative merits of different models. Thus, analysis of the data gathered over the entire range of flows for the state variables and outcomes leads to a quantitative basis for accepting or rejecting particular assumptions or models for specific outcomes.
+
+\section{Modeling of geophysical mass flows}\label{subsec:FlowTypes}
+Dense large scale granular avalanches are a complex class of flows with physics that has often been poorly captured by models that are computationally tractable. Sparsity of actual flow data (usually only a posteriori deposit information is available), and large uncertainty in the mechanisms of initiation and flow propagation, make the modeling task challenging, and a subject of much continuing interest. Models that appear to represent the physics well in certain flows, may turn out to be poorly behaved in others, due to intrinsic mathematical or numerical issues. Nevertheless, given the large implications on life and property, many models with different modeling assumptions have been proposed. For example in \cite{Iverson1997, Iverson2001, Denlinger2001, Pitman2003a, Denlinger2004, Iverson2004}, the depth-averaged model was applied in the simulation of test geophysical flows in large scale experiments. Several studies were specifically devoted to the modeling of volcanic mass flows \citep{Bursik2005,Kelfoun2005,Charbonnier2009,Kelfoun2009,Procter2010,Kelfoun2011,Charbonnier2013}. In fact, volcanoes are great sources for a rich variety of geophysical flow types and provide field data from past flow events.
+
+Modeling in this case proceeds by first assuming that the laws of mass and momentum conservation hold for properly defined system boundaries. The scale of these flows -- very long and wide with small depth led to the first most generally accepted assumption -- shallowness \cite{SavageHutter1989}. This allows an integration through the depth to obtain simpler and more computationally tractable equations. This is the next of many assumptions that have to be made. Both of these are fundamental assumptions which can be tested in the procedure we established above. Since, there is a general consensus and much evidence in the literature of the validity of these assumptions we defer analysis of these to future work.
+
+The depth-averaged Saint-Venant equations that result are:
 \begin{eqnarray}
 \label{eq:D_A}
 \frac{\partial h}{\partial t} +
 \frac{\partial}{\partial x}(h \bar{u}) +
-\frac{\partial}{\partial y}(h\bar{v}) &=& 0, \nonumber \\
+\frac{\partial}{\partial y}(h\bar{v}) &=& 0 \nonumber \\
 \frac{\partial}{\partial t} (h\bar{u}) +
-\frac{\partial}{\partial x}\left(h\bar{u}^2 + \frac{1}{2}k g_{z}h^2\right) + \frac{\partial}{\partial y}(h\bar{u}\bar{v}) &=& S_{x},\\
+\frac{\partial}{\partial x}\left(h\bar{u}^2 + \frac{1}{2}k g_{z}h^2\right) + \frac{\partial}{\partial y}(h\bar{u}\bar{v}) &=& S_{x}\\
 \frac{\partial}{\partial t} (h\bar{v}) +
 \frac{\partial}{\partial x}(h\bar{u}\bar{v}) +
-\frac{\partial}{\partial y}\left(h\bar{v}^2 + \frac{1}{2}k g_{z}h^2\right) &=& S_{y}\nonumber
+\frac{\partial}{\partial y}\left(h\bar{v}^2 + \frac{1}{2}k g_{z}h^2\right) &=& S_{y} \nonumber
 \end{eqnarray}
-Here the cartesian coordinate system is aligned such that $z$ is normal to the surface; $h$ is the flow height in the $z$ direction; $h\bar{u}$ and $h\bar{v}$ are respectively the components of momentum in the $x$ and $y$ directions; and $k$ is the coefficient which relates the lateral stress components, $\bar{\sigma}_{xx}$ and $\bar{\sigma}_{yy}$, to the normal stress component, $\bar{\sigma}_{zz}$. The definition of this coefficient depends on the constitutive model of the flowing material we choose. Note that $\frac{1}{2} k g_z h^2$ is the contribution of hydrostatic pressure to the momentum fluxes. $S_x$ and $S_y$ are the sum local stresses: they include the gravitational driving forces, the basal friction force resisting to the motion of the material, and additional forces specific of rheology assumptions.
+Here the Cartesian coordinate system is aligned such that $z$ is normal to the surface; $h$ is the flow height in the $z$ direction; $h\bar{u}$ and $h\bar{v}$ are respectively the components of momentum in the $x$ and $y$ directions; and $k$ is the coefficient which relates the lateral stress components, $\bar{\sigma}_{xx}$ and $\bar{\sigma}_{yy}$, to the normal stress component, $\bar{\sigma}_{zz}$. The definition of this coefficient depends on the constitutive model of the flowing material we choose. Note that $\frac{1}{2} k g_z h^2$ is the contribution of hydrostatic pressure to the momentum fluxes. $S_x$ and $S_y$ are the sum local stresses: they include the gravitational driving forces, the basal friction force resisting to the motion of the material, and additional forces specific of rheology assumptions.
 
-%\subsubsection{Numerical solver}\label{NumS}
-Let $\textbf{U}=\left[h, \ h\bar{u}, \ h\bar{v}\right]^T$ be the vector of conservative variables and $\textbf{F}=\left[h\bar{u}, \ h\bar{u}^2+0.5 k_{ap} g_z h^2, \ h\bar{v}\bar{u}\right]^T$ and $\textbf{G}=\left[h\bar{v}, \ h\bar{u}\bar{v}, \ h\bar{v}^2+0.5 k_{ap} g_z h^2\right]^T$ be the physical flux vectors.
-In order to solve the system of hyperbolic conservation laws (\ref{eq:D_A}), TITAN2D employs a finite volume Godunov solver, and the time-stepping procedure is achieved by an explicit Euler scheme \citep{Pitman2003a, Patra2005, Patra2006}. Assuming $\textbf{S}=\left[S_h, \ S_x, \ S_y\right]^T$ as the source terms vector containing the effect of the flow rheology, the flow in the next time step updates as:
-\begin{equation}\label{integrator}
-\textbf{U}_{i,j}^{n+1} = \textbf{U}_{i,j}^n - \frac{\bigtriangleup t}{\bigtriangleup x} \{\textbf{F}_{i+\frac{1}{2},j}^n - \textbf{F}_{i-\frac{1}{2},j}^n \} - \frac{\bigtriangleup t}{\bigtriangleup y} \{\textbf{G}_{i,j+\frac{1}{2}}^n - \textbf{G}_{i,j-\frac{1}{2}}^n \} + \bigtriangleup t \ \textbf{S}_{i,j}
-\end{equation}
-Where $\textbf{F}_{i\pm\frac{1}{2},j}^n$ and $\textbf{G}_{i,j\pm\frac{1}{2}}^n$ are the numerical flux terms at the inter-cell boundaries which are computed regarding the Harten-Lax-Van Leer Riemann solver \citep{Toro2013} . In fact, the evolution of the flow to the next time step depends on the advection flux at the cell interface, which results from the wave interaction at the boundaries between cells.
-On the other hand, adaptive mesh refinement allows for the concentration of computing power on regions of special interest. It captures the complex flow features along the flow boundaries, as well as the locations where there are large mass or momentum fluxes (which may include places where the topography changes abruptly). Mesh coarsening is also applied where the solution values are relatively constant or small to further improve the computational efficiency \citep{Patra2005,Aghakhani2016}.
+The final class of assumptions are the assumptions on the rheology of the flows -- in particular in this context assumptions used to model different dissipation mechanisms embedded in $S_x, S_y$ that lead to a plethora of models with much controversy on the most suitable model.
 
-\subsection{Rheology assumptions}\label{subsec:Models}
-In the three following sections, we briefly describe \emph{Mohr-Coulomb} (MC), \emph{Pouliquen-Forterre} (PF) and \emph{Voellmy-Salm} (VS) models.
+\subsection{Overview of the models}\label{subsec:Models}
+In the three following sections, we briefly describe \emph{Mohr-Coulomb} (MC), \emph{Pouliquen-Forterre} (PF) and \emph{Voellmy-Salm} (VS) models. Models based on additional heterogeneous assumptions are possible, either more complex \citep{PitmanLe2005} or more simple \citep{DadeHuppert1998}, but we are focusing on those because of their historical relevance and their comparable degree of complexity.
 
 \subsubsection{Mohr-Coulomb}\label{MCM}
-Based on the long history of studies in soil mechanics \citep{Rankine1857}, the Mohr-Coulomb rheology model was developed and used to represent the behavior of geophysical mass flows \cite{SavageHutter1989}.
+Based on the long history of studies in soil mechanics \citep{Rankine1857,Jaeger1989}, the Mohr-Coulomb rheology (MC) was developed and used to represent the behavior of geophysical mass flows \cite{SavageHutter1989}.
 
 Shear and normal stress are assumed to obey Coulomb friction equation, both within the flow and at its boundaries. In other words,
 \begin{equation}
@@ -188,54 +144,45 @@ Shear and normal stress are assumed to obey Coulomb friction equation, both with
 \end{equation}
 where $\tau$ and $\sigma$ are respectively the shear and normal stresses on failure surfaces, and $\phi$ is a friction angle. This relationship does not depend on the flow speed.
 
-Under the assumption of symmetry of the stress tensor w.r.t. the \textit{z} axis, the earth pressure coefficient $k=k_{ap}$ can take on only one of three values indicated by the square dots shown in Figure \ref{mohr_circle}. The material yield criterion is represented by the two straight lines at angles $\pm \phi$ (the internal friction angle) relative to horizontal direction. Similarly, the normal and shear stress at the bed are represented by the line $\tau=-\sigma \tan(\delta)$ where $\delta$ is the bed friction angle. The three possible stress states in the \textit{xz}-plane are indicated by the square dots. The circular dots show the additional possible stress states for $\sigma_{yy}$ for a non-axisymmetric stress tensor.
-
-\begin{figure}[H]
-        \centering
-        \includegraphics[width=.7\textwidth]{Figures/mohr.jpg}
-        \caption{Mohr-circle-diagram representing the stress state within a granular medium \citep{Pirulli2007}.}
-        \label{mohr_circle}
-\end{figure}
-
-Regarding the friction angle stated above, we have two material properties in this model:
+We can summarize the MC rheology assumptions as:
 \begin{itemize}
-\item Internal friction angle, $\phi_{int}$, which resists material shear.
-\item Bed friction angle, $\phi_{bed}$, which resists motion of the material relative to the bed. This is a joint property of the material and the surface it flows over.
-\end{itemize}
-It is worth mentioning that the effective value of the friction angles can be strongly reduced by the presence of interstitial fluid, sometimes creating modeling issues. Specific models have been developed in case the effect of interstitial fluid is believed to be particularly relevant \citep{PitmanLe2005}.
+\item \textit{Basal Friction} based on a constant friction angle.
 
-\paragraph{Earth pressure coefficient} $k=k_{ap}$ is defined in MC as:
-\begin{eqnarray}\label{k_ap}
-k_{ap} = \begin{cases}
-\frac{\sigma_{xx}^{b \ act}}{\sigma_{zz}^b}=2\frac{1-\sqrt{1-\cos^2(\phi_{int})(1+\tan^2 (\phi_{bed}))}}{\cos^2(\phi_{int})}-1, & \nabla \cdot \underset{^\sim}{\bar{\textbf u}}>0, \ active\\
-\frac{\sigma_{xx}^{b}}{\sigma_{zz}^b}=1, & \nabla \cdot \underset{^\sim}{\bar{\textbf u}}=0, \ neutral\\
-\frac{\sigma_{xx}^{b \ pass}}{\sigma_{zz}^b}=2\frac{1+\sqrt{1-\cos^2(\phi_{int})(1+\tan^2 (\phi_{bed}))}}{\cos^2(\phi_{int})}-1, & \nabla \cdot \underset{^\sim}{\bar{\textbf u}}<0, \ passive
-\end{cases}
-\end{eqnarray}
+\item \textit{Internal Friction} based on a constant friction angle.
 
-\paragraph{MC equations} As a result, we can write down the source terms of the Eqs. (\ref{eq:D_A}):
-\begin{eqnarray}\label{S_terms_MC}
-S_x = g_x h  - \frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf u}} \|} \left[h\left(g_z+\frac{\bar{u}^2}{r_x}\right)\tan(\phi_{bed})\right] - h k_{ap} \ {\rm sgn}\left(\frac{\partial \bar{u}}{\partial y}\right) \frac{\partial (g_z h)}{\partial y} \sin(\phi_{int}),\nonumber \\
-S_y = g_y h  - \frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf u}} \|} \left[h\left(g_z +\frac{\bar{v}^2}{r_y}\right)\tan(\phi_{bed})\right] - h k_{ap} \ {\rm sgn}\left({\frac{\partial \bar{v}}{\partial x}}\right) \frac{\partial (g_z h)}{\partial x} \sin(\phi_{int})
-\end{eqnarray}
-Where, $\underset{^\sim}{\bar{\textbf u}} = (\bar{u} , \bar{v})$, is the depth-averaged velocity vector, $r_x$ and $r_y$ denote the radii of curvature
-of the local basal surface. The inverse of the radii of curvature is usually approximated with the partial derivatives of the basal slope, e.g., $1/r_x = \partial \theta_x/\partial x$, where $\theta_x$ is the local bed slope.
-
-\paragraph{MC rheology assumptions} In summary:
-\begin{itemize}
-\item \textit{Basal Friction} is based on a constant friction angle.
-
-\item \textit{Internal Friction} gives a not negligible contribution and it is based on a constant friction angle.
-
-\item \textit{Earth pressure coefficient} formula depends on the Mohr-Coulomb circle.
+\item \textit{Earth pressure coefficient} formula depends on the Mohr circle.
 
 \item Velocity based \textit{curvature effects} are included into the equations.
 \end{itemize}
 
-\subsubsection{Pouliquen-Forterre}\label{PFM}
-The scaling properties for granular flows down rough inclined planes led to a new formulation of the basal friction stress as a function of the flow depth and velocity \citep{Pouliquen1999}.
+Under the assumption of symmetry of the stress tensor with respect to the \textit{z} axis, the earth pressure coefficient $k=k_{ap}$ can take on only one of three values $\{ 0, \pm 1\}$.
+The material yield criterion is represented by the two straight lines at angles $\pm \phi$ (the internal friction angle) relative to horizontal direction. Similarly, the normal and shear stress at the bed are represented by the line $\tau=-\sigma \tan(\delta)$ where $\delta$ is the bed friction angle.
 
-Two critical slope inclination angles are defined as functions of the flow thickness, namely $\phi_{start}(h)$ and $\phi_{stop}(h)$. The function $\phi_{stop}(h)$ gives the slope angle at which a steady uniform flow leaves a deposit of thickness $h$, while $\phi_{start}(h)$ is the angle at which a layer of thickness $h$ is mobilized. They define two different basal friction coefficients:
+\paragraph{MC equations} As a result, we can write down the source terms of the Eqs. (\ref{eq:D_A}):
+\begin{eqnarray}\label{S_terms_MC}
+S_x =& g_x h  - \frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf u}} \|} \left[h\left(g_z+\frac{\bar{u}^2}{r_x}\right)\tan(\phi_{bed})\right] - h k_{ap} \ {\rm sgn}\left(\frac{\partial \bar{u}}{\partial y}\right) \frac{\partial (g_z h)}{\partial y} \sin(\phi_{int}) \nonumber \\
+ S_y =& g_y h  - \frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf u}} \|} \left[h\left(g_z +\frac{\bar{v}^2}{r_y}\right)\tan(\phi_{bed})\right] - h k_{ap} \ {\rm sgn}\left({\frac{\partial \bar{v}}{\partial x}}\right) \frac{\partial (g_z h)}{\partial x} \sin(\phi_{int})
+\end{eqnarray}
+Where, $\underset{^\sim}{\bar{\textbf u}} = (\bar{u} , \bar{v})$, is the depth-averaged velocity vector, $r_x$ and $r_y$ denote the radii of curvature
+of the local basal surface. The inverse of the radii of curvature is usually approximated with the partial derivatives of the basal slope, e.g., $1/r_x = \partial \theta_x/\partial x$, where $\theta_x$ is the local bed slope.
+
+\subsubsection{Pouliquen-Forterre}\label{PFM}
+The scaling properties for granular flows down rough inclined planes led to the development of the Pouliquen-Forterre rheology (PF), assuming a variable frictional behavior as a function of flow regime (i.e. Froude Number, $Fr$) and flow depth \citep{Pouliquen1999, ForterrePouliquen2002, PouliquenForterre2002, ForterrePouliquen2003}. They allowed for an improved modeling of front propagation, mass spreading, surface wave-propagation and vortices-evolution in the flows on a rough terrain \citep{Forterre2006, Jop2006, ForterrePouliquen2008}.
+
+PF rheology assumptions can be summarized as:
+\begin{itemize}
+\item \textit{Basal Friction} is based on an interpolation of two different friction angles, based on the flow regime and depth.
+
+\item \textit{Internal Friction} is neglected.
+
+\item \textit{Earth pressure coefficient} is equal to one.
+
+\item Normal stress is modified by a \textit{hydrostatic pressure force} related to the flow height gradient.
+
+\item Velocity based \textit{curvature effects} are included into the equations.
+\end{itemize}
+
+Two critical slope inclination angles are defined as functions of the flow thickness, namely $\phi_{start}(h)$ and $\phi_{stop}(h)$. The function $\phi_{stop}(h)$ gives the slope angle at which a steady uniform flow leaves a deposit of thickness $h$, while $\phi_{start}(h)$ is the angle at which a layer of thickness $h$ is mobilized. They define two different basal friction coefficients.
 \begin{eqnarray}
 \mu_{start}(h)=\tan(\phi_{start}(h))\\
 \mu_{stop}(h)=\tan(\phi_{stop}(h))
@@ -252,7 +199,7 @@ An empirical friction law $\mu_{b}(\|\underset{^\sim}{\bar{\textbf{u}}} \| , h)$
 \begin{equation}\label{mu_beta2}
 \mu(h, Fr)=\left(\frac{Fr}{\beta}\right)^\gamma [\mu_{stop}(h)-\mu_{start}(h)] + \mu_{start}(h),
 \end{equation}
-where $\gamma$ is the power of extrapolation, assumed equal to $10^{-3}$ in the sequel \citep{PouliquenForterre2002}. In particular, if $Fr=\beta$, then $\mu(h, Fr)=\mu_{stop}(h)$, and if $Fr = 0$, then $\mu(h, Fr)=\mu_{start}(h)$.
+where $\gamma$ is the power of extrapolation, assumed equal to $10^{-3}$ in the sequel \citep{PouliquenForterre2002}.
 
 The functions $\mu_{stop}$ and $\mu_{start}$ are defined by:
 \begin{equation}\label{mu-stop}
@@ -266,42 +213,22 @@ The critical angles $\phi_{1}$, $\phi_{2}$ and $\phi_{3}$ and the parameters $\m
 
 In particular, $\mathcal{L}$ is the characteristic depth of the flow over which a transition between the angles $\phi_{1}$ to $\phi_{2}$ occurs, in the $\mu_{stop}$ formula. In practice, if $h\ll \mathcal L$, then $\mu_{stop}(h)\approx \tan\phi_{2}$, and if $h\gg \mathcal L$, then $\mu_{stop}(h)\approx\tan\phi_{1}$. The effect of the topographic local curvatures is also taken into account.
 
-\paragraph{PF equations} The depth-averaged Eqs. (\ref{eq:D_A}) source terms thus take the following form:
+ \paragraph{PF equations} The depth-averaged Eqs. (\ref{eq:D_A}) source terms thus take the following form:
 \begin{eqnarray}\label{eq:S_terms_PF}
 S_{x} &=&  g_{x} h -  \frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf{u}}} \|}\left[h \left(g_z+\frac{\bar{u}^2}{r_x}\right) \ \mu_{b}(\|\underset{^\sim}{\bar{\textbf{u}}} \| , h)\right] \ + g_{z}h\frac{\partial h}{\partial x} \nonumber \\
 S_{y} &=&  g_{y} h - \frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf{u}}} \|}\left[h \left(g_z +\frac{\bar{v}^2}{r_y}\right) \ \mu_{b}(\|\underset{^\sim}{\bar{\textbf{u}}} \| , h)\right] \ + g_{z}h\frac{\partial h}{\partial y}
 \end{eqnarray}
 
-\paragraph{PF rheology assumptions} In summary:
-\begin{itemize}
-\item \textit{Basal Friction} is based on an interpolation of different friction angles, based on the flow regime and depth.
-
-\item \textit{Internal Friction} is neglected.
-
-\item \textit{Earth pressure coefficient} is equal to one.
-
-\item Normal stress is modified by a \textit{hydrostatic pressure force} related to the flow height gradient.
-
-\item Velocity based \textit{curvature effects} are included into the equations.
-\end{itemize}
-
 \subsubsection{Voellmy-Salm}\label{VSM}
-The theoretical analysis of dense snow avalanches led to the VS rheology model \citep{Voellmy1955, Salm1993}. The following relation between shear and normal stresses holds:
+The theoretical analysis of dense snow avalanches led to the VS rheology (VS) \citep{Voellmy1955, Salm1990, Salm1993, Bartelt1999}. Dense snow or debris avalanches consist of mobilized, rapidly flowing ice-snow mixed to debris-rock granules \citep{BarteltMcArdell2009}. The VS rheology assumes a velocity dependent resisting term in addition to the traditional basal friction, ideally capable of including an approximation of the turbulence-generated dissipation. Many experimental and theoretical studies were developed in this framework \citep{Gruber2007, Kern2009, Christen2010, Fischer2012}.
+
+The following relation between shear and normal stresses holds:
 \begin{equation}
 \tau = \mu \sigma + \frac{\rho \| \underline{\textbf g} \|}{\xi} \| \underset{^\sim}{\bar{\textbf u}} \|^2,
 \end{equation}
-where, $\sigma$ denotes the normal stress at the bottom of the fluid layer and $\underline{\textbf g} = (g_{x} , g_{y} , g_{z})$ represents the gravity vector. The VS rheology adds a velocity dependent \emph{turbulent} friction to the traditional velocity independent basal friction term which is proportional to the normal stress at the flow bottom. The two parameters of the model are the bed friction coefficient $\mu$ and the turbulent friction coefficient $\xi$. By dimension analysis, $\xi$ is equivalent to an acceleration, while $\mu$ is dimensionless. The decomposition of the total basal friction into velocity independent and dependent parts allows the modeling of either the dynamic regime when the avalanche is flowing with a high velocity in the acceleration zone, and when it is close to stopping in the runout zone.
+where, $\sigma$ denotes the normal stress at the bottom of the fluid layer and $\underline{\textbf g} = (g_{x} , g_{y} , g_{z})$ represents the gravity vector. The VS rheology adds a velocity dependent \emph{turbulent} friction to the traditional velocity independent basal friction term which is proportional to the normal stress at the flow bottom. The two parameters of the model are the bed friction coefficient $\mu$ and the turbulent friction coefficient $\xi$.
 
-The effect of the topographic local curvatures is again taken into account by adding the terms containing the local radii of curvature $r_x$ and $r_y$. In this case the formula is considering the modulus of velocity instead than the scalar component \citep{Fischer2012}.
-
-\paragraph{VS equations} Therefore, the final source terms take the following form:
-\begin{eqnarray}
-\label{eq:S_terms_VS}
-S_{x} &=&  g_{x} h - \frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf u}}\|} \ \left[ h \left(g_{z} + \frac{\| \underset{^\sim}{\bar{\textbf u}} \|^2}{r_{x}} \right)\mu+ \frac{\| \underset{^\sim}{\textbf g} \|}{\xi}\| \underset{^\sim}{\bar{\textbf u}} \|^2\right], \nonumber \\
-S_{y} &=& g_{y} h - \frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf u}}\|} \ \left[ h \left(g_{z} + \frac{\| \underset{^\sim}{\bar{\textbf u}} \|^2}{r_{y}} \right)\mu+ \frac{\| \underset{^\sim}{\textbf g} \|}{\xi}\| \underset{^\sim}{\bar{\textbf u}} \|^2\right].
-\end{eqnarray}
-
-\paragraph{VS rheology assumptions} In summary:
+We can summarize VS rheology assumptions as:
 \begin{itemize}
 \item \textit{Basal Friction} is based on a constant coefficient, similarly to the MC rheology.
 
@@ -314,6 +241,55 @@ S_{y} &=& g_{y} h - \frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf u}}\|} \ \le
 \item Velocity based \textit{curvature effects} are included into the equations, following an alternative formulation.
 \end{itemize}
 
+The effect of the topographic local curvatures is again taken into account by adding the terms containing the local radii of curvature $r_x$ and $r_y$. In this case the formula is considering the modulus of velocity instead than the scalar component \cite{PudasainiHutter2003,Fischer2012}.
+
+\paragraph{VS equations} Therefore, the final source terms take the following form:
+\begin{eqnarray}
+\label{eq:S_terms_VS}
+S_{x} &=&  g_{x} h - \frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf u}}\|} \ \left[ h \left(g_{z} + \frac{\| \underset{^\sim}{\bar{\textbf u}} \|^2}{r_{x}} \right)\mu+ \frac{\| \underset{^\sim}{\textbf g} \|}{\xi}\| \underset{^\sim}{\bar{\textbf u}} \|^2\right], \nonumber \\
+S_{y} &=& g_{y} h - \frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf u}}\|} \ \left[ h \left(g_{z} + \frac{\| \underset{^\sim}{\bar{\textbf u}} \|^2}{r_{y}} \right)\mu+ \frac{\| \underset{^\sim}{\textbf g} \|}{\xi}\| \underset{^\sim}{\bar{\textbf u}} \|^2\right].
+\end{eqnarray}
+
+\subsection{Latent variables}\label{sec:Fterms}
+For analysis of modeling assumptions we need to record and classify the results of different modeling assumptions. In our case study, we focus on the right-hand side terms in the momentum equation, we call them RHS forces. These terms are explored in detail in the next sections.
+\begin{align}
+\boldsymbol{RHS_1} = [g_x h,g_y h],
+\end{align}
+it is the gravitational force term, it has the same formulation in all models.
+
+The formula of {\bf basal friction force} $\boldsymbol{RHS_2}$ depends on the model:
+\begin{align}
+\boldsymbol{RHS_2} =& -h g_z\tan(\phi_{bed})\left[\frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf u}} \|}, \frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf u}} \|} \right],\textmd{ in MC model.}\nonumber\\
+\boldsymbol{RHS_2} =& - h g_z \ \mu_{b}(\|\underset{^\sim}{\bar{\textbf{u}}} \| , h)\left[\frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf{u}}} \|}, \frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf{u}}} \|}\right],\textmd{ in PF model.}\\
+\boldsymbol{RHS_2} =& -h g_{z} \mu\left[\frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf u}}\|} , \frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf u}}\|}\right],\textmd{ in VS model.}\nonumber
+\end{align}
+
+The formula of the force related to the {\bf topography curvature}, $\boldsymbol{RHS_3}$, also depends on the model:
+\begin{align}
+\boldsymbol{RHS_3} =&-h \tan(\phi_{bed})\left[\frac{\bar{u}^3}{r_x\| \underset{^\sim}{\bar{\textbf{u}}} \|}, \frac{\bar{v}^3}{r_y\| \underset{^\sim}{\bar{\textbf{u}}} \|}\right],\textmd{ in MC model.}\nonumber\\
+\boldsymbol{RHS_3} =& -h\ \mu_{b}(\|\underset{^\sim}{\bar{\textbf{u}}} \|,h)\left[\frac{\bar{u}^3}{r_x\| \underset{^\sim}{\bar{\textbf{u}}} \|}, \frac{\bar{v}^3}{r_y\| \underset{^\sim}{\bar{\textbf{u}}} \|}\right],\textmd{ in PF model.}\\
+\boldsymbol{RHS_3} =& -h \mu\left[\frac{\bar{u}\| \underset{^\sim}{\bar{\textbf u}} \|}{r_{x}},\frac{\bar{v}\| \underset{^\sim}{\bar{\textbf u}} \|}{r_{y}}\right],\textmd{ in VS model.}\nonumber
+\end{align}
+
+All the three models have an additional force term, having a different formula and meaning in the three models:
+\begin{align}
+\boldsymbol{RHS_4} =&  - h k_{ap}\sin(\phi_{int})\left[ \ {\rm sgn}(\frac{\partial \bar{u}}{\partial y}) \frac{\partial (g_z h)}{\partial y},\ {\rm sgn}({\frac{\partial \bar{v}}{\partial x}}) \frac{\partial (g_z h)}{\partial x}\right],\textmd{ in MC model.}\nonumber\\
+\boldsymbol{RHS_4} =& g_{z}h\left[\frac{\partial h}{\partial x}, \frac{\partial h}{\partial y}\right],\textmd{ in PF model.}\\
+\boldsymbol{RHS_4} =& -\frac{\| \underset{^\sim}{\textbf g} \|}{\xi}\| \underset{^\sim}{\bar{\textbf u}} \|^2\left[\frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf u}}\|} \ ,\frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf u}}\|}\right],\textmd{ in VS model.}\nonumber
+\end{align}
+These latent variables can be analyzed locally and globally for discriminating among the different modeling assumption.
+
+\subsection{Monte Carlo Process and Statistical Analysis}
+For our study, the flow range is defined by establishing boundaries for inputs like flow volume and rheology coefficients. Optionally, these could include also flow initiation site and geometry, and the digital elevation map. The Latin Hypercube Sampling is performed over $[0,1]^3$ for the MC and VS input parameters, and $[0,1]^4$ for PF input parameters. Those dimensionless samples are linearly  mapped to fill the required intervals.
+
+Following the simulations, we generate data for each sample run and each outcome and latent variable $f(\underline{\textbf x},t)$ calculated as a function of time on the elements of the computational grid. This analysis generates tremendous volume of data which must then be analyzed using statistical methods for summative impact. The latent variables in this case are the mass and force terms in the conservation laws defined above. In more detail, local sampling is performed by considering the elements of the adapting mesh which are found to contain the sample points. Instead, spatial integrals are defined by $F(t)=\int_{\mathbb R^k}f(\underline{\textbf x},t) d\underline{\textbf x}$. In the most of the cases $k=2$, and $d\underline{\textbf x}$ is given by the area of the mesh elements. Sometimes $k=3$, e.g. concerning speed, and $d\underline{\textbf x}$ is the element of volume corresponding to the mesh elements.
+
+We devise many statistical measures for analyzing the data. For instance, let $(F_i(x,t))_{i=1,\dots, 4}$ be an array of force components, where $x\in \mathbf R^2$ is a spatial location, and $t\in T$ is a time instant. The degree of contribution of those force terms can be significantly variable in space and time, and we define the \emph{dominance factors} $(p_j)_{j=1,\dots, k}$, i.e., the probability of each $F_j$ to be the dominant force at $(x,t)$. Those probabilities provide insight into the dominance of a particular source or dissipation (identified with a particular modeling assumption) term on the model dynamics. The dominance factors can be adopted to define a statistical decomposition of the contributions of the forces, as detailed in Appendix B.
+
+\subsection{Overview of the case studies}
+The first case study assumes very simple boundary conditions, and corresponds to an experiment fully described in \cite{Webb2004, Bursik2005, WebbBursik2016}. It is a classical flow down an inclined plane set-up, including a change in slope to an horizontal plane (Fig. \ref{fig:Ramp-first}). Modeling flow of granular material down an inclined plane was explored in detail by several studies, both theoretically and experimentally \citep{RuyerQuil2000, Silbert2001, DaCruz2005}.
+
+In our setting, four locations are selected among the center line of the flow to accomplish local testing. These are: the initial pile location $L_1=(-0.7,0)$ m, the middle of the inclined plane $L_2=(-0.35,0)$ m, the change in slope $L_3=(0,0)$ m, the middle of the flat plane $L_4=(0.15,0)$ m (see Section \ref{sec:QoIs}).
 
 \begin{figure}[H]
     \includegraphics[width=0.85\textwidth]{InclinedPlane/inclPlaneFig.jpg}
@@ -322,10 +298,9 @@ S_{y} &=& g_{y} h - \frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf u}}\|} \ \le
     \label{fig:Ramp-first}
 \end{figure}
 
-\subsection{Overview of the case studies}
-The first case study assumes very simple boundary conditions, and corresponds to an experiment fully described in \cite{Webb2004, Bursik2005, WebbBursik2016}. It is a classical flow down an inclined plane set-up, including a change in slope to an horizontal plane (Fig. \ref{fig:Ramp-first}). Four locations are selected among the center line of the flow to accomplish local testing. These are: the initial pile location $L_1=(-0.7,0)$ m, the middle of the inclined plane $L_2=(-0.35,0)$ m, the change in slope $L_3=(0,0)$ m, the middle of the flat plane $L_4=(0.15,0)$ m (see Section \ref{sec:QoIs}).
+The second case study is a block and ash flow down the slope of Volc{\'a}n de Colima (MX) - an andesitic stratovolcano that rises to 3,860 m above sea level, situated in the western portion of the Trans-Mexican Volcanic Belt (Fig. \ref{fig:Colima-first}).
 
-The second case study is a block and ash flow down the slope of Volc{\'a}n de Colima (MX) - an andesitic stratovolcano that rises to 3,860 m above sea level, situated in the western portion of the Trans-Mexican Volcanic Belt (Fig. \ref{fig:Colima-first}). Historically, it has been the most active volcano in M{\'e}xico \citep{DeLaCruzReina1993, Zobin2002, Gonzalez2002}. The modeling of pyroclastic flows generated by explosive eruptions and lava dome collapses of Volc{\'a}n de Colima is a well studied problem \citep{DelPozzo1995,Sheridan1995,Saucedo2002,Saucedo2004,Saucedo2005, Sarocchi2011, Capra2015}. The presence of a change in slope followed by multiple ravines characterize this framework. The volcano has been already used as a case study in several research involving the Titan2D code \citep{Rupp2004, Rupp2006, Dalbey2008, Yu2009, Sulpizio2010, Capra2011, Aghakhani2016}. During July 10$^{\mathrm{th}}$-11$^{\mathrm{th}}$, 2015, the volcano underwent its most intense eruptive phase since its Subplinian-Plinian 1913 AD eruption \citep{Saucedo2010, Zobin2015, ReyesDaVilla2016, Capra2016, Macorps2017}.
+Volc{\'a}n de Colima has historically been the most active volcano in M{\'e}xico \citep{DeLaCruzReina1993, Zobin2002, Gonzalez2002}. The modeling of pyroclastic flows generated by explosive eruptions and lava dome collapses of Volc{\'a}n de Colima is a well studied problem \citep{DelPozzo1995,Sheridan1995,Saucedo2002,Saucedo2004,Saucedo2005,Sarocchi2011,Capra2015}. The presence of a change in slope followed by multiple ravines characterize this framework. The volcano has been already used as a case study in several research involving the Titan2D code \citep{Rupp2004, Rupp2006, Dalbey2008, Yu2009, Sulpizio2010, Capra2011, Aghakhani2016}. During July 10$^{\mathrm{th}}$-11$^{\mathrm{th}}$, 2015, the volcano underwent its most intense eruptive phase since its Subplinian-Plinian 1913 AD eruption \citep{Saucedo2010, Zobin2015, ReyesDaVilla2016, Capra2016, Macorps2017}.
 
 \begin{figure}[H]
     \includegraphics[width=0.9\textwidth]{BAF_VolcanDeColima/ColimaFig.jpg}
@@ -336,78 +311,8 @@ The second case study is a block and ash flow down the slope of Volc{\'a}n de Co
 
 We assume the flow to be generated by the gravitational collapse of a material pile placed close to the summit area. The volcano already produced either pyroclastic flows generated by lava dome collapse, called Merapi style flows, or by an eruptive column partial collapse, i.e. Soufriere style flows \citep{Macorps2017}. A dome collapse occurs when there is a significant amount of recently-extruded highly-viscous lava piled up in an unstable configuration around a vent. Further extrusion and/or externals forces can cause the still hot dome of viscous lava to collapse, disintegrate, and avalanche downhill \citep{Bursik2005, Wolpert2016, Hyman2018}. Eruptive column collapse can occur during explosive eruptions, when the eruption column can no longer sustain the weight of material due to loss of pressure, and hence it partially collapses down. The hot, dense blocks in this ``block and ash'' flow (BAF) will typically range from centimeters to a few meters in size. The matrix is composed of fine ash from the comminuted blocks. Computations were performed on a DEM with 5m-pixel resolution, obtained from LiDAR data acquired in 2005 \citep{Davila2007, Sulpizio2010}. We placed 51 locations along the flow inundated area to accomplish local testing. Six of them are then adopted as preferred locations, being representative of different flow regimes.
 
-
-\section{Uncertainty quantification process}
-\subsection{General formulation}
-The key to a good forecasting capability in the context of mass flows requires the careful selection of the pair $\left(M(A), P_{M(A)}\right)$, where $A$ is a set of assumptions, $M(A)$ is the model which combines those assumptions, and $P_M$ is a probability distribution in the parameter space of $M$. For the sake of simplicity we are always taking $P_M$ uniformly distributed on selected parameter ranges.
-
-\paragraph{Models and assumptions} An assumption is a quite general concept - for example it can be a specific equation for the internal stress, the implementation of bed curvature effects, of active-passive material stretching, or the use of a specific correction on the pressure effects. Assumptions are what makes the models being different, and each model may be seen as the combined result of a set of assumptions. Sometimes a good model contains a useless assumption that may be removed, sometimes a good assumption should be implemented inside a different model - those are usually considered as subjective choices, not data driven. Moreover, the correct assumptions may change through time, making the analysis more difficult. We provided a list of assumptions behind SWE general implementation, and behind each rheology in section \ref{sec:GeoPhFlows}.
-
-\paragraph{Parameters ranges} It is worth mentioning that whereas the support of $P_M$ can be restricted to a single point in case an inverse problem is solved for the optimal reconstruction of a particular flow, this is not possible if we are interested in the general predictive capabilities of the model, i.e. the target of probabilistic hazard assessment. In this study we always assume $P_M\sim \bigotimes_{i=1}^{N_M} Unif(a_{i,M},b_{i,M})$, where $N_M$ is the number of parameters of $M$. These parameter ranges will not be selected under the influence of a particular observation, but we will try to use the information gathered in literature about the physical meaning of those values, together with a preliminary testing, aligning the range of possible runouts. This alignment step is detailed in section \ref{consistency}, and required to focus the statistical comparison on a consistence range of flow regimes.
-
-\paragraph{Simulated quantities} The simulation algorithms can be schematized as:
-$$\textmd{(1)INPUT VARIABLES} \rightarrow \textmd{(2)DYNAMIC QUANTITIES} \rightarrow \textmd{(3)OBSERVABLE OUTPUTS}$$
-The \emph{input variables} are the parameters of $M$, i.e. volume, rheology coefficients, but can include also the initiation site and geometry, and the digital elevation map. The \emph{dynamic quantities} include the stress terms in the Newton Equations that rule the simulation, and their powers. Those are hidden to the observation in a real flow, but they directly depend on the parameters, and represent a fundamental link between the parameters and the observable outputs. Moreover, the models share some of those terms while change others, and this enables a detailed comparison of the real physics below the curtain (see Sections \ref{Hq1},\ref{Hq2}). Finally, the \emph{observable outputs} include what can be measured in space and time: e.g. flow height, lateral extent, area, velocity, acceleration, and combined quantities as $Fr$ (see Sections \ref{Obs1}, \ref{Obs2}). In the sequel (2) and (3) are also called quantities of interest (QoI).
-
-\paragraph{Monte Carlo simulation} In general, for each QoI, during a Monte Carlo simulation we sample the input variables and obtain a family of temporal graphs on time domains depending on the flow duration. These results are statistically summarized - plotting their expectation, and their 5$^{\mathrm{th}}$ and 95$^{\mathrm{th}}$ percentiles. In the following, we will detail the considered input variables and quantities of interest for each of our cases study.
-
-Our sampling technique of the input variables is based on the Latin Hypercube Sampling (LHS) idea, and in particular, on the improved space-filling properties of the orthogonal array-based Latin Hypercubes (see Appendix A). The LHS is performed over $[0,1]^3$ for the MC and VS input parameters, and $[0,1]^4$ for PF input parameters (see Section \ref{consistency}). Those adimensional samples are translated and linearly scaled to fill the required intervals.
-
-\paragraph{Local samples and spatial averaging}
-The QoI in the previous scheme which are evolving fields $f(\underline{\textbf x},t)$ in space-time, can be either \emph{locally sampled} or \emph{spatially integrated} (see sections \ref{sec:QoIs}, \ref{QoI2}). The spatial integral is defined by $F(t)=\int_{\mathbb R^k}f(\underline{\textbf x},t) d\underline{\textbf x}$. In the most of the cases $k=2$, and $d\underline{\textbf x}$ is given by the area of the mesh elements. Sometimes $k=3$, e.g. concerning speed, and $d\underline{\textbf x}$ is the element of volume corresponding to the mesh elements.
-
-A fundamental part of this research was made possible by the new implementation of a local sampling option in the TITAN2D cyber-infrastructure. In particular, once a set of sample points $(x_i)_{i=1,...,N}$ is chosen, each field $f(\underline{\textbf x},t)$ is calculated as a function of time on the elements of the numerical mesh which are found to contain the $(x_i)_{i=1,...,N}$. Exploring differences in time and location enable to constrain the changes in flow regime. Those are really important because if the flow behavior is radically different, then the significance and effects of the assumptions may also change.
-
-\paragraph{Statistical analysis of dynamical quantities}
-Let $(F_i(x,t))_{i=1,\dots, 4}$ be an array of force components, where $x\in\mathbb R^2$ is a spatial location, and $t\in T$ is a time instant. The degree of contribution of those force terms can be significantly variable in space and time, and we define the
-\emph{dominance factors} $(p_j)_{j=1,\dots, k}$, i.e. the probability of each $F_j$ to be the dominant force at $(x,t)$. Those probabilities tell what is chance of being the greater force term, and hence can provide a concise statistical description of the model dynamics. The dominance factors can be adopted to define a statistical decomposition of the contributions of the forces, as detailed in Appendix B. In sections \ref{stat1} and \ref{stat2} we report the dominance factors plots, to read the dynamic significance of the forces as a function of time and location.
-
-\subsection{Forces terms definition}\label{sec:Fterms}
-Forces analyzed have been classified according to the terms of the momentum equation in (\ref{eq:D_A}). Moreover, the forces terms in $S_x$ have been additionally classified, accordingly to equations (\ref{S_terms_MC}), (\ref{eq:S_terms_PF}), (\ref{eq:S_terms_VS}), describing the three rheology models considered in this study. What follows is a summary of the force terms, and this notation will be used in the following (see Sections \ref{Hq1}, \ref{Hq2}). In our case study, we focus on the right-hand side terms in the momentum equation. The analysis of $RHS$ will inform on local effects, while focusing instead on the $LHS$ would concern the exploration of global dynamics in space and time.
-
-\paragraph{Left-hand side, LHS forces}
-These terms are not detailed further in this study, but are included for the sake of completeness.
-\begin{align}
-\boldsymbol{LHS_1} = \left[\frac{\partial}{\partial t} (h\bar{u}), \frac{\partial}{\partial t} (h\bar{v})\right],
-\end{align}
-it is the temporal derivative of momentum.
-
-\begin{align}
-\boldsymbol{LHS_2} = \left[\frac{\partial}{\partial x}\left(h\bar{u}^2 + \frac{1}{2}k g_{z}h^2\right) + \frac{\partial}{\partial y}(h\bar{u}\bar{v}),\frac{\partial}{\partial x}(h\bar{u}\bar{v}) +
-\frac{\partial}{\partial y}\left(h\bar{v}^2 + \frac{1}{2}k g_{z}h^2\right)\right],
-\end{align}
-it is the material derivative of momentum, due to the advection.
-
-\paragraph{Right-hand side, RHS forces}
-These terms are explored in detail in the next sections.
-\begin{align}
-\boldsymbol{RHS_1} = [g_x h,g_y h],
-\end{align}
-it is the gravitational force term, it has the same formulation in all models.
-
-The formula of basal friction force $\boldsymbol{RHS_2}$ depends on the model:
-\begin{align}
-\boldsymbol{RHS_2} = -h g_z\tan(\phi_{bed})\left[\frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf u}} \|}, \frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf u}} \|} \right],\textmd{ in MC model.}\nonumber\\
-\boldsymbol{RHS_2} = - h g_z \ \mu_{b}(\|\underset{^\sim}{\bar{\textbf{u}}} \| , h)\left[\frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf{u}}} \|}, \frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf{u}}} \|}\right],\textmd{ in PF model.}\\
-\boldsymbol{RHS_2} = -h g_{z} \mu\left[\frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf u}}\|} , \frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf u}}\|}\right],\textmd{ in VS model.}\nonumber
-\end{align}
-
-The formula of the force related to the topography curvature, $\boldsymbol{RHS_3}$, also depends on the model:
-\begin{align}
-\boldsymbol{RHS_3} = -h \tan(\phi_{bed})\left[\frac{\bar{u}^3}{r_x\| \underset{^\sim}{\bar{\textbf{u}}} \|}, \frac{\bar{v}^3}{r_y\| \underset{^\sim}{\bar{\textbf{u}}} \|}\right],\textmd{ in MC model.}\nonumber\\
-\boldsymbol{RHS_3} = -h\ \mu_{b}(\|\underset{^\sim}{\bar{\textbf{u}}} \|,h)\left[\frac{\bar{u}^3}{r_x\| \underset{^\sim}{\bar{\textbf{u}}} \|}, \frac{\bar{v}^3}{r_y\| \underset{^\sim}{\bar{\textbf{u}}} \|}\right],\textmd{ in PF model.}\\
-\boldsymbol{RHS_3} = -h \mu\left[\frac{\bar{u}\| \underset{^\sim}{\bar{\textbf u}} \|}{r_{x}},\frac{\bar{v}\| \underset{^\sim}{\bar{\textbf u}} \|}{r_{y}}\right],\textmd{ in VS model.}\nonumber
-\end{align}
-
-All the three models have an additional force term, having a different formula and meaning in the three models:
-\begin{align}
-\boldsymbol{RHS_4} =  - h k_{ap}\sin(\phi_{int})\left[ \ {\rm sgn}(\frac{\partial \bar{u}}{\partial y}) \frac{\partial (g_z h)}{\partial y},\ {\rm sgn}({\frac{\partial \bar{v}}{\partial x}}) \frac{\partial (g_z h)}{\partial x}\right],\textmd{ in MC model.}\nonumber\\
-\boldsymbol{RHS_4} = g_{z}h\left[\frac{\partial h}{\partial x}, \frac{\partial h}{\partial y}\right],\textmd{ in PF model.}\\
-\boldsymbol{RHS_4} = -\frac{\| \underset{^\sim}{\textbf g} \|}{\xi}\| \underset{^\sim}{\bar{\textbf u}} \|^2\left[\frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf u}}\|} \ ,\frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf u}}\|}\right],\textmd{ in VS model.}\nonumber
-\end{align}
-
-\subsection{Alignment and consistency of the input ranges}\label{consistency}
-In general, the three rheologies considered in this study, MC, PF, and VS, have totally different parameters. The statistical testing that we perform requires to choose the parameter range $P_M$, and in principle it may be arbitrary. Nevertheless, if the total frictions of the models were not covering a similar span, the statistical comparison would be dominated by trivial macroscopic differences, and could not focus on the rheology details. Some degree of parameter consistency is hence required between the models.
+\subsection{Preliminary consistency testing of the input ranges}\label{consistency}
+In general, the three rheologies considered in this study, MC, PF, and VS, have totally different parameters. If the total frictions of the models were not covering a similar span, the statistical comparison would be dominated by trivial macroscopic differences, and could not focus on the rheology details. Some degree of parameter consistency is hence required between the models.
 
 We can find several instances of parameter choices in literature, and in general these choices appear to depend on the case study. In all the models it is defined a basal friction stress (see $RHS_2$ in \ref{sec:QoIs}). However, PF interpolates different effective friction angles, while VS includes a speed dependent additional term. We found that a direct consistency of effective friction angles is problematic to impose globally. Hence, we did not follow such approach. Instead, we made a preliminary testing on the extreme values of the parameter space, i.e. matching the runouts of \emph{\textbf{max volume -- min resistance}}, and \emph{\textbf{min volume -- max resistance}}.
 
@@ -418,13 +323,12 @@ We assume what follows to simplify testing. Except when differently specified, p
 
 \item In MC, sampled input parameters are $\phi_{bed}$, and $\Delta \phi:=\phi_{int}-\phi_{bed}$. In particular, $\Delta \phi \in [2^{\mathrm{\circ}}, 10^{\mathrm{\circ}}]$ \citep{Dalbey2008}.
 
-\item In PF, sampled input parameters are $\phi_1$, $\Delta \phi_{12}:=\phi_2-\phi_1$, and $\beta$. In particular, $\Delta \phi_{12} \in [10^{\mathrm{\circ}}, 15^{\mathrm{\circ}}]$, and $\beta \in [0.1, 0.85]$. Moreover, $\phi_3=\phi_1+1^\mathrm{\circ}$, and $\mathcal{L}$ is equal to 1 dm and 1 mm in the two case studies, respectively \citep{PouliquenForterre2002,ForterrePouliquen2003,Gray2014, Barker2015}.
+\item In PF, sampled input parameters are $\phi_1$, $\Delta \phi_{12}:=\phi_2-\phi_1$, and $\beta$. In particular, $\Delta \phi_{12} \in [10^{\mathrm{\circ}}, 15^{\mathrm{\circ}}]$, and $\beta \in [0.1, 0.85]$. Moreover, $\phi_3=\phi_1+1^\mathrm{\circ}$, and $\mathcal{L}$ is equal to 1 dm and 1 mm in the two case studies, respectively \citep{PouliquenForterre2002,ForterrePouliquen2003,Gray2014,Barker2015}.
 
 \item In VS, sampled input parameters are $\mu$, and $\xi$. In detail, $\xi$ uniform sampling is accomplished in log-scale. In fact, values of $\xi$ between 250 and 4,000 $m/s^2$ have been described for snow avalanches \citep{Salm1993,Bartelt1999,Gruber2007}.
 \end{itemize}
 In summary, MC and VS have three-dimensional parameter spaces, while $PF$ a four-dimensional parameter space.
 
-\newpage
 \paragraph{Flow down an inclined plane}
 In this case study, \cite{Dalbey2008} assumed $\phi_{bed}=[15^\mathrm{\circ}, 30^\mathrm{\circ}]$, while \cite{WebbBursik2016} performed a series of laboratory experiments and found $\phi_{bed}=[18.2^\mathrm{\circ}, 34.4^\mathrm{\circ}]$. We relied on those published parameter choices to decide a comprehensive parameter range. Figure \ref{fig:Ramp-MaxMinRunouts} displays the maps of max flow height and max velocities observed in the extreme cases tested. Simulation options are - max\_time = 2 s, height/radius = 1.34, length\_scale = 1 m, number\_of\_cells\_across\_axis = 10, order = first, geoflow\_tiny = 1e4 \citep{Patra2005,Aghakhani2016}. Initial pile geometry is cylindrical.
 
@@ -449,7 +353,6 @@ Even if maximum and mininum runout are both matching, the shape and lateral exte
     \caption{Inclined plane setup. Contours of $h = 1.0$ mm at last simulated snapshot ($t = 1.5$ sec) for simulated flows with \emph{minimum runout} obtained from \emph{\textbf{min volume -- max resistance}}, and \emph{maximum runout} obtained from \emph{\textbf{max volume -- min resistance}}. {\color{red} \textbf{---}} : MC, {\color{blue} \textbf{---}} : PF, \textbf{---} : VS.}\label{fig:Ramp-MaxMinRunouts}
 \end{figure}
 
-\newpage
 \paragraph{Volc{\'a}n de Colima block and ash flow}
 In this case study, \cite{Dalbey2008} assumed $\phi_{bed}=[15^\mathrm{\circ}, 35^\mathrm{\circ}]$, while \citep{Capra2011} adopted $\phi_{bed}=30^\mathrm{\circ}$ in the simulation of a BAF in that same setting. Moreover, \cite{Spiller2014,Bayarri2015,Ogburn2016} found a statistical correlation between flow size and effective basal friction inferred from field observation of geophysical flows. The size of the BAF of this study would have $\phi_{bed}=[13^\mathrm{\circ}, 18^\mathrm{\circ}]$ according to their estimates. Figure \ref{Colima-MaxMinExtents} displays the maps of max flow height and max velocities observed in the extreme cases tested. Simulation options are - max\_time = 7200 s (2 hours), height/radius = 0.55, length\_scale = 4e3 m, number\_of\_cells\_across\_axis = 50, order = first, geoflow\_tiny = 1e4 \citep{Patra2005,Aghakhani2016}. Initial pile geometry is paraboloid.
 
@@ -477,14 +380,14 @@ The models possess different features, but the maximum runuout after channelizat
 \end{figure}
 
 \section{Results of small scale flows on inclined plane and flat runway}\label{sec:QoIs}
-This case study is a small scale experimental setting. First we describe the observable outputs (Section \ref{Obs1}), and then the hidden dynamic quantities (Section \ref{Hq1}). In many plots we note the effect of cutting the flow when height is $<1$ mm, which is at the scale of the smallest granular size. In fact, continuity assumption would not be valid below this scale. In particular, in Fig. \ref{fig:Ramp-H} both the 5$^{\mathrm{th}}$ and 95$^{\mathrm{th}}$ percentile plots are vertically cut to zero when they decrease over that threshold. The mean plot is not cut to zero but it is dulled by this cutoff.
+This case study is a small scale experimental setting. First we describe the observable outputs (Section \ref{Obs1}), and then the latent variables (Section \ref{Hq1}). In many plots we note the effect of cutting the flow when height is $<1$ mm, which is at the scale of the smallest granular size. In fact, continuity assumption would not be valid below this scale. In particular, in Fig. \ref{fig:Ramp-H} both the 5$^{\mathrm{th}}$ and 95$^{\mathrm{th}}$ percentile plots are vertically cut to zero when they decrease over that threshold. The mean plot is not cut to zero but it is dulled by this cutoff.
 
 \subsection{Observable outputs} \label{Obs1}
 Observable outputs include the flow height and acceleration as a function of time, measured in the four locations $L_1,\dots, L_4$ displayed in Fig. \ref{fig:Ramp-first}. In addition, lateral extension, flow area, and spatially averaged speed and $Fr$ are displayed. Uncertainty quantification (UQ) is always performed, accordingly to the parameter ranges described in Section \ref{consistency}. Locally measured Froude Number is included in Supporting Information S1.
 
 \newpage
 \subsubsection{Flow height}
-Figure \ref{fig:Ramp-H} shows the flow height, $h(L,t)$, at the points $(L_i)_{i=1,\dots,4}$, for the three rheology models.
+Figure \ref{fig:Ramp-H} shows the flow height, $h(L,t)$, at the points $(L_i)_{i=1,\dots,4}$, for the three rheology models. It clearly shows the differences in the statistics of the flow outcomes induced by the different choices of rheology at different locations in the plane. Availability of data allows us to subject the data to tests of reasonability both for the means and extremal values. Given a particular type of flow and collected data we can clearly distinguish model  skill in capturing not only that flow but also possible flows. Past work \cite{Webb2004} allows us to conclude that MC rheology is adequate for modeling simple dry granular flows.
 \begin{figure}[H]
          \centering
         \includegraphics[width=1\textwidth]{InclinedPlane/LocalMeasurments/Height.png}
@@ -513,7 +416,7 @@ Figure \ref{fig:Ramp-spatial} shows the spatial average of speed and Froude Numb
 \end{figure}
 In plot \ref{fig:Ramp-spatial}a the speed shows a bell-shaped profile in all the models, with an average peak at $\sim 1.4 m/s$ and uncertainty range, given by 5$^{\mathrm{th}}$ and 95$^{\mathrm{th}}$ percentiles, of $\pm 0.4 m/s$ for PF and VS. VS is slightly slower, reaching $\sim 1.3 m/s$ in the average. MC shows a larger uncertainty range, of $\pm 0.6 m/s$. The maximum speed is reached first by VS and PF at $\sim 0.55 s$, and last by MC at $\sim 0.65 s$. In plot \ref{fig:Ramp-spatial}b, also Froude Numbers have a bell-shaped profile. Fr peaks are temporally aligned with speed peaks, and are $\sim 10$ in VS, $\sim 11$ in MC, $\sim 13.5$ in PF, on average. Uncertainty range is about $\pm 4$ in all models. In plot \ref{fig:Ramp-spatial}c inundated area shows similar max values in PF and VS, at $\sim 0.6 m^2$ on average, and uncertainty of $\pm 0.15 m^2$. MC is lower, at $\sim 0.45 m^2$ on average, and less uncertain, $\pm 0.10 m^2$. VS does not decrease significantly after reaching the peak, whereas the other models contract their area, to approximately half of the maximum extent. In plot \ref{fig:Ramp-spatial}d the lateral extent starts equal to the pile diameter $15 cm$, and then rises in two stages in MC and PF, the second and greater rise starting at $\sim 0.6 s$, corresponding to the time of arrival at the change in slope $L_3$ (see Fig. \ref{fig:Ramp-H}c). VS rises without showing two phases. After the first phase, average lateral extent is at $\sim 50 cm$ in PF and VS, while it is $\sim 43 cm$ in MC. Uncertainty range is $\pm 7 cm$ for all models at that time. Final extent is $\sim 75 cm$ in PF, $\sim 65 cm$ in MC, $\sim 55 cm$ in VS. Uncertainty range is $\pm 5 cm$ in VS, but rises to $\pm 10 cm$ in MC and PF.
 
-\subsection{Statistical analysis of dynamic quantities}\label{Hq1}
+\subsection{Statistical analysis of latent variables}\label{Hq1}
 In this section we focus on the force terms and related powers, as well as their statistical analysis. The decomposition of force terms follows the definitions in section \ref{sec:Fterms}. In particular, all the estimates assume a material density of the flow $\rho = 805 kg/m^3$. This a fixed scaling factor, and the plots aspect is not affected by its value.
 
 \subsubsection{Power terms}
@@ -546,7 +449,7 @@ Figure \ref{fig:BAF-H-MC} shows the mean flow height, $h(L,t)$, at the 51 spatia
         \caption{MC model, records of average flow height, $h(L,t)$, in 51 spatial locations of interest (Fig. \ref{fig:Colima-first}).}
         \label{fig:BAF-H-MC}
 \end{figure}
-Different plots have different scales on either time and space axes. In plot \ref{fig:BAF-H-MC}a, the only location is set on the center of the initial pile, and the profile is similar to what observed in point $L_1$ of the inclined plane case study, in Fig.\ref{fig:Ramp-H}a. In particular, the height decreases from the initial value to zero in $\sim 15 s$. In plots \ref{fig:BAF-H-MC}b,c,d,e, the locations are are set at less than $\sim 1$ km radius from the initial pile (projected distance, without considering slope). Their profiles are similar to point $L_2$ in Fig.\ref{fig:Ramp-H}b. The height profile is bell-shaped, starting from zero and then waning back to zero in $\sim 20$ s. All the dynamics occurs during the first minute. Plot (b) shows transitional features, and focuses on points at the boundary of the initial pile. In plots \ref{fig:BAF-H-MC}f,g,h,i,j, points are set where the slope reduces, and the flow can channelize and leave a deposit. Projected distance from the initial pile is $\sim 2-3$ km. The profiles are sometimes similar to $L_3$ of Fig.\ref{fig:Ramp-H}c, other times to $L_4$ of Fig.\ref{fig:Ramp-H}d, in a few cases showing intermediate aspects. In general is either observed an initial short-lasting bulge followed by a slow decrease lasting minutes and asymptotically tending to a positive height, or a steady increase of material height tending to a positive height. In both cases it is sometimes observed a bimodal profile in the first 5 minutes. Finally, plots \ref{fig:BAF-H-MC}k,l focus on three points set at about the runout distance of the flow, in the most important ravines, at $\sim 4-5$ km projected distance from the initial pile. Profiles are similar to what observed in point $L_4$ of Fig.\ref{fig:Ramp-H}d. Plots of the Froude Number at the 51 points are included in Supporting Information S3 - strongly bimodal profiles and sharp changes are observed due to the interplay between flow height and flow speed.
+Different plots have different scales on either time and space axes. In plot \ref{fig:BAF-H-MC}a, the only location is set on the center of the initial pile, and the profile is similar to what observed in point $L_1$ of the inclined plane case study, in Fig.\ref{fig:Ramp-H}a. In particular, the height decreases from the initial value to zero in $\sim 15 s$. In plots \ref{fig:BAF-H-MC}b,c,d,e, the locations are are set at less than $\sim 1$ km radius from the initial pile (projected distance, without considering slope). Their profiles are similar to point $L_2$ in Fig.\ref{fig:Ramp-H}b. The height profile is bell-shaped, starting from zero and then waning back to zero in $\sim 20$ s. All the dynamics occurs during the first minute. Plot (b) shows transitional features, and focuses on points at the boundary of the initial pile. In plots \ref{fig:BAF-H-MC}f,g,h,i,j, points are set where the slope reduces, and the flow can channelize and leave a deposit. Projected distance from the initial pile is $\sim 2-3$ km. The profiles are sometimes similar to $L_3$ of Fig.\ref{fig:Ramp-H}c, other times to $L_4$ of Fig.\ref{fig:Ramp-H}d, in a few cases showing intermediate aspects. In general is either observed an initial short-lasting bulge followed by a slow decrease lasting minutes and asymptotically tending to a positive height, or a steady increase of material height tending to a positive height. In both cases it is sometimes observed a bimodal profile in the first 5 minutes. Finally, plots \ref{fig:BAF-H-MC}k,l focus on three points set at about the runout distance of the flow, in the most important ravines, at $\sim 4-5$ km projected distance from the initial pile. Profiles are similar to what observed in point $L_4$ of Fig.\ref{fig:Ramp-H}d. Plots of the Froude Number at the 51 points are included in Supporting Information S4 - strongly bimodal profiles and sharp changes are observed due to the interplay between flow height and flow speed.
 
 \subsection{Observable outputs - UQ on six selected locations}\label{Obs2}
 The six selected locations are $[L_8, L_{10}, L_{17}, L_{39}, L_{43}, L_{46}]$, displayed in Figure \ref{fig:Colima-extra}). First two points, $L_8$ and $L_{10}$ are both significantly close to the initiation pile. Points $L_{17}$ and $L_{43}$ are placed where the slope is reducing and the ravine channels start, and $L_{39}$ and $L_{46}$ are placed in the channels, further down-slope. Moreover, $L_8$, $L_{43}$, and $L_{46}$ are placed at the western side of the inundated area, whereas $L_{10}$, $L_{17}$, and $L_{39}$ are placed at the eastern side.
@@ -556,8 +459,8 @@ The six selected locations are $[L_8, L_{10}, L_{17}, L_{39}, L_{43}, L_{46}]$, 
         \caption{Volc{\'a}n de Colima (M{\'e}xico) overview, including six selected sample sites (stars). In (a), (b), (c), (d) are enlarged the topographic features in proximity of those locations. Pile location is marked by a blue dot. Reported coordinates are in UTM zone 13N. Elevation isolines are included, at intervals of $10 m$ in black, and $100m$ in bold blue. Elevation values in red.}
         \label{fig:Colima-extra}
 \end{figure}
-Observable outputs include the flow height and acceleration as a function of time. In addition, flow area, and spatially averaged speed and $Fr$ are displayed. Locally measured Froude Number is included in Supporting Information S4.
-
+Observable outputs include the flow height and acceleration as a function of time. In addition, flow area, and spatially averaged speed and $Fr$ are displayed. Locally measured Froude Number and flow acceleration are included in Supporting Information S5 and S6.
+\newpage
 \subsubsection{Flow height}
 Figure \ref{fig:Colima-H} shows the flow height, $h(L,t)$, at the points $(L_i)_{i=8,10,17,39,43,46}$, for the three rheology models. In plots \ref{fig:Colima-H}a,b, we show the flow height in points $L_8$ and $L_{10}$, $\sim 200 m$ and $\sim 500 m$ from the initial pile, respectively. $L_8$ is on the east side, and $L_{10}$ on the west side of the flow. Models MC and PF display similar profiles, positive for less than $15 s$ and bell-shaped. VS requires a significantly longer time to decrease, particularly in point $L_{10}$, where the average flow height is still positive after $\sim 200 s$. Peak average values in $L_8$ are $3.4 m$ in $PF$, $4.3 m$ in MC, $4.7 m$ in VS. Uncertainty is $\sim \pm 2 m$, halved on the lower side in $MC$, and $PF$. In $L_{10}$, models MC and PF are almost indistinguishable, with peak height at $1.4 m$ and uncertainty $\pm 0.5 m$. Model VS, in contrast, has a maximum height of $1.1 m$ lasting for $50s$, and 95$^{th}$ percentile reaching $3.7 m$. In plots \ref{fig:Colima-H}c,e, we show the flow height in points $L_{17}$ and $L_{43}$, both at $\sim 2 km$ from the initial pile, on the west and east side of the flow, respectively. All the three models show in both the points a fast spike during the first minute, followed by a slow decrease, still showing a positive average height after 30 minutes. Again, VS is significantly different from MC and PF, and has a secondary rise peaking at $\sim 450 s$, which is not observed in the other models. This produces higher values for the most of the temporal duration, but converges to similar deposit thickness after more than 1 hour. Maximum values are $1 m$ for MC, $2 m$ for PF, and $1.5 m$ for VS, in both locations. The 5$^{th}$ percentile is zero in all the models, meaning that the parameter range does not always allow the flow to reach those locations. The 95$^{th}$ percentile is always above $5m$ in the models, except in VS, point $L_{17}$. In plots \ref{fig:Colima-H}d,f, we show the flow height in points $L_{39}$ and $L_{46}$, both placed at more than $3 km$ from the initial pile, on the west and east side of the flow, respectively. The three models all show an increasing profile, except in MC, in point $L_{39}$, which display an initial spike and a decrease before to rise again. A similar decreasing profile can be also observed in the 95$^{th}$ percentiles of all the models. It is significant that the 5$^{th}$ percentile of PF becomes positive after $\sim 5400 s$, meaning that the flows almost surely have reached that location. Deposit thickness is $\sim 0.5 m$ in all the models in point $L_{39}$, and $1.7 m$ in VS, $1.6 m$ in PF, $1.2 m$ in MC, in $L_{46}$.
 \begin{figure}[H]
@@ -567,18 +470,8 @@ Figure \ref{fig:Colima-H} shows the flow height, $h(L,t)$, at the points $(L_i)_
         \label{fig:Colima-H}
 \end{figure}
 \newpage
-\subsubsection{Flow acceleration}
-Figure \ref{fig:Colima-Accel1} shows the flow acceleration, $\Vert \underline{\mathbf{a}} \Vert(L,t)$, at the points $(L_i)_{i=8,10,17,39,43,46}$, in the three rheology models.
-\begin{figure}[H]
-         \centering
-        \includegraphics[width=1\textwidth]{BAF_VolcanDeColima/LocalMeasurments/Acceleration12.png}
-        \caption{Records of flow acceleration magnitude (computed from LHS), in six selected locations. Records of points $L_{39}$, $L_{43}$, and $L_{46}$ are displayed at two different scales, according to the initial dynamics, in plots (d-f), and the asymptotic dynamics, in plots (g-i). Bold line is mean value, dashed lines are 5$^{\mathrm{th}}$ and 95$^{\mathrm{th}}$ percentile bounds. Different rheology models are displayed with different colors. Numerical noise affecting percentile curves in the small box of (f) has been averaged.}
-        \label{fig:Colima-Accel1}
-\end{figure}
-In plot \ref{fig:Colima-Accel1}a,b, MC and PF display a higher maximum acceleration, both at $\sim 6 m/s^2$ and $\sim 2.5 m/s^2$ in the first and second plot respectively, than VS, $\sim 3.5 m/s^2$ and $\sim 0.5 m/s^2$, respectively. The latter has a slower decrease to zero. Uncertainty in VS is more significant in plot \ref{fig:Colima-Accel1}a, than in plot \ref{fig:Colima-Accel1}b. It is the opposite in MC and PF. In plot \ref{fig:Colima-Accel1}c, in MC and PF there can be a significant peak in acceleration, up to $\sim 15 m/s^2$ and $\sim 10 m/s^2$, in the 95$^{th}$ percentile values, respectively. The same peak is absent in the average plots, which are significantly flat in all the models, displaying values at $\sim 1 m/s^2$ in MC and PF, and $\sim 0.5 m/s^2$ in VS, at $\sim 200 s$. Plot \ref{fig:Colima-Accel1}e is similar, but PF is significantly reduced and lacks of the peak in the 95$^{th}$ percentile values. In plot \ref{fig:Colima-Accel1}d,f, only MC shows significant acceleration values. Plots \ref{fig:Colima-Accel1}g,h,i, are a zoom on the acceleration values in the distal locations, displayed on a long time window of $7200 s$. The last two plots are more noisy, but possess an increasing trend. All the three show, in all the models, values up to $\sim 1 m/s^2$. In general, PF acceleration tends to be lower than in the other models.
-
 \subsubsection{Flow area and spatial integrals}
-Figure \ref{fig:Colima-spatial} shows the spatial average of speed and Froude Number, in the three rheology models. Moreover, it shows the inundated area of flow, as a function of time.
+Figure \ref{fig:Colima-spatial} shows the spatial average of speed and Froude Number, in the three rheology models. It also shows the inundated area of flow, as a function of time. Analysis of model suitability can be conducted here given recorded deposits. In past work \cite{Patra2005}, we have tuned MC rheology to match deposits for known block and ash flows but {\it a priori} predictive ability was limited by inability to tune without knowledge of flow character.
 \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{BAF_VolcanDeColima/AveragedMeasurments/Averaged_MeasuresColima.png}
@@ -587,11 +480,11 @@ Figure \ref{fig:Colima-spatial} shows the spatial average of speed and Froude Nu
 \end{figure}
 Like in Fig.\ref{fig:Ramp-spatial},spatial averages and inundated area have smoother plots than local measurements, and most of the details observed in local measurements are not easy to discern. In plot \ref{fig:Colima-spatial}a the speed shows a bell-shaped profile in all the models, but whereas the values were significantly similar in the inclined plane experiment, in this case the maximum speed is $\sim 60 m/s$ in MC, $\sim 50 m/s$ in PF, $\sim 20 m/s$ in VS, on average. Uncertainty is $\pm 18 m/s$ in MC, similar, but skewed on the larger values in VS, $\pm 10 m/s$ in PF. In plot \ref{fig:Colima-spatial}b, the Froude profile is very similar to the speed, but the difference between VS and the other models is accentuated. Maximum values are $\sim 50$ in MC, $\sim 38$ in PF, $\sim 5$ in VS, whereas uncertainty is $\pm 10$ in MC, $\pm 7$ in PF, and skewed $[-5, +10]$ in VS. In plot \ref{fig:Colima-spatial}c, inundated area has a first peak in MC and PF, both at $\sim 1.15 km^2$, followed by a decrease to $0.55 km^2$ and $0.7 km^2$ ,respectively, and then a slower increase up to a flat plateau at $0.9 km^2$ and $1.5 km^2$, respectively. Uncertainty is $\sim \pm 0.2 km^2$ in both MC and PF until $\sim 100 s$, and then it increases at $\pm 0.3 km^2$ and $[-0.5, +0.4] km^2$, respectively. In MC the increase of uncertainty is concentrated at $\sim 100 s$, while it is more gradual in PF. VS has a different profile. The initial peak is significant only in the 95$^{th}$ percentile values, and occurs significantly later, i.e. at $\sim 100 s$ against $\sim 50 s$ in MC and PF. It is of $\sim 1 km^2$ on the average, but up to $\sim 1.8 km^2$ in the 95$^{th}$ percentile. The decrease after the peak is very slow and the average inundated area is never below $0.85 km^2$, and eventually reaches back to $\sim 1 km^2$. Uncertainty is $[-0.3, +0.2] km^2$.
 
-\subsection{Statistical analysis of dynamic quantities}\label{Hq2}
+\subsection{Statistical analysis of latent variables}\label{Hq2}
 All the estimates in this section assume the material density of the flow $\rho = 1800 kg/m^3$. This a fixed scaling factor, and the plots aspect is not affected by its value.
 
 \subsubsection{Power terms}
-Figure \ref{fig:Colima-Power-spatial} shows the spatial sum of the powers, for the three rheology models. Corresponding plots of the force terms are included in Supporting Information S5.
+Figure \ref{fig:Colima-Power-spatial} shows the spatial sum of the powers, for the three rheology models. Corresponding plots of the force terms are included in Supporting Information S7.
 \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{BAF_VolcanDeColima/AveragedMeasurments/PowersColima.png}
@@ -608,7 +501,7 @@ Figure \ref{fig:Colima-Pr1} shows the Dominance Factors $(P_i)_{i=1,\dots,4}$, i
         \caption{Records of dominance probabilities of \textbf{RHS} force moduli, at three spatial locations of interest, in the first km of runout. Bold line is mean value, dashed/dotted lines are 5$^{\mathrm{th}}$ and 95$^{\mathrm{th}}$ percentile bounds. Different rheology models are displayed with different colors. No-flow probability is also displayed.}
         \label{fig:Colima-Pr1}
 \end{figure}
-The plots \ref{fig:Colima-Pr1}a,b,c and \ref{fig:Colima-Pr1}d,e,f are related to point $L_8$ and $L_{10}$, respectively. They are significantly similar. $\boldsymbol{RHS_1}$ is the dominant force with a very high chance, $P_1>90\%$. In MC and PF it is observed a small chance, i.e. $P_3=5\%-30\%$ at most, of $\boldsymbol{RHS_3}$ being the dominant force for a short amount of time, i.e. $\sim 5 s$. This occurs in the middle of the time interval in which the flow is almost surely inundating the points, and no-flow probability is negligible. In VS it is observed a $P_4=5\%$ chance of $\boldsymbol{RHS_4}$ being dominant, for a few seconds, anticipating the minimum of no-flow probability. Plots \ref{fig:Colima-Pr1}g,h,i, are related to point $L_{17}$, and the plots are split in two sub-frames, following different temporal scales. In all the models, $\boldsymbol{RHS_2}$ is the most probable dominant force, and its dominance factor has a bell-shaped profile, similar to the complementary of no-flow probability. In all the models, $\boldsymbol{RHS_1}$ has a small chance of being the dominant force. In MC, this is more significant, at most $P_1=30\%$, for $\sim 20 s$ after the flow arrival, and has again about $P_1=\%2$ chance to be dominant in $[100, 7200] s$. In PF, the chance is $P_1=15\%$ at most, and has two maxima, one short lasting at about $55 s$, and the second in $[100,500] s$. Also in VS, the chance is at most $P_1=15\%$, reached at $[300, 500] s$, but its profile is unimodal in time, and becomes lower than $P_1=2\%$ after $2000 s$. In MC and PF, $\boldsymbol{RHS_3}$ has a chance of $P_3=10\%$ of being the dominant force, for a short amount of time $[30, 50] s$ and $[40, 50] s$, respectively.
+The plots \ref{fig:Colima-Pr1}a,b,c and \ref{fig:Colima-Pr1}d,e,f are related to point $L_8$ and $L_{10}$, respectively. They are significantly similar. $\boldsymbol{RHS_1}$ related to the gravitational force is the dominant force with a very high chance, $P_1>90\%$. In MC and PF there is a small probability, i.e. $P_3=5\%-30\%$ at most, of $\boldsymbol{RHS_3}$ being the dominant force for a short amount of time, i.e. $\sim 5 s$. This occurs in the middle of the time interval in which the flow is almost surely inundating the points being observed. In VS it is observed a $P_4=5\%$ chance of $\boldsymbol{RHS_4}$ being dominant, for a few seconds, anticipating the minimum of no-flow probability. Plots \ref{fig:Colima-Pr1}g,h,i, are related to point $L_{17}$, and the plots are split in two sub-frames, following different temporal scales. In all the models, $\boldsymbol{RHS_2}$ is the most probable dominant force, and its dominance factor has a bell-shaped profile, similar to the complementary of no-flow probability. In all the models, $\boldsymbol{RHS_1}$ has a small chance of being the dominant force. In MC, this is more significant, at most $P_1=30\%$, for $\sim 20 s$ after the flow arrival, and has again about $P_1=\%2$ chance to be dominant in $[100, 7200] s$. In PF, the chance is $P_1=15\%$ at most, and has two maxima, one short lasting at about $55 s$, and the second in $[100,500] s$. Also in VS, the chance is at most $P_1=15\%$, reached at $[300, 500] s$, but its profile is unimodal in time, and becomes lower than $P_1=2\%$ after $2000 s$. In MC and PF, $\boldsymbol{RHS_3}$ has a chance of $P_3=10\%$ of being the dominant force, for a short amount of time $[30, 50] s$ and $[40, 50] s$, respectively.
 
 Figure \ref{fig:Colima-Pr2} shows the Dominance Factors $(P_i)_{i=1,\dots,4}$, in the three rheology models, in the three selected points $L_{39}$, $L_{43}$, and $L_{46}$, over 2 km far away from the initial pile.
 \begin{figure}[H]
@@ -630,7 +523,7 @@ Even in the process of the preliminary alignment of the parameter ranges, the di
 Flow height gives additional insight on the model features. In Fig. \ref{fig:Ramp-H}, MC looks more distally stretched, but starts to deposit material earlier and closer to the initial pile. PF height is generally shorter, and displays a small temporal anticipation in its arrival at the sample points. These features are probably due to the hydrostatic correction term, which pushes forward the material at the very beginning, during the pile collapse. Also, the interpolation between the minimum $\phi_1$ and maximum $\phi_2$ friction angles, as a function of flow height and speed, plays a role in the linear cut in the flow height profile when the flow thins on the slope. VS tends to be higher than the other models, because of the reduced lateral spreading of material. In Fig. \ref{fig:Colima-H} the large scale flow height plots allow us to classify the points according to their similarity with the fours points of the small scale flow. There is a significant feature which was not observed in the small scale flow - VS is temporally stretched, and material arrives later and stays longer in the sample points. This is clearly a consequence of the speed dependent term.
 
 \subsubsection{Flow acceleration}
-Flow acceleration brings our analysis from the mechanics to the dynamics of the flow. In Fig. \ref{fig:Ramp-AccL}, at the point $L_2$ on the slope, MC has a flat plateau, while PF is linearly decreasing, and VS is bell shaped. Those differences are a consequence of the assumptions behind the models - double angle in PF, and speed dependent term in VS. At the slope change point $L_3$, VS and MC display a bimodal profile in the acceleration. This is not a statistical effect, but it is physically observed in single simulations. The first maximum is when the head of the flow hitting the ground, while the second maximum is when the accumulating material in the tail arrives. In VS the maxima are equal, because its tail is not laterally spread and hits the ground compactly. In contrast, PF does not show such a second peak, due to the accentuated lateral spreading in the tail. In point $L_4$ on the flat runway, the average acceleration in PF is lower than in the other models at the end of the simulation time, probably because the material stops more suddenly, and the probability of no deposit is greater. In Fig. \ref{fig:Colima-Accel1} VS decreases faster, but also displays a fatter tail in the acceleration. MC is reaches the most distal sample points earlier and with a more significant acceleration.
+Flow acceleration brings our analysis from the mechanics to the dynamics of the flow. In Fig. \ref{fig:Ramp-AccL}, at the point $L_2$ on the slope, MC has a flat plateau, while PF is linearly decreasing, and VS is bell shaped. Those differences are a consequence of the assumptions behind the models - double angle in PF, and speed dependent term in VS. At the slope change point $L_3$, VS and MC display a bimodal profile in the acceleration. This is not a statistical effect, but it is physically observed in single simulations. The first maximum is when the head of the flow hitting the ground, while the second maximum is when the accumulating material in the tail arrives. In VS the maxima are equal, because its tail is not laterally spread and hits the ground compactly. In contrast, PF does not show such a second peak, due to the accentuated lateral spreading in the tail. In point $L_4$ on the flat runway, the average acceleration in PF is lower than in the other models at the end of the simulation time, probably because the material stops more suddenly, and the probability of no deposit is greater.
 
 \subsubsection{Flow extents and spatial integral}
 In Fig. \ref{fig:Ramp-spatial} the average speed and Froude Number of the different models are significantly similar, and this points to the fact that the differing features are mostly localized in space. VS is confirmed to be significantly slower than the other models, after the initial collapse. Moreover, it is the only model which presents a significant amount of long lasting and slowly moving material. Inundated area in PF has a greater maximum value, because of the accentuated lateral spread. In VS the inundated area almost does not decrease from its peak, because of the strictly increasing lateral spread. Vice versa, lateral spread in MC and PF has a temporary stop when the bulk of the flow hits the ground. This is a consequence of the interplay of accumulating material and the push of new material, which is stronger in the middle than in the lateral wings. In PF lateral extent is even decreasing slightly for a short time. The hydrostatic correction term may generate the pull reducing the lateral extent. In Fig. \ref{fig:Colima-spatial} average speed and Froude Number display that VS slower speed is not a local feature. Inundated area is again significantly larger in PF.
@@ -639,16 +532,18 @@ In Fig. \ref{fig:Ramp-spatial} the average speed and Froude Number of the differ
 Power terms have several features in common with the corresponding forces, and provide the decomposition of the acceleration sources. Main dissimilarity between forces and powers is that gravitational and basal friction powers have a profile starting from zero when the flow initiates, because the flow speed starts from zero. In Fig. \ref{fig:Ramp-Power-spatial} the difference between models is particularly relevant in term  $\boldsymbol{RHS_4}$. Speed dependent power in VS is at least one order of magnitude larger than the maximum values of the corresponding terms in MC and PF. Those are decreasing to zero after a short time from the initiation. Hydrostatic correction in PF is clearly positive in the speed direction, and hence contributing to push the flow ahead, at the beginning. The effects of internal friction in MC are almost negligible, and initially positive, then negative. This is motivated by an initial compression of the material during the pile collapse, followed by its stretching. It is worth remarking that $\boldsymbol{RHS_2}$ and $\boldsymbol{RHS_3}$ are both smaller in VS, due to the lower basal friction angles involved. In Fig. \ref{fig:Colima-Power-spatial}, the differences are accentuated, because of the topography complexity. Gravity term is larger in VS, because a portion of the flow lingers on the higher slopes for a long time. Basal friction has a higher peak in PF, due to the effect of the interpolation of the friction angle to the larger value $\phi_2$ in several portions of the flow.
 
 \subsubsection{Force dominance factors}
-The force dominance factors illustrate the predominant force term through time and the probability of no-flow. In Fig. \ref{fig:Ramp-Pr_x} the differences between the models are minor in the inclined plane case study. In general, there is only a single dominant force, and its profile is complementary with the no-flow probability. More details can be found in the force contributions analysis (Appendix B and Supporting Information S6 and S7). Only in the slope change point $L_3$ the differences are remarkable. Curvature term dominance probability is bimodal in MC and VS, and in MC the second peak is smaller. The profile is similar to the spatial average of the force term. In the flat runway, at point $L_4$, in PF the hydrostatic correction can be the dominant force with a small chance. In Fig. \ref{fig:Colima-Pr1} and \ref{fig:Colima-Pr2}, the complexity in the dominance factors is greater. At the points $L_8$ and $L_{10}$, proximal to the initiation, gravitational force is dominant with a high probability until the no-flow probability become predominant. Curvature force can be dominant in MC and PF, when the no-flow change is zero, and for a short time. Gravitational force is dominant for a much larger time, because of the longer presence of the flow. The speed dependent friction can be dominant with a small probability, at the beginning of the dynamics, when flow is faster. At the points $L_{17}$, $L_{39}$, and $L_{46}$, the basal friction is dominant with high probability. $L_{17}$ is left by the flow, whereas $L_{39}$, and $L_{46}$ have a deposit at the end with a high chance. In general, in MC the no-flow probability tends to be larger than in the other models, because part of the parameter spaces stops earlier, or completely leaves the site. Again, curvature can have a small chance to be dominant in MC and PF, particularly when the speed is high. Point $L_{43}$ is particularly interesting. It is not close to the initiation, but it is placed right after a local hill. This location shows an intermediate regime between the proximal points and the distal ones. The no-flow probability is increasing at the end, meaning that the material is leaving the site, like in $L_{17}$. Moreover, the gravity can be dominant like in the proximal points, but also the bed friction can be dominant, and in MC and VS both the two forces have similar chances to be dominant for the most of the time of the simulation. In PF, only the gravitational force is dominant with a high chance, and the no-flow probability is almost null, meaning that there is accelerating material for the most of time. This is probably because point $L_{43}$ is placed in a place right downhill of a place where a significant amount of material stops according to that model.
+The force dominance factors illustrate the predominant force term through time and the probability of no-flow. In Fig. \ref{fig:Ramp-Pr_x} the differences between the models are minor in the inclined plane case study. In general, there is only a single dominant force, and its profile is complementary with the no-flow probability. More details can be found in the force contributions analysis (Appendix B and Supporting Information S3 and S8). Only in the slope change point $L_3$ the differences are remarkable. Curvature term dominance probability is bimodal in MC and VS, and in MC the second peak is smaller. The profile is similar to the spatial average of the force term. In the flat runway, at point $L_4$, in PF the hydrostatic correction can be the dominant force with a small chance. In Fig. \ref{fig:Colima-Pr1} and \ref{fig:Colima-Pr2}, the complexity in the dominance factors is greater. At the points $L_8$ and $L_{10}$, proximal to the initiation, gravitational force is dominant with a high probability until the no-flow probability become predominant. Curvature force can be dominant in MC and PF, when the no-flow change is zero, and for a short time. Gravitational force is dominant for a much larger time, because of the longer presence of the flow. The speed dependent friction can be dominant with a small probability, at the beginning of the dynamics, when flow is faster. At the points $L_{17}$, $L_{39}$, and $L_{46}$, the basal friction is dominant with high probability. $L_{17}$ is left by the flow, whereas $L_{39}$, and $L_{46}$ have a deposit at the end with a high chance. In general, in MC the no-flow probability tends to be larger than in the other models, because part of the parameter spaces stops earlier, or completely leaves the site. Again, curvature can have a small chance to be dominant in MC and PF, particularly when the speed is high. Point $L_{43}$ is particularly interesting. It is not close to the initiation, but it is placed right after a local hill. This location shows an intermediate regime between the proximal points and the distal ones. The no-flow probability is increasing at the end, meaning that the material is leaving the site, like in $L_{17}$. Moreover, the gravity can be dominant like in the proximal points, but also the bed friction can be dominant, and in MC and VS both the two forces have similar chances to be dominant for the most of the time of the simulation. In PF, only the gravitational force is dominant with a high chance, and the no-flow probability is almost null, meaning that there is accelerating material for the most of time. This is probably because point $L_{43}$ is placed in a place right downhill of a place where a significant amount of material stops according to that model.
 
 \section{Conclusions}
-This study presents a new statistical procedure for the comparative analysis of different models for the rheology of geophysical mass flows. The method enabled us to break down the effects of the different physical assumptions in the dynamics, providing an improved understanding of what characterizes each model. We considered a Monte Carlo simulation on a range of parameter inputs, and estimated the mean and the uncertainty range of the corresponding outputs. Fitting the results on a specific flow was thus not necessary, and the procedure unfolded the physics of the models in a general framework. We also developed the concept of force dominance factor, in the study of the force terms in the different regions of space and time. This paves the way to future research aimed at designing a new generation of algorithms, which could completely bypass the search for a unique best model. They would go beyond the concept of alternative models, first decomposing them into their characterizing features, and then focusing instead on a more flexible selection of the assumptions which are locally suitable for each specific part of the simulation.
+In this study, we have introduced a simple, robust statistically driven method for analyzing complex models. We have used 3 different models arising from different rheology assumptions. The data shows unambiguously the performance of the models across a wide range of possible flow regimes and topographies. We analyze local and global quantities and latent variables. The analysis of latent variables is particularly illustrative of the impact of modeling assumption. Knowledge of which assumptions dominate, and, by how much, at the level of assumptions will allow us to construct efficient models for desired inputs. Such model composition is the subject of ongoing and future work.
+
+Our new method enabled us to break down the effects of the different physical assumptions in the dynamics, providing an improved understanding of what characterizes each model. We considered a Monte Carlo simulation on a range of parameter inputs, and estimated the mean and the uncertainty range of the corresponding outputs. Fitting the results on a specific flow was thus not necessary, and the procedure unfolded the physics of the models in a general framework. We also developed the concept of force dominance factor, in the study of the force terms in the different regions of space and time. This paves the way to future research aimed at designing a new generation of algorithms, which could completely bypass the search for a unique best model. They would go beyond the concept of alternative models, first decomposing them into their characterizing features, and then focusing instead on a more flexible selection of the assumptions which are locally suitable for each specific part of the simulation.
 
 In particular, we presented:
 \begin{itemize}
   \item a short review of the assumptions characterizing three commonly used rheologies of Mohr-Coulomb, Poliquenne-Forterre, Voellmy-Salm. This included a qualitative list of such assumptions, and the breaking down of the different terms in the differential equations.
   \item a preliminary procedure for selecting the portions of the parameter ranges of the models which produced consistent outputs. This was fundamental because the model comparison cannot focus on the modeling differences if the scales of the stress tensor were on different scales.
-  \item an articulated statistical framework, processing the mean, and the uncertainty range of many mechanical and dynamical quantities in the flow simulation. A new function was featured in the TITAN2D solver, capable of producing local measurements of those quantities at selected sites. Spatial integrals and spatial averages were also performed, illustrating the characteristics of the entire flow under the different models. The new concept of force dominance factors enabled a simplified description of the local dynamics.
+  \item an articulated statistical framework, processing the mean, and the uncertainty range of many mechanical and latent variables in the flow simulation. A new function was featured in the TITAN2D solver, capable of producing local measurements of those quantities at selected sites. Spatial integrals and spatial averages were also performed, illustrating the characteristics of the entire flow under the different models. The new concept of force dominance factors enabled a simplified description of the local dynamics.
   \item the detailed results of the procedure applied to two different case studies: an inclined plane with a flat runway, and the real DEM on the SW lope of Volc\'{a}n de Colima (MX). All the differences were quantitatively commented.
   \item a final discussion, explaining all the observed features in the results on the light of the known physical assumptions of the models, and the evolving flow regime in space and time.
 \end{itemize}
@@ -749,7 +644,7 @@ where $\Phi=\Phi_2$ is the dominant force. In particular, for each component $i$
 $$p_j:=P\left\{\Phi=|F_j|\right\}.$$
 \end{definition}
 
-Example of the Contribution Coefficients in the cases studies of this paper are reported in the Supporting Information S6 and S7. They represent an additional tool to compare the different force terms, following a less restrictive approach than the Dominance Factors.
+Example of the Contribution Coefficients in the cases studies of this paper are reported in the Supporting Information S3 and S8. They represent an additional tool to compare the different force terms, following a less restrictive approach than the Dominance Factors.
 
 \newpage
 \bibliographystyle{apalike}
