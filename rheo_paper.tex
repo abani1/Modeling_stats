@@ -90,7 +90,7 @@ The consequence of this lack of knowledge and limited data is the multiplicity o
 \subsection{Models and assumptions}
 An assumption is a simple concept -- any atomic postulate about relationships among quantities under study  e.g., a linear stress strain relationship $\sigma=E\epsilon$ or neglecting some quantities in comparison to larger quantities $\theta \approx \sin (\theta) $ for small $\theta$. Models are  compositions of many such assumptions. The study of models is thus implicitly a study of these assumptions and their composability and applicability in a particular context. Sometimes a good model contains a useless assumption that may be removed, sometimes a good assumption should be implemented inside a different model - these are usually subjective choices, not data driven. Moreover, the correct assumptions may change through time, making {\em model choice} more difficult.
 
-The rest of the paper will define our approach and a simple illustration using 3 models for large scale mass flows incorporated in our large scale mass flow simulation framework  TITAN2D \cite{Patra2005,Patra2006, Yu2009, Aghakhani2016}. The $\mathrm{4^{\mathrm{th}}}$ release of TITAN2D offers multiple rheology options in the same cyber-infrastructure. The availability of 3 distinct models for similar phenomena in the same tool provides us the  ability to directly compare inputs, outputs and internal variables in all the 3 models.
+The rest of the paper will define our approach and a simple illustration using 3 models for large scale mass flows incorporated in our large scale mass flow simulation framework  TITAN2D \citep{Patra2005,Patra2006, Yu2009, Aghakhani2016}. The $\mathrm{4^{\mathrm{th}}}$ release of TITAN2D offers multiple rheology options in the same cyber-infrastructure. The availability of 3 distinct models for similar phenomena in the same tool provides us the  ability to directly compare inputs, outputs and internal variables in all the 3 models.
 
 So far, TITAN2D achieved many successful applications in the simulation of different geophysical mass flows with specific characteristics \citep{Sheridan2005, Rupp2006, Norini2008, Charbonnier2009, Procter2010, Sheridan2010, Sulpizio2010, Capra2011}. Several studies involving TITAN2D were recently directed towards a statistical study of geophysical flows, focusing on uncertainty quantification and propagation \citep{Dalbey2008, Dalbey2009, Stefanescu2012b, Stefanescu2012a}, or on the more efficient production of hazard maps \citep{Bayarri2009, Spiller2014,Bayarri2015, Ogburn2016}.
 
@@ -101,11 +101,14 @@ Let us define $\left(M(A), P_{M(A)}\right)$, where $A$ is a set of assumptions, 
 $$P_M\sim \bigotimes_{i=1}^{N_M} Unif(a_{i,M},b_{i,M}),$$
 where $N_M$ is the number of parameters of $M$. These parameter ranges will be chosen using information gathered from the literature about the physical meaning of those values together with a preliminary testing for physical consistency of model outcomes and range of inputs/outcomes of interest.
 
-\paragraph{Stage 2 Simulations and Data Gathering} The simulation algorithms can be represented as:
-\begin{figure}
-\centerline{\includegraphics[width=0.8\textwidth]{modelproc.pdf}}
+\paragraph{Stage 2 Simulations and Data Gathering} 
+The simulation algorithms can be represented as:
+\begin{figure}[H]
+\centerline{\includegraphics[width=0.85\textwidth]{modelproc.pdf}}
+\centering
 \caption{Models and variables}
 \end{figure}
+
 
 The \emph{model inputs} are the parameters of $M$, the \emph{latent variables} include quantities in the model evaluation that are ascribable to specific assumptions $A_i$. These are usually not observed as outputs from the model. For example in momentum balances of complex flow calculations these could be values of different source terms, dissipation terms and inertia terms. Finally, the \emph{model outputs}  include explicit outcomes e.g., for flow calculations these could be  flow height, lateral extent, area, velocity, acceleration, and derived quantities such as Froude number $Fr$. In general, for each  quantity of interest (QoI), we use a Monte Carlo simulation, sampling the input variables and obtaining a family of  graphs  plotting their expectation, and their 5$^{\mathrm{th}}$ and 95$^{\mathrm{th}}$ percentiles. Our sampling technique of the input variables is based on the Latin Hypercube Sampling (LHS) idea, and in particular, on the improved space-filling properties of the orthogonal array-based Latin Hypercubes (see Appendix A).
 
