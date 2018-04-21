@@ -167,7 +167,7 @@ S_x =& g_x h  - \frac{\bar{u}}{\| \underset{^\sim}{\bar{\textbf u}} \|} \left[h\
  S_y =& g_y h  - \frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf u}} \|} \left[h\left(g_z +\frac{\bar{v}^2}{r_y}\right)\tan(\phi_{bed})\right] - h k_{ap} \ {\rm sgn}\left({\frac{\partial \bar{v}}{\partial x}}\right) \frac{\partial (g_z h)}{\partial x} \sin(\phi_{int})
 \end{eqnarray}
 Where, $\underset{^\sim}{\bar{\textbf u}} = (\bar{u} , \bar{v})$, is the depth-averaged velocity vector, $r_x$ and $r_y$ denote the radii of curvature
-of the local basal surface. The inverse of the radii of curvature is usually approximated with the partial derivatives of the basal slope, e.g., $1/r_x = \partial \theta_x/\partial x$, where $\theta_x$ is the local bed slope. 
+of the local basal surface. The inverse of the radii of curvature is usually approximated with the partial derivatives of the basal slope, e.g., $1/r_x = \partial \theta_x/\partial x$, where $\theta_x$ is the local bed slope.
 
 In our study, sampled input parameters are $\phi_{bed}$, and $\Delta \phi:=\phi_{int}-\phi_{bed}$. In particular, the range of $\phi_{bed}$ depends on the case study, while $\Delta \phi \in [2^{\mathrm{\circ}}, 10^{\mathrm{\circ}}]$ \citep{Dalbey2008}.
 
@@ -328,7 +328,7 @@ Even if maximum and mininum runout are both matching, the shape and lateral exte
 Observable outputs include the flow height and acceleration as a function of time, measured in the four locations $L_1,\dots, L_4$ displayed in Fig. \ref{fig:Ramp-first}a. In addition, lateral extension, flow area, and spatially averaged speed and $Fr$ are displayed. Uncertainty quantification (UQ) is always performed, accordingly to the parameter ranges described in Section \ref{consistency}. Locally measured Froude Number is included in Supporting Information S1.
 
 \subsubsection{Flow height}
-Figure \ref{fig:Ramp-H} shows the flow height, $h(L,t)$, at the points $(L_i)_{i=1,\dots,4}$, for the three rheology models. It clearly shows the differences in the statistics of the flow outcomes induced by the different choices of rheology at different locations in the plane. Availability of data allows us to subject the data to tests of reasonability both for the means and extremal values. Given a particular type of flow and collected data we can clearly distinguish model  skill in capturing not only that flow but also possible flows. Past work \cite{Webb2004} allows us to conclude that MC rheology is adequate for modeling simple dry granular flows. 
+Figure \ref{fig:Ramp-H} shows the flow height, $h(L,t)$, at the points $(L_i)_{i=1,\dots,4}$, for the three rheology models. It clearly shows the differences in the statistics of the flow outcomes induced by the different choices of rheology at different locations in the plane. Availability of data allows us to subject the data to tests of reasonability both for the means and extremal values. Given a particular type of flow and collected data we can clearly distinguish model  skill in capturing not only that flow but also possible flows. Past work \cite{Webb2004} allows us to conclude that MC rheology is adequate for modeling simple dry granular flows.
 \begin{figure}[H]
          \centering
         \includegraphics[width=1\textwidth]{InclinedPlane/LocalMeasurments/Height.png}
@@ -449,7 +449,7 @@ The six selected locations are $[L_8, L_{10}, L_{17}, L_{39}, L_{43}, L_{46}]$, 
 Observable outputs include the flow height and acceleration as a function of time. In addition, flow area, and spatially averaged speed and $Fr$ are displayed. Locally measured Froude Number and flow acceleration are included in Supporting Information S4 and S5.
 \newpage
 \subsubsection{Flow height}
-Figure \ref{fig:Colima-H} shows the flow height, $h(L,t)$, at the points $(L_i)_{i=8,10,17,39,43,46}$, for the three rheology models. 
+Figure \ref{fig:Colima-H} shows the flow height, $h(L,t)$, at the points $(L_i)_{i=8,10,17,39,43,46}$, for the three rheology models.
 \begin{figure}[H]
          \centering
         \includegraphics[width=1\textwidth]{BAF_VolcanDeColima/LocalMeasurments/Height.png}
@@ -529,13 +529,13 @@ The new procedure developed in this study has also potential applications in the
 
 Let $\mathcal M:\mathcal P(\mathbb R^2)\rightarrow[0,1]$ be a similarity index defined on the subsets of the real plane. An equivalent definition may be based on the pseudo-metric $1-\mathcal M$. For example, we define
 $$\mathcal M_I:=\frac{\int_{\mathbb R^2} 1_{S \cap D}(\textbf{x}) d\textbf{x}}{\int_{\mathbb R^2} 1_D(\textbf{x})d\textbf{x}},\quad \mathcal M_U:=\frac{\int_{\mathbb R^2} 1_D(\textbf{x})d\textbf{x}}{\int_{\mathbb R^2} 1_{S \cup D}(\textbf{x}) d\textbf{x}}, \quad \mathcal J:=\mathcal M_I\cdot \mathcal M_U,$$
-where $S\subset \mathbb R^2$ is the inundated region, and $D\subset \mathbb R^2$ is the 16 April 1991 BAF deposit. In particular, $\mathcal M_I$ is the area of the intersection of inundated region and deposit over the area of the deposit, $\mathcal M_U$ is the area of the deposit over the area of the union of inundated region and deposit, $\mathcal J$ is the product of the previous, also called Jaccard Index \citep{Jaccard1901}. 
+where $S\subset \mathbb R^2$ is the inundated region, and $D\subset \mathbb R^2$ is the 16 April 1991 BAF deposit. In particular, $\mathcal M_I$ is the area of the intersection of inundated region and deposit over the area of the deposit, $\mathcal M_U$ is the area of the deposit over the area of the union of inundated region and deposit, $\mathcal J$ is the product of the previous, also called Jaccard Index \citep{Jaccard1901}.
 
 Figure \ref{fig:Colima-Hist} shows the probability distribution of the similarity indices over the space of our simulations, according to the uniform probability $P_M$ on the parameter ranges defined in this study. Different metrics produce different performances, for example MC overestimates the inundated region, while VS underestimates the inundated portion of the deposit. The global $5^{th}$ and $95^{th}$ percentile values $[a,b]$, defined assuming to choose the model randomly with equal chance, are shown in the Figure.
 
-Let $g:[a,b]\rightarrow[0,1]$ be a cost function defined over the percentile range of the similarity index. Then the performance score $G_g$ of model $\left(M, P_M\right)$ is defined as
+Let $g:[a,b]\rightarrow[0,1]$ be a score function defined over the percentile range of the similarity index. Then the performance score $G_g$ of model $\left(M, P_M\right)$ is defined as
 $$G_g\left(M, P_M\right)=\int_{[a,b]} g(x) df_M(x),$$
-where $f_M$ is the pdf related to the model. Possible cost functions include a step function at the global median, a linear or quadratic function from zero to one, a sigmoid function.  Supporting Information S9 reports a Table of alternative performance scores, according to changing similarity indices and cost functions.
+where $f_M$ is the pdf related to the model. Possible score functions include a step function at the global median, a linear or quadratic function from zero to one, a sigmoid function.  Supporting Information S8 reports a Table of alternative performance scores, according to changing similarity indices and score functions.
 
 \section{Conclusions}
 In this study, we have introduced a simple, robust statistically driven method for analyzing complex models. We have used 3 different models arising from different rheology assumptions. The data shows unambiguously the performance of the models across a wide range of possible flow regimes and topographies. We analyze local and global quantities and latent variables. The analysis of latent variables is particularly illustrative of the impact of modeling assumption. Knowledge of which assumptions dominate, and, by how much, at the level of assumptions will allow us to construct efficient models for desired inputs. Such model composition is the subject of ongoing and future work. We have included an example calculating model performance according to the similarity or the models with real data.
