@@ -78,23 +78,23 @@ We develop a new statistically driven method for analyzing the modeling of geoph
 \section{Introduction}
 This paper presents a systematic approach to the study of models of complex systems, applied to the case of geophysical mass flows modeling.
 
-A simple though not necessarily comprehensive definition of a model is that: \begin{quote}{\it A model is a representation of a postulated relationship among inputs and outputs of a system usually informed by observation and a hypothesis that best explains them.}\end{quote} The definition captures two of the most important characteristics
+A simple though not necessarily comprehensive definition of a model is that: \begin{quote}{\it A model is a representation of a postulated relationship among inputs and outputs of a system, usually, informed by observation and a hypothesis that best explains the relationship.}\end{quote} The definition captures two of the most important characteristics
 \begin{itemize}
 \item models depend on a {\it hypothesis}, and,
 \item models use the {\it data from observation} to validate and refine the hypothesis.
 \end{itemize}
 Errors and uncertainty in the data and limitations in the hypothesis (usually a tractable and computable mathematical construct articulating beliefs like proportionality, linearity etc.) are immediate challenges that must be overcome to construct useful and credible models.
 
-A model is most useful in predicting the behavior of a system for unobserved inputs and interpretability or explainability of the system's behavior. Since, models require a hypotheses implies that the model is a formulation of a belief about the data. The immediate consequence of this is that the model may be very poor about such prediction even when sufficient care is taken to use all the available data and information since the {\it subjectivity of the belief} can never be completely eliminated \citep{Kennedy2001, Higdon2004}. Secondly, the data at hand may not provide enough information about the system to characterize its behavior at the desired prediction. What makes this problem even more acute is that we are often interested in modeling outcomes that are not observed and perhaps sometimes not observable.
+A model is most useful in predicting the behavior of a system for unobserved inputs, and, interpreting or explaining of the system's behavior. Since, models require a hypotheses, it follows  that the model is a formulation of a belief about the data. The immediate consequence of this is that the model may be very poor about such prediction, since, the {\it subjectivity of the belief} can never be completely eliminated \citep{Kennedy2001, Higdon2004} even when sufficient care is taken to use all the available data and information. Secondly, the data at hand may not provide enough information about the system to characterize its behavior at the desired prediction. This {\it data inadequacy} is rarely characterized even for verified and validated models and codes. What makes this problem even more acute is that we are often interested in modeling outcomes that are not observed and often not observable.
 
 The consequence of this lack of knowledge and limited data is the multiplicity of beliefs about the complex system being modeled and a profusion of models based on different modeling assumptions and data use. These competing models lead to much debate among scientists. Principles like ``Occam's razor" and Bayesian statistics \cite{Farrell2015} provide some guidance but simple robust approaches that allow the testing of models for fitness need to be developed. We present in this paper a simple data driven approach to discriminate among models and the modeling assumptions implicit in each model, given a range of phenomena to be studied. We illustrate the approach by work on geophysical mass flows.
 
 \subsection{Models and assumptions}
-An assumption is a simple concept -- any atomic postulate about relationships among quantities under study. Models are compositions of many such assumptions. The study of models is thus implicitly a study of these assumptions and their composability and applicability in a particular context. Sometimes a good model contains a useless assumption that may be removed, sometimes a good assumption should be implemented inside a different model - these are usually subjective choices, not data driven. Moreover, the correct assumptions may change through time, making{\em model choice} more difficult.
+An assumption is a simple concept -- any atomic postulate about relationships among quantities under study. Models are compositions of many such assumptions. The study of models is, thus, implicitly a study of these assumptions and their composability and applicability in a particular context. Sometimes a good model contains a useless assumption that may be removed, sometimes a good assumption could be added to a different model - these are usually subjective choices, not data driven. Moreover, the correct assumptions may change through time, making {\em model choice} more difficult.
 
 The rest of the paper will define our approach and a simple illustration using three models for large scale mass flows incorporated in our large scale mass flow simulation framework  TITAN2D \citep{Patra2005,Patra2006, Yu2009, Aghakhani2016}. The $\mathrm{4^{\mathrm{th}}}$ release of TITAN2D offers multiple rheology options in the same cyber-infrastructure. The availability of three distinct models for similar phenomena in the same tool provides us the  ability to directly compare inputs, outputs and internal variables in all the three models.
 
-So far, TITAN2D achieved many successful applications in the simulation of different geophysical mass flows with specific characteristics \citep{Sheridan2005, Rupp2006, Norini2008, Charbonnier2009, Procter2010, Sheridan2010, Sulpizio2010, Capra2011}. Several studies involving TITAN2D were recently directed towards a statistical study of geophysical flows, focusing on uncertainty quantification \citep{Dalbey2008, Dalbey2009, Stefanescu2012b, Stefanescu2012a}, or on the more efficient production of hazard maps \citep{Bayarri2009, Spiller2014,Bayarri2015, Ogburn2016}.
+So far, TITAN2D has been successfully applied to the simulation of different geophysical mass flows with specific characteristics \citep{Sheridan2005, Rupp2006, Norini2008, Charbonnier2009, Procter2010, Sheridan2010, Sulpizio2010, Capra2011}. Several studies involving TITAN2D were recently directed towards a statistical study of geophysical flows, focusing on uncertainty quantification \citep{Dalbey2008, Dalbey2009, Stefanescu2012b, Stefanescu2012a}, or on the more efficient production of hazard maps \citep{Bayarri2009, Spiller2014,Bayarri2015, Ogburn2016}.
 
 \subsection{Analysis of modeling assumptions and models }
 Let us define $\left(M(A), P_{M(A)}\right)$, where $A$ is a set of assumptions, $M(A)$ is the model which combines those assumptions, and $P_M$ is a probability distribution in the parameter space of $M$. For the sake of simplicity we assume $P_M$ to be uniformly distributed on selected parameter ranges. While the support of $P_M$ can be restricted to a single value by solving an inverse problem for the optimal reconstruction of a particular flow, this is not possible if we are interested in the general predictive capabilities of the model, where we are interested in the outcomes over a whole range.
@@ -116,7 +116,7 @@ The \emph{model inputs} are the parameters of $M$, the \emph{latent variables} i
 \paragraph{Stage 3 Results Analysis} These and other statistics can now be compared to determine the need for different modeling assumptions and the relative merits of different models. Thus, analysis of the data gathered over the entire range of flows for the state variables and outcomes leads to a quantitative basis for accepting or rejecting particular assumptions or models for specific outcomes.
 
 \section{Modeling of geophysical mass flows}\label{subsec:FlowTypes}
-Dense large scale granular avalanches are a complex class of flows with physics that has often been poorly captured by models that are computationally tractable. Sparsity of actual flow data (usually only a posteriori deposit information is available), and large uncertainty in the mechanisms of initiation and flow propagation, make the modeling task challenging, and a subject of much continuing interest. Models that appear to represent the physics well in certain flows, may turn out to be poorly behaved in others, due to intrinsic mathematical or numerical issues. Nevertheless, given the large implications on life and property, many models with different modeling assumptions have been proposed. For example in \cite{Iverson1997, Iverson2001, Denlinger2001, Pitman2003a, Denlinger2004, Iverson2004}, the depth-averaged model was applied in the simulation of test geophysical flows in large scale experiments. Several studies were specifically devoted to the modeling of volcanic mass flows \citep{Bursik2005,Kelfoun2005,Charbonnier2009,Kelfoun2009,Procter2010,Kelfoun2011,Charbonnier2013}. In fact, volcanoes are great sources for a rich variety of geophysical flow types and provide field data from past flow events.
+Dense large scale granular avalanches are a complex class of flows with physics that has often been poorly captured by models that are computationally tractable. Sparsity of actual flow data (usually only a posteriori deposit information is available), and large uncertainty in the mechanisms of initiation and flow propagation, make the modeling task challenging, and a subject of much continuing interest. Models that appear to represent the physics well in certain flows, may turn out to be poorly behaved in others, due to intrinsic physical, mathematical or numerical issues. Nevertheless, given the large implications on life and property, many models with different modeling assumptions have been proposed. For example in \cite{Iverson1997, Iverson2001, Denlinger2001, Pitman2003a, Denlinger2004, Iverson2004}, the depth-averaged model was applied in the simulation of test geophysical flows in large scale experiments. Several studies were specifically devoted to the modeling of volcanic mass flows \citep{Bursik2005,Kelfoun2005,Charbonnier2009,Kelfoun2009,Procter2010,Kelfoun2011,Charbonnier2013}. In fact, volcanoes are great sources for a rich variety of geophysical flow types and provide field data from past flow events.
 
 Modeling in this case proceeds by first assuming that the laws of mass and momentum conservation hold for properly defined system boundaries. The scale of these flows -- very long and wide with small depth led to the first most generally accepted assumption -- shallowness \cite{SavageHutter1989}. This allows an integration through the depth to obtain simpler and more computationally tractable equations. This is the next of many assumptions that have to be made. Both of these are fundamental assumptions which can be tested in the procedure we established above. Since, there is a general consensus and much evidence in the literature of the validity of these assumptions we defer analysis of these to future work.
 
@@ -137,7 +137,7 @@ Here the Cartesian coordinate system is aligned such that $z$ is normal to the s
 The final class of assumptions are the assumptions on the rheology of the flows -- in particular in this context assumptions used to model different dissipation mechanisms embedded in $S_x, S_y$ that lead to a plethora of models with much controversy on the most suitable model.
 
 \subsection{Overview of the models}\label{subsec:Models}
-In the three following sections, we briefly describe \emph{Mohr-Coulomb} (MC), \emph{Pouliquen-Forterre} (PF) and \emph{Voellmy-Salm} (VS) models. Models based on additional heterogeneous assumptions are possible, either more complex \citep{PitmanLe2005,Iverson2014} or more simple \citep{DadeHuppert1998}, but we decided to focus on those three because of their historical relevance and their comparable degree of complexity.
+In the three following sections, we briefly describe \emph{Mohr-Coulomb} (MC), \emph{Pouliquen-Forterre} (PF) and \emph{Voellmy-Salm} (VS) models. Models based on additional heterogeneous assumptions are possible, either more complex \citep{PitmanLe2005,Iverson2014} or more simple \citep{DadeHuppert1998}, but we decided to focus on these three because of their historical relevance and their comparable degree of complexity.
 
 \subsubsection{Mohr-Coulomb}\label{MCM}
 Based on the long history of studies in soil mechanics \citep{Rankine1857,Jaeger1989}, the Mohr-Coulomb rheology (MC) was developed and used to represent the behavior of geophysical mass flows \cite{SavageHutter1989}.
@@ -260,7 +260,7 @@ S_{y} &=& g_{y} h - \frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf u}}\|} \ \le
 In our study, sampled input parameters are $\mu$, and $\xi$, on ranges depending on the case study. In particular, $\xi$ uniform sampling is accomplished in log-scale. In fact, values of $\xi$ between 250 and 4,000 $m/s^2$ have been described for snow avalanches \citep{Salm1993,Bartelt1999,Gruber2007}.
 
 \subsection{Latent variables}\label{sec:Fterms}
-For analysis of modeling assumptions we need to record and classify the results of different modeling assumptions. In our case study, we focus on the right-hand side terms in the momentum equation, and we call them RHS forces.
+For analysis of modeling assumptions we need to record and classify the results of different modeling assumptions. In our case study, we focus on the right-hand side terms in the momentum equation, and we call them RHS forces or latent variables since they are internal to the computation and rarely visible as a system output.
 \begin{align}
 \boldsymbol{RHS_1} = [g_x h,g_y h],
 \end{align}
@@ -289,13 +289,36 @@ All the three models have an additional force term, having a different expressio
 These latent variables can be analyzed locally and globally for discriminating among the different modeling assumption.
 
 \subsection{Monte Carlo Process and Statistical Analysis}
-In our study, the flow range is defined by establishing boundaries for inputs like flow volume V and different rheology coefficients characterizing the models. The Latin Hypercube Sampling is performed over $[0,1]^3$ for the MC and VS input parameters, and $[0,1]^4$ for PF input parameters. Those dimensionless samples are linearly  mapped to fill the required intervals.
+In our study, the flow range is defined by establishing boundaries for inputs like flow volume V and different rheology coefficients characterizing the models.  Latin Hypercube Sampling is performed over $[0,1]^3$ for the MC and VS input parameters, and $[0,1]^4$ for PF input parameters. Those dimensionless samples are linearly  mapped to fill the required intervals (see Appendix A).
 
-Following the simulations, we generate data for each sample run and each outcome and latent variable $f(\underline{\textbf x},t)$ calculated as a function of time on the elements of the computational grid. This analysis generates tremendous volume of data which must then be analyzed using statistical methods for summative impact. The latent variables in this case are the mass and force terms in the conservation laws defined above. In more detail, local sampling is performed by considering the elements of the adapting mesh which are found to contain the sample points.
+Following the simulations, we generate data for each sample run and each outcome and latent variable $f(\underline{\textbf x},t)$ calculated as a function of time on the elements of the computational grid. This analysis generates tremendous volume of data which must then be analyzed using statistical methods for summative impact. The latent variables in this case are the mass and force terms in the conservation laws defined above. %In more detail, local sampling is performed by considering the elements of the adapting mesh which are found to contain the sample points.
 
 We devise many statistical measures for analyzing the data. For instance, let $(F_i(x,t))_{i=1,\dots, 4}$ be an array of force components, where $x\in \mathbf R^2$ is a spatial location, and $t\in T$ is a time instant. The degree of contribution of those force terms can be significantly variable in space and time, and we define the \emph{dominance factors} $(p_j)_{j=1,\dots, k}$, i.e., the probability of each $F_j$ to be the dominant force at $(x,t)$. Those probabilities provide insight into the dominance of a particular source or dissipation (identified with a particular modeling assumption) term on the model dynamics. The dominance factors can be adopted to define a statistical decomposition of the contributions of the forces, as detailed in Appendix B.
 
-Additionally, spatial integrals are defined by $F(t)=\int_{\mathbb R^k}f(\underline{\textbf x},t) d\underline{\textbf x}$. In the most of the cases $k=2$, and $d\underline{\textbf x}$ is given by the area of the mesh elements. Instead, concerning speed $k=3$, and $d\underline{\textbf x}$ is the element of volume corresponding to the mesh elements.
+Additionally, spatial integrals are defined by $F(t)=\int_{\mathbb R^k}f(\underline{\textbf x},t) d\underline{\textbf x}$. In the most of the cases $k=2$, and $d\underline{\textbf x}$ is given by the area of the mesh elements except for speed $k=3$, and $d\underline{\textbf x}$ is the element of volume corresponding to the mesh elements {\bf ****unclear}.
+
+
+Force contributions represent an additional tool to compare the different force terms, following a less restrictive approach than the Dominance Factors. They are obtained dividing the force terms described in section \ref{sec:Fterms} by the dominant force $\Phi$.
+
+In general we focus on the moduli of the forces, or their projection on the slope direction. Hence, in the following the forces are scalar and not vectorial terms. It is important to remark that all the forces depend on the input variables, and they are thus considered as random variables. The definitions are not depending on the location, but all the results will significantly depend of that choice. Next notation will assume to be in a selected location $x=L_k$, where $k\ge 1$.
+
+\begin{definition}[Contribution coefficients]
+Let $(F_i)_{i\in I}$ be random variables on $(\Omega, \mathcal F, P)$, representing the considered force components in location $x$ at time $t$. Then, for each component $i$, the contribution coefficient is defined as:
+$$C_i:=\mathbb E\left[\frac{F_i}{\Phi}\right],$$
+where $\Phi$ is a dominating function, i.e. $\Phi\ge |F_i|$, $\forall i\in I$.
+\end{definition}
+The \emph{total force}, i.e $\sum_i F_i$ excluding the inertial terms, is not a good candidate for a dominating function. Indeed, the terms often have opposite signs, and their sum can be really small. Another issue is given by the existence of a subset of times $\Theta$ characterized by the absence of flow in the selected location $x$. In $\Theta$ the dominant force is null, and cannot be the denominator of a fraction.
+
+In our study $\Phi$ is the dominant force - our approach is based on the $l^\infty$ norm:
+$$\Phi:=\left\{
+    \begin{array}{ll}
+      \max_i |F_i|, & \hbox{if not null;} \\
+      1, & \hbox{otherwise.}
+    \end{array}
+  \right.$$
+In particular, for a particular location $x$, time $t$, and parameter sample $\omega$, we have $C_i=0$ if there is no flow or all the forces are null. The expectation of $C_i$ is reduced by the chance of $F_i$ being small compared to the other terms, or by the chance of having no flow in $(x,t)$. Moreover, $\mathbb E[C_i]\in[-1,1]$, $\forall i$.
+
+
 
 \section{Small scale flow on inclined plane and flat runway}\label{sec:QoIs}
 Our first case study assumes very simple boundary conditions, and corresponds to a laboratory experiment fully described in \cite{Webb2004, Bursik2005, WebbBursik2016}. It is a classical flow down an inclined plane set-up, including a change in slope to an horizontal plane (Fig. \ref{fig:Ramp-first}). Modeling flow of granular material down an inclined plane was explored in detail by several studies, both theoretically and experimentally (e.g. \cite{RuyerQuil2000, Silbert2001, Pitman2003b}).
@@ -583,26 +606,6 @@ However, even in an LHS based on an $OA(n,m,s,r)$, if $r<m$ what happens in the 
 Dealing with relatively small $d$, i.e. $d\in\{3,4\}$, we adopt a LHS $U$ created by a $OA(s^d,d,s,d)$. The strength is equal to the dimension $d$, hence the design fills the entire space like a $d$ dimensional grid, but it is a LHS as well. In this case there is one point in each hypercube, and $\lambda=1$. We take $s=8$ for the 3-dimensional designs over the parameter space of Mohr-Coulomb and Voellmy-Salm models, i.e. $512$ points; we took $s=6$ for the 4-dimensional designs over the more complex parameter space of the Pouliquen-Forterre model, i.e. 1296 points.
 
 \section{Appendix B: Force contribution coefficients, and their conditional decomposition}
-Force contributions represent an additional tool to compare the different force terms, following a less restrictive approach than the Dominance Factors. They are obtained dividing the force terms described in section \ref{sec:Fterms} by the dominant force $\Phi$.
-
-In general we focus on the moduli of the forces, or their projection on the slope direction. Hence, in the following the forces are scalar and not vectorial terms. It is important to remark that all the forces depend on the input variables, and they are thus considered as random variables. The definitions are not depending on the location, but all the results will significantly depend of that choice. Next notation will assume to be in a selected location $x=L_k$, where $k\ge 1$.
-
-\begin{definition}[Contribution coefficients]
-Let $(F_i)_{i\in I}$ be random variables on $(\Omega, \mathcal F, P)$, representing the considered force components in location $x$ at time $t$. Then, for each component $i$, the contribution coefficient is defined as:
-$$C_i:=\mathbb E\left[\frac{F_i}{\Phi}\right],$$
-where $\Phi$ is a dominating function, i.e. $\Phi\ge |F_i|$, $\forall i\in I$.
-\end{definition}
-The \emph{total force}, i.e $\sum_i F_i$ excluding the inertial terms, is not a good candidate for a dominating function. Indeed, the terms often have opposite signs, and their sum can be really small. Another issue is given by the existence of a subset of times $\Theta$ characterized by the absence of flow in the selected location $x$. In $\Theta$ the dominant force is null, and cannot be the denominator of a fraction.
-
-In our study $\Phi$ is the dominant force - our approach is based on the $l^\infty$ norm:
-$$\Phi:=\left\{
-    \begin{array}{ll}
-      \max_i |F_i|, & \hbox{if not null;} \\
-      1, & \hbox{otherwise.}
-    \end{array}
-  \right.$$
-In particular, for a particular location $x$, time $t$, and parameter sample $\omega$, we have $C_i=0$ if there is no flow or all the forces are null. The expectation of $C_i$ is reduced by the chance of $F_i$ being small compared to the other terms, or by the chance of having no flow in $(x,t)$. Moreover, $\mathbb E[C_i]\in[-1,1]$, $\forall i$.
-
 There is an additional result explaining the meaning of those coefficients through the conditional expectation.
 \begin{proposition}
 Let $(F_i)_{i\in I}$ be random variables on $(\Omega, \mathcal F, P)$, representing the considered force components in location $x$ at time $t$. For each $i$, let $C_i$ be the contribution coefficient of force $F_i$, assuming $\Phi=\Phi_2$. Then we have the following expression:
