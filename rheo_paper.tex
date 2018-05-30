@@ -68,12 +68,11 @@
 
 
 \maketitle
-\tableofcontents
 
 \abstract
 We develop a new statistically driven method for analyzing the modeling of geophysical flows. Many models have been advocated by different modelers for such flows incorporating different modeling assumptions. Limited and sparse observational data on the modeled phenomena usually does not permit a clean discrimination among models for fitness of purpose, and, heuristic choices are usually made, especially for critical predictions of behavior that has not been experienced. We advocate here a methodology for characterizing models and the modeling assumptions they represent using a statistical approach over the full range of applicability of the models. Such a characterization may then be used to decide the appropriateness of a model for use, and, perhaps as needed  compositions of models for better predictive power. We present our method by comparing three different models arising from different rheology assumptions, and the data show unambiguously the performance of the models across a wide range of possible flow regimes. This comparison is facilitated by the recent development of the new release of our TITAN2D mass flow code that allows choice of multiple rheologies The analysis of latent variables in the models is particularly illustrative of the impact of modeling assumptions. Knowledge of which assumptions dominate, and, by how much, is illustrated in two different case studies: a small scale inclined plane with a flat runway, and the large scale topography on the SW slope of Volc\'{a}n de Colima (MX).
 
-
+\tableofcontents
 
 \newpage
 \section{Models and assumptions}
@@ -334,7 +333,7 @@ Our first case study assumes very simple boundary conditions, and corresponds to
 
 In our setting, four locations are selected among the center line of the flow to accomplish local testing. These are: the initial pile location $L_1=(-0.7,0)$ m, the middle of the inclined plane $L_2=(-0.35,0)$ m, the change in slope $L_3=(0,0)$ m, the middle of the flat runway $L_4=(0.15,0)$ m.
 \begin{figure}[H]
-    \includegraphics[width=1\textwidth]{figures/incline/InclPlane.png}
+    \includegraphics[width=1\textwidth]{figures/incline/InclPlane.jpg}
     \centering
     \caption{(a) Inclined plane overview, including samples sites (red stars). Pile location is marked by a blue dot. (b) Contours of $h = 1.0$ mm at last simulated snapshot ($t = 1.5$ sec) for simulated flows with \emph{minimum runout} obtained from \emph{\textbf{min. volume -- max. resistance}}, and \emph{maximum runout} obtained from \emph{\textbf{max. volume -- min. resistance}}. {\color{red} \textbf{---}} : MC, {\color{blue} \textbf{---}} : PF, \textbf{---} : VS.} \label{fig:Ramp-first}
 \end{figure}
