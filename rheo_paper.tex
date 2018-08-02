@@ -70,17 +70,20 @@
 \maketitle
 
 \abstract
-<<<<<<< HEAD
+
 We develop a new statistically driven method for analyzing the modeling of geophysical flows. Many models have been advocated by different modelers for such flows incorporating different modeling assumptions. Limited and sparse observational data on the modeled phenomena usually does not permit a clean discrimination among models for fitness of purpose, and, heuristic choices are usually made, especially for critical predictions of behavior that has not been experienced. We advocate here a methodology for characterizing models and the modeling assumptions they represent using a statistical approach over the full range of applicability of the models. Such a characterization may then be used to decide the appropriateness of a model for use, and, perhaps as needed  compositions of models for better predictive power. We present our method by comparing three different models arising from different rheology assumptions, and the data show unambiguously the performance of the models across a wide range of possible flow regimes. This comparison is facilitated by the recent development of the new release of our TITAN2D mass flow code that allows choice of multiple rheologies The analysis of contributions from different modeling  assumptions in the models is particularly illustrative of the impact of the assumptions. Knowledge of which assumptions dominate, and, by how much, is illustrated in two different case studies: a small scale inclined plane with a flat runway, and the large scale topography on the SW slope of Volc\'{a}n de Colima (MX).
 
-=======
-We develop a new statistically driven method for analyzing the modeling of geophysical flows. Many models have been advocated by different modelers for such flows incorporating different modeling assumptions. Limited and sparse observational data on the modeled phenomena usually does not permit a clean discrimination among models for fitness of purpose, and, heuristic choices are usually made, especially for critical predictions of behavior that has not been experienced. We advocate here a methodology for characterizing models and the modeling assumptions they represent using a statistical approach over the full range of applicability of the models. Such a characterization may then be used to decide the appropriateness of a model for use, and, perhaps as needed  compositions of models for better predictive power. We present our method by comparing three different models arising from different rheology assumptions, and the data show unambiguously the performance of the models across a wide range of possible flow regimes. This comparison is facilitated by the recent development of the new release of our TITAN2D mass flow code that allows choice of multiple rheologies The analysis of latent variables in the models is particularly illustrative of the impact of modeling assumptions. Knowledge of which assumptions dominate, and, by how much, is illustrated in two different case studies: a small scale inclined plane with a flat runway, and the large scale topography on the SW slope of Volc\'{a}n de Colima (MX).
->>>>>>> 2cb48db00aa7f580a763a6927811d8eb409acdbf
+%=======
+%We develop a new statistically driven method for analyzing the modeling of geophysical flows. Many models have been advocated by different modelers for such flows incorporating different modeling assumptions. Limited and sparse observational data on the modeled phenomena usually does not permit a clean discrimination among models for fitness of purpose, and, heuristic choices are usually made, especially for critical predictions of behavior that has not been experienced. We advocate here a methodology for characterizing models and the modeling assumptions they represent using a statistical approach over the full range of applicability of the models. Such a characterization may then be used to decide the appropriateness of a model for use, and, perhaps as needed  compositions of models for better predictive power. We present our method by comparing three different models arising from different rheology assumptions, and the data show unambiguously the performance of the models across a wide range of possible flow regimes. This comparison is facilitated by the recent development of the new release of our TITAN2D mass flow code that allows choice of multiple rheologies The analysis of latent variables in the models is particularly illustrative of the impact of modeling assumptions. Knowledge of which assumptions dominate, and, by how much, is illustrated in two different case studies: a small scale inclined plane with a flat runway, and the large scale topography on the SW slope of Volc\'{a}n de Colima (MX).
+%>>>>>>> 2cb48db00aa7f580a763a6927811d8eb409acdbf
 
 \tableofcontents
 
 \newpage
 \section{Models and assumptions}
+
+{\bf NEED to MOTIVATE WITH SYSTEM COMPLEXITY and MANY MODELS?}
+
 This paper presents a systematic approach to the study of models of complex systems, motivated by and applied to the case of geophysical mass flow models.
 \citep{Gilbert91} defines science as a process of constructing predictive conceptual models where these models represent
 consistent predictive relations in target systems. A simpler though not necessarily comprehensive definition of a model that is more appropriate for the context of this study is that:
@@ -114,21 +117,21 @@ where $N_M$ is the number of parameters of $M$. This is not restrictive, and in 
 used to ensure that the studies correctly account for all anticipated and possible flow regimes.
 %
 \paragraph{Stage 2 Simulations and Data Gathering}
-<<<<<<< HEAD
+%<<<<<<< HEAD
 %The simulation algorithms can be represented as:
 %\begin{figure}[H]
 %\centerline{\includegraphics[width=0.85\textwidth]{modelproc.pdf}}
 %\centering
 %\caption{Models and variables}
 %\end{figure}
-=======
-The simulation algorithms can be represented as:
-\begin{figure}[H]
-\centerline{\includegraphics[width=0.85\textwidth]{figures/modelproc.png}}
-\centering
-\caption{Models and variables}
-\end{figure}
->>>>>>> 2cb48db00aa7f580a763a6927811d8eb409acdbf
+%=======
+%The simulation algorithms can be represented as:
+%\begin{figure}[H]
+%\centerline{\includegraphics[width=0.85\textwidth]{figures/modelproc.png}}
+%\centering
+%\caption{Models and variables}
+%\end{figure}
+%>>>>>>> 2cb48db00aa7f580a763a6927811d8eb409acdbf
 
 The \emph{model inputs}  of $M$, the \emph{contribution variables} include quantities in the model evaluation that are ascribable to specific assumptions $A_i$. These are usually not observed as outputs from the model. For example in momentum balances of complex flow calculations these could be values of different source terms, dissipation terms and inertia terms. Finally, the \emph{model outputs} include explicit outcomes e.g., for flow calculations these could be flow height, lateral extent, area, velocity, acceleration, and derived quantities such as Froude number $Fr$. In general, we use a Monte Carlo simulation, sampling the model inputs and obtaining a family of graphs plotting the expectation of the contribution variables and model outputs. We also include their 5$^{\mathrm{th}}$ and 95$^{\mathrm{th}}$ percentiles. Our sampling technique of the input variables is based on the Latin Hypercube Sampling (LHS) idea, and in particular, on the improved space-filling properties of the orthogonal array-based Latin Hypercubes (see Appendix \ref{A-1}). The volume of data generated is likely to be large but modern computing and data handling equipment readily available to most modeling researchers \footnote{We thank the University at Buffalo Center for Computing Research} in university and national research facilities are more than adequate.
 
@@ -560,13 +563,13 @@ Figure \ref{fig:Colima-Power-spatial} shows the spatial sum of the powers. The e
 \end{figure}
 
 
-<<<<<<< HEAD
+%<<<<<<< HEAD
 \section{Discussion on the comparative performance of geophysical flow models and contributing variables}
 %In this section, we summarize the general features which differ between the models. The mean plots are significantly informative, and the uncertainty ranges often serve to emphasize the differences between the models. After this, we describe a method for statistically evaluating the performance of the couple $\left(M, P_M\right)$ according to a specific observation.
 
-=======
-\section{Discussion on the comparative performance of geophysical flow models and latent variables}
->>>>>>> 2cb48db00aa7f580a763a6927811d8eb409acdbf
+%=======
+%\section{Discussion on the comparative performance of geophysical flow models and latent variables}
+%>>>>>>> 2cb48db00aa7f580a763a6927811d8eb409acdbf
 The statistically driven method introduced in this study for analyzing complex models provides extensive and quantitative information. Geophysical flow modeling usually compares simulation to observation, and fits the model parameters coping with inverse problems. Nevertheless, this is not always sufficient to solve forecasting problems, in which the range of possible flows might not be limited to a single type and scale of flow. Our approach is different, and evaluates the statistics of a range of flows, produced by the couple $\left(M, P_M\right)$ - i.e. a model $M$ and a probability distribution for its parameters $P_M$.
 
 New quantitative information can solve classical qualitative problems, either model-model or model-observation comparison. The mean plot represents the average behavior of flows in the considered range, and provides the same type of data that is provided by a single simulation. Moreover, the uncertainty ranges stem additional pieces of information that often exalt the differences between the models.
@@ -622,7 +625,7 @@ $$G_g\left(M, P_M\right)=\int_{[a,b]} g(x) df_M(x),$$
 where $f_M$ is the pdf related to the model. Possible score functions include a step function at the global median, a linear or quadratic function, a sigmoid function. Supporting Information S7 reports a Table of alternative performance scores, according to changing similarity indices and score functions.
 
 \section{Conclusions}
-<<<<<<< HEAD
+%<<<<<<< HEAD
 
 In this study, we have introduced a new statistically driven method for analyzing complex models and their constituents. We have used three different models arising from different rheology assumptions in large scale mass flows to illustrate the approach. The data shows unambiguously the performance of the models across a wide range of possible flow regimes and topographies. The analysis of contributing variables is particularly illustrative of the impact of modeling assumptions. Knowledge of which assumptions dominate, and, by how much, will allow us to construct efficient models for desired inputs. Such model composition is the subject of ongoing and future work, with the purpose to bypass the search for a unique best model, and yet to go beyond a simple mixture of alternative models.
 %=======
