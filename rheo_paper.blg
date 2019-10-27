@@ -1,18 +1,48 @@
-This is BibTeX, Version 0.99dThe top-level auxiliary file: rheo_paper.aux
+This is BibTeX, Version 0.99d (TeX Live 2015)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: rheo_paper.aux
 The style file: apalike.bst
 Database file #1: mybibfile.bib
-Too many commas in name 3 of "Bayarri, M. J. and Berger, J. O. and Calder, E. S., Patra, A. K., Pitman, E. B. and Spiller, E. T. and Wolpert, R. L." for entry Bayarri2015
-while executing---line 1020 of file apalike.bst
-Too many commas in name 3 of "Bayarri, M. J. and Berger, J. O. and Calder, E. S., Patra, A. K., Pitman, E. B. and Spiller, E. T. and Wolpert, R. L." for entry Bayarri2015
-while executing---line 1020 of file apalike.bst
-Too many commas in name 3 of "Bayarri, M. J. and Berger, J. O. and Calder, E. S., Patra, A. K., Pitman, E. B. and Spiller, E. T. and Wolpert, R. L." for entry Bayarri2015
-while executing---line 1020 of file apalike.bst
-Warning--there's a number but no volume in Mingyao2016
-Too many commas in name 3 of "Bayarri, M. J. and Berger, J. O. and Calder, E. S., Patra, A. K., Pitman, E. B. and Spiller, E. T. and Wolpert, R. L." for entry Bayarri2015
-while executing---line 1095 of file apalike.bst
-Too many commas in name 3 of "Bayarri, M. J. and Berger, J. O. and Calder, E. S., Patra, A. K., Pitman, E. B. and Spiller, E. T. and Wolpert, R. L." for entry Bayarri2015
-while executing---line 1095 of file apalike.bst
-Too many commas in name 3 of "Bayarri, M. J. and Berger, J. O. and Calder, E. S., Patra, A. K., Pitman, E. B. and Spiller, E. T. and Wolpert, R. L." for entry Bayarri2015
-while executing---line 1095 of file apalike.bst
-Warning--empty journal in Forterre2006
-(There were 6 error messages)
+Warning--there's a number but no volume in Patra2018
+You've used 86 entries,
+            1935 wiz_defined-function locations,
+            1060 strings with 23439 characters,
+and the built_in function-call counts, 40003 in all, are:
+= -- 3765
+> -- 2202
+< -- 35
++ -- 785
+- -- 782
+* -- 3836
+:= -- 7072
+add.period$ -- 266
+call.type$ -- 86
+change.case$ -- 818
+chr.to.int$ -- 85
+cite$ -- 87
+duplicate$ -- 1203
+empty$ -- 2491
+format.name$ -- 910
+if$ -- 7608
+int.to.chr$ -- 2
+int.to.str$ -- 0
+missing$ -- 86
+newline$ -- 441
+num.names$ -- 258
+pop$ -- 624
+preamble$ -- 1
+purify$ -- 821
+quote$ -- 0
+skip$ -- 899
+stack$ -- 0
+substring$ -- 2812
+swap$ -- 94
+text.length$ -- 3
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 512
+warning$ -- 1
+while$ -- 282
+width$ -- 0
+write$ -- 1136
+(There was 1 warning)
