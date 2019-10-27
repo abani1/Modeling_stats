@@ -1,0 +1,75 @@
+\contentsline {section}{\numberline {1}Introduction to geophysical mass flows modeling}{3}{section.1}
+\contentsline {section}{\numberline {2}Overview of the models}{4}{section.2}
+\contentsline {subsection}{\numberline {2.1}Modeling assumptions}{4}{subsection.2.1}
+\contentsline {paragraph}{General Assumptions}{4}{section*.2}
+\contentsline {paragraph}{Consequences of Shallowness}{5}{section*.3}
+\contentsline {subsection}{\numberline {2.2}Governing equations and numerical solver}{5}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Rheology assumptions}{6}{subsection.2.3}
+\contentsline {subsubsection}{\numberline {2.3.1}Mohr-Coulomb}{6}{subsubsection.2.3.1}
+\contentsline {paragraph}{Earth pressure coefficient}{7}{section*.5}
+\contentsline {paragraph}{MC equations}{7}{section*.6}
+\contentsline {paragraph}{MC rheology assumptions}{8}{section*.7}
+\contentsline {subsubsection}{\numberline {2.3.2}Pouliquen-Forterre}{8}{subsubsection.2.3.2}
+\contentsline {paragraph}{Dynamic friction regime - $Fr \ge \beta $}{8}{equation.2.11}
+\contentsline {paragraph}{Intermediate friction regime - $0 \le Fr < \beta $}{8}{equation.2.12}
+\contentsline {paragraph}{PF equations}{8}{section*.10}
+\contentsline {paragraph}{PF rheology assumptions}{9}{section*.11}
+\contentsline {subsubsection}{\numberline {2.3.3}Voellmy-Salm}{9}{subsubsection.2.3.3}
+\contentsline {paragraph}{VS equations}{9}{section*.12}
+\contentsline {paragraph}{VS rheology assumptions}{9}{section*.13}
+\contentsline {subsection}{\numberline {2.4}Overview of the case studies}{10}{subsection.2.4}
+\contentsline {section}{\numberline {3}Uncertainty quantification process}{11}{section.3}
+\contentsline {subsection}{\numberline {3.1}General formulation}{11}{subsection.3.1}
+\contentsline {paragraph}{Models and assumptions}{12}{section*.16}
+\contentsline {paragraph}{Parameters ranges}{12}{section*.17}
+\contentsline {paragraph}{Simulated quantities}{12}{section*.18}
+\contentsline {paragraph}{Monte Carlo simulation}{12}{section*.19}
+\contentsline {paragraph}{Local samples and spatial averaging}{12}{section*.20}
+\contentsline {paragraph}{Statistical analysis of dynamical quantities}{13}{section*.21}
+\contentsline {subsection}{\numberline {3.2}Forces terms definition}{13}{subsection.3.2}
+\contentsline {paragraph}{Left-hand side, LHS forces}{13}{section*.22}
+\contentsline {paragraph}{Right-hand side, RHS forces}{13}{section*.23}
+\contentsline {subsection}{\numberline {3.3}Alignment and consistency of the input ranges}{14}{subsection.3.3}
+\contentsline {paragraph}{General definitions}{14}{section*.24}
+\contentsline {paragraph}{Flow down an inclined plane}{15}{section*.25}
+\contentsline {paragraph}{Volc{\'a}n de Colima block and ash flow}{16}{section*.27}
+\contentsline {section}{\numberline {4}Results of small scale flows on inclined plane and flat runway}{18}{section.4}
+\contentsline {subsection}{\numberline {4.1}Observable outputs}{18}{subsection.4.1}
+\contentsline {subsubsection}{\numberline {4.1.1}Flow height}{19}{subsubsection.4.1.1}
+\contentsline {subsubsection}{\numberline {4.1.2}Flow speed}{20}{subsubsection.4.1.2}
+\contentsline {subsubsection}{\numberline {4.1.3}Froude Number}{21}{subsubsection.4.1.3}
+\contentsline {subsubsection}{\numberline {4.1.4}Flow acceleration}{22}{subsubsection.4.1.4}
+\contentsline {subsubsection}{\numberline {4.1.5}Flow extents and spatial integrals}{23}{subsubsection.4.1.5}
+\contentsline {subsection}{\numberline {4.2}Statistical analysis of dynamic quantities}{24}{subsection.4.2}
+\contentsline {subsubsection}{\numberline {4.2.1}Forces terms}{24}{subsubsection.4.2.1}
+\contentsline {subsubsection}{\numberline {4.2.2}Power terms}{25}{subsubsection.4.2.2}
+\contentsline {subsubsection}{\numberline {4.2.3}Force dominance factors}{26}{subsubsection.4.2.3}
+\contentsline {section}{\numberline {5}Results of large scale flows on the SW slope of Volc{\'a}n de Colima (MX)}{28}{section.5}
+\contentsline {subsection}{\numberline {5.1}Observable outputs overview - Mohr-Coulomb model}{28}{subsection.5.1}
+\contentsline {subsubsection}{\numberline {5.1.1}Flow height}{28}{subsubsection.5.1.1}
+\contentsline {subsubsection}{\numberline {5.1.2}Flow speed}{29}{subsubsection.5.1.2}
+\contentsline {subsubsection}{\numberline {5.1.3}Froude Number}{30}{subsubsection.5.1.3}
+\contentsline {subsection}{\numberline {5.2}Observable outputs - UQ on six selected locations}{31}{subsection.5.2}
+\contentsline {subsubsection}{\numberline {5.2.1}Flow height}{31}{subsubsection.5.2.1}
+\contentsline {subsubsection}{\numberline {5.2.2}Flow speed}{32}{subsubsection.5.2.2}
+\contentsline {subsubsection}{\numberline {5.2.3}Froude Number}{34}{subsubsection.5.2.3}
+\contentsline {subsubsection}{\numberline {5.2.4}Flow acceleration}{35}{subsubsection.5.2.4}
+\contentsline {subsubsection}{\numberline {5.2.5}Flow area and spatial integrals}{36}{subsubsection.5.2.5}
+\contentsline {subsection}{\numberline {5.3}Statistical analysis of dynamic quantities}{37}{subsection.5.3}
+\contentsline {subsubsection}{\numberline {5.3.1}Force terms}{37}{subsubsection.5.3.1}
+\contentsline {subsubsection}{\numberline {5.3.2}Power terms}{39}{subsubsection.5.3.2}
+\contentsline {subsubsection}{\numberline {5.3.3}Force dominance factors}{40}{subsubsection.5.3.3}
+\contentsline {section}{\numberline {6}Discussion on the comparative anatomy of geophysical flow models}{42}{section.6}
+\contentsline {subsection}{\numberline {6.1}Characteristic features and their motivations}{42}{subsection.6.1}
+\contentsline {subsubsection}{\numberline {6.1.1}Flow height}{42}{subsubsection.6.1.1}
+\contentsline {subsubsection}{\numberline {6.1.2}Flow speed and Froude Number}{42}{subsubsection.6.1.2}
+\contentsline {subsubsection}{\numberline {6.1.3}Flow acceleration}{43}{subsubsection.6.1.3}
+\contentsline {subsubsection}{\numberline {6.1.4}Flow extents and spatial integral}{43}{subsubsection.6.1.4}
+\contentsline {subsubsection}{\numberline {6.1.5}Force and power terms}{43}{subsubsection.6.1.5}
+\contentsline {subsubsection}{\numberline {6.1.6}Force dominance factors}{43}{subsubsection.6.1.6}
+\contentsline {subsection}{\numberline {6.2}Summary of the analysis}{44}{subsection.6.2}
+\contentsline {section}{\numberline {7}Conclusions}{44}{section.7}
+\contentsline {section}{\numberline {8}Appendix A: Latin Hypercubes and orthogonal arrays}{44}{section.8}
+\contentsline {section}{\numberline {9}Appendix B: Force contribution coefficients, and their conditional decomposition}{45}{section.9}
+\contentsline {paragraph}{Example 1 - Flow down and inclined plane}{48}{section*.50}
+\contentsline {paragraph}{Example 2 - Volc{\'a}n de Colima BAF}{49}{section*.52}

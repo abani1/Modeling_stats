@@ -1,0 +1,699 @@
+\begin{thebibliography}{}
+
+\bibitem[Aghakhani et~al., 2016]{Aghakhani2016}
+Aghakhani, H., Dalbey, K., Salac, D., and Patra, A.~K. (2016).
+\newblock {Heuristic and Eulerian interface capturing approaches for shallow
+  water type flow and application to granular flows}.
+\newblock {\em Computer Methods in Applied Mechanics and Engineering},
+  304:243--264.
+
+\bibitem[Ai et~al., 2016]{Mingyao2016}
+Ai, M., Kong, X., and Li, K. (2016).
+\newblock A general theory for orthogonal array based latin hypercube sampling.
+\newblock {\em Statistica Sinica}, (26):761--777.
+
+\bibitem[Balmforth and Kerswell, 2005]{Balmforth2005}
+Balmforth, N.~J. and Kerswell, R.~R. (2005).
+\newblock {Granular collapse in two dimensions.}
+\newblock {\em Journal of Fluid Mechanics}, 538:399--428.
+
+\bibitem[Barker et~al., 2015]{Barker2015}
+Barker, T., Schaeffer, D.~G., Bohorquez, P., and Gray, J. M. N.~T. (2015).
+\newblock Well-posed and ill-posed behaviour of the ${\it\mu}(i)$ -rheology for
+  granular flow.
+\newblock {\em Journal of Fluid Mechanics}, 779:794---818.
+
+\bibitem[Bartelt and McArdell, 2009]{BarteltMcArdell2009}
+Bartelt, P. and McArdell, B. (2009).
+\newblock {Granulometric investigations of snow avalanches.}
+\newblock {\em Journal of Glaciology}, 55(193):829--833(5).
+
+\bibitem[Bartelt et~al., 1999]{Bartelt1999}
+Bartelt, P., Salm, B., and Gruber, U. (1999).
+\newblock {Calculating dense-snow avalanche runout using a voellmy-fluid model
+  with active/passive longitudinal straining.}
+\newblock {\em Journal of Glaciology}, 45(150):242--254.
+
+\bibitem[Batchelor, 2000]{Batchelor2000}
+Batchelor, G. (2000).
+\newblock {\em {An Introduction to Fluid Dynamics.}}
+\newblock Cambridge Mathematical Libraries. Cambridge University Press.
+
+\bibitem[Bayarri et~al., 2009]{Bayarri2009}
+Bayarri, M.~J., Berger, J.~O., Calder, E.~S., Dalbey, K., Lunagomez, S., Patra,
+  A.~K., Pitman, E.~B., Spiller, E.~T., and Wolpert, R.~L. (2009).
+\newblock {Using Statistical and Computer Models to Quantify Volcanic Hazards}.
+\newblock {\em Technometrics}, 51(4):402--413.
+
+\bibitem[Bayarri et~al., 2015]{Bayarri2015}
+Bayarri, M.~J., Berger, J.~O., Calder, E.~S., P. A. K. P. E.~B., Spiller,
+  E.~T., and Wolpert, R.~L. (2015).
+\newblock {Probabilistic Quantification of Hazards: A Methodology Using Small
+  Ensembles of Physics-Based Simulations and Statistical Surrogates}.
+\newblock {\em International Journal for Uncertainty Quantification},
+  5(4):297--325.
+
+\bibitem[Bursik et~al., 2005]{Bursik2005}
+Bursik, M., Patra, A., Pitman, E.~B., Nichita, C., Macias, J.~L., Saucedo, R.,
+  and Girina, O. (2005).
+\newblock Advances in studies of dense volcanic granular flows.
+\newblock {\em Reports on Progress in Physics}, 68(2):271.
+
+\bibitem[Capra et~al., 2015]{Capra2015}
+Capra, L., Gavilanes-Ruiz, J.~C., Bonasia, R., Saucedo-Giron, R., and Sulpizio,
+  R. (2015).
+\newblock Re-assessing volcanic hazard zonation of volc{\'a}n de colima,
+  m{\'e}xico.
+\newblock {\em Natural Hazards}, 76(1):41--61.
+
+\bibitem[Capra et~al., 2016]{Capra2016}
+Capra, L., Mac{\'i}s, J., Cort{\'e}s, A., D{\'a}vila, N., Saucedo, R.,
+  Osorio-Ocampo, S., Arce, J., Gavilanes-Ruiz, J., Corona-Ch{\'a}vez, P.,
+  Garc{\'i}a-S{\'a}nchez, L., Sosa-Ceballos, G., and V{\'a}zquez, R. (2016).
+\newblock Preliminary report on the july 10--11, 2015 eruption at volc{\'a}n de
+  colima: Pyroclastic density currents with exceptional runouts and volume.
+\newblock {\em Journal of Volcanology and Geothermal Research}, 310(Supplement
+  C):39 -- 49.
+
+\bibitem[Capra et~al., 2011]{Capra2011}
+Capra, L., Manea, V.~C., Manea, M., and Norini, G. (2011).
+\newblock The importance of digital elevation model resolution on granular flow
+  simulations: a test case for colima volcano using titan2d computational
+  routine.
+\newblock {\em Natural Hazards}, 59(2):665--680.
+
+\bibitem[Charbonnier et~al., 2013]{Charbonnier2013}
+Charbonnier, S., Germa, A., Connor, C., Gertisser, R., Preece, K., Komorowski,
+  J.-C., Lavigne, F., Dixon, T., and Connor, L. (2013).
+\newblock Evaluation of the impact of the 2010 pyroclastic density currents at
+  merapi volcano from high-resolution satellite imagery, field investigations
+  and numerical simulations.
+\newblock {\em Journal of Volcanology and Geothermal Research}, 261(Supplement
+  C):295 -- 315.
+\newblock Merapi eruption.
+
+\bibitem[Charbonnier and Gertisser, 2009]{Charbonnier2009}
+Charbonnier, S.~J. and Gertisser, R. (2009).
+\newblock Numerical simulations of block-and-ash flows using the titan2d flow
+  model: examples from the 2006 eruption of merapi volcano, java, indonesia.
+\newblock {\em Bulletin of Volcanology}, 71(8):953--959.
+
+\bibitem[Christen et~al., 2010]{Christen2010}
+Christen, M., Kowalski, J., and Bartelt, P. (2010).
+\newblock {RAMMS: Numerical simulation of dense snow avalanches in
+  three-dimensional terrain}.
+\newblock {\em Cold Regions Science and Technology}, 63:1--14.
+
+\bibitem[DaCruz et~al., 2005]{DaCruz2005}
+DaCruz, F., Emam, S., Prochnow, M., Roux, J.-N., and Chevoir, F. (2005).
+\newblock {Rheophysics of dense granular materials: Discrete simulation of
+  plane shear flows}.
+\newblock {\em Physical Review E}, 72:021309.
+
+\bibitem[Dade and Huppert, 1998]{DadeHuppert1998}
+Dade, W.~B. and Huppert, H.~E. (1998).
+\newblock {Long-runout rockfalls}.
+\newblock {\em Geology}, 26(9):803--806.
+
+\bibitem[Dalbey et~al., 2008]{Dalbey2008}
+Dalbey, K., Patra, A.~K., Pitman, E.~B., Bursik, M.~I., and Sheridan, M.~F.
+  (2008).
+\newblock {Input uncertainty propagation methods and hazard mapping of
+  geophysical mass flows}.
+\newblock {\em Journal of Geophysical Research: Solid Earth}, 113:1--16.
+
+\bibitem[Dalbey, 2009]{Dalbey2009}
+Dalbey, K.~R. (2009).
+\newblock {\em {Predictive Simulation and Model Based Hazard Maps}}.
+\newblock PhD thesis, University at Buffalo.
+
+\bibitem[Davila et~al., 2007]{Davila2007}
+Davila, N., Capra, L., Gavilanes-Ruiz, J., Varley, N., Norini, G., and Vazquez,
+  A.~G. (2007).
+\newblock Recent lahars at volc{\'a}n de colima (mexico): Drainage variation
+  and spectral classification.
+\newblock {\em Journal of Volcanology and Geothermal Research}, 165(3):127 --
+  141.
+
+\bibitem[Denlinger and Iverson, 2001]{Denlinger2001}
+Denlinger, R.~P. and Iverson, R.~M. (2001).
+\newblock {Flow of variably fluidized granular masses across three-dimensional
+  terrain: 2. Numerical predictions and experimental tests}.
+\newblock {\em Journal of Geophysical Research}, 106(B1):553--566.
+
+\bibitem[Denlinger and Iverson, 2004]{Denlinger2004}
+Denlinger, R.~P. and Iverson, R.~M. (2004).
+\newblock {Granular avalanches across irregular three-dimensional terrain: 1.
+  Theory and computation}.
+\newblock {\em Journal of Geophysical Research (Earth Surface)},
+  109(F1):F01014.
+
+\bibitem[Edwards and Gray, 2015]{Edwards2015}
+Edwards, A.~N. and Gray, J. M. N.~T. (2015).
+\newblock {Erosion-deposition waves in shallow granular free-surface flows}.
+\newblock {\em Journal of Fluid Mechanics}, 762:35--67.
+
+\bibitem[Fischer et~al., 2012]{Fischer2012}
+Fischer, J., Kowalski, J., and Pudasaini, S.~P. (2012).
+\newblock {Topographic curvature effects in applied avalanche modeling}.
+\newblock {\em Cold Regions Science and Technology}, 74-75:21--30.
+
+\bibitem[Forterre, 2006]{Forterre2006}
+Forterre, Y. (2006).
+\newblock {Kapiza waves as a test for three-dimensional granular flow
+  rheology}.
+\newblock 563(Journal of Fluid Mechanics):123--132.
+
+\bibitem[Forterre and Pouliquen, 2002]{ForterrePouliquen2002}
+Forterre, Y. and Pouliquen, O. (2002).
+\newblock { Stability analysis of rapid granular chute flows: formation of
+  longitudinal vortices.}
+\newblock {\em Journal of Fluid Mechanics}, 467:361--387.
+
+\bibitem[Forterre and Pouliquen, 2003]{ForterrePouliquen2003}
+Forterre, Y. and Pouliquen, O. (2003).
+\newblock {Long-surface-wave instability in dense granular flows.}
+\newblock {\em Journal of Fluid Mechanics}, 486:21--50.
+
+\bibitem[Forterre and Pouliquen, 2008]{ForterrePouliquen2008}
+Forterre, Y. and Pouliquen, O. (2008).
+\newblock Flows of dense granular media.
+\newblock {\em Annual Review of Fluid Mechanics}, 40(1):1--24.
+
+\bibitem[Fraccarollo and Toro, 1995]{FraccarolloToro1995}
+Fraccarollo, L. and Toro, E.~F. (1995).
+\newblock {Experimental and numerical assessment of the shallow water model for
+  two dimensional dam-break type problems}.
+\newblock {\em Journal of Hydraulic Research}, 33:843--864.
+
+\bibitem[Freundt and Bursik, 1998]{FreundtBursik1998}
+Freundt, A. and Bursik, M.~I. (1998).
+\newblock Pyroclastic flow transport mechanisms.
+\newblock In Freundt, A. and Rosi, M., editors, {\em From Magma to Tephra:
+  Modelling Physical Processes of Explosive Volcanism}, volume~4 of {\em
+  Advances in Volcanology}, pages 151--222. Elsevier Science, Amsterdam.
+
+\bibitem[Gonz{\'a}lez et~al., 2002]{Gonzalez2002}
+Gonz{\'a}lez, M.~B., Ram{\'i}rez, J.~J., and Navarro, C. (2002).
+\newblock Summary of the historical eruptive activity of volc{\'a}n de colima,
+  mexico 1519--2000.
+\newblock {\em Journal of Volcanology and Geothermal Research}, 117(1):21 --
+  46.
+
+\bibitem[Gray and Edwards, 2014]{Gray2014}
+Gray, J. M. N.~T. and Edwards, A.~N. (2014).
+\newblock {A depth-averaged $\mu(I)$-rheology for shallow granular free-surface
+  flows.}
+\newblock {\em Journal of Fluid Mechanics}, 755:503--534.
+
+\bibitem[Gray et~al., 2003]{Gray2003}
+Gray, J. M. N.~T., Tai, Y.~C., and Noelle, S. (2003).
+\newblock {Shock waves, dead zones and particle-free regions in rapid granular
+  free-surface flows.}
+\newblock {\em Journal of Fluid Mechanics}, 491:161--181.
+
+\bibitem[Gray et~al., 1999]{Gray1999}
+Gray, J. M. N.~T., Wieland, M., and Hutter, K. (1999).
+\newblock {Gravity-driven free surface flow of granular avalanches over complex
+  basal topography}.
+\newblock {\em Proceedings of the Royal Society A: Mathematical, Physical and
+  Engineering Sciences}, 455(1985):1841--1874.
+
+\bibitem[Greve et~al., 1994]{Greve1994}
+Greve, R., Koch, T., and Hutter, K. (1994).
+\newblock {Unconfined flow of granular avalanches along a partly curved
+  surface: experiments and theoretical predictions.}
+\newblock {\em Proc. R. Soc. London Ser. A}, 342:573--600.
+
+\bibitem[Gruber and Bartelt, 2007]{Gruber2007}
+Gruber, U. and Bartelt, P. (2007).
+\newblock {Snow avalanche hazard modelling of large areas using shallow water
+  numerical models and GIS}.
+\newblock {\em Environmrntal Modelling \& Software}, 22:1472--1481.
+
+\bibitem[Hokanardottir and Hogg, 2005]{Hokanardottir2005}
+Hokanardottir, K.~M. and Hogg, A.~J. (2005).
+\newblock {Oblique shocks in rapid granular flows}.
+\newblock {\em Phys. Fluids}, 17:077101.
+
+\bibitem[Hutter et~al., 1993]{Hutter1993}
+Hutter, K., Siegel, M., Savage, S.~B., and Nohguchi, Y. (1993).
+\newblock {Two-dimensional spreading of a granular avalanche down an inclined
+  plane part I. Theory}.
+\newblock {\em Acta Mechanica}, 100:37--68.
+
+\bibitem[Iordanoff and Khonsari, 2004]{Iordanoff2004}
+Iordanoff, I.~P. and Khonsari, M.~M. (2004).
+\newblock {Granular Lubrication: Toward an Understanding of the Transition
+  Between Kinetic and Quasi-Fluid Regime}.
+\newblock {\em Journal of Tribology}, 126(1):137--145.
+
+\bibitem[Iverson, 1997]{Iverson1997}
+Iverson, R.~M. (1997).
+\newblock {The physics of debris flows}.
+\newblock {\em Reviews of Geophysics}, 35:245--296.
+
+\bibitem[Iverson and Denlinger, 2001]{Iverson2001}
+Iverson, R.~M. and Denlinger, R.~P. (2001).
+\newblock {Flow of variably fluidized granular masses across three-dimensional
+  terrain: 1. Coulomb mixture theory}.
+\newblock {\em Journal of Geophysical Research}, 106(B1):537.
+
+\bibitem[Iverson and George, 2014]{Iverson2014}
+Iverson, R.~M. and George, D.~L. (2014).
+\newblock A depth-averaged debris-flow model that includes the effects of
+  evolving dilatancy. i. physical basis.
+\newblock {\em Proceedings of the Royal Society of London A: Mathematical,
+  Physical and Engineering Sciences}, 470(2170).
+
+\bibitem[Iverson et~al., 2004]{Iverson2004}
+Iverson, R.~M., Logan, M., and Denlinger, R.~P. (2004).
+\newblock Granular avalanches across irregular three-dimensional terrain: 2.
+  experimental tests.
+\newblock {\em Journal of Geophysical Research: Earth Surface},
+  109(F1):n/a--n/a.
+\newblock F01015.
+
+\bibitem[Jaeger et~al., 1989]{Jaeger1989}
+Jaeger, H.~M., Liu, C., and Nagel, S.~R. (1989).
+\newblock {Relaxation at the Angle of Repose}.
+\newblock {\em Physical Reviiew Letters}, 62(1):40--43.
+
+\bibitem[Jop et~al., 2006]{Jop2006}
+Jop, P., Forterre, Y., and Pouliquen, O. (2006).
+\newblock {A constitutive law for dense granular flows.}
+\newblock {\em Nature}, 441:727--730.
+
+\bibitem[Kelfoun, 2011]{Kelfoun2011}
+Kelfoun, K. (2011).
+\newblock {Suitability of simple rheological laws for the numerical simulation
+  of dense pyroclastic flows and long-runout volcanic avalanches}.
+\newblock {\em Journal of Geophysical Research}, 116:B08209.
+
+\bibitem[Kelfoun and Druitt, 2005]{Kelfoun2005}
+Kelfoun, K. and Druitt, T.~H. (2005).
+\newblock Numerical modeling of the emplacement of socompa rock avalanche,
+  chile.
+\newblock {\em Journal of Geophysical Research: Solid Earth}, 110(B12).
+
+\bibitem[Kelfoun et~al., 2009]{Kelfoun2009}
+Kelfoun, K., Samaniego, P., Palacios, P., and Barba, D. (2009).
+\newblock {Testing the suitability of frictional behaviour for pyroclastic flow
+  simulation by comparison with a well-constrained eruption at Tungurahua
+  volcano (Ecuador)}.
+\newblock {\em Bulletin of Volcanology}, 71:1057--1075.
+
+\bibitem[Kern et~al., 2009]{Kern2009}
+Kern, M., Bartelt, P., Sovilla, B., and Buser, O. (2009).
+\newblock {Measured shear rates in large dry and wet snow avalanches.}
+\newblock {\em Journal of Glaciology}, 55(190):327--338.
+
+\bibitem[la~Cruz-Reyna, 1993]{DeLaCruzReina1993}
+la~Cruz-Reyna, S.~D. (1993).
+\newblock Random patterns of occurrence of explosive eruptions at colima
+  volcano, mexico.
+\newblock {\em Journal of Volcanology and Geothermal Research}, 55(1):51 -- 68.
+
+\bibitem[Lajeunesse et~al., 2005]{Lajeunesse2005}
+Lajeunesse, E., Monnier, J.~B., and Homsy, G.~M. (2005).
+\newblock {Granular slumping on a horizontal surface.}
+\newblock {\em Phys. Fluids}, 17:103302.
+
+\bibitem[Luca et~al., 2016]{Luca2016}
+Luca, I., Tai, Y., and Kuo, C. (2016).
+\newblock {\em Shallow Geophysical Mass Flows down Arbitrary Topography: Model
+  Equations in Topography-fitted Coordinates, Numerical Simulation and
+  Back-calculations of Disastrous Events}.
+\newblock Advances in Geophysical and Environmental Mechanics and Mathematics.
+  Springer International Publishing.
+
+\bibitem[Macorps et~al., 2018]{Macorps2017}
+Macorps, E., Charbonnier, S.~J., Varley, N.~R., Capra, L., Atlas, Z., and
+  Cabr{\'e}, J. (2018).
+\newblock Stratigraphy, sedimentology and inferred flow dynamics from the july
+  2015 block-and-ash flow deposits at volc{\'a}n de colima, mexico.
+\newblock {\em Journal of Volcanology and Geothermal Research}, 349:99 -- 116.
+
+\bibitem[Mangeney-Castelnau et~al., 2007]{Mangeney2007}
+Mangeney-Castelnau, A., Bouchut, F., Thomas, N., Vilotte, J.~P., and Bristeau,
+  M.-O. (2007).
+\newblock {Numerical modeling of self-channeling granular flows and of their
+  levee/channel deposits.}
+\newblock {\em J. Geophys. Res.}, 112:F02017.
+
+\bibitem[Mangeney-Castelnau et~al., 2005]{Mangeney2005}
+Mangeney-Castelnau, A., Bouchut, F., Vilotte, J.~P., Lajeunesse, E., Aubertin,
+  A., and Pirulli, M. (2005).
+\newblock {On the use of Saint-Venant equations to simulate the spreading of a
+  granular mass.}
+\newblock {\em J. Geophys. Res.}, 110:B09103.
+
+\bibitem[Martin Del~Pozzo et~al., 1995]{DelPozzo1995}
+Martin Del~Pozzo, A.~M., Sheridan, M.~F., Barrera, M., Hubp, J.~L., and Selem,
+  L.~V. (1995).
+\newblock {Potential hazards from Colima Volcano, Mexico.}
+\newblock {\em Geofisica Internacional}, 34:363--376.
+
+\bibitem[McKay et~al., 1979]{McKay1979}
+McKay, M.~D., Beckman, R.~J., and Conover, W.~J. (1979).
+\newblock A comparison of three methods for selecting values of input variables
+  in the analysis of output from a computer code.
+\newblock {\em Technometrics}, 21(2):239--245.
+
+\bibitem[Norini et~al., 2009]{Norini2008}
+Norini, G., De~Beni, E., Andronico, D., Polacci, M., Burton, M., and Zucca, F.
+  (2009).
+\newblock The 16 november 2006 flank collapse of the south-east crater at mount
+  etna, italy: Study of the deposit and hazard assessment.
+\newblock {\em Journal of Geophysical Research: Solid Earth}, 114(B2):n/a--n/a.
+\newblock B02204.
+
+\bibitem[Ogburn et~al., 2016]{Ogburn2016}
+Ogburn, S.~E., Berger, J., Calder, E.~S., Lopes, D., Patra, A., Pitman, E.~B.,
+  Rutarindwa, R., Spiller, E., and Wolpert, R.~L. (2016).
+\newblock Pooling strength amongst limited datasets using hierarchical bayesian
+  analysis, with application to pyroclastic density current mobility metrics.
+\newblock {\em Statistics in Volcanology}, 2:1--26.
+
+\bibitem[Owen, 1992a]{Owen1992b}
+Owen, A.~B. (1992a).
+\newblock {A Central Limit Theorem for Latin Hypercube Sampling.}
+\newblock {\em Journal of the Royal Statistical Society.}, 54(2):541--551.
+
+\bibitem[Owen, 1992b]{Owen1992a}
+Owen, A.~B. (1992b).
+\newblock Orthogonal arrays for computer experiments, integration and
+  visualization.
+\newblock {\em Statistica Sinica}, 2(2):439--452.
+
+\bibitem[Patra et~al., 2006]{Patra2006}
+Patra, A., Nichita, C., Bauer, A., Pitman, E., Bursik, M., and Sheridan, M.
+  (2006).
+\newblock Parallel adaptive discontinuous galerkin approximation for thin layer
+  avalanche modeling.
+\newblock {\em Computers \& Geosciences}, 32(7):912 -- 926.
+\newblock Computer Simulation of natural phenomena for Hazard Assessment.
+
+\bibitem[Patra et~al., 2005]{Patra2005}
+Patra, A.~K., Bauer, A.~C., Nichita, C.~C., Pitman, E.~B., Sheridan, M.~F.,
+  Bursik, M., Rupp, B., Webber, A., Stinton, A.~J., Namikawa, L.~M., and
+  Renschler, C.~S. (2005).
+\newblock {Parallel adaptive numerical simulation of dry avalanches over
+  natural terrain}.
+\newblock {\em Journal of Volcanology and Geothermal Research}, 139(1-2):1--21.
+
+\bibitem[Pirulli et~al., 2007]{Pirulli2007}
+Pirulli, M., Bristeau, M.~O., Mangeney, A., and Scavia, C. (2007).
+\newblock {The effect of the earth pressure coefficients on the runout of
+  granular material}.
+\newblock {\em Environmental Modelling \& Software}, 22(10):1437--1454.
+
+\bibitem[Pirulli and Mangeney, 2008]{Pirulli2008}
+Pirulli, M. and Mangeney, A. (2008).
+\newblock {Results of Back--Analysis of the Propagation of Rock Avalanches as a
+  Function of the Assumed Rheology}.
+\newblock {\em Rock Mechanics and Rock Engineering}, 41(1):59--84.
+
+\bibitem[Pitman et~al., 2003a]{Pitman2003b}
+Pitman, E., Nichita, C., Patra, A., Bauer, A., Bursik, M., and Webb, A.
+  (2003a).
+\newblock A model of granular flows over an erodible surface.
+\newblock {\em Discrete and Continuous Dynamical Systems - Series B},
+  3(4):589--599.
+
+\bibitem[Pitman and Le, 2005]{PitmanLe2005}
+Pitman, E.~B. and Le, L. (2005).
+\newblock {A two-fluid model for avalanche and debris flows.}
+\newblock {\em Philosophical transactions. Series A, Mathematical, physical,
+  and engineering sciences}, 363(1832):1573--601.
+
+\bibitem[Pitman et~al., 2003b]{Pitman2003a}
+Pitman, E.~B., Nichita, C.~C., Patra, A., Bauer, A., Sheridan, M., and Bursik,
+  M. (2003b).
+\newblock {Computing granular avalanches and landslides}.
+\newblock {\em Physics of Fluids}, 15(12):3638.
+
+\bibitem[Pouliquen, 1999]{Pouliquen1999}
+Pouliquen, O. (1999).
+\newblock {Scaling laws in granular flows down rough inclined planes}.
+\newblock {\em Physics of Fluids}, 11(3):542--548.
+
+\bibitem[Pouliquen and Forterre, 2002]{PouliquenForterre2002}
+Pouliquen, O. and Forterre, Y. (2002).
+\newblock {Friction law for dense granular flows: application to the motion of
+  a mass down a rough inclined plane}.
+\newblock {\em Journal of Fluid Mechanics}, 453:133--151.
+
+\bibitem[Procter et~al., 2010]{Procter2010}
+Procter, J.~N., Cronin, S.~J., Platz, T., Patra, A., Dalbey, K., Sheridan, M.,
+  and Neall, V. (2010).
+\newblock Mapping block-and-ash flow hazards based on titan 2d simulations: a
+  case study from mt. taranaki, nz.
+\newblock {\em Natural Hazards}, 53(3):483--501.
+
+\bibitem[Pudasaini and Hutter, 2007]{PudasainiHutter2007}
+Pudasaini, S. and Hutter, K. (2007).
+\newblock {\em Avalanche Dynamics: Dynamics of Rapid Flows of Dense Granular
+  Avalanches}.
+\newblock Springer.
+
+\bibitem[Pudasaini and Hutter, 2003]{PudasainiHutter2003}
+Pudasaini, S.~P. and Hutter, K. (2003).
+\newblock {Rapid shear flows of dry granular masses down curved and twisted
+  channels}.
+\newblock {\em Journal of Fluid Mechanics}, 495:193--208.
+
+\bibitem[Ranjan and Spencer, 2014]{Ranjan2014}
+Ranjan, P. and Spencer, N. (2014).
+\newblock Space-filling latin hypercube designs based on randomization
+  restrictions in factorial experiments.
+\newblock {\em Statistics and Probability Letters}, 94(Supplement C):239 --
+  247.
+
+\bibitem[Rankine, 1857]{Rankine1857}
+Rankine, W. J.~M. (1857).
+\newblock {On the Stability of Loose Earth.}
+\newblock {\em Phil. Trans. R. Soc. Lond.}, 147(2):9--27.
+
+\bibitem[Reyes-D{\'a}vila et~al., 2016]{ReyesDaVilla2016}
+Reyes-D{\'a}vila, G.~A., Ar{\'a}mbula-Mendoza, R., Espinasa-Perena, R.,
+  Pankhurst, M.~J., Navarro-Ochoa, C., Savov, I., Vargas-Bracamontes, D.~M.,
+  Cort{\'e}s-Cort{\'e}s, A., Guti{\'e}rrez-Mart{\'i}nez, C.,
+  Vald{\'e}s-Gonz{\'a}lez, C., Dom{\'i}nguez-Reyes, T., Gonz{\'a}lez-Amezcua,
+  M., Mart{\'i}nez-Fierros, A., Ram{\'i}rez-V{\'a}zquez, C.~A.,
+  C{\'a}rdenas-Gonz{\'a}lez, L., Castaneda-Bastida, E., de~los Monteros, D. M.
+  V.~E., Nieto-Torres, A., Campion, R., Courtois, L., and Lee, P.~D. (2016).
+\newblock Volcan de colima dome collapse of july, 2015 and associated
+  pyroclastic density currents.
+\newblock {\em Journal of Volcanology and Geothermal Research}, 320(Supplement
+  C):100 -- 106.
+
+\bibitem[Rupp, 2004]{Rupp2004}
+Rupp, B. (2004).
+\newblock {An analysis of granular flows over natural terrain}.
+\newblock Master's thesis, University at Buffalo.
+
+\bibitem[Rupp et~al., 2006]{Rupp2006}
+Rupp, B., Bursik, M., Namikawa, L., Webb, A., Patra, A.~K., Saucedo, R.,
+  Mac\'{\i}as, J.~L., and Renschler, C. (2006).
+\newblock {Computational modeling of the 1991 block and ash fows at Colima
+  Volcano, M\`exico}.
+\newblock {\em Geological Society of America Special Papers}, 402(11):223--237.
+
+\bibitem[Ruyer-Quil and Manneville, 2000]{RuyerQuil2000}
+Ruyer-Quil, C. and Manneville, P. (2000).
+\newblock {Improved modeling of flows down inclined planes.}
+\newblock {\em Eur. Phys. J. B}, 15:357--369.
+
+\bibitem[Salm, 1993]{Salm1993}
+Salm, B. (1993).
+\newblock {Flow, flow transition and runout distances of flowing avalanches.}
+\newblock {\em Annals of Glaciology}, 18:221--226.
+
+\bibitem[Salm et~al., 1990]{Salm1990}
+Salm, B., Burkard, A., and Gubler, H. (1990).
+\newblock {Berechnung von Fliesslawinen: eine Anleitung f{\"u}r Praktiker mit
+  Beispielen.}
+\newblock {\em Mitteilungen des Eidgen{\"o}ssische Institutes f{\"u}r Schnee-
+  und Lawinenforschung}, 47.
+
+\bibitem[Sarocchi et~al., 2011]{Sarocchi2011}
+Sarocchi, D., Sulpizio, R., Mac{\'i}as, J., and Saucedo, R. (2011).
+\newblock The 17 july 1999 block-and-ash flow (baf) at colima volcano: New
+  insights on volcanic granular flows from textural analysis.
+\newblock {\em Journal of Volcanology and Geothermal Research}, 204(1):40 --
+  56.
+
+\bibitem[Saucedo et~al., 2002]{Saucedo2002}
+Saucedo, R., Mac\'ias, J., Bursik, M., Mora, J., Gavilanes, J., and Cortes, A.
+  (2002).
+\newblock Emplacement of pyroclastic flows during the 1998--1999 eruption of
+  volc{\'a}n de colima, m{\'e}xico.
+\newblock {\em Journal of Volcanology and Geothermal Research}, 117(1):129 --
+  153.
+
+\bibitem[Saucedo et~al., 2010]{Saucedo2010}
+Saucedo, R., Mac\'ias, J., Gavilanes, J., Arce, J., Komorowski, J., Gardner,
+  J., and Valdez-Moreno, G. (2010).
+\newblock Eyewitness, stratigraphy, chemistry, and eruptive dynamics of the
+  1913 plinian eruption of volc{\'a}n de colima, m{\'e}xico.
+\newblock {\em Journal of Volcanology and Geothermal Research}, 191(3--4):149
+  -- 166.
+
+\bibitem[Saucedo et~al., 2005]{Saucedo2005}
+Saucedo, R., Mac\'ias, J., Sheridan, M., Bursik, M., and Komorowski, J. (2005).
+\newblock Modeling of pyroclastic flows of colima volcano, mexico: implications
+  for hazard assessment.
+\newblock {\em Journal of Volcanology and Geothermal Research}, 139(1):103 --
+  115.
+\newblock Modeling and Simulation of Geophysical Mass Flows.
+
+\bibitem[Saucedo et~al., 2004]{Saucedo2004}
+Saucedo, R., Mac{\'i}as, J.~L., and Bursik, M. (2004).
+\newblock {Pyroclastic flow deposits of the 1991 eruption of Volc\'an de
+  Colima, Mexico}.
+\newblock {\em Bulletin of Volcanology}, 66(4):291--306.
+
+\bibitem[Savage and Hutter, 1989]{SavageHutter1989}
+Savage, S.~B. and Hutter, K. (1989).
+\newblock {The motion of a finite mass of granular material down a rough
+  incline}.
+\newblock {\em Journal of Fluid Mechanics}, 199:177.
+
+\bibitem[Savage and Iverson, 2003]{SavageIverson2003}
+Savage, S.~B. and Iverson, R.~M. (2003).
+\newblock {Surge dynamics coupled to pore-pressure evolution in debris flows}.
+\newblock {\em Debris-Flow Hazards Mitigation: Mechanics, Prediction and
+  Assessment, edited by: Rickenmann, D. and Chen, C. L., Millpress},
+  1:503--514.
+
+\bibitem[Sheridan et~al., 2005]{Sheridan2005}
+Sheridan, M., Stinton, A., Patra, A., Pitman, E., Bauer, A., and Nichita, C.
+  (2005).
+\newblock Evaluating titan2d mass-flow model using the 1963 little tahoma peak
+  avalanches, mount rainier, washington.
+\newblock {\em Journal of Volcanology and Geothermal Research}, 139(1):89 --
+  102.
+\newblock Modeling and Simulation of Geophysical Mass Flows.
+
+\bibitem[Sheridan and Mac{\'i}as, 1995]{Sheridan1995}
+Sheridan, M.~F. and Mac{\'i}as, J.~L. (1995).
+\newblock Estimation of risk probability for gravity-driven pyroclastic flows
+  at volcan colima, mexico.
+\newblock {\em Journal of Volcanology and Geothermal Research}, 66(1):251 --
+  256.
+\newblock Models of Magnetic Processes and Volcanic Eruptions.
+
+\bibitem[Sheridan et~al., 2010]{Sheridan2010}
+Sheridan, M.~F., Patra, A.~K., Dalbey, K., and Hubbard, B. (2010).
+\newblock {\em Probabilistic digital hazard maps for avalanches and massive
+  pyroclastic flows using TITAN2D.}, volume Stratigraphy and geology of
+  volcanic areas, 464, chapter~14, page 281.
+\newblock Geological Society of America.
+
+\bibitem[Silbert et~al., 2001]{Silbert2001}
+Silbert, L.~E., Ertas, D., Grest, G.~S., Halsey, T.~C., Levine, D., and
+  Plimpton, S.~J. (2001).
+\newblock {Granular flow down an inclined plane: Bagnold scaling and rheology.}
+\newblock {\em Physical Review E}, 64(5):051302.
+
+\bibitem[Spiller et~al., 2014]{Spiller2014}
+Spiller, E.~T., Bayarri, M.~J., Berger, J.~O., Calder, E.~S., Patra, A.~K.,
+  Pitman, E.~B., and Wolpert, R.~L. (2014).
+\newblock Automating emulator construction for geophysical hazard maps.
+\newblock {\em SIAM/ASA Journal on Uncertainty Quantification}, 2(1):126--152.
+
+\bibitem[Stefanescu et~al., 2012a]{Stefanescu2012b}
+Stefanescu, E.~R., Bursik, M., Cordoba, G., Dalbey, K., Jones, M.~D., Patra,
+  A.~K., Pieri, D.~C., Pitman, E.~B., and Sheridan, M.~F. (2012a).
+\newblock Digital elevation model uncertainty and hazard analysis using a
+  geophysical flow model.
+\newblock {\em Proceedings of the Royal Society of London A: Mathematical,
+  Physical and Engineering Sciences}, 468(2142):1543--1563.
+
+\bibitem[Stefanescu et~al., 2012b]{Stefanescu2012a}
+Stefanescu, E.~R., Bursik, M., and Patra, A.~K. (2012b).
+\newblock Effect of digital elevation model on mohr-coulomb geophysical flow
+  model output.
+\newblock {\em Natural Hazards}, 62(2):635--656.
+
+\bibitem[Stein, 1987]{Stein1987}
+Stein, M. (1987).
+\newblock Large sample properties of simulations using latin hypercube
+  sampling.
+\newblock {\em Technometrics}, 29(2):143--151.
+
+\bibitem[Sulpizio et~al., 2010]{Sulpizio2010}
+Sulpizio, R., Capra, L., Sarocchi, D., Saucedo, R., Gavilanes-Ruiz, J., and
+  Varley, N. (2010).
+\newblock Predicting the block-and-ash flow inundation areas at volc{\'a}n de
+  colima (colima, mexico) based on the present day (february 2010) status.
+\newblock {\em Journal of Volcanology and Geothermal Research}, 193(1):49 --
+  66.
+
+\bibitem[Tang, 1993]{Tang1993}
+Tang, B. (1993).
+\newblock Orthogonal array-based latin hypercubes.
+\newblock {\em Journal of the American Statistical Association},
+  88(424):1392--1397.
+
+\bibitem[Toro, 2013]{Toro2013}
+Toro, E. (2013).
+\newblock {\em Riemann Solvers and Numerical Methods for Fluid Dynamics: A
+  Practical Introduction}.
+\newblock Springer Berlin Heidelberg.
+
+\bibitem[Voellmy, 1955]{Voellmy1955}
+Voellmy, A. (1955).
+\newblock {{\"U}ber die Zerst{\"o}rungskraft von Lawinen}.
+\newblock {\em Schweiz Bauzeitung}, 73:159--165, 212--217, 246--249, 280--285.
+
+\bibitem[Webb, 2004]{Webb2004}
+Webb, A. (2004).
+\newblock {Granular flow experiments to validate numerical flow model,
+  TITAN2D}.
+\newblock Master's thesis, University at Buffalo.
+
+\bibitem[Webb and Bursik, 2016]{WebbBursik2016}
+Webb, A. and Bursik, M. (2016).
+\newblock {Granular flow experiments for validation of numerical flow models.}
+\newblock Technical report, University at Buffalo.
+
+\bibitem[Wieland et~al., 1999]{Wieland1999}
+Wieland, J.~M., Gray, J. M. N.~T., and Hutter, K. (1999).
+\newblock {Channelized free-surface flow of cohesionless granular avalanches in
+  a chute with shallow lateral curvature.}
+\newblock {\em Journal of Fluid Mechanics}, 392:73--100.
+
+\bibitem[Wolpert et~al., 2016]{Wolpert2016}
+Wolpert, R.~L., Ogburn, S.~E., and Calder, E.~S. (2016).
+\newblock The longevity of lava dome eruptions.
+\newblock {\em Journal of Geophysical Research: Solid Earth}, 121(2):676--686.
+\newblock 2015JB012435.
+
+\bibitem[Yu et~al., 2009]{Yu2009}
+Yu, B., Dalbey, K., Webb, A., Bursik, M., Patra, A.~K., Pitman, E.~B., and
+  Nichita, C. (2009).
+\newblock {Numerical issues in computing inundation areas over natural terrains
+  using Savage-Hutter theory}.
+\newblock {\em Natural Hazards}, 50(2):249--267.
+
+\bibitem[Zobin et~al., 2002]{Zobin2002}
+Zobin, V., Luhr, J., Taran, Y., Bret{\'o}n, M., Cort{\'e}s, A., Cruz-Reyna, S.
+  D.~L., Dom{\'i}nguez, T., Galindo, I., Gavilanes, J., Muniz, J., Navarro, C.,
+  Ram{\'i}rez, J., Reyes, G., Urs{\'u}a, M., Velasco, J., Alatorre, E., and
+  Santiago, H. (2002).
+\newblock Overview of the 1997--2000 activity of volc{\'a}n de colima,
+  m{\'e}xico.
+\newblock {\em Journal of Volcanology and Geothermal Research}, 117(1):1 -- 19.
+
+\bibitem[Zobin et~al., 2015]{Zobin2015}
+Zobin, V.~M., Ar{\'a}mbula, R., Bret{\'o}n, M., Reyes, G., Plascencia, I.,
+  Navarro, C., T{\'e}llez, A., Campos, A., Gonz{\'a}lez, M., Le{\'o}n, Z.,
+  Mart{\'i}nez, A., and Ram{\'i}rez, C. (2015).
+\newblock Dynamics of the january 2013--june 2014 explosive-effusive episode in
+  the eruption of volc{\'a}n de colima, m{\'e}xico: insights from seismic and
+  video monitoring.
+\newblock {\em Bulletin of Volcanology}, 77(4):31.
+
+\end{thebibliography}
