@@ -27,7 +27,7 @@
 \DeclareSymbolFont{largesymbolsA}{U}{txexa}{m}{n}
 \DeclareMathSymbol{\varprod}{\mathop}{largesymbolsA}{16}
 
-\journalname{SN Applied Sciences}
+\journalname{Frontiers in Earth Science}
 \begin{document}
 
 \title{\bf Comparative analysis of the structures and outcomes of geophysical flow models and modeling assumptions using uncertainty quantification}
@@ -48,9 +48,11 @@
            \and
            Andrea Bevilacqua, Marcus I. Bursik, David Hyman \at \textit{Department of Earth Sciences, University at Buffalo, Buffalo, SUNY}
            \and
-           Abani K. Patra and Ali Akhavan-Safaei \at \textit{Department of Mechanical and  Aerospace Engineering, University at Buffalo, Buffalo, SUNY}
+            Ali Akhavan-Safaei \at \textit{Department of Mechanical and  Aerospace Engineering, University at Buffalo, Buffalo, SUNY}
            \and
            E. Bruce Pitman \at \textit{Department of Materials Design and Innovation, University at Buffalo, SUNY}
+           \and
+           Abani K Patra \at \textit{Tufts University, Data Intensive Sciences Center, Medford, MA 02155}
 }
 
 \date{\texttt{\{abani,abevilac,aliakhav,pitman,mib,davidhym\}@buffalo.edu}}
@@ -63,37 +65,39 @@
 %We present a new statistically driven method for analyzing the modeling of geophysical flows. Many models have been advocated by different modelers for such flows incorporating different modeling assumptions. Limited and sparse observational data on the modeled phenomena usually does not permit a clean discrimination among models for fitness of purpose, and, heuristic choices are usually made, especially for critical predictions of behavior that has not been experienced. 
 We advocate here a methodology for characterizing models of geophysical flows and the modeling assumptions they represent, using a statistical approach over the full range of applicability of the models. Such a characterization may then be used to decide the appropriateness of a model and modeling assumption for use. %, and, perhaps as needed  compositions of models for better predictive power.
 We present our method by comparing three different models arising from different rheology assumptions, and the output data show unambiguously the performance of the models across a wide range of possible flow regimes. This comparison is facilitated by the recent development of the new release of our TITAN2D mass flow code that allows choice of multiple rheologies The quantitative and probabilistic analysis of contributions from different modeling  assumptions in the models is particularly illustrative of the impact of the assumptions. Knowledge of which assumptions dominate, and, by how much, is illustrated in two different case studies: a small scale inclined plane with a flat runway, and the large scale topography on the SW slope of Volc\'{a}n de Colima (MX). A simple model performance evaluation completes the presentation.
-
-
-\section{Models and assumptions}
-
-%{\bf NEED to MOTIVATE WITH SYSTEM COMPLEXITY and MANY MODELS?}
-Complex systems with sparse observations like large scale geophysical mass flows are often represented in the literature by numerous models, e.g., \cite{Kelfoun2011}. It is often difficult to decide which of these models are appropriate for a particular analysis. Nevertheless, ready availability of many models as reusable software tools makes it the users burden to select one appropriate for their purpose.
-For example, the $\mathrm{4^{\mathrm{th}}}$ release of TITAN2D\footnote{available from vhub.org} offers multiple rheology options in the same code base. Remarkably, the availability of several distinct models for similar phenomena in the same tool provides us the ability to directly compare outputs and internal variables in all the models and control for usually difficult to quantify effects like numerical solution procedures, input ranges and computer hardware. This can improve the process for integrating information from multiple models \citep{Bongard2007}. Given a particular problem for which predictive analysis is planned, the information generated and its comparison to available observational data can be used to guide model choice and input space refinement \citep{Bevilacqua2019}.
-%However, as we have discovered such comparison requires a more careful understanding of each model and its constituents and a well organized process for such comparison. We begin with precise, albeit limited definitions of models and their constituents.
-
-%This paper presents a systematic approach to the study of such models of complex systems, motivated by and applied to the case of geophysical mass flow models.
-In this study we describe a methodology for characterizing geophysical flow models and the modeling assumptions they represent. A modeling assumption is a simple concept -- any atomic postulate about relationships among quantities under study. Models are compositions of many such assumptions. The study of models is, thus, implicitly a study of these assumptions and their composability and applicability in a particular context. Sometimes a good model contains a useless assumption that may be removed, sometimes a good assumption could be added to a different model - these are usually subjective choices, not data driven. Moreover, the correct assumptions may change as the system evolves, making {\em model choice} more difficult.
+\input{models_assumptions}
+%
+%\section{Models and assumptions}
+%We present in this paper a simple data driven approach to discriminate among models and the modeling assumptions implicit in each model, given a range of phenomena to be studied. We illustrate the approach by work on geophysical mass flows.
+%This is especially relevant when the observations/measurements are not adequate to characterize the behavior of the system which is modeled. Observational {\it data inadequacy} is rarely characterized even for verified and validated models. 
+%
+%Since models actualize a hypothesis, it follows  that a model is a formulation of a belief about the data. The immediate consequence of this is that the model may not be reliable about such prediction, since the {\it subjectivity of the belief} can never be completely eliminated \citep{Kennedy2001, Higdon2004}, nor is  the data at hand  enough to characterize its behavior at the desired prediction. Principles like ``Occam's razor" and Bayesian statistics \citep{Farrell2015} provide some guidance, but simple robust approaches that allow the testing of models for fitness need to be developed. In related work we have shown that, the itemized application of the empirical falsification principle of K.R. Popper \citep{Popper1959} over an arbitrarily wide envelope of possible input conditions was shown to reduce the subjectivity of the belief in a case study where the available data was not adequate \citep{Bevilacqua2019}.%
+%%{\bf NEED to MOTIVATE WITH SYSTEM COMPLEXITY and MANY MODELS?}
+%
+%For complex systems with sparse observations like large scale geophysical mass flows there  are usually numerous models, e.g., \cite{Kelfoun2011}. It is often difficult to decide which of these models are appropriate for a particular analysis. Nevertheless, ready availability of many models as reusable software tools makes it the user's burden to select one appropriate for their purpose.
+%For example, the $\mathrm{4^{\mathrm{th}}}$ release of TITAN2D\footnote{available from vhub.org} offers multiple rheology options in the same code base. Remarkably, the availability of several distinct models for similar phenomena in the same tool provides us the ability to directly compare outputs and internal variables in all the models and control for usually difficult to quantify effects like numerical solution procedures, input ranges and computer hardware. This can improve the process for integrating information from multiple models \citep{Bongard2007}. Given a particular problem for which predictive analysis is planned, the information generated and its comparison to available observational data can be used to guide model choice and input space refinement \citep{Bevilacqua2019}.
+%However, as we have discovered such comparison requires a more careful understanding of each model and its constituents and a well organized process for such comparison. %We begin with precise, albeit limited definitions of models and their constituents.
+%
+%%This paper presents a systematic approach to the study of such models of complex systems, motivated by and applied to the case of geophysical mass flow models.
+%In this study we describe a methodology for characterizing geophysical flow models and the modeling assumptions they represent. A modeling assumption is a simple concept -- any atomic postulate about relationships among quantities under study. Models are compositions of many such assumptions. The study of models is, thus, implicitly a study of these assumptions and their composability and applicability in a particular context. Sometimes a good model contains a useless assumption that may be removed, sometimes a good assumption could be added to a different model - these are usually subjective choices, not data driven. Moreover, the correct assumptions may change as the system evolves, making {\em model choice} more difficult.
+%
+%
+%In this study, we initially provide a traditional type of analysis, summarizing the general features that differ among the model outputs. However, this is performed in a probabilistic framework, oriented to extrapolation and forecast. After that, and more significantly, we describe and compare the general features of the newly introduced \emph{contributing variables} in the models, through the new concepts of dominance factors and expected contributions. This is a type of analysis enabled by our approach, that allows us to evaluate modeling assumptions and their relative importance. 
+%
+\section{Analysis of modeling assumptions and models }
 
 The statistically driven method introduced in this study for analyzing complex models provides extensive and quantitative information. Geophysical flow modeling usually compares simulation to observation, and fits the model parameters using the solution of a regularized inverse problem. Nevertheless, this is not always sufficient to solve forecasting problems, in which the range of possible flows might not be limited to a single type and scale of flow. Our approach is different, and evaluates the statistics of a range of flows, produced by the couple $\left(M, P_M\right)$ - i.e. a model $M$ and a probability distribution for its parameters $P_M$. New quantitative information can solve classical qualitative problems, either model-model or model-observation comparison. The mean plot represents the average behavior of flows in the considered range, and provides the same type of output that is provided by a single simulation. Moreover, the uncertainty ranges generate additional pieces of information that often highlight the differences between the models.
-
-We will define our approach and illustrate it using three models for large scale mass flows incorporated in our large scale mass flow simulation framework  TITAN2D \citep{Patra2005,Patra2006, Yu2009, Aghakhani2016}.
-So far, TITAN2D has been successfully applied to the simulation of different geophysical mass flows with specific characteristics \citep{Sheridan2005, Rupp2006, Norini2008, Charbonnier2009, Procter2010, Sheridan2010, Sulpizio2010, Capra2011}. Several studies involving TITAN2D were also directed towards a statistical study of geophysical flows, focusing on uncertainty quantification \citep{Dalbey2008, Dalbey2009, Stefanescu2012b, Stefanescu2012a}, or on the more efficient production of hazard maps \citep{Bayarri2009, Spiller2014, Bayarri2015, Ogburn2016}.
-
-In this study we initially provide a traditional type of analysis, summarizing the general features that differ among the model outputs. However, this is performed in a probabilistic framework, oriented to extrapolation and forecast. After that, and more significantly, we describe and compare the general features of the newly introduced \emph{contributing variables} in the models, through the new concepts of dominance factors and expected contributions. This is a type of analysis enabled by our approach, that allows us to evaluate modeling assumptions and their relative importance. 
-
 In particular, if the assumptions represent the atomic elements constituting the models, then the dominance factors will tell us which atomic element is the \emph{most abundant} in the model, and the contributing variables will quantitatively determine the full atomic decomposition of the model, trough space and time.
 
-\section{Analysis of modeling assumptions and models }
-\cite{Gilbert91} defines science as a process of constructing predictive conceptual models where these models represent
-consistent predictive relations in target systems. A simpler definition of a model that is more appropriate for the context of this study is that:
-
-\begin{quote}{\it A model is a representation of a postulated relationship among inputs and outputs of a system, informed by observation, and based on an hypothesis that best explains the relationship.}\end{quote} The definition captures two of the most important characteristics
-\begin{itemize}
-\item models depend on a {\it hypothesis}, and,
-\item models use the {\it data from observation} to validate and refine the hypothesis.
-\end{itemize}
-Errors and uncertainty in the data and limitations in the hypothesis (usually a tractable and computable mathematical construct articulating beliefs like proportionality, linearity, etc.) are immediate challenges that must be overcome, to construct useful and credible models.
+%\cite{Gilbert91} defines science as a process of constructing predictive conceptual models where these models represent
+%consistent predictive relations in target systems. A simpler definition of a model that is more appropriate for the context of this study is that:
+%
+%\begin{quote}{\it A model is a representation of a postulated relationship among inputs and outputs of a system, informed by observation, and based on an hypothesis that best explains the relationship.}\end{quote} The definition captures two of the most important characteristics
+%\begin{itemize}
+%\item models depend on a {\it hypothesis}, and,
+%\item models use the {\it data from observation} to validate and refine the hypothesis.
+%\end{itemize}
+%Errors and uncertainty in the data and limitations in the hypothesis (usually a tractable and computable mathematical construct articulating beliefs like proportionality, linearity, etc.) are immediate challenges that must be overcome, to construct useful and credible models.
 
 The analysis of contributing variables is particularly illustrative of the impact of modeling assumptions. Knowledge of which assumptions dominate, and by how much, allows us to construct efficient models for desired inputs. Such model composition has the ultimate purpose of bypassing the search for a unique best model, and going beyond a simple mixture of alternative models.
 
@@ -113,7 +117,6 @@ For each model $M$, we produce datasets of \emph{model inputs}, \emph{contributi
 
 \paragraph{Stage 3: Results Analysis} These and other statistics can now be compared to determine the need for different modeling assumptions and the relative merits of different models. Thus, analysis of the output data gathered over the entire range of flows for the state variables and outcomes leads to a quantitative basis for accepting or rejecting particular assumptions or models for specific outcomes.
 
-This is especially relevant when the observations/measurements are not adequate to characterize the behavior of the system which is modeled. Observational {\it data inadequacy} is rarely characterized even for verified and validated models. In particular, since models require an hypothesis, it follows  that a model is a formulation of a belief about the data. The immediate consequence of this is that the model may not be reliable about such prediction, since the {\it subjectivity of the belief} can never be completely eliminated \citep{Kennedy2001, Higdon2004}, even when sufficient care is taken to use all the available information. Nevertheless, the data at hand may not provide enough information about the system to characterize its behavior at the desired prediction. Principles like ``Occam's razor" and Bayesian statistics \citep{Farrell2015} provide some guidance, but simple robust approaches that allow the testing of models for fitness need to be developed. However, the itemized application of the empirical falsification principle of K.R. Popper \citep{Popper1959} over an arbitrarily wide envelope of possible input conditions was shown to reduce the subjectivity of the belief in a case study where the available data was not adequate \citep{Bevilacqua2019}.%We present in this paper a simple data driven approach to discriminate among models and the modeling assumptions implicit in each model, given a range of phenomena to be studied. We illustrate the approach by work on geophysical mass flows.
 
 \subsection{Monte Carlo Process and Statistical Analysis}
 In our study, the flow range is defined by establishing boundaries for inputs like flow volume or rheology coefficients characterizing the models.  Latin Hypercube Sampling is performed over $[0,1]^d$ where $d$ depends on the number of  input parameters (see Appendix \ref{A-1}). Those dimensionless samples are linearly  mapped to fill the required intervals. Section \ref{lhs_des_colima} provides examples of Latin Hypercube design in the three models that are targets of this study, with respect to their commonly used parameters.
@@ -167,7 +170,16 @@ Here the Cartesian coordinate system is aligned such that $z$ is normal to the s
 The final class of assumptions are the assumptions on the rheology of the flows -- in particular in this context assumptions used to model different dissipation mechanisms embedded in $S_x, S_y$ that lead to a plethora of models with much controversy on the most suitable model. We focus here on three models derived from different assumptions for essentially the same class of flows.
 
 \subsection{Overview of the models}\label{subsec:Models}
+
+
+We will define our approach and illustrate it using three models for large scale mass flows incorporated in our large scale mass flow simulation framework  TITAN2D \citep{Patra2005,Patra2006, Yu2009, Aghakhani2016}.
+So far, TITAN2D has been successfully applied to the simulation of different geophysical mass flows with specific characteristics \citep{Sheridan2005, Rupp2006, Norini2008, Charbonnier2009, Procter2010, Sheridan2010, Sulpizio2010, Capra2011}. Several studies involving TITAN2D were also directed towards a statistical study of geophysical flows, focusing on uncertainty quantification \citep{Dalbey2008, Dalbey2009, Stefanescu2012b, Stefanescu2012a}, or on the more efficient production of hazard maps \citep{Bayarri2009, Spiller2014, Bayarri2015, Ogburn2016}.
+
 In the three following sections, we briefly describe \emph{Mohr-Coulomb} (MC), \emph{Pouliquen-Forterre} (PF) and \emph{Voellmy-Salm} (VS) models. Models based on additional heterogeneous assumptions are possible, either more complex \citep{PitmanLe2005,Iverson2014} or more simple \citep{DadeHuppert1998}. We decided to focus on these three because of their historical relevance. Moreover, if the degree of complexity in the models is significantly different, model comparison should take into account that, but this is outside the purpose of this study \citep{Farrell2015}.
+
+
+%{\bf TO MOVE}
+
 
 \subsubsection{Mohr-Coulomb}\label{MCM}
 Based on the long history of studies in soil mechanics \citep{Rankine1857,DruckerPage52}, the Mohr-Coulomb rheology (MC) was developed and used to represent the behavior of geophysical mass flows \citep{SavageHutter1989}.
