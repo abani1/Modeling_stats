@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.12.10)  27 OCT 2019 22:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.12.10)  28 OCT 2019 18:23
 entering extended mode
 **./rheo_paper.tex
 (rheo_paper.tex
@@ -520,14 +520,14 @@ File: utxexa.fd 2000/12/15 v3.1
 )
 (models_assumptions.tex [1{C:/Users/Roberto/AppData/Local/MiKTeX/2.9/pdftex/con
 fig/pdftex.map}]) [2] [3] [4] [5] [6] [7] [8]
-<figures/Colima/ColimaFig.jpg, id=346, 746.79pt x 469.0323pt>
+<figures/Colima/ColimaFig.jpg, id=351, 746.79pt x 469.0323pt>
 File: figures/Colima/ColimaFig.jpg Graphic file (type jpg)
 
 <use figures/Colima/ColimaFig.jpg>
 Package pdftex.def Info: figures/Colima/ColimaFig.jpg used on input line 338.
 (pdftex.def)             Requested size: 430.31812pt x 270.26402pt.
 
-<figures/Colima/ExtremeMaps.jpg, id=395, 216.81pt x 209.3421pt>
+<figures/Colima/ExtremeMaps.jpg, id=400, 216.81pt x 209.3421pt>
 File: figures/Colima/ExtremeMaps.jpg Graphic file (type jpg)
 
 <use figures/Colima/ExtremeMaps.jpg>
@@ -535,7 +535,7 @@ Package pdftex.def Info: figures/Colima/ExtremeMaps.jpg used on input line 346.
 
 (pdftex.def)             Requested size: 407.66833pt x 393.67499pt.
  [9 <./figures/Colima/ColimaFig.jpg>]
-<figures/Colima/SensitivityFigure.jpg, id=411, 355.0866pt x 349.18456pt>
+<figures/Colima/SensitivityFigure.jpg, id=416, 355.0866pt x 349.18456pt>
 File: figures/Colima/SensitivityFigure.jpg Graphic file (type jpg)
 
 <use figures/Colima/SensitivityFigure.jpg>
@@ -547,7 +547,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [10 <./figures/Colima/ExtremeMaps.jpg>] [11 <./figures/Colima/SensitivityFigur
 e.jpg>]
-<figures/Colima/HeightMC_BAF.png, id=466, 603.2136pt x 467.346pt>
+<figures/Colima/HeightMC_BAF.png, id=471, 603.2136pt x 467.346pt>
 File: figures/Colima/HeightMC_BAF.png Graphic file (type png)
 
 <use figures/Colima/HeightMC_BAF.png>
@@ -555,7 +555,7 @@ Package pdftex.def Info: figures/Colima/HeightMC_BAF.png used on input line 392
 .
 (pdftex.def)             Requested size: 407.66833pt x 315.85141pt.
 
-<figures/Colima/FigExtra.jpg, id=470, 602.25pt x 265.4718pt>
+<figures/Colima/FigExtra.jpg, id=475, 602.25pt x 265.4718pt>
 File: figures/Colima/FigExtra.jpg Graphic file (type jpg)
 
 <use figures/Colima/FigExtra.jpg>
@@ -569,21 +569,21 @@ ge of flow regimes. They are $[\OML/cmm/m/it/10 L[]; L[]; L[]; L[]; L[]; L[]\OT
  []
 
 [13 <./figures/Colima/HeightMC_BAF.png> <./figures/Colima/FigExtra.jpg>]
-<figures/Colima/Height.png, id=486, 591.1686pt x 460.8417pt>
+<figures/Colima/Height.png, id=491, 591.1686pt x 460.8417pt>
 File: figures/Colima/Height.png Graphic file (type png)
 
 <use figures/Colima/Height.png>
 Package pdftex.def Info: figures/Colima/Height.png used on input line 409.
 (pdftex.def)             Requested size: 430.31812pt x 335.4553pt.
  [14 <./figures/Colima/Height.png>]
-<figures/Colima/Pr1_total.png, id=497, 603.4545pt x 497.9403pt>
+<figures/Colima/Pr1_total.png, id=502, 603.4545pt x 497.9403pt>
 File: figures/Colima/Pr1_total.png Graphic file (type png)
 
 <use figures/Colima/Pr1_total.png>
 Package pdftex.def Info: figures/Colima/Pr1_total.png used on input line 422.
 (pdftex.def)             Requested size: 452.9679pt x 373.77342pt.
  [15 <./figures/Colima/Pr1_total.png>]
-<figures/Colima/Ci1_total.png, id=509, 561.5379pt x 315.0972pt>
+<figures/Colima/Ci1_total.png, id=514, 561.5379pt x 315.0972pt>
 File: figures/Colima/Ci1_total.png Graphic file (type png)
 
 <use figures/Colima/Ci1_total.png>
@@ -593,14 +593,14 @@ Package pdftex.def Info: figures/Colima/Ci1_total.png used on input line 431.
 Underfull \vbox (badness 2426) has occurred while \output is active []
 
  [16 <./figures/Colima/Ci1_total.png>]
-<figures/Colima/Pr2_total.png, id=525, 628.0263pt x 493.6041pt>
+<figures/Colima/Pr2_total.png, id=530, 628.0263pt x 493.6041pt>
 File: figures/Colima/Pr2_total.png Graphic file (type png)
 
 <use figures/Colima/Pr2_total.png>
 Package pdftex.def Info: figures/Colima/Pr2_total.png used on input line 441.
 (pdftex.def)             Requested size: 452.9679pt x 356.02733pt.
 
-<figures/Colima/Ci2_total.png, id=526, 628.0263pt x 495.0495pt>
+<figures/Colima/Ci2_total.png, id=531, 628.0263pt x 495.0495pt>
 File: figures/Colima/Ci2_total.png Graphic file (type png)
 
 <use figures/Colima/Ci2_total.png>
@@ -608,7 +608,7 @@ Package pdftex.def Info: figures/Colima/Ci2_total.png used on input line 448.
 (pdftex.def)             Requested size: 452.9679pt x 357.06989pt.
  [17 <./figures/Colima/Pr2_total.png>]
 [18 <./figures/Colima/Ci2_total.png>]
-<figures/Colima/AveragedColima.png, id=546, 627.3036pt x 489.2679pt>
+<figures/Colima/AveragedColima.png, id=551, 627.3036pt x 489.2679pt>
 File: figures/Colima/AveragedColima.png Graphic file (type png)
 
 <use figures/Colima/AveragedColima.png>
@@ -616,7 +616,7 @@ Package pdftex.def Info: figures/Colima/AveragedColima.png used on input line 4
 58.
 (pdftex.def)             Requested size: 407.66833pt x 317.9681pt.
  [19 <./figures/Colima/AveragedColima.png>] <figures/Colima/PowersColima.png, i
-d=560, 590.6868pt x 314.3745pt>
+d=565, 590.6868pt x 314.3745pt>
 File: figures/Colima/PowersColima.png Graphic file (type png)
 
 <use figures/Colima/PowersColima.png>
@@ -624,7 +624,7 @@ Package pdftex.def Info: figures/Colima/PowersColima.png used on input line 468
 .
 (pdftex.def)             Requested size: 430.31812pt x 229.03096pt.
  [20 <./figures/Colima/PowersColima.png>]
-<figures/Colima/SuppInfo_table.pdf, id=587, 507.2805pt x 150.4812pt>
+<figures/Colima/SuppInfo_table.pdf, id=594, 507.2805pt x 150.4812pt>
 File: figures/Colima/SuppInfo_table.pdf Graphic file (type pdf)
 
 <use figures/Colima/SuppInfo_table.pdf>
@@ -632,7 +632,7 @@ Package pdftex.def Info: figures/Colima/SuppInfo_table.pdf used on input line 4
 86.
 (pdftex.def)             Requested size: 452.9679pt x 134.3756pt.
 
-<figures/Colima/Histograms.jpg, id=590, 240.9pt x 336.17595pt>
+<figures/Colima/Histograms.jpg, id=597, 240.9pt x 336.17595pt>
 File: figures/Colima/Histograms.jpg Graphic file (type jpg)
 
 <use figures/Colima/Histograms.jpg>
@@ -663,13 +663,13 @@ Package rerunfilecheck Info: File `rheo_paper.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 535.
  ) 
 Here is how much of TeX's memory you used:
- 9609 strings out of 493634
- 145892 string characters out of 3143737
- 242699 words of memory out of 3000000
- 12666 multiletter control sequences out of 15000+200000
+ 9621 strings out of 493634
+ 146095 string characters out of 3143737
+ 242798 words of memory out of 3000000
+ 12675 multiletter control sequences out of 15000+200000
  16308 words of font info for 62 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 42i,17n,40p,2022b,592s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,17n,40p,2022b,590s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbsy10.pfb><C:/P
 rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program F
 iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiK
@@ -693,9 +693,9 @@ les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Program Files/MiKTe
 X 2.9/fonts/type1/public/amsfonts/cm/cmtt8.pfb><C:/Program Files/MiKTeX 2.9/fon
 ts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/
 type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on rheo_paper.pdf (28 pages, 10709900 bytes).
+Output written on rheo_paper.pdf (28 pages, 10712544 bytes).
 PDF statistics:
- 762 PDF objects out of 1000 (max. 8388607)
- 179 named destinations out of 1000 (max. 500000)
+ 772 PDF objects out of 1000 (max. 8388607)
+ 182 named destinations out of 1000 (max. 500000)
  111 words of extra memory for PDF output out of 10000 (max. 10000000)
 

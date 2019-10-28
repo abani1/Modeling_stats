@@ -313,12 +313,12 @@ Ogburn, S.~E., Berger, J., Calder, E.~S., Lopes, D., Patra, A., Pitman, E.~B.,
   metrics}.
 \newblock {\em Statistics in Volcanology}, 2:1--26.
 
-\bibitem[Patra et~al., 2018]{Patra2018}
+\bibitem[Patra et~al., 2018a]{Patra2018}
 Patra, A., Bevilacqua, A., Akhavan-Safaei, A., Pitman, E., Bursik, M., and
-  Hyman, D. (2018).
+  Hyman, D. (2018a).
 \newblock {Comparative analysis of the structures and outcomes of geophysical
   flow models and modeling assumptions using uncertainty quantification}.
-\newblock {\em arXiv.org}, (1805.12104):1--39.
+\newblock {\em arXiv.org}, 1805.12104:1--39.
 
 \bibitem[Patra et~al., 2006]{Patra2006}
 Patra, A., Nichita, C., Bauer, A., Pitman, E., Bursik, M., and Sheridan, M.
@@ -335,6 +335,13 @@ Patra, A.~K., Bauer, A.~C., Nichita, C.~C., Pitman, E.~B., Sheridan, M.~F.,
 \newblock {Parallel adaptive numerical simulation of dry avalanches over
   natural terrain}.
 \newblock {\em Journal of Volcanology and Geothermal Research}, 139(1-2):1--21.
+
+\bibitem[Patra et~al., 2018b]{Patra2018b}
+Patra, A.~K., Bevilacqua, A., and Safei, A.~A. (2018b).
+\newblock Analyzing complex models using data and statistics.
+\newblock In Shi, Y., Fu, H., Tian, Y., Krzhizhanovskaya, V.~V., Lees, M.~H.,
+  Dongarra, J., and Sloot, P. M.~A., editors, {\em Computational Science --
+  ICCS 2018}, pages 724--736, Cham. Springer International Publishing.
 
 \bibitem[Pitman and Le, 2005]{PitmanLe2005}
 Pitman, E.~B. and Le, L. (2005).
@@ -434,6 +441,13 @@ Saltelli, A., Annoni, P., Azzini, I., Campolongo, F., Ratto, M., and Tarantola,
 \newblock {Variance based sensitivity analysis of model output. Design and
   estimator for the total sensitivity index}.
 \newblock {\em Computer Physics Communications}, 181(2):259 -- 270.
+
+\bibitem[Sandri et~al., 2018]{Sandri2018}
+Sandri, L., Tierz, P., Costa, A., and Marzocchi, W. (2018).
+\newblock Probabilistic hazard from pyroclastic density currents in the
+  neapolitan area (southern italy).
+\newblock {\em Journal of Geophysical Research: Solid Earth},
+  123(5):3474--3500.
 
 \bibitem[Sarocchi et~al., 2011]{Sarocchi2011}
 Sarocchi, D., Sulpizio, R., Mac{\'i}as, J., and Saucedo, R. (2011).
@@ -536,6 +550,14 @@ Tierz, P., Sandri, L., Costa, A., Zaccarelli, L., Di~Vito, M.~A., Sulpizio, R.,
 \newblock {Suitability of energy cone for probabilistic volcanic hazard
   assessment: validation tests at Somma-Vesuvius and Campi Flegrei (Italy)}.
 \newblock {\em Bulletin of Volcanology}, 78(11):79.
+
+\bibitem[Tierz et~al., 2018]{Tierz2018}
+Tierz, P., Stefanescu, E.~R., Sandri, L., Sulpizio, R., Valentine, G.~A.,
+  Marzocchi, W., and Patra, A.~K. (2018).
+\newblock Towards quantitative volcanic risk of pyroclastic density currents:
+  Probabilistic hazard curves and maps around somma-vesuvius (italy).
+\newblock {\em Journal of Geophysical Research: Solid Earth},
+  123(8):6299--6317.
 
 \bibitem[Voellmy, 1955]{Voellmy1955}
 Voellmy, A. (1955).
