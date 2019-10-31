@@ -1,6 +1,4 @@
-\RequirePackage{fix-cm}
-\documentclass[smallextended]{svjour3}
-\smartqed
+\documentclass{article}
 \usepackage{amsmath,amssymb,amstext,mathtools,array,url,bm,graphicx,color,epsfig}
 \usepackage{fullpage,setspace}
 \usepackage{authblk}
@@ -27,35 +25,50 @@
 \DeclareSymbolFont{largesymbolsA}{U}{txexa}{m}{n}
 \DeclareMathSymbol{\varprod}{\mathop}{largesymbolsA}{16}
 
-\journalname{Frontiers in Earth Science}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
 \begin{document}
 
 \title{\bf Comparative analysis of the structures and outcomes of geophysical flow models and modeling assumptions using uncertainty quantification}
-\titlerunning{Comparative analysis of geophysical flow models using UQ}
+%\titlerunning{Comparative analysis of geophysical flow models using UQ}
 
+\author[1,6]{\small Abani Patra}
+\author[1,2,3]{Andrea Bevilacqua}
+\author[4]{Ali Akhavan-Safaei}
+\author[5]{\\E. Bruce Pitman}
+\author[2]{Marcus Bursik}
+\author[2,7]{David Hyman}
 
-\author{Abani Patra         \and
-        Andrea Bevilacqua      \and
-        Ali Akhavan-Safaei     \and
-        E.Bruce Pitman        \and
-        Marcus Bursik       \and
-        David Hyman
-}
+\affil[1]{\small\textit{Computational Data Science and Engineering, University at Buffalo, Buffalo, NY}}
+\affil[2]{\textit{Department of Earth Sciences, University at Buffalo, Buffalo, NY}}
+\affil[3]{\textit{Istituto Nazionale di Geofisica e Vulcanologia, Sezione di Pisa, Pisa, Italy}}
+\affil[4]{\textit{Department of Mechanical and  Aerospace Engineering, University at Buffalo, Buffalo, NY}}
+\affil[5]{\textit{Department of Materials Design and Innovation, University at Buffalo, NY}}
+\affil[6]{\textit{Tufts University, Data Intensive Sciences Center, Medford, MA}}
+\affil[7]{\textit{Now at Cooperative Institute for Meteorological Satellite Studies, UW, Madison, WI}}
 
-%\authorrunning{Short form of author list} % if too long for running head
-
-\institute{Abani K. Patra and Andrea Bevilacqua \at \textit{Computational Data Science and Engineering, University at Buffalo, Buffalo, SUNY}
-           \and
-           Andrea Bevilacqua, Marcus I. Bursik, David Hyman \at \textit{Department of Earth Sciences, University at Buffalo, Buffalo, SUNY}
-           \and
-           Andrea Bevilacqua \at \textit{Istituto Nazionale di Geofisica e Vulcanologia, Sezione di Pisa, Pisa, Italy}
-           \and
-           Ali Akhavan-Safaei \at \textit{Department of Mechanical and  Aerospace Engineering, University at Buffalo, Buffalo, SUNY}
-           \and
-           E. Bruce Pitman \at \textit{Department of Materials Design and Innovation, University at Buffalo, SUNY}
-           \and
-           Abani K Patra \at \textit{Tufts University, Data Intensive Sciences Center, Medford, MA 02155}
-}
 
 \date{\texttt{abani@tufts.edu; andrea.bevilacqua@ingv.it; mib@buffalo.edu; pitman@buffalo.edu; dhyman2@wisc.edu}}
 
@@ -349,25 +362,27 @@ These contributing variables can be analyzed locally and globally for discrimina
 
 Finally, we also study the spatial integrals defined by $F(t)=\int_{\mathbb R^k}f(\underline{\textbf x},t) d\underline{\textbf x}$, where $d\underline{\textbf x}$ is the area of the mesh elements. This provides a global view of the results and is complementary to the observations taken locally. For instance, by integrating the scalar product of source terms in the momentum balance and velocity we can compare the relative importance of modeling assumptions when we seek accuracy on global quantities.
 
-\section{Pyroclastic flow on the SW slope of Volc{\'a}n de Colima}\label{QoI2}
-Our case study is a pyroclastic flow down the SW slope of Volc{\'a}n de Colima (MX) - an andesitic stratovolcano that rises to 3,860 m above sea level, situated in the western portion of the Trans-Mexican Volcanic Belt (Fig. \ref{fig:Colima-first}). Volc{\'a}n de Colima has historically been the most active volcano in M{\'e}xico \citep{DeLaCruzReina1993, Zobin2002, Gonzalez2002}.
 \begin{figure}[H]
-    \includegraphics[width=0.95\textwidth]{figures/Colima/ColimaFig.jpg}
+    \includegraphics[width=0.90\textwidth]{ColimaFig.jpg}
     \centering
     \caption{(a) Volc{\'a}n de Colima (M{\'e}xico) overview, including 51 numbered locations (stars) and major ravines. Initial pile is marked by a blue dot. Coordinates are in UTM zone 13N. (b) Regional geology map. (c) Digital elevation map. Six preferred locations are colored in yellow. Elevation isolines are displayed in blue, elevation values in red.}
     \label{fig:Colima-first}
 \end{figure}
-Pyroclastic flows generated by explosive eruptions and lava dome collapses of Volc{\'a}n de Colima are a well studied topic \citep{DelPozzo1995,Sheridan1995,Saucedo2002,Saucedo2004,Saucedo2005,Sarocchi2011,Capra2015}. The presence of a change in slope and multiple ravines characterize the SW slope of the volcano. Volc{\'a}n de Colima has been used as a case study in several research papers involving the Titan2D code \citep{Rupp2004, Rupp2006, Dalbey2008, Yu2009, Sulpizio2010, Capra2011, Aghakhani2016}. On July 10$^{\mathrm{th}}$-11$^{\mathrm{th}}$, 2015, the volcano underwent its most intense eruptive phase since its Subplinian-Plinian 1913 AD eruption \citep{Saucedo2010, Zobin2015, ReyesDaVilla2016, Capra2016, Macorps2018}. We assume the flow to be generated by the gravitational collapse of a lava dome represented by a material pile placed close to the summit area - at 644956N, 2157970E UTM13 \citep{Rupp2006,Aghakhani2016}. A lava dome collapse occurs when there is a significant amount of recently-extruded highly-viscous lava piled up in an unstable configuration around a vent. Further extrusion and/or externals forces can cause the still hot dome of viscous lava to collapse, disintegrate, and avalanche downhill \citep{Bursik2005, Wolpert2016, Hyman2018}. The volcano produced several pyroclastic flows of this type, called Merapi style flows \citep{Macorps2018}.
+
+\section{Pyroclastic flow on the SW slope of Volc{\'a}n de Colima}\label{QoI2}
+Our case study is a pyroclastic flow down the SW slope of Volc{\'a}n de Colima (MX) - an andesitic stratovolcano that rises to 3,860 m above sea level, situated in the western portion of the Trans-Mexican Volcanic Belt (Fig. \ref{fig:Colima-first}). Volc{\'a}n de Colima has historically been the most active volcano in M{\'e}xico \citep{DeLaCruzReina1993, Zobin2002, Gonzalez2002}.
+
+Pyroclastic flows generated by explosive eruptions and lava dome collapses of Volc{\'a}n de Colima are a well studied topic \citep{DelPozzo1995,Sheridan1995,Saucedo2002,Saucedo2004,Saucedo2005,Sarocchi2011,Capra2015}. The presence of a change in slope and multiple ravines characterize the SW slope of the volcano. Volc{\'a}n de Colima has been used as a case study in several research papers involving the Titan2D code \citep{Rupp2004, Rupp2006, Dalbey2008, Yu2009, Sulpizio2010, Capra2011, Aghakhani2016}. On July 10$^{\mathrm{th}}$-11$^{\mathrm{th}}$, 2015, the volcano underwent its most intense eruptive phase since its Subplinian-Plinian 1913 AD eruption \citep{Saucedo2010, Zobin2015, ReyesDaVilla2016, Capra2016, Macorps2018}. We assume the flow to be generated by the gravitational collapse of a lava dome represented by a material pile placed close to the summit area - at 644956N, 2157970E UTM13 \citep{Rupp2006,Aghakhani2016}. A lava dome collapse occurs when there is a significant amount of recently-extruded highly-viscous lava piled up in an unstable configuration around a vent.
 \begin{figure}[H]
          \centering
-        \includegraphics[width=0.90\textwidth]{figures/Colima/ExtremeMaps.jpg}
+        \includegraphics[width=0.90\textwidth]{ExtremeMaps.jpg}
         \caption{Volc\'an de Colima - comparison between \emph{max flow height} maps of simulated flow, assuming MC (a),(d), PF (b),(e), and VS (c),(f) models. Extreme cases - (a),(b),(c) \emph{\textbf{max. volume -- min. resistance}} and (d),(e),(f) \emph{\textbf{min. volume -- max. resistance}}.}
         \label{Colima-MaxMinExtents}
 \end{figure}
-The hot, dense blocks in this ``block and ash'' flow (BAF) will typically range from centimeters to a few meters in size. Our computations were performed on a DEM of 5m-pixel resolution, obtained from Laser Imaging Detection and Ranging (LIDAR) data acquired in 2005 \citep{Davila2007, Sulpizio2010}. We placed 51 locations along the flow inundated area to accomplish local testing. After evaluating the results in all the locations, six of them are adopted as preferred locations, being representative of different flow regimes.
+Further extrusion and/or externals forces can cause the still hot dome of viscous lava to collapse, disintegrate, and avalanche downhill \citep{Bursik2005, Wolpert2016, Hyman2018}. The volcano produced several pyroclastic flows of this type, called Merapi style flows \citep{Macorps2018}. The hot, dense blocks in this ``block and ash'' flow (BAF) will typically range from centimeters to a few meters in size. Our computations were performed on a DEM of 5m-pixel resolution, obtained from Laser Imaging Detection and Ranging (LIDAR) data acquired in 2005 \citep{Davila2007, Sulpizio2010}. We placed 51 locations along the flow inundated area to accomplish local testing. After evaluating the results in all the locations, six of them are adopted as preferred locations, being representative of different flow regimes.
 \begin{figure}[H]
          \centering
-        \includegraphics[width=0.90\textwidth]{figures/Colima/SensitivityFigure.jpg}
+        \includegraphics[width=0.90\textwidth]{SensitivityFigure.jpg}
         \caption{(a,b,c) Example of Latin Hypercube Sampling design, Volc\'an de Colima case study. Colored stars mark the values producing the minimum and maximum friction. The parameter values are projected with respect to their volume value. Plots of random contributions are included for (d,e) MC, (f,g) PF, and (h,i) VS model. Each plot includes two graphs. One refers to a proximal location to the initial pile (left), and the other to a more distal location (right). Point numbers refer to Fig.\ref{fig:Colima-extra}. Different colors correspond to different force terms.}
         \label{fig:Colima-CC1}
 \end{figure}
@@ -403,19 +418,19 @@ The number of spatial locations is significantly high. We placed 51 points to sp
 
 Figure \ref{fig:BAF-H-MC} shows the mean flow height, $h(L,t)$, at the 51 spatial locations of interest, according to MC. In plot \ref{fig:BAF-H-MC}a, the only location is set on the center of the initial pile. %and the profile is similar to what observed in point $L_1$ of the inclined plane case study, in Fig.\ref{fig:Ramp-H}a. In this case the height decreases from the initial value to zero in $\sim 15 s$. In plots \ref{fig:BAF-H-MC}b,c,d,e, the locations are are set at less than $\sim 1$ km radius from the initial pile. %Their profiles are similar to point $L_2$ in Fig.\ref{fig:Ramp-H}b.
 The height profile is bell-shaped, starting from zero and then waning back to zero in $\sim 20$ s. All the dynamics occurs during the first minute. In plots \ref{fig:BAF-H-MC}f,g,h,i,j, points are set where the slope reduces, and the flow can channelize, and typically leaves a deposit. The distance from the initial pile is $\sim 2-3$ km. %The profiles are sometimes similar to $L_3$ of Fig.\ref{fig:Ramp-H}c, other times to $L_4$ of Fig.\ref{fig:Ramp-H}d, in a few cases showing intermediate aspects.
-In general is either observed an initial short-lasting bulge followed by a slow decrease lasting for several minutes and asymptotically tending to a positive height, or a steady increase of material height tending to a positive height. In both cases it is sometimes observed a bimodal profile in the first 5 minutes. Finally, plots \ref{fig:BAF-H-MC}k,l focus on three points set at about the runout distance of the flow, in the most important ravines, at $\sim 4-5$ km from the initial pile. %Profiles are similar to what observed in point $L_4$ of Fig.\ref{fig:Ramp-H}d.
 \begin{figure}[H]
          \centering
-        \includegraphics[width=0.9\textwidth]{figures/Colima/HeightMC_BAF.png}
+        \includegraphics[width=0.87\textwidth]{HeightMC_BAF.png}
         \caption{MC model, mean flow height $h(L,t)$ in 51 numbered locations (Fig. \ref{fig:Colima-first}). Different plots have different scales on either time and space axes.}
         \label{fig:BAF-H-MC}
 \end{figure}
 \begin{figure}[H]
          \centering
-        \includegraphics[width=0.90\textwidth]{figures/Colima/FigExtra.jpg}
+        \includegraphics[width=0.87\textwidth]{FigExtra.jpg}
         \caption{Volc{\'a}n de Colima (M{\'e}xico) overview, including six numbered locations (stars). In (a), (b), (c), (d) are enlarged the proximal topographic features to those locations. Initial pile is marked by a blue dot. Reported coordinates are in UTM zone 13N. Elevation isolines at every $10 m$ are displayed in black, at every $100m$ in bold blue. Elevation values in red.}
         \label{fig:Colima-extra}
 \end{figure}
+In general is either observed an initial short-lasting bulge followed by a slow decrease lasting for several minutes and asymptotically tending to a positive height, or a steady increase of material height tending to a positive height. In both cases it is sometimes observed a bimodal profile in the first 5 minutes. Finally, plots \ref{fig:BAF-H-MC}k,l focus on three points set at about the runout distance of the flow, in the most important ravines, at $\sim 4-5$ km from the initial pile. %Profiles are similar to what observed in point $L_4$ of Fig.\ref{fig:Ramp-H}d.
 
 \subsubsection{Flow height in six locations}\label{Obs2}
 We select six preferred locations, illustrative of a range of flow regimes. They are $[L_8, L_{10}, L_{17}, L_{39}, L_{43}, L_{46}]$, as displayed in Figure \ref{fig:Colima-extra}. The first two points, $L_8$ and $L_{10}$, are both proximal to the initiation pile. Points $L_{17}$ and $L_{43}$ are placed where the slope is reducing and the ravines are evident, and $L_{39}$ and $L_{46}$ are placed in the channels, further down-slope. In particular, $L_8$, $L_{43}$, and $L_{46}$ are at the western side of the inundated area, whereas $L_{10}$, $L_{17}$, and $L_{39}$ are at the eastern side.
@@ -423,7 +438,7 @@ We select six preferred locations, illustrative of a range of flow regimes. They
 Figure \ref{fig:Colima-H} shows the flow height, $h(L,t)$, at the points $(L_i)_{i=8,10,17,39,43,46}$. Distances from the initial pile are in vertical projection. In plots \ref{fig:Colima-H}a,b, we show the flow height in points $L_8$ and $L_{10}$, $\sim 200 m$ and $\sim 500 m$ from the initial pile, respectively. Models MC and PF display similar profiles, positive for less than $15 s$ and bell-shaped. VS requires a significantly longer time to decrease, particularly in point $L_{10}$, where the average flow height is still positive after $\sim 200 s$. Peak average values in $L_8$ are $3.4 m$ in $PF$, $4.3 m$ in MC, $4.7 m$ in VS. Uncertainty is about $\pm 2 m$, halved on the lower side in $MC$, and $PF$. In $L_{10}$, models MC and PF are very similar, with peak height at $1.4 m$ and uncertainty $\pm 0.5 m$. Model VS, in contrast, has a maximum height of $1.1 m$ lasting for $50s$, and 95$^{th}$ percentile reaching $3.7 m$.
 \begin{figure}[H]
          \centering
-        \includegraphics[width=0.95\textwidth]{figures/Colima/Height.png}
+        \includegraphics[width=0.90\textwidth]{Height.png}
         \caption{Flow height in six locations. Bold line is mean value, dashed/dotted lines are 5$^{\mathrm{th}}$ and 95$^{\mathrm{th}}$ percentile bounds. Different models are displayed with different colors. Plots are at different scale, for simplifying lecture.}
         \label{fig:Colima-H}
 \end{figure}
@@ -431,38 +446,42 @@ In plots \ref{fig:Colima-H}c,e, we show the flow height in points $L_{17}$ and $
 
 We note that VS is temporally stretched compared to the other models, and material arrives later and stays longer in all the sample points. This is a consequence of the speed dependent term reducing flow velocity.
 
-\subsection{Statistical analysis of contributing variables}\label{Hq2}
-\subsubsection{Three locations proximal to the initial pile}
-Figure \ref{fig:Colima-Pr1} shows the dominance factors $(P_i)_{i=1,\dots,4}$ of the RHS terms modulus, in the three proximal points $L_{8}$, $L_{10}$, and $L_{17}$, all closer than 1 km to the initial pile.
 \begin{figure}[H]
          \centering
-        \includegraphics[width=1\textwidth]{figures/Colima/Pr1_total.png}
+        \includegraphics[width=0.90\textwidth]{Pr1_total.png}
         \caption{Dominance factors of the forces in three locations in the first km of runout. Different models are plotted separately: (a,d,g) assume MC; (b,e,h) assume PF; (c,f,i) assume VS. Different colors correspond to different force terms. No-flow probability is displayed with a green dashed line.}
         \label{fig:Colima-Pr1}
 \end{figure}
+
+\subsection{Statistical analysis of contributing variables}\label{Hq2}
+\subsubsection{Three locations proximal to the initial pile}
+Figure \ref{fig:Colima-Pr1} shows the dominance factors $(P_i)_{i=1,\dots,4}$ of the RHS terms modulus, in the three proximal points $L_{8}$, $L_{10}$, and $L_{17}$, all closer than 1 km to the initial pile.
+
 The plots \ref{fig:Colima-Pr1}a,b,c and \ref{fig:Colima-Pr1}d,e,f are related to point $L_8$ and $L_{10}$, respectively. They are significantly similar. The gravitational force $\boldsymbol{RHS_1}$ is the dominant variable with a very high chance, $P_1>90\%$. In MC and PF there is a small probability, $P_3=5\%-30\%$, of $\boldsymbol{RHS_3}$ being the dominant variable for $\sim 5 s$. In VS it is observed a $P_4=5\%$ chance of $\boldsymbol{RHS_4}$ being dominant, just for a few seconds. Plots \ref{fig:Colima-Pr1}g,h,i concern the relatively more distal point $L_{17}$. They are split in two sub-frames at different time scale. In all the models, $\boldsymbol{RHS_2}$ is the most probable dominant variable, and its dominance factor has a bell-shaped profile. In all the models, also $\boldsymbol{RHS_1}$ has a small chance of being the dominant variable. In MC this chance is more significant, at most $P_1=30\%$ for $\sim 20 s$, and again $P_1=\%2$ in $[100, 7200] s$. In PF $P_1=15\%$ in two peaks, one short lasting at about $55 s$, and the second extending in $[100,500] s$. Also in VS, $P_1=15\%$ at $[300, 500] s$. Its profile is unimodal in time and becomes $P_1<2\%$ after $2000 s$. In MC and PF, $\boldsymbol{RHS_3}$ has a dominance factor $P_3=10\%$ at $[30, 50] s$ and $[40, 50] s$, respectively.
 
 In summary, gravitational force is dominant with a very high chance until the no-flow probability becomes large. In MC and PF curvature related forces can also be dominant for a short time. In VS gravitational force is dominant for a larger time span than in the other models, because of the longer presence of the flow. The speed dependent friction can be dominant with a small probability at the beginning of the dynamics.
 \begin{figure}[H]
          \centering
-        \includegraphics[width=1\textwidth]{figures/Colima/Ci1_total.png}
+        \includegraphics[width=0.95\textwidth]{Ci1_total.png}
         \caption{Expected contributions of the forces in three locations in the first km of runout. Different models are plotted separately: (a,d,g) assume MC; (b,e,h) assume PF; (c,f,i) assume VS. Different colors correspond to different force terms.}
         \label{fig:Colima-Ci_1}
 \end{figure}
 Figure \ref{fig:Colima-Ci_1} shows the corresponding expected contributions $\mathbb E[C_i]_{i=1,\dots,4}$. $\forall i$, $C_i$ is related to the force term $\boldsymbol{RHS_i}$. The contributions in points $L_8$ and $L_{10}$ are shown in \ref{fig:Colima-Ci_1}a,b,c and \ref{fig:Colima-Ci_1}d,e,f, respectively. The plots related to the same model are similar. In all the models $C_1$ is significantly larger than $C_2$ and $C_3$, which are almost equivalent in MC and PF, while $C_2>C_3$ in VS. $C_4$ always gives a negligible contribution, except in VS, where it is comparable to $C_2$. In $L_8$, following PF, $C_3$ is bimodal, whereas it is unimodal in MC and VS. This is not observed in $L_{10}$. In $L_8$, $C_3$ is greater than in $L_{10}$, compared to the other forces. VS always shows a slower decrease of the plots. In plots \ref{fig:Colima-Ci_1}g,h,i are shown the expected contributions in $L_{17}$. The plots are split in two sub-frames at different time scale. Initial dynamics is dominated by $C_2$, except for in MC, and only for a short time, $[30, 35] s$. In MC there is an initial peak of $C_2$ which is not observed in the other models. $C_3$ has a significant size, in MC and PF, and unimodal profile. In PF, after $C_3$ wanes, at about $60 s$ also $C_4$ becomes not negligible for $\sim 40 s$. The second part of the temporal domain is characterized by a slow decrease of $C_2>C_1$.
 
 \subsubsection{Three locations distal from the initial pile}
-Figure \ref{fig:Colima-Pr2} shows the dominance factors $(P_i)_{i=1,\dots,4}$ in the three distal points $L_{39}$, $L_{43}$, and $L_{46}$, all more than 2 km far from the initial pile. Plots \ref{fig:Colima-Pr2}a,b,c and $L_{39}$ are dominated by $\boldsymbol{RHS_1}$. In all the models $P_1$ is increasing and $P_1>90\%$ at the end of the simulation. In MC, $P_1$ shows a plateau at $\sim 40\%$ in $[90,2000] s$ preceded and followed by steep increases, while in the other models it rises gradually. $P_2>0$ after $\sim 500 s$ and $3600 s$, respectively, but is never greater than $2\%$. In MC $P_3 \approx 10\%$ at $[50,70] s$. No-flow probability becomes zero in PF and VS, while stops at $20\%$ in MC. Plots \ref{fig:Colima-Pr2}d,e,f are related to point $L_{43}$, and are remarkably complex. In MC, either $P_1$ and $P_2$ are $\sim 35\%$ in the first $200 s$. Then, $P_2$ increases, and $\boldsymbol{RHS_2}$ becomes the only dominant variable after $3600 s$. The no-flow probability is never below $30\%$. $P_3=35\%$ in $[40, 60] s$. Instead, in PF $P_1>90\%$ until $3600 s$, and $P_2$ rises only in the very last amount of time, reaching $P_2=P_1=40\%$. The no-flow probability is very low during the most of the temporal window, rising at $20\%$ only at $7200 s$. Both $P_3$ and $P_4$ show short peaks, $\sim 10\%$, at $[50,60] s$. In VS the no-flow probability is never below $20\%$, and the dominance factors are broadly equivalent to MC, although $P_1$ is the greatest up to $4000 s$, and $P_3\equiv0$. Plots \ref{fig:Colima-Pr2}g,h,i are related to point $L_{46}$ and they are similar to those recorded at point $L_{17}$, but $P_2>90\%$ and the no-flow probability decreases to zero in the second half of the simulation. Moreover, in all the models $P_1$ does not show any initial peak and instead increases slowly, reaching $P_1=10\%$ after more than $3600 s$.
+Figure \ref{fig:Colima-Pr2} shows the dominance factors $(P_i)_{i=1,\dots,4}$ in the three distal points $L_{39}$, $L_{43}$, and $L_{46}$, all more than 2 km far from the initial pile. Plots \ref{fig:Colima-Pr2}a,b,c and $L_{39}$ are dominated by $\boldsymbol{RHS_1}$. In all the models $P_1$ is increasing and $P_1>90\%$ at the end of the simulation. In MC, $P_1$ shows a plateau at $\sim 40\%$ in $[90,2000] s$ preceded and followed by steep increases, while in the other models it rises gradually. $P_2>0$ after $\sim 500 s$ and $3600 s$, respectively, but is never greater than $2\%$. In MC $P_3 \approx 10\%$ at $[50,70] s$. No-flow probability becomes zero in PF and VS, while stops at $20\%$ in MC. Plots \ref{fig:Colima-Pr2}d,e,f are related to point $L_{43}$, and are remarkably complex. In MC, either $P_1$ and $P_2$ are $\sim 35\%$ in the first $200 s$. Then, $P_2$ increases, and $\boldsymbol{RHS_2}$ becomes the only dominant variable after $3600 s$. The no-flow probability is never below $30\%$. $P_3=35\%$ in $[40, 60] s$. Instead, in PF $P_1>90\%$ until $3600 s$, and $P_2$ rises only in the very last amount of time, reaching $P_2=P_1=40\%$. The no-flow probability is very low during the most of the temporal window, rising at $20\%$ only at $7200 s$. Both $P_3$ and $P_4$ show short peaks, $\sim 10\%$, at $[50,60] s$.
 \begin{figure}[H]
          \centering
-        \includegraphics[width=1\textwidth]{figures/Colima/Pr2_total.png}
+        \includegraphics[width=0.90\textwidth]{Pr2_total.png}
         \caption{Dominance factors of the forces in three locations after 2 km of runout. Different models are plotted separately: (a,d,g) assume MC; (b,e,h) assume PF; (c,f,i) assume VS. Different colors correspond to different force terms. No-flow probability is displayed with a green dashed line.}
         \label{fig:Colima-Pr2}
 \end{figure}
+In VS the no-flow probability is never below $20\%$, and the dominance factors are broadly equivalent to MC, although $P_1$ is the greatest up to $4000 s$, and $P_3\equiv0$. Plots \ref{fig:Colima-Pr2}g,h,i are related to point $L_{46}$ and they are similar to those recorded at point $L_{17}$, but $P_2>90\%$ and the no-flow probability decreases to zero in the second half of the simulation. Moreover, in all the models $P_1$ does not show any initial peak and instead increases slowly, reaching $P_1=10\%$ after more than $3600 s$.
+
 In summary, only the gravity or the basal friction are dominant with high probability. Some of the points have a deposit at the end with a high chance, some other not, depending on the slope. In general, in MC the no-flow probability tends to be larger than in the other models, because some flow samples stops earlier, or completely leaves the site. Again, curvature can have a small chance to be dominant in MC and PF, particularly when the speed is high. Point $L_{43}$ deserves a specific discussion. It is not proximal to the initiation, but the no-flow probability is increasing at the end, meaning that all the material tends to leave the site. Moreover, the dominating force can be the gravity or the basal friction depending on the time and the model. In MC and VS both the two forces have similar chances to be dominant for  most of the time of the simulation. In PF, only the gravitational force is dominant with a high chance. This is probably because point $L_{43}$ is situated downhill of a place where a significant amount of material stops.
 \begin{figure}[H]
          \centering
-        \includegraphics[width=1\textwidth]{figures/Colima/Ci2_total.png}
+        \includegraphics[width=0.95\textwidth]{Ci2_total.png}
         \caption{Expected contributions of the forces in three locations after 2 km of runout. Different models are plotted separately: (a,d,g) assume MC; (b,e,h) assume PF; (c,f,i) assume VS. Different colors correspond to different force terms.}
         \label{fig:Colima-Ci_2}
 \end{figure}
@@ -472,7 +491,7 @@ Figure \ref{fig:Colima-Ci_2} shows the expected contributions in the distal poin
 Figure \ref{fig:Colima-spatial} shows the volumetric average of speed and Froude Number. It also shows the inundated area as a function of time. Spatial averages and inundated area have smoother plots than local measurements, and most of the details observed in local measurements are not easy to discern. In plot \ref{fig:Colima-spatial}a the speed shows a bell-shaped profile in all the models, but the maximum speed is $\sim 60 m/s$ in MC, $\sim 50 m/s$ in PF, $\sim 20 m/s$ in VS, on average. Uncertainty is $\pm 18 m/s$ in MC, similar, but skewed, in VS, and $\pm 10 m/s$ in PF.
 \begin{figure}[H]
         \centering
-        \includegraphics[width=0.90\textwidth]{figures/Colima/AveragedColima.png}
+        \includegraphics[width=0.90\textwidth]{AveragedColima.png}
         \caption{Comparison between spatial averages of $(a)$ flow speed, and $(b)$ Froude Number, in addition to the $(c)$ inundated area, as a function of time. Bold line is mean value, dashed/dotted lines are 5$^{\mathrm{th}}$ and 95$^{\mathrm{th}}$ percentile bounds. Different models are displayed with different colors.}
         \label{fig:Colima-spatial}
 \end{figure}
@@ -482,7 +501,7 @@ In plot \ref{fig:Colima-spatial}b, the $Fr$ profile is very similar to the speed
 Figure \ref{fig:Colima-Power-spatial} shows the spatial sum of the powers. The estimates in this section assume $\rho = 1800 kg/m^3$ as a constant scaling factor. Corresponding plots of the force terms are included in \cite{Patra2018}. The scalar product of force with velocity imposes the bell-shaped profile. In general, gravity term is larger in VS, because a portion of the flow lingers on the higher slopes for a long time. Basal friction has a higher peak in PF compared to the other models, due to the interpolation of the two basal friction angles.
 \begin{figure}[H]
         \centering
-        \includegraphics[width=0.95\textwidth]{figures/Colima/PowersColima.png}
+        \includegraphics[width=0.95\textwidth]{PowersColima.png}
         \caption{Spatial integrals of the powers. Bold line is mean value, dashed lines are 5$^{\mathrm{th}}$ and 95$^{\mathrm{th}}$ percentile bounds. Model comparison on the mean value is also displayed. Different models are displayed with different colors.}
         \label{fig:Colima-Power-spatial}
 \end{figure}
@@ -500,22 +519,22 @@ Figure \ref{fig:Colima-Hist} shows the probability distribution of the similarit
 
 \begin{table}[H]
          \centering
-        \includegraphics[width=1\textwidth]{figures/Colima/SuppInfo_table.pdf}
+        \includegraphics[width=1\textwidth]{SuppInfo_table.pdf}
         \caption{Performance scores as a function of model, performance metric and score function.}
         \label{Table1}
 \end{table}
+
+\begin{figure}[H]
+         \centering
+        \includegraphics[width=0.85\textwidth]{Histograms.jpg}
+        \caption{Volc{\'a}n de Colima. Pdf of the similarity index of inundated regions and a real BAF deposit. (a) is based on $\mathcal M_I$, (b) on $\mathcal M_U$, (c) on $\mathcal J$. The models are MC (red), PF (blue), VS (black). Data histograms are displayed in the background. Global $5^{th}$ and $95^{th}$ percentile values are indicated with dashed lines. Plots (d,e,f) display the average inundated region $\left\{\textbf{x} : E[H(\textbf{x}]>10 cm\right\}$. The boundary of the real deposit is marked with a colored line.}\label{fig:Colima-Hist}
+\end{figure}
 
 Let $g:[a,b]\rightarrow[0,1]$ be a score function defined over the percentile range of the similarity index. The global $5^{th}$ and $95^{th}$ percentile values $[a,b]$ are defined assuming to select the model randomly with equal chance, and are also shown in Fig.\ref{fig:Colima-Hist}a,b,c.
 
 Then the performance score $G_g$ of model $\left(M, P_M\right)$ is defined as:
 $$G_g\left(M, P_M\right)=\int_{[a,b]} g(x) df_M(x),$$
 where $f_M$ is the pdf related to the model. Possible score functions include a step function at the global median, a linear or quadratic function, a sigmoid function. Table \ref{Table1} shows alternative performance scores, according to changing similarity indices and score functions.
-
-\begin{figure}[H]
-         \centering
-        \includegraphics[width=0.95\textwidth]{figures/Colima/Histograms.jpg}
-        \caption{Volc{\'a}n de Colima. Pdf of the similarity index of inundated regions and a real BAF deposit. (a) is based on $\mathcal M_I$, (b) on $\mathcal M_U$, (c) on $\mathcal J$. The models are MC (red), PF (blue), VS (black). Data histograms are displayed in the background. Global $5^{th}$ and $95^{th}$ percentile values are indicated with dashed lines. Plots (d,e,f) display the average inundated region $\left\{\textbf{x} : E[H(\textbf{x}]>10 cm\right\}$. The boundary of the real deposit is marked with a colored line.}\label{fig:Colima-Hist}
-\end{figure}
 
 \section{Conclusions}
 In this study, we have introduced a new statistically driven method for analyzing complex models and their constituents. We have used three different models arising from different assumptions about rheology in geophysical mass flows to illustrate the approach. The data shows unambiguously the performance of the models across a wide range of possible flow regimes and topographies. The analysis of contributing variables is particularly illustrative of the impact of modeling assumptions. Knowledge of which assumptions dominate, and by how much, allows us to construct efficient models for desired inputs. Such model composition is the subject of ongoing and future work, with the purpose of bypassing the search for a unique best model, and going beyond a simple mixture of alternative models.
@@ -542,9 +561,8 @@ Furthermore, we can make the following statements about the technique in terms o
 
 Additional research concerning other case studies, and different parameter ranges, might reveal other flow regimes, and hence differences in the consequences of the modeling assumptions under new circumstances.
 
-\begin{acknowledgements}
+\section*{\small Acknowledgements}
 We would like to acknowledge the support of NSF awards 1521855, 1621853, and 1339765. The analysis of the additional case study of a small scale flow on inclined plane and flat runway, as well as additional details on the latin hypercubes based on orthogonal arrays, and supplementary datasets including estimates of local Froude Numbers and spatial integrals of force terms are available in \cite{Patra2018}, https://arxiv.org/abs/1805.12104.
-\end{acknowledgements}
 
 \bibliographystyle{apalike}
 \bibliography{mybibfile}
