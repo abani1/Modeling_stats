@@ -7,6 +7,12 @@ Aghakhani, H., Dalbey, K., Salac, D., and Patra, A.~K. (2016).
 \newblock {\em Computer Methods in Applied Mechanics and Engineering},
   304:243--264.
 
+\bibitem[Ai et~al., 2016]{Mingyao2016}
+Ai, M., Kong, X., and Li, K. (2016).
+\newblock {A general theory for orthogonal array based latin hypercube
+  sampling}.
+\newblock {\em Statistica Sinica}, 26:761--777.
+
 \bibitem[Bartelt and McArdell, 2009]{BarteltMcArdell2009}
 Bartelt, P. and McArdell, B. (2009).
 \newblock {Granulometric investigations of snow avalanches}.
@@ -297,6 +303,12 @@ Martin Del~Pozzo, A.~M., Sheridan, M.~F., Barrera, M., Hubp, J.~L., and Selem,
 \newblock {Potential hazards from Colima Volcano, Mexico.}
 \newblock {\em Geofisica Internacional}, 34:363--376.
 
+\bibitem[McKay et~al., 1979]{McKay1979}
+McKay, M.~D., Beckman, R.~J., and Conover, W.~J. (1979).
+\newblock {A comparison of three methods for selecting values of input
+  variables in the analysis of output from a computer code}.
+\newblock {\em Technometrics}, 21(2):239--245.
+
 \bibitem[Norini et~al., 2009]{Norini2008}
 Norini, G., De~Beni, E., Andronico, D., Polacci, M., Burton, M., and Zucca, F.
   (2009).
@@ -313,9 +325,27 @@ Ogburn, S.~E., Berger, J., Calder, E.~S., Lopes, D., Patra, A., Pitman, E.~B.,
   metrics}.
 \newblock {\em Statistics in Volcanology}, 2:1--26.
 
-\bibitem[Patra et~al., 2018a]{Patra2018}
+\bibitem[Owen, 1992a]{Owen1992b}
+Owen, A.~B. (1992a).
+\newblock {A Central Limit Theorem for Latin Hypercube Sampling}.
+\newblock {\em Journal of the Royal Statistical Society.}, 54(2):541--551.
+
+\bibitem[Owen, 1992b]{Owen1992a}
+Owen, A.~B. (1992b).
+\newblock {Orthogonal arrays for computer experiments, integration and
+  visualization}.
+\newblock {\em Statistica Sinica}, 2(2):439--452.
+
+\bibitem[Patra et~al., 2018a]{Patra2018b}
+Patra, A., Bevilacqua, A., and Akhavan-Safaei, A. (2018a).
+\newblock Analyzing complex models using data and statistics.
+\newblock In Shi, Y., Fu, H., Tian, Y., Krzhizhanovskaya, V.~V., Lees, M.~H.,
+  Dongarra, J., and Sloot, P. M.~A., editors, {\em Computational Science --
+  ICCS 2018}, pages 724--736, Cham. Springer International Publishing.
+
+\bibitem[Patra et~al., 2018b]{Patra2018}
 Patra, A., Bevilacqua, A., Akhavan-Safaei, A., Pitman, E., Bursik, M., and
-  Hyman, D. (2018a).
+  Hyman, D. (2018b).
 \newblock {Comparative analysis of the structures and outcomes of geophysical
   flow models and modeling assumptions using uncertainty quantification}.
 \newblock {\em arXiv.org}, 1805.12104:1--39.
@@ -335,13 +365,6 @@ Patra, A.~K., Bauer, A.~C., Nichita, C.~C., Pitman, E.~B., Sheridan, M.~F.,
 \newblock {Parallel adaptive numerical simulation of dry avalanches over
   natural terrain}.
 \newblock {\em Journal of Volcanology and Geothermal Research}, 139(1-2):1--21.
-
-\bibitem[Patra et~al., 2018b]{Patra2018b}
-Patra, A.~K., Bevilacqua, A., and Safei, A.~A. (2018b).
-\newblock Analyzing complex models using data and statistics.
-\newblock In Shi, Y., Fu, H., Tian, Y., Krzhizhanovskaya, V.~V., Lees, M.~H.,
-  Dongarra, J., and Sloot, P. M.~A., editors, {\em Computational Science --
-  ICCS 2018}, pages 724--736, Cham. Springer International Publishing.
 
 \bibitem[Pitman and Le, 2005]{PitmanLe2005}
 Pitman, E.~B. and Le, L. (2005).
@@ -378,11 +401,12 @@ Procter, J.~N., Cronin, S.~J., Platz, T., Patra, A., Dalbey, K., Sheridan, M.,
   case study from Mt. Taranaki, NZ}.
 \newblock {\em Natural Hazards}, 53(3):483--501.
 
-\bibitem[Pudasaini and Hutter, 2003]{PudasainiHutter2003}
-Pudasaini, S.~P. and Hutter, K. (2003).
-\newblock {Rapid shear flows of dry granular masses down curved and twisted
-  channels}.
-\newblock {\em Journal of Fluid Mechanics}, 495:193--208.
+\bibitem[Ranjan and Spencer, 2014]{Ranjan2014}
+Ranjan, P. and Spencer, N. (2014).
+\newblock {Space-filling Latin hypercube designs based on randomization
+  restrictions in factorial experiments}.
+\newblock {\em Statistics and Probability Letters}, 94(Supplement C):239 --
+  247.
 
 \bibitem[Rankine, 1857]{Rankine1857}
 Rankine, W. J.~M. (1857).
@@ -536,6 +560,12 @@ Stefanescu, E.~R., Bursik, M., and Patra, A.~K. (2012b).
   model output}.
 \newblock {\em Natural Hazards}, 62(2):635--656.
 
+\bibitem[Stein, 1987]{Stein1987}
+Stein, M. (1987).
+\newblock {Large Sample Properties of Simulations Using Latin Hypercube
+  Sampling}.
+\newblock {\em Technometrics}, 29(2):143--151.
+
 \bibitem[Sulpizio et~al., 2010]{Sulpizio2010}
 Sulpizio, R., Capra, L., Sarocchi, D., Saucedo, R., Gavilanes-Ruiz, J., and
   Varley, N. (2010).
@@ -543,6 +573,12 @@ Sulpizio, R., Capra, L., Sarocchi, D., Saucedo, R., Gavilanes-Ruiz, J., and
   Colima (Colima, Mexico) based on the present day (February 2010) status}.
 \newblock {\em Journal of Volcanology and Geothermal Research}, 193(1):49 --
   66.
+
+\bibitem[Tang, 1993]{Tang1993}
+Tang, B. (1993).
+\newblock {Orthogonal Array-Based Latin Hypercubes}.
+\newblock {\em Journal of the American Statistical Association},
+  88(424):1392--1397.
 
 \bibitem[Tierz et~al., 2016]{Tierz2016}
 Tierz, P., Sandri, L., Costa, A., Zaccarelli, L., Di~Vito, M.~A., Sulpizio, R.,
